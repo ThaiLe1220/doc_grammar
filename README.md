@@ -101,5 +101,4 @@ This project is open source and available under the [MIT License](LICENSE.md).
 - SQLAlchemy for ORM support.
 - NLTK for natural language processing.
 - psycopg2-binary for PostgreSQL adapter.
-```
 
