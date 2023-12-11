@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+# Flask file uploads directory
+/file_uploads/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime-workspace
+
+# PyCharm project settings
+/.idea/
+
+# Environments variables and config files
+.env
+config.py
+
+# Database files
+*.db
+*.sql
+*.sqlite
+
+# Pytest
+.cache
+.pytest_cache/
+
+# Others
+*.log
