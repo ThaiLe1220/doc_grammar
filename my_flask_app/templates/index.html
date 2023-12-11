@@ -1,0 +1,57 @@
+<!-- Filename: index.html - Directory: my_flask_app/templates -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Uploads</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Upload a file</h1>
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="Upload">
+        </form>
+
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <h2>Uploaded Files</h2>
+        <ul>
+            <!-- Loop through files and list them with a download link -->
+            {% for file in files %}
+            <li>
+                {{ file.file_name }}
+                - <a href="{{ url_for('download_file', file_id=file.id) }}">Download</a>
+                - <a href="{{ url_for('delete_file', file_id=file.id) }}" onclick="return confirm('Are you sure you want to delete this file?');">Delete</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h2>Grammar Checking</h2>
+        {% if corrections %}
+            <div id="corrections">
+                {% for correction in corrections %}
+                    <div class="correction-detail">
+                        <p><strong>Original Text:</strong> {{ correction.original_sentence }}</p>
+                        <p><strong>Corrected Text:</strong> {{ correction.corrected_sentence }}</p>
+                        <p><strong>Modified Text:</strong> [{{ correction.modified_tokens|join(', ') }}]</p>
+                        <p><strong>Added Text:</strong> [{{ correction.added_tokens|join(', ') }}]</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
