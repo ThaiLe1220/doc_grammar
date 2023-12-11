@@ -2,7 +2,7 @@
 from docx import Document
 import nltk
 from .grammar_checker import check_grammar
-from .reconstructing_sentence_format import reconstruct_formatting
+from .reconstructing_sentence import reconstruct_formatting
 import re
 
 # Download necessary Punkt sentence tokenizer if not already downloaded
