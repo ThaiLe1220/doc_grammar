@@ -70,6 +70,14 @@ CREATE TABLE file_uploads (
 );
 ```
 
+```sql
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO username;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO username;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO username;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT USAGE, SELECT ON SEQUENCES TO username;
+
+```
+
 ### Running the Application
 
 With the environment set up and the database configured, you can start the Flask server:
