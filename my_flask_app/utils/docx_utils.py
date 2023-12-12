@@ -1,9 +1,10 @@
-# Filename: docx_utils.py - Directory: my_flask_app/utils
-from docx import Document
+""" Filename: docx_utils.py - Directory: my_flask_app/utils
+"""
+import re
 import nltk
+from docx import Document
 from .grammar_checker import check_grammar
 from .reconstructing_sentence import reconstruct_formatting
-import re
 
 # Download necessary Punkt sentence tokenizer if not already downloaded
 nltk.download("punkt", quiet=True)
@@ -70,7 +71,7 @@ def correct_text_grammar(file_path):
     # Save the corrected document
     doc.save(file_path)
 
-    # Return all corrections details (original and corrected sentences with modified and added words)
+    # Return all corrections details
     return corrections
 
 
