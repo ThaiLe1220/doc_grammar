@@ -1,14 +1,23 @@
 """ Filename: reconstruct_sentence.py - Directory: my_flask_app/utils
+
+This file contains utility functions used for tokenizing sentences, 
+finding the longest common subsequence of tokens between two sentences, 
+calculating percentage difference between tokens, 
+and reconstructing the formatting of a corrected sentence based on its original formatting.
+
 """
 import re
 
 
 def custom_tokenize(text):
     """
-    Tokenizes a string into words, spaces, and punctuation marks.
+    Tokenizes the given text into words, spaces, and punctuation marks.
 
-    :param text: The string to be tokenized.
-    :return: A list of tokens extracted from the string.
+    Args:
+        text (str): The text to be tokenized.
+
+    Returns:
+        list: A list of tokens extracted from the text.
     """
     pattern = r'\b\w+[\w\'-]*[.,;:!?"]?|\s+|[.,;:!?"]'
     return re.findall(pattern, text)
@@ -16,11 +25,17 @@ def custom_tokenize(text):
 
 def longest_common_subsequence(str1, str2):
     """
-    Compute the longest common subsequence (LCS) of two strings.
+    Calculates the length of the longest common subsequence between two strings.
 
-    :param str1: First string.
-    :param str2: Second string.
-    :return: Length of the LCS.
+    This function uses dynamic programming to build a matrix (dp) that represents
+    the lengths of the longest common subsequences for substrings of str1 and str2.
+
+    Args:
+        str1 (str): The first string.
+        str2 (str): The second string.
+
+    Returns:
+        int: The length of the longest common subsequence between str1 and str2.
     """
     m, n = len(str1), len(str2)
     dp = [[0] * (n + 1) for _ in range(m + 1)]
@@ -35,11 +50,14 @@ def longest_common_subsequence(str1, str2):
 
 def percentage_difference(str1, str2):
     """
-    Calculate the percentage difference based on LCS.
+    Calculates the percentage difference between two strings based on their longest common subsequence.
 
-    :param str1: First string.
-    :param str2: Second string.
-    :return: Percentage difference between the two strings.
+    Args:
+        str1 (str): The first string.
+        str2 (str): The second string.
+
+    Returns:
+        float: The percentage difference between the two strings.
     """
     lcs_length = longest_common_subsequence(str1, str2)
     total_length = len(str1) + len(str2)
@@ -50,22 +68,25 @@ def percentage_difference(str1, str2):
 
 def longest_common_subsequence_sentences(tokens1, tokens2):
     """
-    Find the longest subsequence of similar tokens between two lists of tokens.
+    Identifies the longest common subsequence of tokens between two lists of tokens.
 
-    :param tokens1: List of tokens from the first sentence.
-    :param tokens2: List of tokens from the second sentence.
-    :return: List of consecutive tokens forming the longest common subsequence.
+    This function uses dynamic programming to find the longest subsequence of similar tokens
+    between two lists of tokens. It uses a threshold for similarity based on percentage difference.
+
+    Args:
+        tokens1 (list): The first list of tokens.
+        tokens2 (list): The second list of tokens.
+
+    Returns:
+        list: A list of tuples representing similar tokens in the subsequence.
     """
     m, n = len(tokens1), len(tokens2)
     dp = [[0] * (n + 1) for _ in range(m + 1)]
-    longest_subseq_end = (
-        0,
-        0,
-    )  # Keep track of the position where the longest subsequence of similar tokens ends.
+    longest_subseq_end = (0, 0)  # Track position where longest subsequence ends.
 
     for i in range(m):
         for j in range(n):
-            # Consider 2 tokens are similar if their percentage_difference < 45%
+            # Consider tokens similar if their percentage difference is less than 45%
             if percentage_difference(tokens1[i], tokens2[j]) < 45:
                 dp[i + 1][j + 1] = dp[i][j] + 1
                 if dp[i + 1][j + 1] > dp[longest_subseq_end[0]][longest_subseq_end[1]]:
@@ -73,11 +94,11 @@ def longest_common_subsequence_sentences(tokens1, tokens2):
             else:
                 dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1])
 
-    # Backtrack to find the actual tokens in the subsequence
+    # Backtrack to extract the actual tokens in the subsequence
     i, j = longest_subseq_end
     consecutive_tokens = []
     while i > 0 and j > 0:
-        # Consider 2 tokens are similar if their percentage_difference < 45%
+        # Consider tokens similar if their percentage difference is less than 45%
         if percentage_difference(tokens1[i - 1], tokens2[j - 1]) < 45:
             consecutive_tokens.append((tokens1[i - 1], tokens2[j - 1]))
             i -= 1
@@ -92,11 +113,15 @@ def longest_common_subsequence_sentences(tokens1, tokens2):
 
 def get_similar_tokens_in_sentences(sentence1, sentence2):
     """
-    Identify similar tokens in two sentences.
+    Extracts similar tokens from two sentences.
 
-    :param sentence1: First sentence.
-    :param sentence2: Second sentence.
-    :return: List of pairs of similar tokens between the two sentences.
+
+    Args:
+        sentence1 (str): The first sentence.
+        sentence2 (str): The second sentence.
+
+    Returns:
+        list: A list of tuples containing similar tokens from both sentences.
     """
     tokens1 = custom_tokenize(sentence1)
     tokens2 = custom_tokenize(sentence2)
@@ -107,12 +132,15 @@ def get_similar_tokens_in_sentences(sentence1, sentence2):
 
 def reconstruct_formatting(original_sentence, corrected_sentence, original_formatting):
     """
-    Apply formatting from an original sentence to a corrected sentence.
+    Reconstructs the formatting of a corrected sentence based on the original sentence's formatting.
 
-    :param original_sentence: The original sentence with formatting.
-    :param corrected_sentence: The corrected sentence to apply formatting to.
-    :param original_formatting: List of formatting dictionaries for each token in the original sentence.
-    :return: Tuple of (List of formatting dictionaries for each token in the corrected sentence, List of modified token pairs, List of added tokens).
+    Args:
+        original_sentence (str): The original sentence.
+        corrected_sentence (str): The corrected sentence.
+        original_formatting (list): A list of formatting dictionaries for each token in the original sentence.
+
+    Returns:
+        tuple: Returns a tuple containing the reconstructed formatting, modified tokens, and added tokens.
     """
     original_tokens = custom_tokenize(original_sentence)
     corrected_tokens = custom_tokenize(corrected_sentence)

@@ -1,59 +1,154 @@
-# Filename: app.py - Directory: my_flask_app
+""" Filename: app.py - Directory: my_flask_app 
+
+This file is the main entry point for a Flask web application that handles file uploads, 
+grammar checking, and user authentication via Google OAuth.
+
+The application is configured with database settings, file upload paths, and OAuth settings. 
+It includes routes for user authentication, file upload, download, deletion and grammar corrections.
+
+Key Components:
+- Flask app initialization with configuration settings.
+- Database setup and OAuth configuration.
+- Registration of the file handling blueprint for managing file-related routes.
+- Routes for login, logout, and user authentication callback.
+- The main index route to display the uploaded files and their grammar corrections.
+- Running the Flask app in debug mode within a protected main block.
+
+"""
+import os
+import secrets
 from flask import (
     Flask,
     render_template,
-    request,
-    send_from_directory,
     redirect,
     url_for,
-    flash,
-    jsonify,
     session,
 )
-from werkzeug.utils import secure_filename
-from flask_sqlalchemy import SQLAlchemy
-import os
-from utils.docx_utils import correct_text_grammar
-from sqlalchemy.dialects.postgresql import JSONB
-
+from flask_login import current_user, login_user, logout_user, login_required
+from database.db_setup import setup_database
+from database.models import db, User, FileUpload
+from file_handling.file_routes import file_blueprint
+from auth.oauth import oauth, configure_oauth
+from auth.login_manager import login_manager
 
 app = Flask(__name__)
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
 ] = "postgresql://eugene:eugene@localhost/doc_grammar"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # To suppress a warning
-app.config["SECRET_KEY"] = "eugene_secret"  # Needed for flashing messages
-
-db = SQLAlchemy(app)
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
+app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
 
 if not os.path.exists("file_uploads"):
     os.makedirs("file_uploads")
 
 app.config["UPLOAD_FOLDER"] = "file_uploads"
 
+setup_database(app)
+configure_oauth(app)
+login_manager.init_app(app)
 
-# Define a FileUpload class as the ORM model
-class FileUpload(db.Model):
-    __tablename__ = "file_uploads"
-    id = db.Column(db.Integer, primary_key=True)
-    file_name = db.Column(db.String(255), nullable=False, unique=True)
-    file_path = db.Column(db.Text, nullable=False)
-    upload_time = db.Column(db.DateTime, server_default=db.func.now())
-    corrections = db.Column(JSONB)
+# Register blueprints
+app.register_blueprint(file_blueprint, url_prefix="/files")
 
 
-@app.route("/check_db")
-def check_database_connection():
-    try:
-        db.session.query(FileUpload).first()
-        return "Database connection successful. Happy coding"
-    except Exception as e:
-        return f"Database connection error: {str(e)}"
+# @app.route("/check_db")
+# def check_database_connection():
+#     try:
+#         db.session.query(FileUpload).first()
+#         return "Database connection successful. Happy coding"
+#     except Exception as e:
+#         return f"Database connection error: {str(e)}"
+
+
+@app.route("/login")
+def login():
+    """
+    Initiates the OAuth login process with Google.
+
+    Generates a nonce token for security, saves it in the session, and redirects
+    the user to Google's OAuth authorization URL.
+
+    Returns:
+        Response: A redirect response to Google's OAuth authorization URL.
+    """
+    # Generate a nonce and save it in the session for later validation
+    nonce = secrets.token_urlsafe()
+    session["nonce"] = nonce
+    redirect_uri = url_for("authorize", _external=True)
+    return oauth.google.authorize_redirect(redirect_uri, nonce=nonce)
+
+
+@app.route("/login/callback")
+def authorize():
+    """
+    Handles the OAuth callback from Google.
+
+    Extracts the token from the callback, retrieves the nonce from the session,
+    validates the token, and logs in the user if authentication is successful.
+
+    Returns:
+        Response: A redirect to the homepage after successful login or an error message.
+    """
+    token = oauth.google.authorize_access_token()
+    nonce = session.pop("nonce", None)  # Retrieve and remove the nonce from the session
+    user_info = oauth.google.parse_id_token(token, nonce=nonce)
+
+    # Verify the issuer.
+    issuer = user_info.get("iss")
+    if issuer not in ["https://accounts.google.com", "accounts.google.com"]:
+        # Handle the invalid issuer.
+        return "Invalid issuer.", 400
+
+    user = User.query.filter_by(google_id=user_info["sub"]).first()
+    if user is None:
+        user = User(google_id=user_info["sub"], email=user_info["email"])
+        db.session.add(user)
+        db.session.commit()
+    login_user(user)
+    return redirect("/")
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    """
+    Loads a user given their ID.
+
+    Args:
+        user_id (int): Unique identifier of the user.
+
+    Returns:
+        User: The user object corresponding to the given ID.
+    """
+    return User.query.get(int(user_id))
+
+
+@app.route("/logout")
+@login_required
+def logout():
+    """
+    Logs out the current user.
+
+    Ends the user session and redirects to the homepage.
+
+    Returns:
+        Response: A redirect response to the homepage.
+    """
+    logout_user()
+    return redirect("/")
 
 
 @app.route("/")
 def index():
+    """
+    Displays the homepage of the application.
+
+    Fetches uploaded files and their grammar corrections, if available,
+    from the database and renders them on the homepage.
+
+    Returns:
+        str: Rendered HTML content for the homepage.
+    """
     files = FileUpload.query.all()
     file_id = session.get("file_id")
     corrections = None
@@ -63,100 +158,18 @@ def index():
         if file:
             corrections = file.corrections
 
-    return render_template("index.html", files=files, corrections=corrections)
-
-
-# Route for file upload and listing
-@app.route("/", methods=["POST"])
-def upload_file():
-    if "file" not in request.files:
-        flash("No file part", "error")
-        return redirect(url_for("index"))
-    file = request.files["file"]
-    if file.filename == "":
-        flash("No selected file", "error")
-        return redirect(url_for("index"))
-    filename = secure_filename(file.filename)
-    file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
-
-    # Determine if it's an existing file
-    existing_file = FileUpload.query.filter_by(file_name=filename).first()
-
-    # Save or overwrite the file
-    file.save(file_path)
-
-    # After saving, replace the text
-    try:
-        # Process the file and get corrections
-        corrections = correct_text_grammar(file_path)
-        flash("Content checked successfully.", "success")
-    except Exception as e:
-        flash(f"Error replacing content: {str(e)}", "error")
-
-    # Update the database record if it exists, otherwise create a new one
-    if existing_file:
-        existing_file.corrections = corrections
-        flash(f"{filename} was updated successfully", "success")
-    else:
-        new_upload = FileUpload(
-            file_name=filename, file_path=file_path, corrections=corrections
-        )
-        db.session.add(new_upload)
-        flash("File uploaded successfully", "success")
-
-    db.session.commit()
-
-    if corrections:
-        session["file_id"] = new_upload.id  # Save the file id in the session
-
-        files = FileUpload.query.all()  # Refresh the file list
-        return render_template(
-            "index.html", files=files, corrections=corrections
-        )  # Pass the corrections to the template.
-
-    # If there are no corrections or if you need to redirect for some other reason:
-    return redirect(url_for("index"))
-
-
-# File downloading route
-@app.route("/download/<int:file_id>")
-def download_file(file_id):
-    file = FileUpload.query.get_or_404(file_id)
-    return send_from_directory(
-        app.config["UPLOAD_FOLDER"], file.file_name, as_attachment=True
+    return render_template(
+        "index.html", files=files, corrections=corrections, current_user=current_user
     )
 
 
-@app.route("/corrections/<int:file_id>")
-def get_corrections(file_id):
-    file = FileUpload.query.get_or_404(file_id)
-    corrections = file.corrections
-    # You can either send this data back as JSON or render it in an HTML template
-    return jsonify(corrections)  # For AJAX requests
-    # return render_template("corrections.html", corrections=corrections)  # For server-side rendering
-
-
-# File deleting route
-@app.route("/delete/<int:file_id>")
-def delete_file(file_id):
-    file_to_delete = FileUpload.query.get_or_404(file_id)
-
-    # Attempt to delete the file from the filesystem
-    try:
-        os.remove(os.path.join(app.config["UPLOAD_FOLDER"], file_to_delete.file_name))
-    except OSError as e:
-        flash(f"Error deleting file from filesystem: {str(e)}", "error")
-        return redirect(url_for("upload_file"))
-
-    # Delete the record from the database
-    db.session.delete(file_to_delete)
-    db.session.commit()
-
-    flash(f"{file_to_delete.file_name} was deleted successfully", "success")
-    return redirect(url_for("upload_file"))
-
-
 if __name__ == "__main__":
+    """
+    Main entry point of the Flask application.
+
+    Sets up the application context, creates necessary database tables,
+    and runs the Flask application in debug mode.
+    """
     with app.app_context():
         db.create_all()  # Ensure all tables are created
     app.run(debug=True)
