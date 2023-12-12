@@ -1,6 +1,10 @@
 """ Filename: file_routes.py - Directory: my_flask_app/file_handling
 
-This module defines routes for file upload, download, deletion, and correction retrieval.
+This module defines routes for file upload, download, deletion, and correction retrieval
+in a Flask web application. It provides functionality to upload files, check their
+content for grammar corrections, download files, delete files, and retrieve
+correction details.
+
 """
 import os
 from flask import (

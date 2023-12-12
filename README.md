@@ -4,10 +4,12 @@ DocGrammar is a Flask web application designed to allow users to upload `.docx` 
 
 ## Features
 
-- File upload functionality for `.docx` files.
-- Automatic grammar checking with detailed suggestions.
-- Ability to download the corrected document.
-- Persistent storage of uploaded files and correction details in a PostgreSQL database.
+- File Upload: Users can upload .docx files.
+- Grammar Correction: The app automatically checks and suggests grammar corrections.
+- Download Corrected Files: Users can download their improved documents.
+- OAuth Integration: Secure sign-in with Google.
+- Persistent Data Storage: Using PostgreSQL for storing file and user data.
+- Modular Flask Structure: Organized code with Blueprints and modular design.
 
 ## Installation
 
@@ -25,7 +27,7 @@ To set up the project environment and run the application locally, follow these 
 Clone the repository to your local machine and navigate to the project directory:
 
 ```sh
-git clone <repository-url>
+git clone https://github.com/ThaiLe1220/doc_grammar
 cd doc_grammar/my_flask_app
 ```
 

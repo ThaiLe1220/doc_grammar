@@ -1,4 +1,10 @@
 """ Filename: docx_utils.py - Directory: my_flask_app/utils
+
+This module provides utilities for correcting grammar in DOCX files while preserving
+the original formatting of the text. It includes functions to tokenize, correct,
+and apply formatting to sentences in DOCX paragraphs. These utilities are used
+in the grammar checking process for uploaded documents.
+
 """
 import re
 import nltk

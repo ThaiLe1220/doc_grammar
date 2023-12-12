@@ -164,12 +164,6 @@ def index():
 
 
 if __name__ == "__main__":
-    """
-    Main entry point of the Flask application.
-
-    Sets up the application context, creates necessary database tables,
-    and runs the Flask application in debug mode.
-    """
     with app.app_context():
         db.create_all()  # Ensure all tables are created
     app.run(debug=True)
