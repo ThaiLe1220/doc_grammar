@@ -44,7 +44,7 @@ source venv/bin/activate
 Install the required Python packages:
 
 ```sh
-pip install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk
+pip install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk authlib Flask-Login
 ```
 
 ### Database Configuration
