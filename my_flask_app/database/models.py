@@ -20,11 +20,21 @@ class User(UserMixin, db.Model):
         id (int): Unique identifier of the user.
         google_id (str): Unique Google identifier for OAuth.
         email (str): Email address of the user.
+        name (str): Full name of the user.
+        given_name (str): Given name of the user.
+        family_name (str): Family name of the user.
+        picture (str): URL of the user's profile picture.
+        locale (str): The user's preferred locale/language.
     """
 
     id = db.Column(db.Integer, primary_key=True)
     google_id = db.Column(db.String(120), unique=True)
     email = db.Column(db.String(120), unique=True)
+    name = db.Column(db.String(255))
+    given_name = db.Column(db.String(255))
+    family_name = db.Column(db.String(255))
+    picture = db.Column(db.String(255))
+    locale = db.Column(db.String(10))
 
 
 class FileUpload(db.Model):

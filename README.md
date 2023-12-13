@@ -46,7 +46,7 @@ source venv/bin/activate
 Install the required Python packages:
 
 ```sh
-pip install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk authlib Flask-Login
+pip install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk authlib Flask-Login Flask-Migrate
 ```
 
 ### Database Configuration
@@ -82,7 +82,15 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT USAGE, SELECT ON SEQUENCES TO us
 
 ### Running the Application
 
-With the environment set up and the database configured, you can start the Flask server:
+Before running the application for the first time, make sure to set up the database with Flask-Migrate:
+
+```sh
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
+```
+
+With the environment set up and the database migrations applied, you can start the Flask server:
 
 ```sh
 python app.py

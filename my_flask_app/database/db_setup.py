@@ -4,21 +4,23 @@ This module provides a utility function for initializing and setting up
 the database for the Flask application. 
 
 """
+from flask_migrate import Migrate
 from .models import db
 
 
 def setup_database(app):
     """
-    Initializes and sets up the database for the Flask application.
-
-    This function binds the database instance with the provided Flask application
-    context and creates all necessary database tables according to the defined
-    models.
+    Configures and prepares the database for use with the Flask application.
+    This function initializes the SQLAlchemy database object and sets up Flask-Migrate
+    for handling database migrations. It ensures that the database and the Flask app
+    are properly connected and ready to handle model operations.
 
     Args:
-        app (Flask): The Flask application instance to which the database
-        will be bound and initialized.
+        app (Flask): The Flask application instance with which the database is to be integrated.
+    Note:
+        Make sure to run `flask db init` to initialize migrations if you haven't already,
+        followed by `flask db migrate` and `flask db upgrade` to apply migrations.
     """
     with app.app_context():
         db.init_app(app)
-        db.create_all()
+        Migrate(app, db)

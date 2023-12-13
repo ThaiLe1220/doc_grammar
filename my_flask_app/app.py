@@ -112,9 +112,25 @@ def authorize():
 
     user = User.query.filter_by(google_id=user_info["sub"]).first()
     if user is None:
-        user = User(google_id=user_info["sub"], email=user_info["email"])
+        user = User(
+            google_id=user_info["sub"],
+            email=user_info["email"],
+            name=user_info.get("name"),
+            given_name=user_info.get("given_name"),
+            family_name=user_info.get("family_name"),
+            picture=user_info.get("picture"),
+            locale=user_info.get("locale"),
+        )
         db.session.add(user)
-        db.session.commit()
+    else:
+        # Update the existing user with any new information
+        user.name = user_info.get("name")
+        user.given_name = user_info.get("given_name")
+        user.family_name = user_info.get("family_name")
+        user.picture = user_info.get("picture")
+        user.locale = user_info.get("locale")
+
+    db.session.commit()
     login_user(user)
     return redirect("/")
 

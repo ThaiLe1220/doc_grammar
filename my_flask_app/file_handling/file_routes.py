@@ -9,7 +9,6 @@ correction details.
 import os
 from flask import (
     Blueprint,
-    jsonify,
     render_template,
     send_from_directory,
     redirect,
