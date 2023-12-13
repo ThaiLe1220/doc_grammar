@@ -40,6 +40,7 @@
                 {{ file.file_name }}
                 - <a href="{{ url_for('file_blueprint.download_file', file_id=file.id) }}">Download</a>
                 - <a href="{{ url_for('file_blueprint.delete_file', file_id=file.id) }}" onclick="return confirm('Are you sure you want to delete this file?');">Delete</a>
+                - <a href="{{ url_for('file_blueprint.get_corrections', file_id=file.id) }}">Show Corrections</a>
             </li>
             {% endfor %}
         </ul>

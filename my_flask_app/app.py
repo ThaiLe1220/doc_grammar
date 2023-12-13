@@ -52,23 +52,35 @@ login_manager.init_app(app)
 app.register_blueprint(file_blueprint, url_prefix="/files")
 
 
-# @app.route("/check_db")
-# def check_database_connection():
-#     try:
-#         db.session.query(FileUpload).first()
-#         return "Database connection successful. Happy coding"
-#     except Exception as e:
-#         return f"Database connection error: {str(e)}"
+@app.route("/")
+def index():
+    """
+    Displays the homepage of the application.
+    Fetches uploaded files and their grammar corrections, if available,
+    from the database and renders them on the homepage.
+    Returns:
+        str: Rendered HTML content for the homepage.
+    """
+    files = FileUpload.query.all()
+    file_id = session.get("file_id")
+    corrections = None
+
+    if file_id:
+        file = FileUpload.query.get(file_id)
+        if file:
+            corrections = file.corrections
+
+    return render_template(
+        "index.html", files=files, corrections=corrections, current_user=current_user
+    )
 
 
 @app.route("/login")
 def login():
     """
     Initiates the OAuth login process with Google.
-
     Generates a nonce token for security, saves it in the session, and redirects
     the user to Google's OAuth authorization URL.
-
     Returns:
         Response: A redirect response to Google's OAuth authorization URL.
     """
@@ -83,10 +95,8 @@ def login():
 def authorize():
     """
     Handles the OAuth callback from Google.
-
     Extracts the token from the callback, retrieves the nonce from the session,
     validates the token, and logs in the user if authentication is successful.
-
     Returns:
         Response: A redirect to the homepage after successful login or an error message.
     """
@@ -113,10 +123,8 @@ def authorize():
 def load_user(user_id):
     """
     Loads a user given their ID.
-
     Args:
         user_id (int): Unique identifier of the user.
-
     Returns:
         User: The user object corresponding to the given ID.
     """
@@ -128,9 +136,7 @@ def load_user(user_id):
 def logout():
     """
     Logs out the current user.
-
     Ends the user session and redirects to the homepage.
-
     Returns:
         Response: A redirect response to the homepage.
     """
@@ -138,32 +144,16 @@ def logout():
     return redirect("/")
 
 
-@app.route("/")
-def index():
-    """
-    Displays the homepage of the application.
-
-    Fetches uploaded files and their grammar corrections, if available,
-    from the database and renders them on the homepage.
-
-    Returns:
-        str: Rendered HTML content for the homepage.
-    """
-    files = FileUpload.query.all()
-    file_id = session.get("file_id")
-    corrections = None
-
-    if file_id:
-        file = FileUpload.query.get(file_id)
-        if file:
-            corrections = file.corrections
-
-    return render_template(
-        "index.html", files=files, corrections=corrections, current_user=current_user
-    )
-
-
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()  # Ensure all tables are created
     app.run(debug=True)
+
+
+# @app.route("/check_db")
+# def check_database_connection():
+#     try:
+#         db.session.query(FileUpload).first()
+#         return "Database connection successful. Happy coding"
+#     except Exception as e:
+#         return f"Database connection error: {str(e)}"
