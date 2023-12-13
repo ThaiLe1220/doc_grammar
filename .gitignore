@@ -7,7 +7,7 @@ __pycache__/
 venv/
 
 # Flask file uploads directory
-/file_uploads/
+file_uploads/
 
 # OS generated files
 .DS_Store
@@ -24,9 +24,6 @@ Thumbs.db
 *.swp
 *~
 *.sublime-workspace
-
-# PyCharm project settings
-/.idea/
 
 # Environments variables and config files
 .env
