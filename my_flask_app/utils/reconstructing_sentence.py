@@ -19,7 +19,7 @@ def custom_tokenize(text):
     Returns:
         list: A list of tokens extracted from the text.
     """
-    pattern = r'\b\w+[\w\'-]*[.,;:!?"]?|\s+|[.,;:!?"]'
+    pattern = r'\(\w+[\w\'-]*\)?|[.,;:!?"]|\b\w+[\w\'-]*[.,;:!?"]?|\s+'
     return re.findall(pattern, text)
 
 

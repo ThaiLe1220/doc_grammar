@@ -27,6 +27,9 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
     # Remove excessive newlines and trim whitespace
     cleaned_text = re.sub(r"[\n\s]+", " ", api_response_text).strip()
 
+    # Remove specific unwanted characters at the beginning, like '* '
+    cleaned_text = re.sub(r"^\*\s+", "", cleaned_text)
+
     # Check if original text starts/ends with quotation marks and remove them if not
     if not (original_text.startswith('"') and original_text.endswith('"')):
         cleaned_text = re.sub(r'^["\']+|["\']+$', "", cleaned_text)
