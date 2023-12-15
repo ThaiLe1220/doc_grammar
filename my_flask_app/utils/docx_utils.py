@@ -42,9 +42,9 @@ def correct_text_grammar(file_path):
             # print(f"\n{i}\n")
             corrected_sentence = check_grammar(sentence)
 
-            # print(f"\n----Original Sentence----: {sentence}")
-            # print(f"----Corrected Sentence---: {corrected_sentence}")
-            # print(f"---Original Formatting---: {sentence_formatting_list[i]}")
+            print(f"\n----Original Sentence----: {sentence}")
+            print(f"----Corrected Sentence---: {corrected_sentence}")
+            print(f"---Original Formatting---: {sentence_formatting_list[i]}")
 
             # Split the corrected sentence into runs based on original formatting
             (
@@ -63,8 +63,8 @@ def correct_text_grammar(file_path):
             }
             corrections.append(correction_details)
 
-            # print(f"------Corrected Runs-----: {corrected_runs}")
-            # print(f"-----Modified Tokens-----: {modified_tokens}")
+            print(f"------Corrected Runs-----: {corrected_runs}")
+            print(f"-----Modified Tokens-----: {modified_tokens}")
             # print(f"-------Added Tokens------: {added_tokens}")
 
             # Reconstruct the paragraph with corrected runs and their formatting
@@ -147,7 +147,7 @@ def custom_tokenize(text):
     :param text: The string to be tokenized.
     :return: A list of tokens extracted from the string.
     """
-    pattern = r'\b\w+[\w\'-]*[.,;:!?"]?|\s+|[.,;:!?"]'
+    pattern = r'\(\w+[\w\'-]*\)?|[.,;:!?"]|\b\w+[\w\'-]*[.,;:!?"]?|\s+'
     return re.findall(pattern, text)
 
 
