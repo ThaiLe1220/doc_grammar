@@ -46,7 +46,7 @@ source venv/bin/activate
 Install the required Python packages:
 
 ```sh
-pip install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk authlib Flask-Login Flask-Migrate
+pip install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk authlib Flask-Login Flask-Migrate python-dotenv
 ```
 
 ### Database Configuration
@@ -96,27 +96,46 @@ With the environment set up and the database migrations applied, you can start t
 python app.py
 ```
 
-The application will be accessible at `http://localhost:5000`.
+## Structure
+doc_grammar/
+|-- my_flask_app/
+|   |-- auth/
+|       |-- __init__.py
+|       |-- app.py
+|       |-- Dockerfile
+|       |-- entrypoint.sh
+|       |-- login_manager.py
+|       |-- oauth.py
+|       |-- requirements.txt
+|   |-- database/
+|       |-- __init__.py
+|       |-- db_setup.py
+|   |-- file_handling/
+|       |-- __init__.py
+|       file_routes.py
+|   |-- file_uploads/
+|   |-- migrations/
+|   |-- shared/
+|       |-- __init__.py
+|       |-- models.py
+|   |-- static/
+|       |-- css/
+|            |-- style.css
+|       |-- js/
+|            |-- main.js
+|   |-- templates/
+|       |-- index.html
+|   |-- tests/
+|   |-- utils/
+|       |-- __init__.py
+|       |-- docx_utils.py
+|       |-- grammar_checker.py
+|       |-- reconstruct_sentence.py
+|   |-- app.py
+|-- venv/
+|-- .env
+|-- .gitignore
+|-- docker-compose.yml
+|-- README.md
 
-## Usage
-
-1. Navigate to `http://localhost:5000` in your web browser.
-2. Upload a `.docx` file using the provided form.
-3. View the grammar corrections displayed on the page.
-4. Download the corrected file if necessary.
-
-## Contributing
-
-If you'd like to contribute to the project, please fork the repository and create a pull request with your changes.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE.md).
-
-## Acknowledgements
-
-- Flask for the web framework.
-- SQLAlchemy for ORM support.
-- NLTK for natural language processing.
-- psycopg2-binary for PostgreSQL adapter.
 

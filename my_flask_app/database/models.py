@@ -1,4 +1,4 @@
-""" Filename: models.py - Directory: my_flask_app/database 
+""" Filename: models.py - Directory: my_flask_app/shared 
 
 This module defines the database models used in the Flask application.
 It includes the User model representing authenticated users and the FileUpload

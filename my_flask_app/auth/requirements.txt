@@ -1,0 +1,9 @@
+# requirements.txt - Directory: my_flask_app/auth  
+flask
+Werkzeug
+authlib
+Flask-Login
+Flask-SQLAlchemy
+Flask-Migrate
+psycopg2-binary
+requests

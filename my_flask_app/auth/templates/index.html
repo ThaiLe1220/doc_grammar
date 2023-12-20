@@ -1,0 +1,28 @@
+<!-- Filename: index.html - Directory: my_flask_app/templates -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Uploads</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="container">
+        {% if current_user.is_authenticated %}
+        <div class="user-profile">
+            <img src="{{ current_user.picture }}" alt="Profile Picture" class="profile-picture">
+            <p>Welcome, {{ current_user.given_name }}!</p>
+            <p>{{ current_user.email }}</p>
+            <p>Language: {{ current_user.locale }}</p>
+            <a href="{{ url_for('logout') }}" class="button logout">Sign out</a>
+        </div>
+        {% else %}
+            <a href="{{ url_for('login') }}">Sign in with Google</a>
+        {% endif %}
+    </div>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-""" Filename: login_manager.py - Directory: auth 
+""" Filename: login_manager.py - Directory: my_flask_app/auth 
 
 This module defines and configures the Flask-Login manager for the Flask application.
 It includes the user loader callback function that is used by Flask-Login to load
@@ -6,6 +6,7 @@ user objects from user IDs, enabling user session management.
 
 """
 from flask_login import LoginManager
+from my_flask_app.database.models import User
 
 login_manager = LoginManager()
 
@@ -26,6 +27,5 @@ def load_user(user_id):
         User: An instance of the User model corresponding to the user_id, or
               None if no such user exists.
     """
-    from database.models import User
 
     return User.query.get(int(user_id))

@@ -20,9 +20,9 @@ from flask import (
 )
 from flask_login import current_user
 from werkzeug.utils import secure_filename
-from database.models import db, FileUpload
 from utils.docx_utils import correct_text_grammar
 from utils.exceptions import GrammarCheckError
+from my_flask_app.database.models import db, FileUpload
 
 file_blueprint = Blueprint("file_blueprint", __name__)
 

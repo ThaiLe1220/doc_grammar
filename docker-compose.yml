@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=doc_grammar
+      - POSTGRES_USER=eugene
+      - POSTGRES_PASSWORD=eugene  
+
+  auth-service:
+    build:
+      context: ./my_flask_app
+      dockerfile: auth/Dockerfile
+    environment:
+      - DATABASE_URI=postgresql://eugene:eugene@db/doc_grammar
+      - SECRET_KEY=eugene_secret
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+
+  app:
+    build:
+      context: ./my_flask_app
+      dockerfile: app/Dockerfile
+    environment:
+      - DATABASE_URI=postgresql://eugene:eugene@db/doc_grammar
+      - SECRET_KEY=eugene_secret
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"

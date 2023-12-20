@@ -1,0 +1,12 @@
+# requirements.txt - Directory: my_flask_app  
+flask
+Werkzeug
+authlib
+Flask-Uploads
+Flask-Login
+Flask-SQLAlchemy
+Flask-Migrate
+psycopg2-binary
+requests
+python-docx
+nltk
