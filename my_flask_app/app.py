@@ -38,13 +38,13 @@ import stripe
 app = Flask(__name__)
 
 # setting up stripe api keys
-app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51OReIZCS2kdynUVumJcWQAWQ1xsXuApU3cNWwVBc88D1rSFN7uI5EQErxTk54XsP8mypOQFSfkQR4oj6DwivLdpo00pRdYPqjE'
-app.config['STRIPE_SECRET_KEY'] = 'sk_test_51OReIZCS2kdynUVuNPDL0wvlDqyz25JSnO3z3qql6Ivz9cMnn3eBQQ0s7LMjsXwi1fYggjVEiBGGjItuWgwDLWdP00TdfoLxmo'
+app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51OVEkqDAl3fqs0z5WYJHtSc1Jn2WZD4w7vV7rVOULeHvdgYSoXxa415eCxTnYBZ0xTXCqDBdW5xla4hw1xyjumQQ00T45kDMNP'
+app.config['STRIPE_SECRET_KEY'] = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf'
 app.config['STRIPE_ENDPOINT_SECRET'] = 'your_stripe_webhook_secret'
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://huyhua:namhuy1211@localhost/doc_grammar" 
+] = "postgresql://huynguyen284:password@localhost/doc_grammar" 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
 
@@ -184,7 +184,7 @@ def subscribe():
             checkout_session = stripe.checkout.Session.create(
                 payment_method_types=['card'],
                 line_items=[{
-                    'price': 'price_1OSNSqCS2kdynUVuQuxffvTD',  # replace with your actual price ID
+                    'price': 'price_1OVFVUDAl3fqs0z5BJEqJHCV',  # replace with your actual price ID
                     'quantity': 1,
                 }],
                 mode='subscription',
