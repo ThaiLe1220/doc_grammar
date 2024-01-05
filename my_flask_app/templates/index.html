@@ -23,6 +23,15 @@
             <a href="{{ url_for('login') }}">Sign in with Google</a>
         {% endif %}
         
+        <script async
+        src="https://js.stripe.com/v3/buy-button.js">
+        </script>
+      
+        <stripe-buy-button
+        buy-button-id="buy_btn_1OV57sCS2kdynUVuuVYf4LDB"
+        publishable-key="pk_test_51OReIZCS2kdynUVumJcWQAWQ1xsXuApU3cNWwVBc88D1rSFN7uI5EQErxTk54XsP8mypOQFSfkQR4oj6DwivLdpo00pRdYPqjE">
+        </stripe-buy-button>
+        
         <h1>Upload a file</h1>
         <form action="{{ url_for('file_blueprint.upload_file') }}" method="post" enctype="multipart/form-data">
             <input type="file" name="file">

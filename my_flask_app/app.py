@@ -13,7 +13,7 @@ Key Components:
 - Routes for login, logout, and user authentication callback.
 - The main index route to display the uploaded files and their grammar corrections.
 - Running the Flask app in debug mode within a protected main block.
-
+ 
 """
 import os
 import secrets
@@ -22,6 +22,8 @@ from flask import (
     render_template,
     redirect,
     url_for,
+    jsonify,
+    request,
     session,
 )
 from flask_login import current_user, login_user, logout_user, login_required
@@ -30,12 +32,19 @@ from database.models import db, User, FileUpload
 from file_handling.file_routes import file_blueprint
 from auth.oauth import oauth, configure_oauth
 from auth.login_manager import login_manager
+import stripe
+
 
 app = Flask(__name__)
 
+# setting up stripe api keys
+app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51OReIZCS2kdynUVumJcWQAWQ1xsXuApU3cNWwVBc88D1rSFN7uI5EQErxTk54XsP8mypOQFSfkQR4oj6DwivLdpo00pRdYPqjE'
+app.config['STRIPE_SECRET_KEY'] = 'sk_test_51OReIZCS2kdynUVuNPDL0wvlDqyz25JSnO3z3qql6Ivz9cMnn3eBQQ0s7LMjsXwi1fYggjVEiBGGjItuWgwDLWdP00TdfoLxmo'
+app.config['STRIPE_ENDPOINT_SECRET'] = 'your_stripe_webhook_secret'
+
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://eugene:eugene@localhost/doc_grammar"
+] = "postgresql://huyhua:namhuy1211@localhost/doc_grammar" 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
 
@@ -43,6 +52,7 @@ if not os.path.exists("file_uploads"):
     os.makedirs("file_uploads")
 
 app.config["UPLOAD_FOLDER"] = "file_uploads"
+stripe.api_key = app.config['STRIPE_SECRET_KEY']
 
 setup_database(app)
 configure_oauth(app)
@@ -165,6 +175,75 @@ if __name__ == "__main__":
         db.create_all()  # Ensure all tables are created
     app.run(debug=True)
 
+@app.route("/subscribe", methods=["GET", "POST"])
+@login_required
+def subscribe():
+    if request.method == "POST":
+        try:
+            # Create a checkout session
+            checkout_session = stripe.checkout.Session.create(
+                payment_method_types=['card'],
+                line_items=[{
+                    'price': 'price_1OSNSqCS2kdynUVuQuxffvTD',  # replace with your actual price ID
+                    'quantity': 1,
+                }],
+                mode='subscription',
+                success_url=url_for('index', _external=True),
+                cancel_url=url_for('index', _external=True),
+            )
+
+            return jsonify({'id': checkout_session.id})
+        except stripe.error.StripeError as e:
+            return jsonify({'error': str(e)}), 403
+
+    return render_template("index.html",
+        checkout_session_id = session['id'],
+        checkout_public_key = app.config['STRIPE_PUBLIC_KEY'])
+
+
+@app.route("/webhook", methods=["POST"])
+def stripe_webhook():
+    payload = request.get_data(as_text=True)
+    sig_header = request.headers.get('Stripe-Signature')
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, app.config['STRIPE_ENDPOINT_SECRET']
+        )
+    except ValueError as e:
+        print('Invalid payload')
+        return 'Invalid payload', 400
+    except stripe.error.SignatureVerificationError as e:
+        print('Invalid signature')
+        return 'Invalid signature', 400
+
+    # Handle the event
+    handle_stripe_event(event)
+
+    return '', 200
+
+def handle_stripe_event(event):
+    # Handle different types of Stripe events (payment success, subscription update, etc.)
+    if event['type'] == 'checkout.session.completed':
+        # Handle successful subscription
+        handle_successful_subscription(event)
+    elif event['type'] == 'invoice.payment_failed':
+        # Handle failed payment
+        handle_failed_payment(event)
+    # Add more cases for other events as needed
+
+def handle_successful_subscription(event):
+    # Logic to handle a successful subscription
+    customer_id = event['data']['object']['customer']
+    user = User.query.filter_by(stripe_customer_id=customer_id).first()
+    if user:
+        user.account_type = 'pro'  # Upgrade user account to pro
+        db.session.commit()
+
+def handle_failed_payment(event):
+    # Logic to handle a failed payment
+    # You might want to notify the user or take other actions
+    pass
 
 # @app.route("/check_db")
 # def check_database_connection():

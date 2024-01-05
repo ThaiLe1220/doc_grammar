@@ -9,7 +9,7 @@ import re
 import requests
 from .exceptions import GrammarCheckError
 
-API_URL = "https://3c92-103-253-89-37.ngrok-free.app/generate_code"
+API_URL = "https://polite-horribly-cub.ngrok-free.app/generate_code"
 
 
 def clean_api_response(api_response_text: str, original_text: str) -> str:
