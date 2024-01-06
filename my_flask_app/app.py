@@ -25,6 +25,7 @@ from flask import (
     jsonify,
     request,
     session,
+    abort,
 )
 from flask_login import current_user, login_user, logout_user, login_required
 from database.db_setup import setup_database
@@ -40,7 +41,7 @@ app = Flask(__name__)
 # setting up stripe api keys
 app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51OVEkqDAl3fqs0z5WYJHtSc1Jn2WZD4w7vV7rVOULeHvdgYSoXxa415eCxTnYBZ0xTXCqDBdW5xla4hw1xyjumQQ00T45kDMNP'
 app.config['STRIPE_SECRET_KEY'] = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf'
-app.config['STRIPE_ENDPOINT_SECRET'] = 'your_stripe_webhook_secret'
+endpoint_secret = 'whsec_8468e026695e3bd1d7d474cccf9b99bd6f11adb10d8692940eddc6c2e37dbc3f'
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
@@ -53,6 +54,11 @@ if not os.path.exists("file_uploads"):
 
 app.config["UPLOAD_FOLDER"] = "file_uploads"
 stripe.api_key = app.config['STRIPE_SECRET_KEY']
+
+from flask_migrate import Migrate
+
+# Assuming `app` and `db` are your Flask and SQLAlchemy instances
+migrate = Migrate(app, db)
 
 setup_database(app)
 configure_oauth(app)
@@ -139,7 +145,6 @@ def authorize():
         user.family_name = user_info.get("family_name")
         user.picture = user_info.get("picture")
         user.locale = user_info.get("locale")
-
     db.session.commit()
     login_user(user)
     return redirect("/")
@@ -188,7 +193,7 @@ def subscribe():
                     'quantity': 1,
                 }],
                 mode='subscription',
-                success_url=url_for('index', _external=True),
+                success_url=url_for('subscription_success', _external=True),  # New endpoint for success
                 cancel_url=url_for('index', _external=True),
             )
 
@@ -197,58 +202,17 @@ def subscribe():
             return jsonify({'error': str(e)}), 403
 
     return render_template("index.html",
-        checkout_session_id = session['id'],
-        checkout_public_key = app.config['STRIPE_PUBLIC_KEY'])
+        checkout_session_id=session['id'],
+        checkout_public_key=app.config['STRIPE_PUBLIC_KEY'])
 
+@app.route("/subscription_success")
+@login_required
+def subscription_success():
+    # Update the user's account type to "pro" after successful subscription
+    current_user.account_type = "pro"
+    db.session.commit()
 
-@app.route("/webhook", methods=["POST"])
-def stripe_webhook():
-    payload = request.get_data(as_text=True)
-    sig_header = request.headers.get('Stripe-Signature')
+    # Flash a message to inform the user about the account type update
+    flash("Congratulations! You have successfully subscribed to the Pro plan.", "success")
 
-    try:
-        event = stripe.Webhook.construct_event(
-            payload, sig_header, app.config['STRIPE_ENDPOINT_SECRET']
-        )
-    except ValueError as e:
-        print('Invalid payload')
-        return 'Invalid payload', 400
-    except stripe.error.SignatureVerificationError as e:
-        print('Invalid signature')
-        return 'Invalid signature', 400
-
-    # Handle the event
-    handle_stripe_event(event)
-
-    return '', 200
-
-def handle_stripe_event(event):
-    # Handle different types of Stripe events (payment success, subscription update, etc.)
-    if event['type'] == 'checkout.session.completed':
-        # Handle successful subscription
-        handle_successful_subscription(event)
-    elif event['type'] == 'invoice.payment_failed':
-        # Handle failed payment
-        handle_failed_payment(event)
-    # Add more cases for other events as needed
-
-def handle_successful_subscription(event):
-    # Logic to handle a successful subscription
-    customer_id = event['data']['object']['customer']
-    user = User.query.filter_by(stripe_customer_id=customer_id).first()
-    if user:
-        user.account_type = 'pro'  # Upgrade user account to pro
-        db.session.commit()
-
-def handle_failed_payment(event):
-    # Logic to handle a failed payment
-    # You might want to notify the user or take other actions
-    pass
-
-# @app.route("/check_db")
-# def check_database_connection():
-#     try:
-#         db.session.query(FileUpload).first()
-#         return "Database connection successful. Happy coding"
-#     except Exception as e:
-#         return f"Database connection error: {str(e)}"
+    return redirect(url_for('index'))
