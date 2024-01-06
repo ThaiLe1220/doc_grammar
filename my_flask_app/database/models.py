@@ -27,7 +27,7 @@ class User(UserMixin, db.Model):
         locale (str): The user's preferred locale/language.
     """
     
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True) # customer id
     google_id = db.Column(db.String(120), unique=True)
     email = db.Column(db.String(120), unique=True)
     name = db.Column(db.String(255))

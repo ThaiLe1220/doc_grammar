@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Uploads</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://js.stripe.com/v3/"></script>
 
 </head>
 
@@ -24,15 +25,8 @@
             <a href="{{ url_for('login') }}">Sign in with Google</a>
         {% endif %}
         
-        <script async
-        src="https://js.stripe.com/v3/buy-button.js">
-        </script>
-      
-        <stripe-buy-button
-        buy-button-id="buy_btn_1OVGGJDAl3fqs0z5jTRTGrPF"
-        publishable-key="pk_test_51OVEkqDAl3fqs0z5WYJHtSc1Jn2WZD4w7vV7rVOULeHvdgYSoXxa415eCxTnYBZ0xTXCqDBdW5xla4hw1xyjumQQ00T45kDMNP">
-        </stripe-buy-button>
-        
+        <button id="subscribe-button">Subscribe to Pro Package</button>
+
         <h1>Upload a file</h1>
         <form action="{{ url_for('file_blueprint.upload_file') }}" method="post" enctype="multipart/form-data">
             <input type="file" name="file">
@@ -76,6 +70,6 @@
         {% endif %}
     </div>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
+    
 </body>
 </html>
