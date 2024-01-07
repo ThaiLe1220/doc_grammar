@@ -94,3 +94,19 @@ ul li a {
   background: #f2dede;
   color: #a94442;
 }
+
+.account-type {
+  font-weight: bold;
+  color: green;
+}
+
+.account-type::before {
+  content: ""; /* Empty content for the pseudo-element */
+  display: inline-block;
+}
+
+.account-type[data-type="Premium"]::before {
+  content: "✅"; /* Show the diamond for Premium account type */
+  margin-right: 5px; /* Adjust spacing as needed */
+  color: green; /* Modify this line to change the diamond color */
+}

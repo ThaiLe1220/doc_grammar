@@ -33,6 +33,12 @@ def upload_file():
     Returns:
         redirect: Redirects to the index page after processing the file.
     """
+    
+    # Check if the user has a premium account
+    if current_user.account_type != "Premium":
+        flash("You need a premium account to upload files.", "warning")
+        return redirect(url_for("index"))
+    
     if "file" not in request.files:
         flash("No file part", "error")
         return redirect(url_for("index"))

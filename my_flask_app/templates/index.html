@@ -18,7 +18,7 @@
             <p>Welcome, {{ current_user.given_name }}!</p>
             <p>{{ current_user.email }}</p>
             <p>Language: {{ current_user.locale }}</p>
-            <p>Account type: {{ current_user.account_type }}</p>
+            <p>Account type: <span class="account-type" data-type="{{ current_user.account_type }}">{{ current_user.account_type }}</span></p>
             <a href="{{ url_for('logout') }}" class="button logout">Sign out</a>
         </div>
         {% else %}

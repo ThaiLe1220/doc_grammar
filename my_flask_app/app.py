@@ -17,6 +17,7 @@ Key Components:
 """
 import os
 import secrets
+import stripe
 from flask import (
     Flask,
     render_template,
@@ -25,16 +26,16 @@ from flask import (
     jsonify,
     request,
     session,
-    abort,
+    flash,
+    Blueprint,
 )
+
 from flask_login import current_user, login_user, logout_user, login_required
 from database.db_setup import setup_database
 from database.models import db, User, FileUpload
 from file_handling.file_routes import file_blueprint
 from auth.oauth import oauth, configure_oauth
 from auth.login_manager import login_manager
-import stripe
-
 
 app = Flask(__name__)
 
@@ -67,7 +68,6 @@ login_manager.init_app(app)
 
 # Register blueprints
 app.register_blueprint(file_blueprint, url_prefix="/files")
-
 
 @app.route("/")
 def index():
@@ -244,7 +244,6 @@ def webhook():
     # ... handle other event types
     else:
       print('Unhandled event type {}'.format(event['type']))
-
     return jsonify(success=True)
 
 @app.route("/handle-subscription-success")
@@ -253,11 +252,24 @@ def handle_subscription_success():
     print("Handling subscription success")  # Debugging print statement
 
     # Update user account type to 'pro'
-    current_user.account_type = "pro"
+    current_user.account_type = "Premium"
     db.session.commit()
 
     return redirect(url_for("index"))
 
+file_blueprint = Blueprint("file_blueprint", __name__)
+
+def premium_user_required(func):
+    """
+    Decorator to check if the user has a "Premium" account type.
+    If not, flashes an error message and redirects to the homepage.
+    """
+    def wrapper(*args, **kwargs):
+        if current_user.account_type != "Premium":
+            flash("Only Premium users are allowed to perform this action.", "error")
+            return redirect(url_for("index"))
+        return func(*args, **kwargs)
+    return wrapper
 
 if __name__ == "__main__":
     with app.app_context():
