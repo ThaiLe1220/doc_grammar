@@ -189,7 +189,7 @@ def subscribe():
                     }
                 ],
                 mode="payment",
-                success_url=url_for("index", _external=True)
+                success_url=url_for("handle_subscription_success", _external=True)
                 + "?session_id={CHECKOUT_SESSION_ID}",
                 cancel_url=url_for("index", _external=True),
             )
@@ -215,6 +215,7 @@ def subscribe():
 
 @app.route("/webhook", methods=["POST"])
 def stripe_webhook():
+    print("webhook called") 
     payload = request.get_data(as_text=True)
     sig_header = request.headers.get('Stripe-Signature')
 
@@ -230,45 +231,27 @@ def stripe_webhook():
         return 'Invalid signature', 400
 
     # Handle the event
-    handle_stripe_event(event)
+    if event['type'] == 'payment_intent.succeeded':
+      payment_intent = event['data']['object']
+      print(payment_intent)
+    # Handle other event types
+    else:
+      print('Unhandled event type {}'.format(event['type']))
+    return jsonify(success=True)
 
-    return '', 200
+@app.route("/handle-subscription-success")
+@login_required
+def handle_subscription_success():
+    print("Handling subscription success")  # Debugging print statement
 
-def handle_stripe_event(event):
-    # Handle different types of Stripe events (payment success, subscription update, etc.)
-    if event['type'] == 'checkout.session.completed':
-        # Handle successful subscription
-        handle_successful_subscription(event)
-    elif event['type'] == 'invoice.payment_failed':
-        # Handle failed payment
-        handle_failed_payment(event)
-    # Add more cases for other events as needed
-
-def handle_successful_subscription(event):
-    # Logic to handle a successful subscription
-    customer_id = event['data']['object']['customer']
-    user = User.query.filter_by(stripe_customer_id=customer_id).first()
-    if user:
-        user.account_type = 'pro'  # Upgrade user account to pro
-        db.session.commit()
-        print(f"User {user.email} upgraded to 'pro' account.")
-
-def handle_failed_payment(event):
-    # Logic to handle a failed payment
-    # You might want to notify the user or take other actions
-    print("Payment failed.")
-    pass
-
+    # Update user account type to 'pro'
+    current_user.account_type = "pro"
+    db.session.commit()
+    
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()  # Ensure all tables are created
     app.run(debug=True)
 
-# @app.route("/check_db")
-# def check_database_connection():
-#     try:
-#         db.session.query(FileUpload).first()
-#         return "Database connection successful. Happy coding"
-#     except Exception as e:
-#         return f"Database connection error: {str(e)}"
