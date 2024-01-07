@@ -17,6 +17,36 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }); 
 });
 
+// Stripe subscription functionality
+var stripe = Stripe('pk_test_51OReIZCS2kdynUVumJcWQAWQ1xsXuApU3cNWwVBc88D1rSFN7uI5EQErxTk54XsP8mypOQFSfkQR4oj6DwivLdpo00pRdYPqjE');
+var subscribeButton = document.getElementById('subscribe-button');
+if (subscribeButton) {
+  subscribeButton.addEventListener('click', function () {
+    console.log('Subscribe button clicked'); // This should appear in your console
+    console.log('Fetching:', window.location.origin + '/subscribe');
+    fetch('/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin'
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (session) {
+        return stripe.redirectToCheckout({ sessionId: session.id });
+      })
+      .then(function (result) {
+        if (result.error) {
+          alert(result.error.message);
+        }
+      })
+      .catch(function (error) {
+        console.error('Error:', error);
+      });
+  });
+}
 
 function fetchCorrections(fileId) {
   fetch(`/corrections/${fileId}`)

@@ -40,7 +40,7 @@ app = Flask(__name__)
 # setting up stripe api keys
 app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51OReIZCS2kdynUVumJcWQAWQ1xsXuApU3cNWwVBc88D1rSFN7uI5EQErxTk54XsP8mypOQFSfkQR4oj6DwivLdpo00pRdYPqjE'
 app.config['STRIPE_SECRET_KEY'] = 'sk_test_51OReIZCS2kdynUVuNPDL0wvlDqyz25JSnO3z3qql6Ivz9cMnn3eBQQ0s7LMjsXwi1fYggjVEiBGGjItuWgwDLWdP00TdfoLxmo'
-app.config['STRIPE_ENDPOINT_SECRET'] = 'your_stripe_webhook_secret'
+app.config['STRIPE_ENDPOINT_SECRET'] = 'whsec_db64394bd87e83272bcfac6ffc9ed5256853cb82050edf139220b7d2218b8376'
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
@@ -79,7 +79,7 @@ def index():
         file = FileUpload.query.get(file_id)
         if file:
             corrections = file.corrections
-
+    
     return render_template(
         "index.html", files=files, corrections=corrections, current_user=current_user
     )
@@ -170,35 +170,47 @@ def logout():
     return redirect("/")
 
 
-if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()  # Ensure all tables are created
-    app.run(debug=True)
-
 @app.route("/subscribe", methods=["GET", "POST"])
 @login_required
 def subscribe():
+    print("Entered the /subscribe route")  # Debugging print statement
+ 
     if request.method == "POST":
+        print("Handling a POST request")  # Debugging print statement
+ 
         try:
             # Create a checkout session
             checkout_session = stripe.checkout.Session.create(
-                payment_method_types=['card'],
-                line_items=[{
-                    'price': 'price_1OSNSqCS2kdynUVuQuxffvTD',  # replace with your actual price ID
-                    'quantity': 1,
-                }],
-                mode='subscription',
-                success_url=url_for('index', _external=True),
-                cancel_url=url_for('index', _external=True),
+                payment_method_types=["card"],
+                line_items=[
+                    {
+                        "price": "price_1OSNSqCS2kdynUVuQuxffvTD",
+                        "quantity": 1,
+                    }
+                ],
+                mode="payment",
+                success_url=url_for("index", _external=True)
+                + "?session_id={CHECKOUT_SESSION_ID}",
+                cancel_url=url_for("index", _external=True),
             )
-
-            return jsonify({'id': checkout_session.id})
+ 
+            print(
+                f"Checkout session created: {checkout_session.id}"
+            )  # Debugging print statement
+ 
+            # Redirect to the checkout session
+            return jsonify({"id": checkout_session.id})
         except stripe.error.StripeError as e:
-            return jsonify({'error': str(e)}), 403
-
-    return render_template("index.html",
-        checkout_session_id = session['id'],
-        checkout_public_key = app.config['STRIPE_PUBLIC_KEY'])
+            app.logger.error(f"Stripe error: {str(e)}")
+            print(f"Stripe error: {str(e)}")  # Debugging print statement
+            return jsonify(error=str(e)), 403
+ 
+    print("Handling a GET request")  # Debugging print statement
+ 
+    # If it's a GET request, return the main page with the Stripe public key
+    return render_template(
+        "index.html", stripe_public_key=app.config["STRIPE_PUBLIC_KEY"]
+)
 
 
 @app.route("/webhook", methods=["POST"])
@@ -239,11 +251,19 @@ def handle_successful_subscription(event):
     if user:
         user.account_type = 'pro'  # Upgrade user account to pro
         db.session.commit()
+        print(f"User {user.email} upgraded to 'pro' account.")
 
 def handle_failed_payment(event):
     # Logic to handle a failed payment
     # You might want to notify the user or take other actions
+    print("Payment failed.")
     pass
+
+
+if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()  # Ensure all tables are created
+    app.run(debug=True)
 
 # @app.route("/check_db")
 # def check_database_connection():
