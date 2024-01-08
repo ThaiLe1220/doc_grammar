@@ -44,6 +44,7 @@ app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51OVEkqDAl3fqs0z5WYJHtSc1Jn2WZD4w7vV7
 app.config['STRIPE_SECRET_KEY'] = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf'
 endpoint_secret = 'whsec_8468e026695e3bd1d7d474cccf9b99bd6f11adb10d8692940eddc6c2e37dbc3f'
 Domain = 'http://localhost:5000'
+stripe.api_key = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf'
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
@@ -189,7 +190,13 @@ def subscribe():
                 payment_method_types=["card"],
                 line_items=[
                     {
-                        "price": "price_1OVFVUDAl3fqs0z5BJEqJHCV",
+                        # "price": "price_1OVFVUDAl3fqs0z5BJEqJHCV",
+                        # "quantity": 1,
+                        
+                        # "price": "price_1OVuakDAl3fqs0z5AzKRagmB",
+                        # "quantity": 1,
+                        
+                        "price": "price_1OVuXjDAl3fqs0z5yCreg4ui",
                         "quantity": 1,
                     }
                 ],
@@ -239,9 +246,76 @@ def webhook():
 
      # Handle the event
     if event['type'] == 'payment_intent.succeeded':
-      payment_intent = event['data']['object']
+      payment_intent = event['data']['object'] 
       print(payment_intent)
-    # ... handle other event types
+    if event['type'] == 'checkout.session.completed':
+      session = event['data']['object']
+      line_items = stripe.checkout.Session.list_line_items(session['id'], limit=1)
+      customer_email = session['customer_details']['email']
+      customer_name = session['customer_details']['name']
+      customer_id = session['customer']
+      product_des = line_items['data'][0]['description']
+      print(customer_name)
+      print(line_items['data'][0]['description'])
+      print(customer_email)
+      print(customer_id)
+      user = User.query.filter_by(email=customer_email).first()
+      if user:
+        user.stripe_customer_id = session['customer']
+        if product_des == "Premium":
+            user.account_type = "Premium"
+        elif product_des == "Basic":
+            user.account_type = "Basic"
+        elif product_des == "Free":
+            user.account_type = "Free"
+        db.session.commit()
+        return render_template("index.html", subscription_purchased=True)
+      else:
+        print("User not found")
+      print('Payment succeeded!')
+    
+    # Handle the event
+    # https://stripe.com/docs/customer-management/integrate-customer-portal 
+    if event['type'] == 'customer.subscription.updated':
+        subscription = event['data']['object']
+        customer_id = subscription['customer']
+        # https://stripe.com/docs/api/subscriptions/object
+        new_plan = subscription['items']['data'][0]['plan']['id']
+        cancel_at_period_end = subscription['cancel_at_period_end']
+        print(new_plan)
+        print(cancel_at_period_end)
+
+        # Find the user with the given Stripe customer ID
+        # https://stripe.com/docs/api/pagination
+        user = User.query.filter_by(stripe_customer_id=customer_id).first()
+        if user:
+            if cancel_at_period_end == True:
+                user.account_type = "Free"
+            elif new_plan == "price_1OVuakDAl3fqs0z5AzKRagmB":
+                user.account_type = "Premium"
+            elif new_plan == "price_1OW13EDAl3fqs0z5tvO7wIZF":
+                user.account_type = "Basic"
+            elif new_plan == "price_1OVuXjDAl3fqs0z5yCreg4ui":
+                user.account_type = "Free"
+            print("Updated account type:", user.account_type)
+            db.session.commit()
+        else:
+            print("User not found")
+    if event['type'] == 'customer.subscription.deleted':
+        subscription = event['data']['object']
+        customer_id = subscription['customer']
+        print("Subscription cancelled")
+
+        # Find the user with the given Stripe customer ID
+        user = User.query.filter_by(stripe_customer_id= customer_id).first()
+        if user:
+            # Update the user's account type to Free
+            user.account_type = "Free"
+            db.session.commit()
+        else:
+            print("User not found")
+                
+     # ... handle other event types
     else:
       print('Unhandled event type {}'.format(event['type']))
     return jsonify(success=True)
@@ -255,9 +329,9 @@ def handle_subscription_success():
     current_user.account_type = "Premium"
     db.session.commit()
 
+    # return render_template("index.html", subscription_purchased=True)
     return redirect(url_for("index"))
 
-file_blueprint = Blueprint("file_blueprint", __name__)
 
 def premium_user_required(func):
     """
@@ -270,6 +344,25 @@ def premium_user_required(func):
             return redirect(url_for("index"))
         return func(*args, **kwargs)
     return wrapper
+
+@app.route("/create-customer-portal-session", methods=["GET", "POST"])
+@login_required
+def create_customer_portal_session():
+    try:
+        # Create a customer portal session
+        portal_session = stripe.billing_portal.Session.create(
+            customer= current_user.stripe_customer_id,
+            return_url=url_for("index", _external=True),
+        )
+
+        print(f"Portal session created: {portal_session.id}")
+
+        # Redirect to the customer portal session
+        return redirect(portal_session.url)
+    except stripe.error.StripeError as e:
+        app.logger.error(f"Stripe error: {str(e)}")
+        print(f"Stripe error: {str(e)}")
+        return jsonify(error=str(e)), 403
 
 if __name__ == "__main__":
     with app.app_context():
