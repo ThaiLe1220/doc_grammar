@@ -42,7 +42,7 @@ app = Flask(__name__)
 # setting up stripe api keys
 app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51OVEkqDAl3fqs0z5WYJHtSc1Jn2WZD4w7vV7rVOULeHvdgYSoXxa415eCxTnYBZ0xTXCqDBdW5xla4hw1xyjumQQ00T45kDMNP'
 app.config['STRIPE_SECRET_KEY'] = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf'
-endpoint_secret = 'whsec_8468e026695e3bd1d7d474cccf9b99bd6f11adb10d8692940eddc6c2e37dbc3f'
+endpoint_secret = 'whsec_95ko9Dz5I1d9tNBOUyrzT89hp3ujpLcn'
 Domain = 'http://localhost:5000'
 stripe.api_key = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf'
 
@@ -183,27 +183,46 @@ def subscribe():
  
     if request.method == "POST":
         print("Handling a POST request")  # Debugging print statement
- 
+
+        subscription_type = request.form.get('subscription_type', 'basic')
+        price_id = "price_1OVuXjDAl3fqs0z5yCreg4ui"  # default to basic price
+        if subscription_type == 'pro':
+            price_id = "price_1OVuakDAl3fqs0z5AzKRagmB"  # pro price
+            # current_user.account_type = "Premium"
+        elif subscription_type == 'basic':
+            price_id = "price_1OW13EDAl3fqs0z5tvO7wIZF"  # basic price
+            # current_user.account_type = "Basic"
+        # db.session.commit()
+        
+        # Create a customer in Stripe
+        customer = stripe.Customer.create(
+            email=current_user.email,  # use the current user's email
+            # add any other customer details you need
+        )
+
+        # Store the Stripe customer ID in your database
+        current_user.stripe_customer_id = customer.id
+        db.session.commit()
+        
         try:
             # Create a checkout session
             checkout_session = stripe.checkout.Session.create(
+                customer = customer.id,
                 payment_method_types=["card"],
                 line_items=[
                     {
-                        # "price": "price_1OVFVUDAl3fqs0z5BJEqJHCV",
-                        # "quantity": 1,
-                        
-                        # "price": "price_1OVuakDAl3fqs0z5AzKRagmB",
-                        # "quantity": 1,
-                        
-                        "price": "price_1OVuXjDAl3fqs0z5yCreg4ui",
+                        "price": price_id,
                         "quantity": 1,
                     }
                 ],
                 mode="subscription",
-                success_url=url_for("handle_subscription_success", _external=True)
+                success_url=url_for("index", _external=True)
                 + "?session_id={CHECKOUT_SESSION_ID}",
                 cancel_url=url_for("index", _external=True),
+                metadata={
+                    'subscription_type': subscription_type,
+                    'user_id': current_user.id  # Store the user ID to find the user in the webhook
+                },
             )
  
             print(
@@ -211,7 +230,7 @@ def subscribe():
             )  # Debugging print statement
  
             # Redirect to the checkout session
-            return jsonify({"id": checkout_session.id})
+            return redirect(checkout_session.url, code=303)
         except stripe.error.StripeError as e:
             app.logger.error(f"Stripe error: {str(e)}")
             print(f"Stripe error: {str(e)}")  # Debugging print statement
@@ -223,6 +242,7 @@ def subscribe():
     return render_template(
         "index.html", stripe_public_key=app.config["STRIPE_PUBLIC_KEY"]
     )
+
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -254,26 +274,40 @@ def webhook():
       customer_email = session['customer_details']['email']
       customer_name = session['customer_details']['name']
       customer_id = session['customer']
+      subscription_type = session['metadata']['subscription_type']
       product_des = line_items['data'][0]['description']
+      user_id = session['metadata']['user_id']
       print(customer_name)
       print(line_items['data'][0]['description'])
       print(customer_email)
       print(customer_id)
-      user = User.query.filter_by(email=customer_email).first()
+      subscription_purchased=True
+    #   user = User.query.filter_by(email=customer_email).first()
+    #   if user:
+    #     user.stripe_customer_id = session['customer']
+    #     if product_des == "Premium":
+    #         user.account_type = "Premium"
+    #     elif product_des == "Basic":
+    #         user.account_type = "Basic"
+    #     elif product_des == "Free":
+    #         user.account_type = "Free"
+    #     db.session.commit()
+    #     return render_template("index.html", subscription_purchased=True)
+    #   else:
+    #     print("User not found")
+    # Find the user in your database
+      user = User.query.get(user_id)
       if user:
-        user.stripe_customer_id = session['customer']
-        if product_des == "Premium":
+        # Update the user account type
+        if subscription_type == 'pro':
             user.account_type = "Premium"
-        elif product_des == "Basic":
+        elif subscription_type == 'basic':
             user.account_type = "Basic"
-        elif product_des == "Free":
-            user.account_type = "Free"
+        user.subscription_purchased = True
         db.session.commit()
-        return render_template("index.html", subscription_purchased=True)
-      else:
-        print("User not found")
-      print('Payment succeeded!')
-    
+
+        print('Payment succeeded!')
+      print (subscription_purchased)
     # Handle the event
     # https://stripe.com/docs/customer-management/integrate-customer-portal 
     if event['type'] == 'customer.subscription.updated':

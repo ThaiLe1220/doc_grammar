@@ -25,8 +25,8 @@ def configure_oauth(app):
     oauth.init_app(app)
     oauth.register(
         name="google",
-        client_id="1020591203255-is6vclts4048a4m48bhq5djb4am0n0d7.apps.googleusercontent.com",
-        client_secret="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",
+        client_id="683306391910-u0auqkk6t35664l17ai0q2camp5p22rf.apps.googleusercontent.com",
+        client_secret="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",
         access_token_url="https://oauth2.googleapis.com/token",
         authorize_url="https://accounts.google.com/o/oauth2/auth",
         api_base_url="https://www.googleapis.com/oauth2/v1/",
