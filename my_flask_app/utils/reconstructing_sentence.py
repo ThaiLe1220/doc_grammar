@@ -19,7 +19,7 @@ def custom_tokenize(text):
     Returns:
         list: A list of tokens extracted from the text.
     """
-    pattern = r'\(\w+[\w\'-]*\)?|[.,;:!?"]|\b\w+[\w\'-]*[.,;:!?"]?|\s+'
+    pattern = r'\(\w+[\w\'-]*\)?|[().,;:!?"]|\b\w+[\w\'-]*[().,;:!?"]?|\s+'
     return re.findall(pattern, text)
 
 
@@ -87,7 +87,7 @@ def longest_common_subsequence_sentences(tokens1, tokens2):
     for i in range(m):
         for j in range(n):
             # Consider tokens similar if their percentage difference is less than 45%
-            if percentage_difference(tokens1[i], tokens2[j]) < 45:
+            if percentage_difference(tokens1[i], tokens2[j]) < 1:
                 dp[i + 1][j + 1] = dp[i][j] + 1
                 if dp[i + 1][j + 1] > dp[longest_subseq_end[0]][longest_subseq_end[1]]:
                     longest_subseq_end = (i + 1, j + 1)
@@ -99,7 +99,7 @@ def longest_common_subsequence_sentences(tokens1, tokens2):
     consecutive_tokens = []
     while i > 0 and j > 0:
         # Consider tokens similar if their percentage difference is less than 45%
-        if percentage_difference(tokens1[i - 1], tokens2[j - 1]) < 45:
+        if percentage_difference(tokens1[i - 1], tokens2[j - 1]) < 1:
             consecutive_tokens.append((tokens1[i - 1], tokens2[j - 1]))
             i -= 1
             j -= 1
@@ -127,21 +127,11 @@ def get_similar_tokens_in_sentences(sentence1, sentence2):
     tokens2 = custom_tokenize(sentence2)
 
     consecutive_tokens = longest_common_subsequence_sentences(tokens1, tokens2)
+
     return consecutive_tokens
 
 
-def reconstruct_formatting(original_sentence, corrected_sentence, original_formatting):
-    """
-    Reconstructs the formatting of a corrected sentence based on the original sentence's formatting.
-
-    Args:
-        original_sentence (str): The original sentence.
-        corrected_sentence (str): The corrected sentence.
-        original_formatting (list): A list of formatting dictionaries for each token in the original sentence.
-
-    Returns:
-        tuple: Returns a tuple containing the reconstructed formatting, modified tokens, and added tokens.
-    """
+def reconstruct_formatting(original_sentence, corrected_sentence):
     original_tokens = custom_tokenize(original_sentence)
     corrected_tokens = custom_tokenize(corrected_sentence)
     similar_tokens_pairs = get_similar_tokens_in_sentences(
@@ -153,7 +143,6 @@ def reconstruct_formatting(original_sentence, corrected_sentence, original_forma
     modified_tokens = []
     added_tokens = []
 
-    corrected_formatting = []
     skip_next_space = False
     for ci, c_token in enumerate(corrected_tokens):
         if skip_next_space:
@@ -164,40 +153,17 @@ def reconstruct_formatting(original_sentence, corrected_sentence, original_forma
             original_token_index = original_tokens.index(
                 [ot for ot, ct in similar_tokens_pairs if ct == c_token][0]
             )
-            format_to_apply = original_formatting[original_token_index].copy()
-            format_to_apply["text"] = c_token
-            corrected_formatting.append(format_to_apply)
 
             # Check if the token was modified and add to the list
             original_token = original_tokens[original_token_index]
             if original_token != c_token:
                 modified_tokens.append((original_token, c_token))
 
-            # Handle space token formatting immediately after a word token
             if ci + 1 < len(corrected_tokens) and corrected_tokens[ci + 1] == " ":
-                corrected_formatting.append(
-                    original_formatting[original_token_index + 1].copy()
-                )
                 skip_next_space = True  # Skip the next space token in the loop
         else:
             # Add to added tokens list if it's not a space
             if c_token.strip():
                 added_tokens.append(c_token)
 
-            # Apply formatting of the nearest similar token for new/dissimilar tokens
-            closest_ci = min(
-                [corrected_tokens.index(ct) for _, ct in similar_tokens_pairs],
-                key=lambda x: abs(x - ci),
-            )
-            closest_oi = original_tokens.index(
-                [
-                    ot
-                    for ot, ct in similar_tokens_pairs
-                    if ct == corrected_tokens[closest_ci]
-                ][0]
-            )
-            format_to_apply = original_formatting[closest_oi].copy()
-            format_to_apply["text"] = c_token
-            corrected_formatting.append(format_to_apply)
-
-    return corrected_formatting, modified_tokens, added_tokens
+    return modified_tokens, added_tokens

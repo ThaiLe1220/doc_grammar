@@ -35,6 +35,7 @@ class User(UserMixin, db.Model):
     family_name = db.Column(db.String(255))
     picture = db.Column(db.String(255))
     locale = db.Column(db.String(10))
+    account_type = db.Column(db.String(20), default="basic")
 
 
 class FileUpload(db.Model):

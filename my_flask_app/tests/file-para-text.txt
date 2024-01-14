@@ -1,0 +1,2852 @@
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000254B8B5F050>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000254B8B5F050>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000254B8B5EEF0>
+__dir__: <built-in method __dir__ of str object at 0x00000254B8B5F050>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000254B8B5F050>
+__format__: <built-in method __format__ of str object at 0x00000254B8B5EEF0>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000254B8B5F050>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000254B8B5EEF0>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000254B8B5F050>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000254B8B5EEF0>
+__getstate__: <built-in method __getstate__ of str object at 0x00000254B8B5F050>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000254B8B5EEF0>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000254B8B5F050>
+__init__: <method-wrapper '__init__' of str object at 0x00000254B8B5EEF0>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000254B8B5EEF0>
+__le__: <method-wrapper '__le__' of str object at 0x00000254B8B5F050>
+__len__: <method-wrapper '__len__' of str object at 0x00000254B8B5EEF0>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000254B8B5F050>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000254B8B5EEF0>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000254B8B5F050>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000254B8B5EEF0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000254B8B5EEF0>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000254B8B5F050>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000254B8B5EEF0>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000254B8B5F050>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000254B8B5EEF0>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000254B8B5F050>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000254B8B5EEF0>
+__str__: <method-wrapper '__str__' of str object at 0x00000254B8B5F050>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000254B8B5F050>
+casefold: <built-in method casefold of str object at 0x00000254B8B5EEF0>
+center: <built-in method center of str object at 0x00000254B8B5F050>
+count: <built-in method count of str object at 0x00000254B8B5EEF0>
+encode: <built-in method encode of str object at 0x00000254B8B5F050>
+endswith: <built-in method endswith of str object at 0x00000254B8B5EEF0>
+expandtabs: <built-in method expandtabs of str object at 0x00000254B8B5F050>
+find: <built-in method find of str object at 0x00000254B8B5EEF0>
+format: <built-in method format of str object at 0x00000254B8B5F050>
+format_map: <built-in method format_map of str object at 0x00000254B8B5EEF0>
+index: <built-in method index of str object at 0x00000254B8B5F050>
+isalnum: <built-in method isalnum of str object at 0x00000254B8B5EEF0>
+isalpha: <built-in method isalpha of str object at 0x00000254B8B5F050>
+isascii: <built-in method isascii of str object at 0x00000254B8B5EEF0>
+isdecimal: <built-in method isdecimal of str object at 0x00000254B8B5F050>
+isdigit: <built-in method isdigit of str object at 0x00000254B8B5EEF0>
+isidentifier: <built-in method isidentifier of str object at 0x00000254B8B5F050>
+islower: <built-in method islower of str object at 0x00000254B8B5EEF0>
+isnumeric: <built-in method isnumeric of str object at 0x00000254B8B5F050>
+isprintable: <built-in method isprintable of str object at 0x00000254B8B5EEF0>
+isspace: <built-in method isspace of str object at 0x00000254B8B5F050>
+istitle: <built-in method istitle of str object at 0x00000254B8B5EEF0>
+isupper: <built-in method isupper of str object at 0x00000254B8B5F050>
+join: <built-in method join of str object at 0x00000254B8B5EEF0>
+ljust: <built-in method ljust of str object at 0x00000254B8B5F050>
+lower: <built-in method lower of str object at 0x00000254B8B5EEF0>
+lstrip: <built-in method lstrip of str object at 0x00000254B8B5F050>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000254B8B5F050>
+removeprefix: <built-in method removeprefix of str object at 0x00000254B8B5EEF0>
+removesuffix: <built-in method removesuffix of str object at 0x00000254B8B5F050>
+replace: <built-in method replace of str object at 0x00000254B8B5EEF0>
+rfind: <built-in method rfind of str object at 0x00000254B8B5F050>
+rindex: <built-in method rindex of str object at 0x00000254B8B5EEF0>
+rjust: <built-in method rjust of str object at 0x00000254B8B5F050>
+rpartition: <built-in method rpartition of str object at 0x00000254B8B5EEF0>
+rsplit: <built-in method rsplit of str object at 0x00000254B8B5F050>
+rstrip: <built-in method rstrip of str object at 0x00000254B8B5EEF0>
+split: <built-in method split of str object at 0x00000254B8B5F050>
+splitlines: <built-in method splitlines of str object at 0x00000254B8B5EEF0>
+startswith: <built-in method startswith of str object at 0x00000254B8B5F050>
+strip: <built-in method strip of str object at 0x00000254B8B5EEF0>
+swapcase: <built-in method swapcase of str object at 0x00000254B8B5F050>
+title: <built-in method title of str object at 0x00000254B8B5EEF0>
+translate: <built-in method translate of str object at 0x00000254B8B5F050>
+upper: <built-in method upper of str object at 0x00000254B8B5EEF0>
+zfill: <built-in method zfill of str object at 0x00000254B8B5F050>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000254B8C79620>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000254B8C79620>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000254B8C79BC0>
+__dir__: <built-in method __dir__ of str object at 0x00000254B8C79620>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000254B8C79620>
+__format__: <built-in method __format__ of str object at 0x00000254B8C79BC0>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000254B8C79620>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000254B8C79BC0>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000254B8C79620>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000254B8C79BC0>
+__getstate__: <built-in method __getstate__ of str object at 0x00000254B8C79620>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000254B8C79BC0>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000254B8C79620>
+__init__: <method-wrapper '__init__' of str object at 0x00000254B8C79BC0>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000254B8C79BC0>
+__le__: <method-wrapper '__le__' of str object at 0x00000254B8C7A430>
+__len__: <method-wrapper '__len__' of str object at 0x00000254B8C79BC0>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000254B8C7A430>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000254B8C79BC0>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000254B8C7A430>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000254B8C79BC0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000254B8C79BC0>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000254B8C7A430>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000254B8C79BC0>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000254B8C7A430>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000254B8C79BC0>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000254B8C7A430>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000254B8C79BC0>
+__str__: <method-wrapper '__str__' of str object at 0x00000254B8C7A430>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000254B8C7A430>
+casefold: <built-in method casefold of str object at 0x00000254B8C7A5E0>
+center: <built-in method center of str object at 0x00000254B8C7A430>
+count: <built-in method count of str object at 0x00000254B8C7A5E0>
+encode: <built-in method encode of str object at 0x00000254B8C7A430>
+endswith: <built-in method endswith of str object at 0x00000254B8C7A5E0>
+expandtabs: <built-in method expandtabs of str object at 0x00000254B8C7A430>
+find: <built-in method find of str object at 0x00000254B8C7A5E0>
+format: <built-in method format of str object at 0x00000254B8C7A430>
+format_map: <built-in method format_map of str object at 0x00000254B8C7A5E0>
+index: <built-in method index of str object at 0x00000254B8C7A430>
+isalnum: <built-in method isalnum of str object at 0x00000254B8C7A5E0>
+isalpha: <built-in method isalpha of str object at 0x00000254B8C7A430>
+isascii: <built-in method isascii of str object at 0x00000254B8C7A5E0>
+isdecimal: <built-in method isdecimal of str object at 0x00000254B8C7A430>
+isdigit: <built-in method isdigit of str object at 0x00000254B8C7A5E0>
+isidentifier: <built-in method isidentifier of str object at 0x00000254B8C7A430>
+islower: <built-in method islower of str object at 0x00000254B8C7A5E0>
+isnumeric: <built-in method isnumeric of str object at 0x00000254B8C7A430>
+isprintable: <built-in method isprintable of str object at 0x00000254B8C7A5E0>
+isspace: <built-in method isspace of str object at 0x00000254B8C7A670>
+istitle: <built-in method istitle of str object at 0x00000254B8C7A5E0>
+isupper: <built-in method isupper of str object at 0x00000254B8C7A670>
+join: <built-in method join of str object at 0x00000254B8C7A5E0>
+ljust: <built-in method ljust of str object at 0x00000254B8C7A670>
+lower: <built-in method lower of str object at 0x00000254B8C7A5E0>
+lstrip: <built-in method lstrip of str object at 0x00000254B8C7A670>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000254B8C7A670>
+removeprefix: <built-in method removeprefix of str object at 0x00000254B8C7A5E0>
+removesuffix: <built-in method removesuffix of str object at 0x00000254B8C7A670>
+replace: <built-in method replace of str object at 0x00000254B8C7A5E0>
+rfind: <built-in method rfind of str object at 0x00000254B8C7A670>
+rindex: <built-in method rindex of str object at 0x00000254B8C7A5E0>
+rjust: <built-in method rjust of str object at 0x00000254B8C7A670>
+rpartition: <built-in method rpartition of str object at 0x00000254B8C7A5E0>
+rsplit: <built-in method rsplit of str object at 0x00000254B8C7A670>
+rstrip: <built-in method rstrip of str object at 0x00000254B8C7A5E0>
+split: <built-in method split of str object at 0x00000254B8C7A670>
+splitlines: <built-in method splitlines of str object at 0x00000254B8C7A5E0>
+startswith: <built-in method startswith of str object at 0x00000254B8C7A670>
+strip: <built-in method strip of str object at 0x00000254B8C7A5E0>
+swapcase: <built-in method swapcase of str object at 0x00000254B8C7A670>
+title: <built-in method title of str object at 0x00000254B8C7A5E0>
+translate: <built-in method translate of str object at 0x00000254B8C7A670>
+upper: <built-in method upper of str object at 0x00000254B8C7A5E0>
+zfill: <built-in method zfill of str object at 0x00000254B8C7A670>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000254B8B7E330>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000254B8B7E330>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000254B8B7E630>
+__dir__: <built-in method __dir__ of str object at 0x00000254B8B7E330>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000254B8B7E330>
+__format__: <built-in method __format__ of str object at 0x00000254B8B7E630>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000254B8B7EE30>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000254B8B7E630>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000254B8B7EE30>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000254B8B7E630>
+__getstate__: <built-in method __getstate__ of str object at 0x00000254B8B7EE30>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000254B8B7E630>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000254B8B7EE30>
+__init__: <method-wrapper '__init__' of str object at 0x00000254B8B7E630>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000254B8B7E630>
+__le__: <method-wrapper '__le__' of str object at 0x00000254B8B7EE30>
+__len__: <method-wrapper '__len__' of str object at 0x00000254B8B7E630>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000254B8B7EE30>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000254B8B7E630>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000254B8B7EE30>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000254B8B7E630>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000254B8B7E630>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000254B8CE0030>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000254B8B7E630>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000254B8CE0030>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000254B8B7E630>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000254B8CE0030>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000254B8B7E630>
+__str__: <method-wrapper '__str__' of str object at 0x00000254B8CE1B30>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000254B8B7E630>
+casefold: <built-in method casefold of str object at 0x00000254B8CE17B0>
+center: <built-in method center of str object at 0x00000254B8B7E630>
+count: <built-in method count of str object at 0x00000254B8CE17B0>
+encode: <built-in method encode of str object at 0x00000254B8B7E630>
+endswith: <built-in method endswith of str object at 0x00000254B8CE17B0>
+expandtabs: <built-in method expandtabs of str object at 0x00000254B8B7E630>
+find: <built-in method find of str object at 0x00000254B8CE1730>
+format: <built-in method format of str object at 0x00000254B8B7E630>
+format_map: <built-in method format_map of str object at 0x00000254B8CE1730>
+index: <built-in method index of str object at 0x00000254B8CE0C30>
+isalnum: <built-in method isalnum of str object at 0x00000254B8CE1730>
+isalpha: <built-in method isalpha of str object at 0x00000254B8CE0C30>
+isascii: <built-in method isascii of str object at 0x00000254B8CE1730>
+isdecimal: <built-in method isdecimal of str object at 0x00000254B8CE0C30>
+isdigit: <built-in method isdigit of str object at 0x00000254B8CE1730>
+isidentifier: <built-in method isidentifier of str object at 0x00000254B8CE0C30>
+islower: <built-in method islower of str object at 0x00000254B8CE1730>
+isnumeric: <built-in method isnumeric of str object at 0x00000254B8CE0C30>
+isprintable: <built-in method isprintable of str object at 0x00000254B8CE1730>
+isspace: <built-in method isspace of str object at 0x00000254B8CE0730>
+istitle: <built-in method istitle of str object at 0x00000254B8CE1730>
+isupper: <built-in method isupper of str object at 0x00000254B8CE0730>
+join: <built-in method join of str object at 0x00000254B8CE1730>
+ljust: <built-in method ljust of str object at 0x00000254B8CE0730>
+lower: <built-in method lower of str object at 0x00000254B8CE1730>
+lstrip: <built-in method lstrip of str object at 0x00000254B8CE0730>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000254B8CE1730>
+removeprefix: <built-in method removeprefix of str object at 0x00000254B8CE1830>
+removesuffix: <built-in method removesuffix of str object at 0x00000254B8CE1730>
+replace: <built-in method replace of str object at 0x00000254B8CE1830>
+rfind: <built-in method rfind of str object at 0x00000254B8CE1730>
+rindex: <built-in method rindex of str object at 0x00000254B8CE1830>
+rjust: <built-in method rjust of str object at 0x00000254B8CE1730>
+rpartition: <built-in method rpartition of str object at 0x00000254B8CE1830>
+rsplit: <built-in method rsplit of str object at 0x00000254B8CE1E30>
+rstrip: <built-in method rstrip of str object at 0x00000254B8CE1830>
+split: <built-in method split of str object at 0x00000254B8CE1E30>
+splitlines: <built-in method splitlines of str object at 0x00000254B8CE1830>
+startswith: <built-in method startswith of str object at 0x00000254B8CE2030>
+strip: <built-in method strip of str object at 0x00000254B8CE20B0>
+swapcase: <built-in method swapcase of str object at 0x00000254B8CE2030>
+title: <built-in method title of str object at 0x00000254B8CE20B0>
+translate: <built-in method translate of str object at 0x00000254B8CE2030>
+upper: <built-in method upper of str object at 0x00000254B8CE20B0>
+zfill: <built-in method zfill of str object at 0x00000254B8CE2030>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1DAF100>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1DAF100>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1DAF260>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1DAF100>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1DAF100>
+__format__: <built-in method __format__ of str object at 0x00000209C1DAF260>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1DAF100>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1DAF260>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1DAF100>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1DAF260>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1DAF100>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1DAF260>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1DAF100>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1DAF260>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1DAF260>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1DAF100>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1DAF260>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1DAF100>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1DAF260>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1DAF100>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1DAF260>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1DAF260>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1DAF100>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1DAF260>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1DAF100>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1DAF260>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1DAF100>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1DAF260>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1DAF100>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1DAF100>
+casefold: <built-in method casefold of str object at 0x00000209C1DAF260>
+center: <built-in method center of str object at 0x00000209C1DAF100>
+count: <built-in method count of str object at 0x00000209C1DAF260>
+encode: <built-in method encode of str object at 0x00000209C1DAF100>
+endswith: <built-in method endswith of str object at 0x00000209C1DAF260>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1DAF100>
+find: <built-in method find of str object at 0x00000209C1DAF260>
+format: <built-in method format of str object at 0x00000209C1DAF100>
+format_map: <built-in method format_map of str object at 0x00000209C1DAF260>
+index: <built-in method index of str object at 0x00000209C1DAF100>
+isalnum: <built-in method isalnum of str object at 0x00000209C1DAF260>
+isalpha: <built-in method isalpha of str object at 0x00000209C1DAF100>
+isascii: <built-in method isascii of str object at 0x00000209C1DAF260>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1DAF100>
+isdigit: <built-in method isdigit of str object at 0x00000209C1DAF260>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1DAF100>
+islower: <built-in method islower of str object at 0x00000209C1DAF260>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1DAF100>
+isprintable: <built-in method isprintable of str object at 0x00000209C1DAF260>
+isspace: <built-in method isspace of str object at 0x00000209C1DAF100>
+istitle: <built-in method istitle of str object at 0x00000209C1DAF260>
+isupper: <built-in method isupper of str object at 0x00000209C1DAF100>
+join: <built-in method join of str object at 0x00000209C1DAF260>
+ljust: <built-in method ljust of str object at 0x00000209C1DAF100>
+lower: <built-in method lower of str object at 0x00000209C1DAF260>
+lstrip: <built-in method lstrip of str object at 0x00000209C1DAF100>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1DAF100>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1DAF260>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1DAF100>
+replace: <built-in method replace of str object at 0x00000209C1DAF260>
+rfind: <built-in method rfind of str object at 0x00000209C1DAF100>
+rindex: <built-in method rindex of str object at 0x00000209C1DAF260>
+rjust: <built-in method rjust of str object at 0x00000209C1DAF100>
+rpartition: <built-in method rpartition of str object at 0x00000209C1DAF260>
+rsplit: <built-in method rsplit of str object at 0x00000209C1DAF100>
+rstrip: <built-in method rstrip of str object at 0x00000209C1DAF260>
+split: <built-in method split of str object at 0x00000209C1DAF100>
+splitlines: <built-in method splitlines of str object at 0x00000209C1DAF260>
+startswith: <built-in method startswith of str object at 0x00000209C1DAF100>
+strip: <built-in method strip of str object at 0x00000209C1DAF260>
+swapcase: <built-in method swapcase of str object at 0x00000209C1DAF100>
+title: <built-in method title of str object at 0x00000209C1DAF260>
+translate: <built-in method translate of str object at 0x00000209C1DAF100>
+upper: <built-in method upper of str object at 0x00000209C1DAF260>
+zfill: <built-in method zfill of str object at 0x00000209C1DAF100>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EC8C90>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EC8C90>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EC8ED0>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EC8C90>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EC8C90>
+__format__: <built-in method __format__ of str object at 0x00000209C1EC8ED0>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EC8C90>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EC8ED0>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EC8C90>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EC8ED0>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EC8C90>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EC8ED0>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EC8C90>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EC8ED0>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EC8ED0>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EC9350>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EC8ED0>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EC9350>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EC8ED0>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EC9350>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EC8ED0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EC8ED0>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EC9350>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EC8ED0>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EC9350>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EC8ED0>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EC9350>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EC8ED0>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EC9350>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EC9350>
+casefold: <built-in method casefold of str object at 0x00000209C1EC8D20>
+center: <built-in method center of str object at 0x00000209C1EC9350>
+count: <built-in method count of str object at 0x00000209C1EC8D20>
+encode: <built-in method encode of str object at 0x00000209C1EC9350>
+endswith: <built-in method endswith of str object at 0x00000209C1EC8D20>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EC9350>
+find: <built-in method find of str object at 0x00000209C1EC8D20>
+format: <built-in method format of str object at 0x00000209C1EC9350>
+format_map: <built-in method format_map of str object at 0x00000209C1EC8D20>
+index: <built-in method index of str object at 0x00000209C1EC9350>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EC8D20>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EC9350>
+isascii: <built-in method isascii of str object at 0x00000209C1EC8D20>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EC9350>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EC8D20>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EC9350>
+islower: <built-in method islower of str object at 0x00000209C1EC8D20>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EC9350>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EC8D20>
+isspace: <built-in method isspace of str object at 0x00000209C1EC9620>
+istitle: <built-in method istitle of str object at 0x00000209C1EC8D20>
+isupper: <built-in method isupper of str object at 0x00000209C1EC9620>
+join: <built-in method join of str object at 0x00000209C1EC8D20>
+ljust: <built-in method ljust of str object at 0x00000209C1EC9620>
+lower: <built-in method lower of str object at 0x00000209C1EC8D20>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EC9620>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EC9620>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EC8D20>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EC9620>
+replace: <built-in method replace of str object at 0x00000209C1EC8D20>
+rfind: <built-in method rfind of str object at 0x00000209C1EC9620>
+rindex: <built-in method rindex of str object at 0x00000209C1EC8D20>
+rjust: <built-in method rjust of str object at 0x00000209C1EC9620>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EC8D20>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EC9620>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EC8D20>
+split: <built-in method split of str object at 0x00000209C1EC9620>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EC8D20>
+startswith: <built-in method startswith of str object at 0x00000209C1EC9620>
+strip: <built-in method strip of str object at 0x00000209C1EC8D20>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EC9620>
+title: <built-in method title of str object at 0x00000209C1EC8D20>
+translate: <built-in method translate of str object at 0x00000209C1EC9620>
+upper: <built-in method upper of str object at 0x00000209C1EC8D20>
+zfill: <built-in method zfill of str object at 0x00000209C1EC9620>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EBBA30>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EBBA30>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EBBF30>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EBBA30>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EBBA30>
+__format__: <built-in method __format__ of str object at 0x00000209C1EBBF30>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EF42B0>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EBBF30>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EF42B0>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EBBF30>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EF42B0>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EBBF30>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EF42B0>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EBBF30>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EBBF30>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EF42B0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EBBF30>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EF42B0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EBBF30>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EF42B0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EBBF30>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EBBF30>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EF4830>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EBBF30>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EF4830>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EBBF30>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EF4830>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EBBF30>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EF4930>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EBBF30>
+casefold: <built-in method casefold of str object at 0x00000209C1EF4B30>
+center: <built-in method center of str object at 0x00000209C1EBBF30>
+count: <built-in method count of str object at 0x00000209C1EF4B30>
+encode: <built-in method encode of str object at 0x00000209C1EBBF30>
+endswith: <built-in method endswith of str object at 0x00000209C1EF4B30>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EBBF30>
+find: <built-in method find of str object at 0x00000209C1EF4CB0>
+format: <built-in method format of str object at 0x00000209C1EBBF30>
+format_map: <built-in method format_map of str object at 0x00000209C1EF4CB0>
+index: <built-in method index of str object at 0x00000209C1EF4FB0>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EF4CB0>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EF4FB0>
+isascii: <built-in method isascii of str object at 0x00000209C1EF4CB0>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EF4FB0>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EF4CB0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EF4FB0>
+islower: <built-in method islower of str object at 0x00000209C1EF4CB0>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EF4FB0>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EF4CB0>
+isspace: <built-in method isspace of str object at 0x00000209C1EF5430>
+istitle: <built-in method istitle of str object at 0x00000209C1EF4CB0>
+isupper: <built-in method isupper of str object at 0x00000209C1EF5430>
+join: <built-in method join of str object at 0x00000209C1EF4CB0>
+ljust: <built-in method ljust of str object at 0x00000209C1EF5430>
+lower: <built-in method lower of str object at 0x00000209C1EF4CB0>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EF5430>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EF4CB0>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EF57B0>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EF4CB0>
+replace: <built-in method replace of str object at 0x00000209C1EF57B0>
+rfind: <built-in method rfind of str object at 0x00000209C1EF4CB0>
+rindex: <built-in method rindex of str object at 0x00000209C1EF57B0>
+rjust: <built-in method rjust of str object at 0x00000209C1EF4CB0>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EF57B0>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EF5AB0>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EF57B0>
+split: <built-in method split of str object at 0x00000209C1EF5AB0>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EF57B0>
+startswith: <built-in method startswith of str object at 0x00000209C1EF5CB0>
+strip: <built-in method strip of str object at 0x00000209C1EF5D30>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EF5CB0>
+title: <built-in method title of str object at 0x00000209C1EF5D30>
+translate: <built-in method translate of str object at 0x00000209C1EF5CB0>
+upper: <built-in method upper of str object at 0x00000209C1EF5D30>
+zfill: <built-in method zfill of str object at 0x00000209C1EF5CB0>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EC5E30>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1E33D70>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EC70F0>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1E33D70>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1E33D70>
+__format__: <built-in method __format__ of str object at 0x00000209C1EC6420>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1E33D70>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EC6290>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1E33D70>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EC5E30>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1E33D70>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EC7000>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1E33D70>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EC6D80>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1E33D70>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EC6EC0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1E33D70>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EC6F60>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1E33D70>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EC6EC0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1E33D70>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1E33D70>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EC70F0>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1E33D70>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EC6F60>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1E33D70>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EC62E0>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1E33D70>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EC6290>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1E33D70>
+casefold: <built-in method casefold of str object at 0x00000209C1EC6420>
+center: <built-in method center of str object at 0x00000209C1E33D70>
+count: <built-in method count of str object at 0x00000209C1EC7140>
+encode: <built-in method encode of str object at 0x00000209C1E33D70>
+endswith: <built-in method endswith of str object at 0x00000209C1EC70F0>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1E33D70>
+find: <built-in method find of str object at 0x00000209C1EC5E30>
+format: <built-in method format of str object at 0x00000209C1E33D70>
+format_map: <built-in method format_map of str object at 0x00000209C1EC6D80>
+index: <built-in method index of str object at 0x00000209C1E33D70>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EC6F60>
+isalpha: <built-in method isalpha of str object at 0x00000209C1E33D70>
+isascii: <built-in method isascii of str object at 0x00000209C1EC7000>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1E33D70>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EC6420>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1E33D70>
+islower: <built-in method islower of str object at 0x00000209C1EC7140>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1E33D70>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EC70F0>
+isspace: <built-in method isspace of str object at 0x00000209C1E33D70>
+istitle: <built-in method istitle of str object at 0x00000209C1EC5E30>
+isupper: <built-in method isupper of str object at 0x00000209C1E33D70>
+join: <built-in method join of str object at 0x00000209C1EC6D80>
+ljust: <built-in method ljust of str object at 0x00000209C1E33D70>
+lower: <built-in method lower of str object at 0x00000209C1EC6F60>
+lstrip: <built-in method lstrip of str object at 0x00000209C1E33D70>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1E33D70>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EC6EC0>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1E33D70>
+replace: <built-in method replace of str object at 0x00000209C1EC7000>
+rfind: <built-in method rfind of str object at 0x00000209C1E33D70>
+rindex: <built-in method rindex of str object at 0x00000209C1EC6420>
+rjust: <built-in method rjust of str object at 0x00000209C1E33D70>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EC5E30>
+rsplit: <built-in method rsplit of str object at 0x00000209C1E33D70>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EC6290>
+split: <built-in method split of str object at 0x00000209C1E33D70>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EC62E0>
+startswith: <built-in method startswith of str object at 0x00000209C1E33D70>
+strip: <built-in method strip of str object at 0x00000209C1EC6D80>
+swapcase: <built-in method swapcase of str object at 0x00000209C1E33D70>
+title: <built-in method title of str object at 0x00000209C1EC6EC0>
+translate: <built-in method translate of str object at 0x00000209C1E33D70>
+upper: <built-in method upper of str object at 0x00000209C1EC7000>
+zfill: <built-in method zfill of str object at 0x00000209C1E33D70>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EC8C00>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EC8C00>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EC8FF0>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EC8C00>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EC8C00>
+__format__: <built-in method __format__ of str object at 0x00000209C1EC8FF0>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EC8C00>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EC8FF0>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EC8C00>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EC8FF0>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EC8C00>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EC8FF0>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EC8C00>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EC8FF0>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EC8FF0>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EC8ED0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EC8FF0>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EC8ED0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EC8FF0>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EC8ED0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EC8FF0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EC8FF0>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EC8ED0>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EC8FF0>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EC8ED0>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EC8FF0>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EC8ED0>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EC8FF0>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EC8ED0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EC8ED0>
+casefold: <built-in method casefold of str object at 0x00000209C1EC8AE0>
+center: <built-in method center of str object at 0x00000209C1EC8ED0>
+count: <built-in method count of str object at 0x00000209C1EC8AE0>
+encode: <built-in method encode of str object at 0x00000209C1EC8ED0>
+endswith: <built-in method endswith of str object at 0x00000209C1EC8AE0>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EC8ED0>
+find: <built-in method find of str object at 0x00000209C1EC8AE0>
+format: <built-in method format of str object at 0x00000209C1EC8ED0>
+format_map: <built-in method format_map of str object at 0x00000209C1EC8AE0>
+index: <built-in method index of str object at 0x00000209C1EC8ED0>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EC8AE0>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EC8ED0>
+isascii: <built-in method isascii of str object at 0x00000209C1EC8AE0>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EC8ED0>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EC8AE0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EC8ED0>
+islower: <built-in method islower of str object at 0x00000209C1EC8AE0>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EC8ED0>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EC8AE0>
+isspace: <built-in method isspace of str object at 0x00000209C1EC8D20>
+istitle: <built-in method istitle of str object at 0x00000209C1EC8AE0>
+isupper: <built-in method isupper of str object at 0x00000209C1EC8D20>
+join: <built-in method join of str object at 0x00000209C1EC8AE0>
+ljust: <built-in method ljust of str object at 0x00000209C1EC8D20>
+lower: <built-in method lower of str object at 0x00000209C1EC8AE0>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EC8D20>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EC8D20>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EC8AE0>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EC8D20>
+replace: <built-in method replace of str object at 0x00000209C1EC8AE0>
+rfind: <built-in method rfind of str object at 0x00000209C1EC8D20>
+rindex: <built-in method rindex of str object at 0x00000209C1EC8AE0>
+rjust: <built-in method rjust of str object at 0x00000209C1EC8D20>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EC8AE0>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EC8D20>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EC8AE0>
+split: <built-in method split of str object at 0x00000209C1EC8D20>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EC8AE0>
+startswith: <built-in method startswith of str object at 0x00000209C1EC8D20>
+strip: <built-in method strip of str object at 0x00000209C1EC8AE0>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EC8D20>
+title: <built-in method title of str object at 0x00000209C1EC8AE0>
+translate: <built-in method translate of str object at 0x00000209C1EC8D20>
+upper: <built-in method upper of str object at 0x00000209C1EC8AE0>
+zfill: <built-in method zfill of str object at 0x00000209C1EC8D20>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EE1630>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EE11B0>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EE1670>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EE1170>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EE11B0>
+__format__: <built-in method __format__ of str object at 0x00000209C1EE14F0>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EE0D30>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EE1630>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EE11B0>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EE1170>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EE1030>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EE14F0>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EE0D30>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EE1630>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EE14F0>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EE1170>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EE1030>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EE0D30>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EE11B0>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EE1430>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EE14F0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EE11B0>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EE1030>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EE0D30>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EE1430>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EE1170>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EE1630>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EE11B0>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EE1030>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EE1630>
+casefold: <built-in method casefold of str object at 0x00000209C1EE1430>
+center: <built-in method center of str object at 0x00000209C1EE1170>
+count: <built-in method count of str object at 0x00000209C1EE11B0>
+encode: <built-in method encode of str object at 0x00000209C1EE0D30>
+endswith: <built-in method endswith of str object at 0x00000209C1EE14F0>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EE1630>
+find: <built-in method find of str object at 0x00000209C1EE1430>
+format: <built-in method format of str object at 0x00000209C1EE1170>
+format_map: <built-in method format_map of str object at 0x00000209C1EE11B0>
+index: <built-in method index of str object at 0x00000209C1EE0D30>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EE14F0>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EE1630>
+isascii: <built-in method isascii of str object at 0x00000209C1EE1430>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EE1170>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EE11B0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EE0D30>
+islower: <built-in method islower of str object at 0x00000209C1EE14F0>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EE1630>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EE1430>
+isspace: <built-in method isspace of str object at 0x00000209C1EE1170>
+istitle: <built-in method istitle of str object at 0x00000209C1EE11B0>
+isupper: <built-in method isupper of str object at 0x00000209C1EE0D30>
+join: <built-in method join of str object at 0x00000209C1EE14F0>
+ljust: <built-in method ljust of str object at 0x00000209C1EE1630>
+lower: <built-in method lower of str object at 0x00000209C1EE1430>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EE1170>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EE1630>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EE0D30>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EE14F0>
+replace: <built-in method replace of str object at 0x00000209C1EE1430>
+rfind: <built-in method rfind of str object at 0x00000209C1EE11B0>
+rindex: <built-in method rindex of str object at 0x00000209C1EE1030>
+rjust: <built-in method rjust of str object at 0x00000209C1EE1630>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EE0D30>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EE14F0>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EE1430>
+split: <built-in method split of str object at 0x00000209C1EE11B0>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EE1030>
+startswith: <built-in method startswith of str object at 0x00000209C1EE1630>
+strip: <built-in method strip of str object at 0x00000209C1EE0D30>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EE14F0>
+title: <built-in method title of str object at 0x00000209C1EE1430>
+translate: <built-in method translate of str object at 0x00000209C1EE11B0>
+upper: <built-in method upper of str object at 0x00000209C1EE1030>
+zfill: <built-in method zfill of str object at 0x00000209C1EE1630>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209BE313BE0>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209BE319590>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209BE314B40>
+__dir__: <built-in method __dir__ of str object at 0x00000209BE315810>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209BE314390>
+__format__: <built-in method __format__ of str object at 0x00000209BE316F20>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209BE319590>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209BE316F20>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209BE313BE0>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209BE316F20>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209BE3171B0>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209BE319590>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209BE3129F0>
+__init__: <method-wrapper '__init__' of str object at 0x00000209BE313E70>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209BE315FC0>
+__le__: <method-wrapper '__le__' of str object at 0x00000209BE315810>
+__len__: <method-wrapper '__len__' of str object at 0x00000209BE31A4F0>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209BE314DD0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209BE314B40>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209BE314DD0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209BE316F20>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209BE314B40>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209BE31A260>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209BE31A4F0>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209BE314DD0>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209BE317BF0>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209BE315FC0>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209BE316250>
+__str__: <method-wrapper '__str__' of str object at 0x00000209BE319AB0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209BE316F20>
+casefold: <built-in method casefold of str object at 0x00000209BE315060>
+center: <built-in method center of str object at 0x00000209BE315810>
+count: <built-in method count of str object at 0x00000209BE314B40>
+encode: <built-in method encode of str object at 0x00000209BE313BE0>
+endswith: <built-in method endswith of str object at 0x00000209BE318630>
+expandtabs: <built-in method expandtabs of str object at 0x00000209BE319590>
+find: <built-in method find of str object at 0x00000209BE317960>
+format: <built-in method format of str object at 0x00000209BE318630>
+format_map: <built-in method format_map of str object at 0x00000209BE315810>
+index: <built-in method index of str object at 0x00000209BE313BE0>
+isalnum: <built-in method isalnum of str object at 0x00000209BE313E70>
+isalpha: <built-in method isalpha of str object at 0x00000209BE314B40>
+isascii: <built-in method isascii of str object at 0x00000209BE316F20>
+isdecimal: <built-in method isdecimal of str object at 0x00000209BE313BE0>
+isdigit: <built-in method isdigit of str object at 0x00000209BE3129F0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209BE31A260>
+islower: <built-in method islower of str object at 0x00000209BE315810>
+isnumeric: <built-in method isnumeric of str object at 0x00000209BE318630>
+isprintable: <built-in method isprintable of str object at 0x00000209BE316F20>
+isspace: <built-in method isspace of str object at 0x00000209BE31A4F0>
+istitle: <built-in method istitle of str object at 0x00000209BE315810>
+isupper: <built-in method isupper of str object at 0x00000209BE319590>
+join: <built-in method join of str object at 0x00000209BE313BE0>
+ljust: <built-in method ljust of str object at 0x00000209BE318630>
+lower: <built-in method lower of str object at 0x00000209BE317BF0>
+lstrip: <built-in method lstrip of str object at 0x00000209BE313BE0>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209BE31A260>
+removeprefix: <built-in method removeprefix of str object at 0x00000209BE315FC0>
+removesuffix: <built-in method removesuffix of str object at 0x00000209BE318630>
+replace: <built-in method replace of str object at 0x00000209BE314B40>
+rfind: <built-in method rfind of str object at 0x00000209BE313BE0>
+rindex: <built-in method rindex of str object at 0x00000209BE314390>
+rjust: <built-in method rjust of str object at 0x00000209BE314B40>
+rpartition: <built-in method rpartition of str object at 0x00000209BE31A260>
+rsplit: <built-in method rsplit of str object at 0x00000209BE317BF0>
+rstrip: <built-in method rstrip of str object at 0x00000209BE317E80>
+split: <built-in method split of str object at 0x00000209BE319590>
+splitlines: <built-in method splitlines of str object at 0x00000209BE318630>
+startswith: <built-in method startswith of str object at 0x00000209BE313BE0>
+strip: <built-in method strip of str object at 0x00000209BE3164E0>
+swapcase: <built-in method swapcase of str object at 0x00000209BE315FC0>
+title: <built-in method title of str object at 0x00000209BE316F20>
+translate: <built-in method translate of str object at 0x00000209BE3164E0>
+upper: <built-in method upper of str object at 0x00000209BE319590>
+zfill: <built-in method zfill of str object at 0x00000209BE314B40>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EC6D30>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1E33D70>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EC7460>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1E33D70>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1E33D70>
+__format__: <built-in method __format__ of str object at 0x00000209C1EC7460>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1E33D70>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EC7500>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1E33D70>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EC7500>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1E33D70>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EC6D30>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1E33D70>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EC6D30>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1E33D70>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EC7500>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1E33D70>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EC7500>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1E33D70>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EC7500>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1E33D70>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1E33D70>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EC7460>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EC6D30>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EC7500>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1E33D70>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EC7500>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1E33D70>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EC7500>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1E33D70>
+casefold: <built-in method casefold of str object at 0x00000209C1EC6D30>
+center: <built-in method center of str object at 0x00000209C1EC7460>
+count: <built-in method count of str object at 0x00000209C1EC7500>
+encode: <built-in method encode of str object at 0x00000209C1E33D70>
+endswith: <built-in method endswith of str object at 0x00000209C1EC6D30>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EC7460>
+find: <built-in method find of str object at 0x00000209C1EC7500>
+format: <built-in method format of str object at 0x00000209C1E33D70>
+format_map: <built-in method format_map of str object at 0x00000209C1EC6D30>
+index: <built-in method index of str object at 0x00000209C1EC7460>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EC7500>
+isalpha: <built-in method isalpha of str object at 0x00000209C1E33D70>
+isascii: <built-in method isascii of str object at 0x00000209C1EC6D30>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EC7460>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EC7500>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1E33D70>
+islower: <built-in method islower of str object at 0x00000209C1EC6D30>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EC7460>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EC7500>
+isspace: <built-in method isspace of str object at 0x00000209C1E33D70>
+istitle: <built-in method istitle of str object at 0x00000209C1EC6D30>
+isupper: <built-in method isupper of str object at 0x00000209C1EC7460>
+join: <built-in method join of str object at 0x00000209C1EC7500>
+ljust: <built-in method ljust of str object at 0x00000209C1E33D70>
+lower: <built-in method lower of str object at 0x00000209C1EC6D30>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EC7460>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1E33D70>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EC6D30>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EC7500>
+replace: <built-in method replace of str object at 0x00000209C1EC7460>
+rfind: <built-in method rfind of str object at 0x00000209C1E33D70>
+rindex: <built-in method rindex of str object at 0x00000209C1EC6D30>
+rjust: <built-in method rjust of str object at 0x00000209C1EC7500>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EC7460>
+rsplit: <built-in method rsplit of str object at 0x00000209C1E33D70>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EC6D30>
+split: <built-in method split of str object at 0x00000209C1EC7500>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EC7460>
+startswith: <built-in method startswith of str object at 0x00000209C1E33D70>
+strip: <built-in method strip of str object at 0x00000209C1EC6D30>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EC7500>
+title: <built-in method title of str object at 0x00000209C1EC7460>
+translate: <built-in method translate of str object at 0x00000209C1E33D70>
+upper: <built-in method upper of str object at 0x00000209C1EC6D30>
+zfill: <built-in method zfill of str object at 0x00000209C1EC7500>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EC6D30>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1E33D70>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EC6D30>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1E33D70>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1E33D70>
+__format__: <built-in method __format__ of str object at 0x00000209C1EC6D30>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1E33D70>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EC6D30>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1E33D70>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EC6D30>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1E33D70>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EC6D30>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1E33D70>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EC6D30>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EC6D30>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1E33D70>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EC6D30>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1E33D70>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EC6D30>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1E33D70>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EC6D30>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EC6D30>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1FFEA60>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1E33D70>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EC6D30>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1E33D70>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EC6D30>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1E33D70>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EC6D30>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EC6D30>
+casefold: <built-in method casefold of str object at 0x00000209C1FFEF10>
+center: <built-in method center of str object at 0x00000209C1E33D70>
+count: <built-in method count of str object at 0x00000209C1FFEA60>
+encode: <built-in method encode of str object at 0x00000209C1EC6D30>
+endswith: <built-in method endswith of str object at 0x00000209C1FFEE70>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1E33D70>
+find: <built-in method find of str object at 0x00000209C1FFEEC0>
+format: <built-in method format of str object at 0x00000209C1EC6D30>
+format_map: <built-in method format_map of str object at 0x00000209C1FFEF10>
+index: <built-in method index of str object at 0x00000209C1E33D70>
+isalnum: <built-in method isalnum of str object at 0x00000209C1FFEA60>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EC6D30>
+isascii: <built-in method isascii of str object at 0x00000209C1FFEE70>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1E33D70>
+isdigit: <built-in method isdigit of str object at 0x00000209C1FFEEC0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EC6D30>
+islower: <built-in method islower of str object at 0x00000209C1FFEF10>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1E33D70>
+isprintable: <built-in method isprintable of str object at 0x00000209C1FFEA60>
+isspace: <built-in method isspace of str object at 0x00000209C1EC6D30>
+istitle: <built-in method istitle of str object at 0x00000209C1FFEE70>
+isupper: <built-in method isupper of str object at 0x00000209C1E33D70>
+join: <built-in method join of str object at 0x00000209C1FFEEC0>
+ljust: <built-in method ljust of str object at 0x00000209C1EC6D30>
+lower: <built-in method lower of str object at 0x00000209C1FFEF10>
+lstrip: <built-in method lstrip of str object at 0x00000209C1E33D70>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EC6D30>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1FFEA60>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1E33D70>
+replace: <built-in method replace of str object at 0x00000209C1FFEEC0>
+rfind: <built-in method rfind of str object at 0x00000209C1EC6D30>
+rindex: <built-in method rindex of str object at 0x00000209C1FFEF10>
+rjust: <built-in method rjust of str object at 0x00000209C1E33D70>
+rpartition: <built-in method rpartition of str object at 0x00000209C1FFEE70>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EC6D30>
+rstrip: <built-in method rstrip of str object at 0x00000209C1FFEA60>
+split: <built-in method split of str object at 0x00000209C1E33D70>
+splitlines: <built-in method splitlines of str object at 0x00000209C1FFEEC0>
+startswith: <built-in method startswith of str object at 0x00000209C1EC6D30>
+strip: <built-in method strip of str object at 0x00000209C1FFEF10>
+swapcase: <built-in method swapcase of str object at 0x00000209C1E33D70>
+title: <built-in method title of str object at 0x00000209C1FFEE70>
+translate: <built-in method translate of str object at 0x00000209C1EC6D30>
+upper: <built-in method upper of str object at 0x00000209C1FFEA60>
+zfill: <built-in method zfill of str object at 0x00000209C1E33D70>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1ED5250>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1ED5250>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1ED4E90>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1ED5250>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1ED5250>
+__format__: <built-in method __format__ of str object at 0x00000209C1ED4E90>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1ED5250>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1ED4E90>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1ED5250>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1ED4E90>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1ED5250>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1ED4E90>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1ED5250>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1ED4E90>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1ED4E90>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1ED5250>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1ED4E90>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1ED5250>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1ED4E90>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1ED5250>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1ED4E90>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1ED4E90>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1ED5250>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1ED4E90>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1ED5250>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1ED4E90>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1ED5250>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1ED4E90>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1ED5250>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1ED5250>
+casefold: <built-in method casefold of str object at 0x00000209C1ED4E90>
+center: <built-in method center of str object at 0x00000209C1ED5250>
+count: <built-in method count of str object at 0x00000209C1ED4E90>
+encode: <built-in method encode of str object at 0x00000209C1ED5250>
+endswith: <built-in method endswith of str object at 0x00000209C1ED4E90>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1ED5250>
+find: <built-in method find of str object at 0x00000209C1ED4E90>
+format: <built-in method format of str object at 0x00000209C1ED5250>
+format_map: <built-in method format_map of str object at 0x00000209C1ED4E90>
+index: <built-in method index of str object at 0x00000209C1ED5250>
+isalnum: <built-in method isalnum of str object at 0x00000209C1ED4E90>
+isalpha: <built-in method isalpha of str object at 0x00000209C1ED5250>
+isascii: <built-in method isascii of str object at 0x00000209C1ED4E90>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1ED5250>
+isdigit: <built-in method isdigit of str object at 0x00000209C1ED4E90>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1ED5250>
+islower: <built-in method islower of str object at 0x00000209C1ED4E90>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1ED5250>
+isprintable: <built-in method isprintable of str object at 0x00000209C1ED4E90>
+isspace: <built-in method isspace of str object at 0x00000209C1ED5250>
+istitle: <built-in method istitle of str object at 0x00000209C1ED4E90>
+isupper: <built-in method isupper of str object at 0x00000209C1ED5250>
+join: <built-in method join of str object at 0x00000209C1ED4E90>
+ljust: <built-in method ljust of str object at 0x00000209C1ED5250>
+lower: <built-in method lower of str object at 0x00000209C1ED4E90>
+lstrip: <built-in method lstrip of str object at 0x00000209C1ED5250>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1ED5250>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1ED4E90>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1ED5250>
+replace: <built-in method replace of str object at 0x00000209C1ED4E90>
+rfind: <built-in method rfind of str object at 0x00000209C1ED5250>
+rindex: <built-in method rindex of str object at 0x00000209C1ED4E90>
+rjust: <built-in method rjust of str object at 0x00000209C1ED5250>
+rpartition: <built-in method rpartition of str object at 0x00000209C1ED4E90>
+rsplit: <built-in method rsplit of str object at 0x00000209C1ED5250>
+rstrip: <built-in method rstrip of str object at 0x00000209C1ED4E90>
+split: <built-in method split of str object at 0x00000209C1ED5250>
+splitlines: <built-in method splitlines of str object at 0x00000209C1ED4E90>
+startswith: <built-in method startswith of str object at 0x00000209C1ED5250>
+strip: <built-in method strip of str object at 0x00000209C1ED4E90>
+swapcase: <built-in method swapcase of str object at 0x00000209C1ED5250>
+title: <built-in method title of str object at 0x00000209C1ED4E90>
+translate: <built-in method translate of str object at 0x00000209C1ED5250>
+upper: <built-in method upper of str object at 0x00000209C1ED4E90>
+zfill: <built-in method zfill of str object at 0x00000209C1ED5250>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EE36F0>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EE1430>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EE1670>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EE36F0>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EE1AB0>
+__format__: <built-in method __format__ of str object at 0x00000209C1EE1670>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EE1AB0>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EE1670>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EE1AB0>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EE1670>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EE1AB0>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EE1670>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EE1AB0>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EE1670>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EE1430>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EE1AB0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EE1430>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EE1AB0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EE1430>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EE1AB0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EE1430>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EE36F0>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EE1AB0>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EE36F0>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EE1AB0>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EE36F0>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EE1AB0>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EE36F0>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EE1AB0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EE1430>
+casefold: <built-in method casefold of str object at 0x00000209C1EE36F0>
+center: <built-in method center of str object at 0x00000209C1EE1430>
+count: <built-in method count of str object at 0x00000209C1EE36F0>
+encode: <built-in method encode of str object at 0x00000209C1EE1430>
+endswith: <built-in method endswith of str object at 0x00000209C1EE36F0>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EE1430>
+find: <built-in method find of str object at 0x00000209C1EE36F0>
+format: <built-in method format of str object at 0x00000209C1EE1430>
+format_map: <built-in method format_map of str object at 0x00000209C1EE36F0>
+index: <built-in method index of str object at 0x00000209C1EE1430>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EE36F0>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EE1430>
+isascii: <built-in method isascii of str object at 0x00000209C1EE36F0>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EE1430>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EE36F0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EE1430>
+islower: <built-in method islower of str object at 0x00000209C1EE36F0>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EE1430>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EE36F0>
+isspace: <built-in method isspace of str object at 0x00000209C1EE1430>
+istitle: <built-in method istitle of str object at 0x00000209C1EE36F0>
+isupper: <built-in method isupper of str object at 0x00000209C1EE1430>
+join: <built-in method join of str object at 0x00000209C1EE36F0>
+ljust: <built-in method ljust of str object at 0x00000209C1EE1430>
+lower: <built-in method lower of str object at 0x00000209C1EE36F0>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EE1430>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EE1670>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EE36F0>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EE1670>
+replace: <built-in method replace of str object at 0x00000209C1EE36F0>
+rfind: <built-in method rfind of str object at 0x00000209C1EE1670>
+rindex: <built-in method rindex of str object at 0x00000209C1EE36F0>
+rjust: <built-in method rjust of str object at 0x00000209C1EE1670>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EE36F0>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EE1670>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EE36F0>
+split: <built-in method split of str object at 0x00000209C1EE1670>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EE36F0>
+startswith: <built-in method startswith of str object at 0x00000209C1EE1670>
+strip: <built-in method strip of str object at 0x00000209C1EE36F0>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EE1670>
+title: <built-in method title of str object at 0x00000209C1EE36F0>
+translate: <built-in method translate of str object at 0x00000209C1EE1670>
+upper: <built-in method upper of str object at 0x00000209C1EE36F0>
+zfill: <built-in method zfill of str object at 0x00000209C1EE1670>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1E0F600>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1E0F600>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EE4030>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1E0F600>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1E0F600>
+__format__: <built-in method __format__ of str object at 0x00000209C1EE4030>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1E0F600>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EE4030>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1E0F600>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EE4030>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1E0F600>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EE4030>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1E0F600>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EE4030>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1E0F600>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EE4030>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1E0F600>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EE4030>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1E0F600>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EE4030>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1E0F600>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1E0F600>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EE4030>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1E0F600>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EE4030>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1E0F600>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EE4030>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1E0F600>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EE4030>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1E0F600>
+casefold: <built-in method casefold of str object at 0x00000209C1EE4030>
+center: <built-in method center of str object at 0x00000209C1E0F600>
+count: <built-in method count of str object at 0x00000209C1EE4030>
+encode: <built-in method encode of str object at 0x00000209C1E0F600>
+endswith: <built-in method endswith of str object at 0x00000209C1EE4030>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1E0F600>
+find: <built-in method find of str object at 0x00000209C1EE4030>
+format: <built-in method format of str object at 0x00000209C1E0F600>
+format_map: <built-in method format_map of str object at 0x00000209C1EE4030>
+index: <built-in method index of str object at 0x00000209C1E0F600>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EE4030>
+isalpha: <built-in method isalpha of str object at 0x00000209C1E0F600>
+isascii: <built-in method isascii of str object at 0x00000209C1EE4030>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1E0F600>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EE4030>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1E0F600>
+islower: <built-in method islower of str object at 0x00000209C1EE4030>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1E0F600>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EE4030>
+isspace: <built-in method isspace of str object at 0x00000209C1E0F600>
+istitle: <built-in method istitle of str object at 0x00000209C1EE4030>
+isupper: <built-in method isupper of str object at 0x00000209C1E0F600>
+join: <built-in method join of str object at 0x00000209C1EE4030>
+ljust: <built-in method ljust of str object at 0x00000209C1E0F600>
+lower: <built-in method lower of str object at 0x00000209C1EE4030>
+lstrip: <built-in method lstrip of str object at 0x00000209C1E0F600>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1E0F600>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EE4030>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1E0F600>
+replace: <built-in method replace of str object at 0x00000209C1EE4030>
+rfind: <built-in method rfind of str object at 0x00000209C1E0F600>
+rindex: <built-in method rindex of str object at 0x00000209C1EE4030>
+rjust: <built-in method rjust of str object at 0x00000209C1E0F600>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EE4030>
+rsplit: <built-in method rsplit of str object at 0x00000209C1E0F600>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EE4030>
+split: <built-in method split of str object at 0x00000209C1E0F600>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EE4030>
+startswith: <built-in method startswith of str object at 0x00000209C1E0F600>
+strip: <built-in method strip of str object at 0x00000209C1EE4030>
+swapcase: <built-in method swapcase of str object at 0x00000209C1E0F600>
+title: <built-in method title of str object at 0x00000209C1EE4030>
+translate: <built-in method translate of str object at 0x00000209C1E0F600>
+upper: <built-in method upper of str object at 0x00000209C1EE4030>
+zfill: <built-in method zfill of str object at 0x00000209C1E0F600>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EE4180>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1E0F600>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EE4180>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1E0F600>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1E0F600>
+__format__: <built-in method __format__ of str object at 0x00000209C1EE4180>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1E0F600>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EE4180>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1E0F600>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EE4180>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1E0F600>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EE4180>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1E0F600>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EE4180>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1E0F600>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EE4180>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1E0F600>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EE4180>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1E0F600>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EE4180>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1E0F600>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1E0F600>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EE4180>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1E0F600>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EE4180>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1E0F600>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EE4180>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1E0F600>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EE4180>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1E0F600>
+casefold: <built-in method casefold of str object at 0x00000209C1EE4180>
+center: <built-in method center of str object at 0x00000209C1E0F600>
+count: <built-in method count of str object at 0x00000209C1EE4180>
+encode: <built-in method encode of str object at 0x00000209C1E0F600>
+endswith: <built-in method endswith of str object at 0x00000209C1EE4180>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1E0F600>
+find: <built-in method find of str object at 0x00000209C1EE4180>
+format: <built-in method format of str object at 0x00000209C1E0F600>
+format_map: <built-in method format_map of str object at 0x00000209C1EE4180>
+index: <built-in method index of str object at 0x00000209C1E0F600>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EE4180>
+isalpha: <built-in method isalpha of str object at 0x00000209C1E0F600>
+isascii: <built-in method isascii of str object at 0x00000209C1EE4180>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1E0F600>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EE4180>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1E0F600>
+islower: <built-in method islower of str object at 0x00000209C1EE4180>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1E0F600>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EE4180>
+isspace: <built-in method isspace of str object at 0x00000209C1E0F600>
+istitle: <built-in method istitle of str object at 0x00000209C1EE4180>
+isupper: <built-in method isupper of str object at 0x00000209C1E0F600>
+join: <built-in method join of str object at 0x00000209C1EE4180>
+ljust: <built-in method ljust of str object at 0x00000209C1E0F600>
+lower: <built-in method lower of str object at 0x00000209C1EE4180>
+lstrip: <built-in method lstrip of str object at 0x00000209C1E0F600>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1E0F600>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EE4180>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1E0F600>
+replace: <built-in method replace of str object at 0x00000209C1EE4180>
+rfind: <built-in method rfind of str object at 0x00000209C1E0F600>
+rindex: <built-in method rindex of str object at 0x00000209C1EE4180>
+rjust: <built-in method rjust of str object at 0x00000209C1E0F600>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EE4180>
+rsplit: <built-in method rsplit of str object at 0x00000209C1E0F600>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EE4180>
+split: <built-in method split of str object at 0x00000209C1E0F600>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EE4180>
+startswith: <built-in method startswith of str object at 0x00000209C1E0F600>
+strip: <built-in method strip of str object at 0x00000209C1EE4180>
+swapcase: <built-in method swapcase of str object at 0x00000209C1E0F600>
+title: <built-in method title of str object at 0x00000209C1EE4180>
+translate: <built-in method translate of str object at 0x00000209C1E0F600>
+upper: <built-in method upper of str object at 0x00000209C1EE4180>
+zfill: <built-in method zfill of str object at 0x00000209C1E0F600>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EBBA30>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EBBA30>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EBAF30>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EBBA30>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EBBA30>
+__format__: <built-in method __format__ of str object at 0x00000209C1EBAF30>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EF4130>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EBAF30>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EF4130>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EBAF30>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EF4130>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EBAF30>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EF4130>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EBAF30>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EBAF30>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EF4130>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EBAF30>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EF4130>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EBAF30>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EF4130>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EBAF30>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EBAF30>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EF4230>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EBAF30>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EF4230>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EBAF30>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EF4230>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EBAF30>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EF4A30>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EBAF30>
+casefold: <built-in method casefold of str object at 0x00000209C1EF4830>
+center: <built-in method center of str object at 0x00000209C1EBAF30>
+count: <built-in method count of str object at 0x00000209C1EF4830>
+encode: <built-in method encode of str object at 0x00000209C1EBAF30>
+endswith: <built-in method endswith of str object at 0x00000209C1EF4830>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EBAF30>
+find: <built-in method find of str object at 0x00000209C1EF4930>
+format: <built-in method format of str object at 0x00000209C1EBAF30>
+format_map: <built-in method format_map of str object at 0x00000209C1EF4930>
+index: <built-in method index of str object at 0x00000209C1EF51B0>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EF4930>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EF51B0>
+isascii: <built-in method isascii of str object at 0x00000209C1EF4930>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EF51B0>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EF4930>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EF51B0>
+islower: <built-in method islower of str object at 0x00000209C1EF4930>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EF51B0>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EF4930>
+isspace: <built-in method isspace of str object at 0x00000209C1EF5730>
+istitle: <built-in method istitle of str object at 0x00000209C1EF4930>
+isupper: <built-in method isupper of str object at 0x00000209C1EF5730>
+join: <built-in method join of str object at 0x00000209C1EF4930>
+ljust: <built-in method ljust of str object at 0x00000209C1EF5730>
+lower: <built-in method lower of str object at 0x00000209C1EF4930>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EF5730>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EF4930>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EF54B0>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EF4930>
+replace: <built-in method replace of str object at 0x00000209C1EF54B0>
+rfind: <built-in method rfind of str object at 0x00000209C1EF4930>
+rindex: <built-in method rindex of str object at 0x00000209C1EF54B0>
+rjust: <built-in method rjust of str object at 0x00000209C1EF4930>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EF54B0>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EF5830>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EF54B0>
+split: <built-in method split of str object at 0x00000209C1EF5830>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EF54B0>
+startswith: <built-in method startswith of str object at 0x00000209C1EF5C30>
+strip: <built-in method strip of str object at 0x00000209C1EF5F30>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EF5C30>
+title: <built-in method title of str object at 0x00000209C1EF5F30>
+translate: <built-in method translate of str object at 0x00000209C1EF5C30>
+upper: <built-in method upper of str object at 0x00000209C1EF5F30>
+zfill: <built-in method zfill of str object at 0x00000209C1EF5C30>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EBB530>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EBB530>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EBBA30>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EBB530>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EBB530>
+__format__: <built-in method __format__ of str object at 0x00000209C1EBBA30>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EF42B0>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EBBA30>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EF42B0>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EBBA30>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EF42B0>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EBBA30>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EF42B0>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EBBA30>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EBBA30>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EF42B0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EBBA30>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EF42B0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EBBA30>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EF42B0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EBBA30>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EBBA30>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EF46B0>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EBBA30>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EF46B0>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EBBA30>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EF46B0>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EBBA30>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EF4DB0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EBBA30>
+casefold: <built-in method casefold of str object at 0x00000209C1EF4BB0>
+center: <built-in method center of str object at 0x00000209C1EBBA30>
+count: <built-in method count of str object at 0x00000209C1EF4BB0>
+encode: <built-in method encode of str object at 0x00000209C1EBBA30>
+endswith: <built-in method endswith of str object at 0x00000209C1EF4BB0>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EBBA30>
+find: <built-in method find of str object at 0x00000209C1EF50B0>
+format: <built-in method format of str object at 0x00000209C1EBBA30>
+format_map: <built-in method format_map of str object at 0x00000209C1EF50B0>
+index: <built-in method index of str object at 0x00000209C1EF4E30>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EF50B0>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EF4E30>
+isascii: <built-in method isascii of str object at 0x00000209C1EF50B0>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EF4E30>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EF50B0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EF4E30>
+islower: <built-in method islower of str object at 0x00000209C1EF50B0>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EF4E30>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EF50B0>
+isspace: <built-in method isspace of str object at 0x00000209C1EF5030>
+istitle: <built-in method istitle of str object at 0x00000209C1EF50B0>
+isupper: <built-in method isupper of str object at 0x00000209C1EF5030>
+join: <built-in method join of str object at 0x00000209C1EF50B0>
+ljust: <built-in method ljust of str object at 0x00000209C1EF5030>
+lower: <built-in method lower of str object at 0x00000209C1EF50B0>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EF5030>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EF50B0>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EF5B30>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EF50B0>
+replace: <built-in method replace of str object at 0x00000209C1EF5B30>
+rfind: <built-in method rfind of str object at 0x00000209C1EF50B0>
+rindex: <built-in method rindex of str object at 0x00000209C1EF5B30>
+rjust: <built-in method rjust of str object at 0x00000209C1EF50B0>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EF5B30>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EF5EB0>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EF5B30>
+split: <built-in method split of str object at 0x00000209C1EF5EB0>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EF5B30>
+startswith: <built-in method startswith of str object at 0x00000209C1EF5D30>
+strip: <built-in method strip of str object at 0x00000209C1EF57B0>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EF5D30>
+title: <built-in method title of str object at 0x00000209C1EF57B0>
+translate: <built-in method translate of str object at 0x00000209C1EF5D30>
+upper: <built-in method upper of str object at 0x00000209C1EF57B0>
+zfill: <built-in method zfill of str object at 0x00000209C1EF5D30>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EE4180>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EE4180>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EE4030>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EE4180>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EE4180>
+__format__: <built-in method __format__ of str object at 0x00000209C1EE4030>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EE4180>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EE4030>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EE4180>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EE4030>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EE4180>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EE4030>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EE4180>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EE4030>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EE4030>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EE4180>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EE4030>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EE4180>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EE4030>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EE4180>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EE4030>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EE4030>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EE4180>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EE4030>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EE4180>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EE4030>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EE4180>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EE4030>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EE4180>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EE4180>
+casefold: <built-in method casefold of str object at 0x00000209C1EE4030>
+center: <built-in method center of str object at 0x00000209C1EE4180>
+count: <built-in method count of str object at 0x00000209C1EE4030>
+encode: <built-in method encode of str object at 0x00000209C1EE4180>
+endswith: <built-in method endswith of str object at 0x00000209C1EE4030>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EE4180>
+find: <built-in method find of str object at 0x00000209C1EE4030>
+format: <built-in method format of str object at 0x00000209C1EE4180>
+format_map: <built-in method format_map of str object at 0x00000209C1EE4030>
+index: <built-in method index of str object at 0x00000209C1EE4180>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EE4030>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EE4180>
+isascii: <built-in method isascii of str object at 0x00000209C1EE4030>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EE4180>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EE4030>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EE4180>
+islower: <built-in method islower of str object at 0x00000209C1EE4030>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EE4180>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EE4030>
+isspace: <built-in method isspace of str object at 0x00000209C1EE4180>
+istitle: <built-in method istitle of str object at 0x00000209C1EE4030>
+isupper: <built-in method isupper of str object at 0x00000209C1EE4180>
+join: <built-in method join of str object at 0x00000209C1EE4030>
+ljust: <built-in method ljust of str object at 0x00000209C1EE4180>
+lower: <built-in method lower of str object at 0x00000209C1EE4030>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EE4180>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EE4180>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EE4030>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EE4180>
+replace: <built-in method replace of str object at 0x00000209C1EE4030>
+rfind: <built-in method rfind of str object at 0x00000209C1EE4180>
+rindex: <built-in method rindex of str object at 0x00000209C1EE4030>
+rjust: <built-in method rjust of str object at 0x00000209C1EE4180>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EE4030>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EE4180>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EE4030>
+split: <built-in method split of str object at 0x00000209C1EE4180>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EE4030>
+startswith: <built-in method startswith of str object at 0x00000209C1EE4180>
+strip: <built-in method strip of str object at 0x00000209C1EE4030>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EE4180>
+title: <built-in method title of str object at 0x00000209C1EE4030>
+translate: <built-in method translate of str object at 0x00000209C1EE4180>
+upper: <built-in method upper of str object at 0x00000209C1EE4030>
+zfill: <built-in method zfill of str object at 0x00000209C1EE4180>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EB68B0>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EB68B0>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EB6C10>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EB68B0>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EB68B0>
+__format__: <built-in method __format__ of str object at 0x00000209C1EB6C10>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EB68B0>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EB6C10>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EB68B0>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EB6C10>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EB68B0>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EB6C10>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EB68B0>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EB6C10>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EB6C10>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EB68B0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EB6C10>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EB68B0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EB6C10>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EB68B0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EB6C10>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EB6C10>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EB68B0>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EB6C10>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EB68B0>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EB6C10>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EB68B0>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EB6C10>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EB68B0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EB68B0>
+casefold: <built-in method casefold of str object at 0x00000209C1EB6C10>
+center: <built-in method center of str object at 0x00000209C1EB68B0>
+count: <built-in method count of str object at 0x00000209C1EB6C10>
+encode: <built-in method encode of str object at 0x00000209C1EB68B0>
+endswith: <built-in method endswith of str object at 0x00000209C1EB6C10>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EB68B0>
+find: <built-in method find of str object at 0x00000209C1EB6C10>
+format: <built-in method format of str object at 0x00000209C1EB68B0>
+format_map: <built-in method format_map of str object at 0x00000209C1EB6C10>
+index: <built-in method index of str object at 0x00000209C1EB68B0>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EB6C10>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EB68B0>
+isascii: <built-in method isascii of str object at 0x00000209C1EB6C10>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EB68B0>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EB6C10>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EB68B0>
+islower: <built-in method islower of str object at 0x00000209C1EB6C10>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EB68B0>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EB6C10>
+isspace: <built-in method isspace of str object at 0x00000209C1EB68B0>
+istitle: <built-in method istitle of str object at 0x00000209C1EB6C10>
+isupper: <built-in method isupper of str object at 0x00000209C1EB68B0>
+join: <built-in method join of str object at 0x00000209C1EB6C10>
+ljust: <built-in method ljust of str object at 0x00000209C1EB68B0>
+lower: <built-in method lower of str object at 0x00000209C1EB6C10>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EB68B0>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EB68B0>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EB6C10>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EB68B0>
+replace: <built-in method replace of str object at 0x00000209C1EB6C10>
+rfind: <built-in method rfind of str object at 0x00000209C1EB68B0>
+rindex: <built-in method rindex of str object at 0x00000209C1EB6C10>
+rjust: <built-in method rjust of str object at 0x00000209C1EB68B0>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EB6C10>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EB68B0>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EB6C10>
+split: <built-in method split of str object at 0x00000209C1EB68B0>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EB6C10>
+startswith: <built-in method startswith of str object at 0x00000209C1EB68B0>
+strip: <built-in method strip of str object at 0x00000209C1EB6C10>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EB68B0>
+title: <built-in method title of str object at 0x00000209C1EB6C10>
+translate: <built-in method translate of str object at 0x00000209C1EB68B0>
+upper: <built-in method upper of str object at 0x00000209C1EB6C10>
+zfill: <built-in method zfill of str object at 0x00000209C1EB68B0>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00007FFBC79C4D20>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00007FFBC79C4D20>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00007FFBC79C4D20>
+__dir__: <built-in method __dir__ of str object at 0x00007FFBC79C4D20>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00007FFBC79C4D20>
+__format__: <built-in method __format__ of str object at 0x00007FFBC79C4D20>
+__ge__: <method-wrapper '__ge__' of str object at 0x00007FFBC79C4D20>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00007FFBC79C4D20>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00007FFBC79C4D20>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00007FFBC79C4D20>
+__getstate__: <built-in method __getstate__ of str object at 0x00007FFBC79C4D20>
+__gt__: <method-wrapper '__gt__' of str object at 0x00007FFBC79C4D20>
+__hash__: <method-wrapper '__hash__' of str object at 0x00007FFBC79C4D20>
+__init__: <method-wrapper '__init__' of str object at 0x00007FFBC79C4D20>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00007FFBC79C4D20>
+__le__: <method-wrapper '__le__' of str object at 0x00007FFBC79C4D20>
+__len__: <method-wrapper '__len__' of str object at 0x00007FFBC79C4D20>
+__lt__: <method-wrapper '__lt__' of str object at 0x00007FFBC79C4D20>
+__mod__: <method-wrapper '__mod__' of str object at 0x00007FFBC79C4D20>
+__mul__: <method-wrapper '__mul__' of str object at 0x00007FFBC79C4D20>
+__ne__: <method-wrapper '__ne__' of str object at 0x00007FFBC79C4D20>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00007FFBC79C4D20>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00007FFBC79C4D20>
+__repr__: <method-wrapper '__repr__' of str object at 0x00007FFBC79C4D20>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00007FFBC79C4D20>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00007FFBC79C4D20>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00007FFBC79C4D20>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00007FFBC79C4D20>
+__str__: <method-wrapper '__str__' of str object at 0x00007FFBC79C4D20>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00007FFBC79C4D20>
+casefold: <built-in method casefold of str object at 0x00007FFBC79C4D20>
+center: <built-in method center of str object at 0x00007FFBC79C4D20>
+count: <built-in method count of str object at 0x00007FFBC79C4D20>
+encode: <built-in method encode of str object at 0x00007FFBC79C4D20>
+endswith: <built-in method endswith of str object at 0x00007FFBC79C4D20>
+expandtabs: <built-in method expandtabs of str object at 0x00007FFBC79C4D20>
+find: <built-in method find of str object at 0x00007FFBC79C4D20>
+format: <built-in method format of str object at 0x00007FFBC79C4D20>
+format_map: <built-in method format_map of str object at 0x00007FFBC79C4D20>
+index: <built-in method index of str object at 0x00007FFBC79C4D20>
+isalnum: <built-in method isalnum of str object at 0x00007FFBC79C4D20>
+isalpha: <built-in method isalpha of str object at 0x00007FFBC79C4D20>
+isascii: <built-in method isascii of str object at 0x00007FFBC79C4D20>
+isdecimal: <built-in method isdecimal of str object at 0x00007FFBC79C4D20>
+isdigit: <built-in method isdigit of str object at 0x00007FFBC79C4D20>
+isidentifier: <built-in method isidentifier of str object at 0x00007FFBC79C4D20>
+islower: <built-in method islower of str object at 0x00007FFBC79C4D20>
+isnumeric: <built-in method isnumeric of str object at 0x00007FFBC79C4D20>
+isprintable: <built-in method isprintable of str object at 0x00007FFBC79C4D20>
+isspace: <built-in method isspace of str object at 0x00007FFBC79C4D20>
+istitle: <built-in method istitle of str object at 0x00007FFBC79C4D20>
+isupper: <built-in method isupper of str object at 0x00007FFBC79C4D20>
+join: <built-in method join of str object at 0x00007FFBC79C4D20>
+ljust: <built-in method ljust of str object at 0x00007FFBC79C4D20>
+lower: <built-in method lower of str object at 0x00007FFBC79C4D20>
+lstrip: <built-in method lstrip of str object at 0x00007FFBC79C4D20>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00007FFBC79C4D20>
+removeprefix: <built-in method removeprefix of str object at 0x00007FFBC79C4D20>
+removesuffix: <built-in method removesuffix of str object at 0x00007FFBC79C4D20>
+replace: <built-in method replace of str object at 0x00007FFBC79C4D20>
+rfind: <built-in method rfind of str object at 0x00007FFBC79C4D20>
+rindex: <built-in method rindex of str object at 0x00007FFBC79C4D20>
+rjust: <built-in method rjust of str object at 0x00007FFBC79C4D20>
+rpartition: <built-in method rpartition of str object at 0x00007FFBC79C4D20>
+rsplit: <built-in method rsplit of str object at 0x00007FFBC79C4D20>
+rstrip: <built-in method rstrip of str object at 0x00007FFBC79C4D20>
+split: <built-in method split of str object at 0x00007FFBC79C4D20>
+splitlines: <built-in method splitlines of str object at 0x00007FFBC79C4D20>
+startswith: <built-in method startswith of str object at 0x00007FFBC79C4D20>
+strip: <built-in method strip of str object at 0x00007FFBC79C4D20>
+swapcase: <built-in method swapcase of str object at 0x00007FFBC79C4D20>
+title: <built-in method title of str object at 0x00007FFBC79C4D20>
+translate: <built-in method translate of str object at 0x00007FFBC79C4D20>
+upper: <built-in method upper of str object at 0x00007FFBC79C4D20>
+zfill: <built-in method zfill of str object at 0x00007FFBC79C4D20>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EBAF30>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EBAF30>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EBBA30>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EBAF30>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EBAF30>
+__format__: <built-in method __format__ of str object at 0x00000209C1EBBA30>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EF4030>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EBBA30>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EF4030>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EBBA30>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EF4030>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EBBA30>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EF4030>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EBBA30>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EBBA30>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EF4030>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EBBA30>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EF4030>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EBBA30>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EF4030>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EBBA30>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EBBA30>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EF4C30>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EBBA30>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EF4C30>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EBBA30>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EF4C30>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EBBA30>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EF4230>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EBBA30>
+casefold: <built-in method casefold of str object at 0x00000209C1EF4F30>
+center: <built-in method center of str object at 0x00000209C1EBBA30>
+count: <built-in method count of str object at 0x00000209C1EF4F30>
+encode: <built-in method encode of str object at 0x00000209C1EBBA30>
+endswith: <built-in method endswith of str object at 0x00000209C1EF4F30>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EBBA30>
+find: <built-in method find of str object at 0x00000209C1EF46B0>
+format: <built-in method format of str object at 0x00000209C1EBBA30>
+format_map: <built-in method format_map of str object at 0x00000209C1EF46B0>
+index: <built-in method index of str object at 0x00000209C1EF53B0>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EF46B0>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EF53B0>
+isascii: <built-in method isascii of str object at 0x00000209C1EF46B0>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EF53B0>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EF46B0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EF53B0>
+islower: <built-in method islower of str object at 0x00000209C1EF46B0>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EF53B0>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EF46B0>
+isspace: <built-in method isspace of str object at 0x00000209C1EF5630>
+istitle: <built-in method istitle of str object at 0x00000209C1EF46B0>
+isupper: <built-in method isupper of str object at 0x00000209C1EF5630>
+join: <built-in method join of str object at 0x00000209C1EF46B0>
+ljust: <built-in method ljust of str object at 0x00000209C1EF5630>
+lower: <built-in method lower of str object at 0x00000209C1EF46B0>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EF5630>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EF46B0>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EF5930>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EF46B0>
+replace: <built-in method replace of str object at 0x00000209C1EF5930>
+rfind: <built-in method rfind of str object at 0x00000209C1EF46B0>
+rindex: <built-in method rindex of str object at 0x00000209C1EF5930>
+rjust: <built-in method rjust of str object at 0x00000209C1EF46B0>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EF5930>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EF5830>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EF5930>
+split: <built-in method split of str object at 0x00000209C1EF5830>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EF5930>
+startswith: <built-in method startswith of str object at 0x00000209C1EF5E30>
+strip: <built-in method strip of str object at 0x00000209C1EF5DB0>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EF5E30>
+title: <built-in method title of str object at 0x00000209C1EF5DB0>
+translate: <built-in method translate of str object at 0x00000209C1EF5E30>
+upper: <built-in method upper of str object at 0x00000209C1EF5DB0>
+zfill: <built-in method zfill of str object at 0x00000209C1EF5E30>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EB7270>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EB7270>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EB7210>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EB7270>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EB7270>
+__format__: <built-in method __format__ of str object at 0x00000209C1EB7210>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EB7270>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EB7210>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EB7270>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EB7210>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EB7270>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EB7210>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EB7270>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EB7210>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EB7210>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EB7270>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EB7210>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EB7270>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EB7210>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EB7270>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EB7210>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EB7210>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EB7270>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EB7210>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EB7270>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EB7210>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EB7270>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EB7210>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EB7270>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EB7270>
+casefold: <built-in method casefold of str object at 0x00000209C1EB7210>
+center: <built-in method center of str object at 0x00000209C1EB7270>
+count: <built-in method count of str object at 0x00000209C1EB7210>
+encode: <built-in method encode of str object at 0x00000209C1EB7270>
+endswith: <built-in method endswith of str object at 0x00000209C1EB7210>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EB7270>
+find: <built-in method find of str object at 0x00000209C1EB7210>
+format: <built-in method format of str object at 0x00000209C1EB7270>
+format_map: <built-in method format_map of str object at 0x00000209C1EB7210>
+index: <built-in method index of str object at 0x00000209C1EB7270>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EB7210>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EB7270>
+isascii: <built-in method isascii of str object at 0x00000209C1EB7210>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EB7270>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EB7210>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EB7270>
+islower: <built-in method islower of str object at 0x00000209C1EB7210>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EB7270>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EB7210>
+isspace: <built-in method isspace of str object at 0x00000209C1EB7270>
+istitle: <built-in method istitle of str object at 0x00000209C1EB7210>
+isupper: <built-in method isupper of str object at 0x00000209C1EB7270>
+join: <built-in method join of str object at 0x00000209C1EB7210>
+ljust: <built-in method ljust of str object at 0x00000209C1EB7270>
+lower: <built-in method lower of str object at 0x00000209C1EB7210>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EB7270>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EB7270>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EB7210>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EB7270>
+replace: <built-in method replace of str object at 0x00000209C1EB7210>
+rfind: <built-in method rfind of str object at 0x00000209C1EB7270>
+rindex: <built-in method rindex of str object at 0x00000209C1EB7210>
+rjust: <built-in method rjust of str object at 0x00000209C1EB7270>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EB7210>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EB7270>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EB7210>
+split: <built-in method split of str object at 0x00000209C1EB7270>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EB7210>
+startswith: <built-in method startswith of str object at 0x00000209C1EB7270>
+strip: <built-in method strip of str object at 0x00000209C1EB7210>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EB7270>
+title: <built-in method title of str object at 0x00000209C1EB7210>
+translate: <built-in method translate of str object at 0x00000209C1EB7270>
+upper: <built-in method upper of str object at 0x00000209C1EB7210>
+zfill: <built-in method zfill of str object at 0x00000209C1EB7270>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EE11B0>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EE0D30>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EE11B0>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EE1670>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EE1030>
+__format__: <built-in method __format__ of str object at 0x00000209C1EE1670>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EE0D30>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EE1AB0>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EE1030>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EE1670>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EE0D30>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EE1AB0>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EE1030>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EE1670>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EE0D30>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EE11B0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EE1030>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EE36F0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EE0D30>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EE11B0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EE1030>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EE36F0>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EE1670>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EE11B0>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EE1AB0>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EE36F0>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EE1670>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EE11B0>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EE1AB0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EE36F0>
+casefold: <built-in method casefold of str object at 0x00000209C1EE0D30>
+center: <built-in method center of str object at 0x00000209C1EE11B0>
+count: <built-in method count of str object at 0x00000209C1EE1030>
+encode: <built-in method encode of str object at 0x00000209C1EE36F0>
+endswith: <built-in method endswith of str object at 0x00000209C1EE0D30>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EE11B0>
+find: <built-in method find of str object at 0x00000209C1EE1030>
+format: <built-in method format of str object at 0x00000209C1EE36F0>
+format_map: <built-in method format_map of str object at 0x00000209C1EE0D30>
+index: <built-in method index of str object at 0x00000209C1EE11B0>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EE1030>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EE36F0>
+isascii: <built-in method isascii of str object at 0x00000209C1EE0D30>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EE11B0>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EE1030>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EE36F0>
+islower: <built-in method islower of str object at 0x00000209C1EE0D30>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EE11B0>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EE1030>
+isspace: <built-in method isspace of str object at 0x00000209C1EE36F0>
+istitle: <built-in method istitle of str object at 0x00000209C1EE0D30>
+isupper: <built-in method isupper of str object at 0x00000209C1EE11B0>
+join: <built-in method join of str object at 0x00000209C1EE1030>
+ljust: <built-in method ljust of str object at 0x00000209C1EE36F0>
+lower: <built-in method lower of str object at 0x00000209C1EE0D30>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EE11B0>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EE1030>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EE1AB0>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EE0D30>
+replace: <built-in method replace of str object at 0x00000209C1EE1670>
+rfind: <built-in method rfind of str object at 0x00000209C1EE1030>
+rindex: <built-in method rindex of str object at 0x00000209C1EE1AB0>
+rjust: <built-in method rjust of str object at 0x00000209C1EE0D30>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EE1670>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EE1030>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EE1AB0>
+split: <built-in method split of str object at 0x00000209C1EE0D30>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EE1670>
+startswith: <built-in method startswith of str object at 0x00000209C1EE1030>
+strip: <built-in method strip of str object at 0x00000209C1EE1AB0>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EE0D30>
+title: <built-in method title of str object at 0x00000209C1EE1670>
+translate: <built-in method translate of str object at 0x00000209C1EE1030>
+upper: <built-in method upper of str object at 0x00000209C1EE1AB0>
+zfill: <built-in method zfill of str object at 0x00000209C1EE0D30>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1E26930>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1E26930>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1E26830>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1E26930>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1E26930>
+__format__: <built-in method __format__ of str object at 0x00000209C1E26830>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1E26930>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1E26830>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1E26930>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1E26830>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1E26930>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1E26830>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1E26930>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1E26830>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1E26830>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1E26930>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1E26830>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1E26930>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1E26830>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1E26930>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1E26830>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1E26830>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1E27230>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1E26830>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1E27230>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1E26830>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1E27230>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1E26830>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1E26930>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1E26930>
+casefold: <built-in method casefold of str object at 0x00000209C1E26830>
+center: <built-in method center of str object at 0x00000209C1E26930>
+count: <built-in method count of str object at 0x00000209C1E26830>
+encode: <built-in method encode of str object at 0x00000209C1E26930>
+endswith: <built-in method endswith of str object at 0x00000209C1E26830>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1E26930>
+find: <built-in method find of str object at 0x00000209C1E26830>
+format: <built-in method format of str object at 0x00000209C1E26930>
+format_map: <built-in method format_map of str object at 0x00000209C1E26830>
+index: <built-in method index of str object at 0x00000209C1E26930>
+isalnum: <built-in method isalnum of str object at 0x00000209C1E26830>
+isalpha: <built-in method isalpha of str object at 0x00000209C1E26930>
+isascii: <built-in method isascii of str object at 0x00000209C1E26830>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1E26930>
+isdigit: <built-in method isdigit of str object at 0x00000209C1E26830>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1E26930>
+islower: <built-in method islower of str object at 0x00000209C1E26830>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1E26930>
+isprintable: <built-in method isprintable of str object at 0x00000209C1E26830>
+isspace: <built-in method isspace of str object at 0x00000209C1E26930>
+istitle: <built-in method istitle of str object at 0x00000209C1E26830>
+isupper: <built-in method isupper of str object at 0x00000209C1E26930>
+join: <built-in method join of str object at 0x00000209C1E26830>
+ljust: <built-in method ljust of str object at 0x00000209C1E26930>
+lower: <built-in method lower of str object at 0x00000209C1E26830>
+lstrip: <built-in method lstrip of str object at 0x00000209C1E26930>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1E26930>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1E26830>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1E26930>
+replace: <built-in method replace of str object at 0x00000209C1E26830>
+rfind: <built-in method rfind of str object at 0x00000209C1E26930>
+rindex: <built-in method rindex of str object at 0x00000209C1E26830>
+rjust: <built-in method rjust of str object at 0x00000209C1E26930>
+rpartition: <built-in method rpartition of str object at 0x00000209C1E26830>
+rsplit: <built-in method rsplit of str object at 0x00000209C1E26930>
+rstrip: <built-in method rstrip of str object at 0x00000209C1E26830>
+split: <built-in method split of str object at 0x00000209C1E26930>
+splitlines: <built-in method splitlines of str object at 0x00000209C1E26830>
+startswith: <built-in method startswith of str object at 0x00000209C1E26930>
+strip: <built-in method strip of str object at 0x00000209C1E26830>
+swapcase: <built-in method swapcase of str object at 0x00000209C1E26930>
+title: <built-in method title of str object at 0x00000209C1E26830>
+translate: <built-in method translate of str object at 0x00000209C1E26930>
+upper: <built-in method upper of str object at 0x00000209C1E26830>
+zfill: <built-in method zfill of str object at 0x00000209C1E26930>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1E795C0>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1E795C0>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1E79A70>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1E795C0>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1E795C0>
+__format__: <built-in method __format__ of str object at 0x00000209C1E79A70>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1E795C0>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1E79A70>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1E795C0>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1E79A70>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1E795C0>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1E79A70>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1E795C0>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1E79A70>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1E79A70>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1E795C0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1E79A70>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1E795C0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1E79A70>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1E795C0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1E79A70>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1E79A70>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1E795C0>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1E79A70>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1E795C0>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1E79A70>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1E795C0>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1E79A70>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1E795C0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1E795C0>
+casefold: <built-in method casefold of str object at 0x00000209C1E79A70>
+center: <built-in method center of str object at 0x00000209C1E795C0>
+count: <built-in method count of str object at 0x00000209C1E79A70>
+encode: <built-in method encode of str object at 0x00000209C1E795C0>
+endswith: <built-in method endswith of str object at 0x00000209C1E79A70>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1E795C0>
+find: <built-in method find of str object at 0x00000209C1E79A70>
+format: <built-in method format of str object at 0x00000209C1E795C0>
+format_map: <built-in method format_map of str object at 0x00000209C1E79A70>
+index: <built-in method index of str object at 0x00000209C1E795C0>
+isalnum: <built-in method isalnum of str object at 0x00000209C1E79A70>
+isalpha: <built-in method isalpha of str object at 0x00000209C1E795C0>
+isascii: <built-in method isascii of str object at 0x00000209C1E79A70>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1E795C0>
+isdigit: <built-in method isdigit of str object at 0x00000209C1E79A70>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1E795C0>
+islower: <built-in method islower of str object at 0x00000209C1E79A70>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1E795C0>
+isprintable: <built-in method isprintable of str object at 0x00000209C1E79A70>
+isspace: <built-in method isspace of str object at 0x00000209C1E795C0>
+istitle: <built-in method istitle of str object at 0x00000209C1E79A70>
+isupper: <built-in method isupper of str object at 0x00000209C1E795C0>
+join: <built-in method join of str object at 0x00000209C1E79A70>
+ljust: <built-in method ljust of str object at 0x00000209C1E795C0>
+lower: <built-in method lower of str object at 0x00000209C1E79A70>
+lstrip: <built-in method lstrip of str object at 0x00000209C1E795C0>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1E795C0>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1E79A70>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1E795C0>
+replace: <built-in method replace of str object at 0x00000209C1E79A70>
+rfind: <built-in method rfind of str object at 0x00000209C1E795C0>
+rindex: <built-in method rindex of str object at 0x00000209C1E79A70>
+rjust: <built-in method rjust of str object at 0x00000209C1E795C0>
+rpartition: <built-in method rpartition of str object at 0x00000209C1E79A70>
+rsplit: <built-in method rsplit of str object at 0x00000209C1E795C0>
+rstrip: <built-in method rstrip of str object at 0x00000209C1E79A70>
+split: <built-in method split of str object at 0x00000209C1E795C0>
+splitlines: <built-in method splitlines of str object at 0x00000209C1E79A70>
+startswith: <built-in method startswith of str object at 0x00000209C1E795C0>
+strip: <built-in method strip of str object at 0x00000209C1E79A70>
+swapcase: <built-in method swapcase of str object at 0x00000209C1E795C0>
+title: <built-in method title of str object at 0x00000209C1E79A70>
+translate: <built-in method translate of str object at 0x00000209C1E795C0>
+upper: <built-in method upper of str object at 0x00000209C1E79A70>
+zfill: <built-in method zfill of str object at 0x00000209C1E795C0>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1E26930>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1E26930>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1E26830>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1E26930>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1E26930>
+__format__: <built-in method __format__ of str object at 0x00000209C1E26830>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1E26930>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1E26830>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1E26930>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1E26830>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1E26930>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1E26830>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1E26930>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1E26830>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1E26830>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1E26930>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1E26830>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1E26930>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1E26830>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1E26930>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1E26830>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1E26830>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1E27230>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1E26830>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1E27230>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1E26830>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1E27230>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1E26830>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1E26930>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1E26930>
+casefold: <built-in method casefold of str object at 0x00000209C1E26830>
+center: <built-in method center of str object at 0x00000209C1E26930>
+count: <built-in method count of str object at 0x00000209C1E26830>
+encode: <built-in method encode of str object at 0x00000209C1E26930>
+endswith: <built-in method endswith of str object at 0x00000209C1E26830>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1E26930>
+find: <built-in method find of str object at 0x00000209C1E26830>
+format: <built-in method format of str object at 0x00000209C1E26930>
+format_map: <built-in method format_map of str object at 0x00000209C1E26830>
+index: <built-in method index of str object at 0x00000209C1E26930>
+isalnum: <built-in method isalnum of str object at 0x00000209C1E26830>
+isalpha: <built-in method isalpha of str object at 0x00000209C1E26930>
+isascii: <built-in method isascii of str object at 0x00000209C1E26830>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1E26930>
+isdigit: <built-in method isdigit of str object at 0x00000209C1E26830>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1E26930>
+islower: <built-in method islower of str object at 0x00000209C1E26830>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1E26930>
+isprintable: <built-in method isprintable of str object at 0x00000209C1E26830>
+isspace: <built-in method isspace of str object at 0x00000209C1E26930>
+istitle: <built-in method istitle of str object at 0x00000209C1E26830>
+isupper: <built-in method isupper of str object at 0x00000209C1E26930>
+join: <built-in method join of str object at 0x00000209C1E26830>
+ljust: <built-in method ljust of str object at 0x00000209C1E26930>
+lower: <built-in method lower of str object at 0x00000209C1E26830>
+lstrip: <built-in method lstrip of str object at 0x00000209C1E26930>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1E26930>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1E26830>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1E26930>
+replace: <built-in method replace of str object at 0x00000209C1E26830>
+rfind: <built-in method rfind of str object at 0x00000209C1E26930>
+rindex: <built-in method rindex of str object at 0x00000209C1E26830>
+rjust: <built-in method rjust of str object at 0x00000209C1E26930>
+rpartition: <built-in method rpartition of str object at 0x00000209C1E26830>
+rsplit: <built-in method rsplit of str object at 0x00000209C1E26930>
+rstrip: <built-in method rstrip of str object at 0x00000209C1E26830>
+split: <built-in method split of str object at 0x00000209C1E26930>
+splitlines: <built-in method splitlines of str object at 0x00000209C1E26830>
+startswith: <built-in method startswith of str object at 0x00000209C1E26930>
+strip: <built-in method strip of str object at 0x00000209C1E26830>
+swapcase: <built-in method swapcase of str object at 0x00000209C1E26930>
+title: <built-in method title of str object at 0x00000209C1E26830>
+translate: <built-in method translate of str object at 0x00000209C1E26930>
+upper: <built-in method upper of str object at 0x00000209C1E26830>
+zfill: <built-in method zfill of str object at 0x00000209C1E26930>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1DAF5D0>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1DAF5D0>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1DAF680>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1DAF5D0>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1DAF5D0>
+__format__: <built-in method __format__ of str object at 0x00000209C1DAF680>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1DAF5D0>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1DAF680>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1DAF5D0>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1DAF680>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1DAF5D0>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1DAF680>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1DAF5D0>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1DAF680>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1DAF680>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1DAF5D0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1DAF680>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1DAF5D0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1DAF680>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1DAF5D0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1DAF680>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1DAF680>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1DAF5D0>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1DAF680>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1DAF5D0>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1DAF680>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1DAF5D0>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1DAF680>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1DAF5D0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1DAF5D0>
+casefold: <built-in method casefold of str object at 0x00000209C1DAF680>
+center: <built-in method center of str object at 0x00000209C1DAF5D0>
+count: <built-in method count of str object at 0x00000209C1DAF680>
+encode: <built-in method encode of str object at 0x00000209C1DAF5D0>
+endswith: <built-in method endswith of str object at 0x00000209C1DAF680>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1DAF5D0>
+find: <built-in method find of str object at 0x00000209C1DAF680>
+format: <built-in method format of str object at 0x00000209C1DAF5D0>
+format_map: <built-in method format_map of str object at 0x00000209C1DAF680>
+index: <built-in method index of str object at 0x00000209C1DAF5D0>
+isalnum: <built-in method isalnum of str object at 0x00000209C1DAF680>
+isalpha: <built-in method isalpha of str object at 0x00000209C1DAF5D0>
+isascii: <built-in method isascii of str object at 0x00000209C1DAF680>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1DAF5D0>
+isdigit: <built-in method isdigit of str object at 0x00000209C1DAF680>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1DAF5D0>
+islower: <built-in method islower of str object at 0x00000209C1DAF680>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1DAF5D0>
+isprintable: <built-in method isprintable of str object at 0x00000209C1DAF680>
+isspace: <built-in method isspace of str object at 0x00000209C1DAF5D0>
+istitle: <built-in method istitle of str object at 0x00000209C1DAF680>
+isupper: <built-in method isupper of str object at 0x00000209C1DAF5D0>
+join: <built-in method join of str object at 0x00000209C1DAF680>
+ljust: <built-in method ljust of str object at 0x00000209C1DAF5D0>
+lower: <built-in method lower of str object at 0x00000209C1DAF680>
+lstrip: <built-in method lstrip of str object at 0x00000209C1DAF5D0>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1DAF5D0>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1DAF680>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1DAF5D0>
+replace: <built-in method replace of str object at 0x00000209C1DAF680>
+rfind: <built-in method rfind of str object at 0x00000209C1DAF5D0>
+rindex: <built-in method rindex of str object at 0x00000209C1DAF680>
+rjust: <built-in method rjust of str object at 0x00000209C1DAF5D0>
+rpartition: <built-in method rpartition of str object at 0x00000209C1DAF680>
+rsplit: <built-in method rsplit of str object at 0x00000209C1DAF5D0>
+rstrip: <built-in method rstrip of str object at 0x00000209C1DAF680>
+split: <built-in method split of str object at 0x00000209C1DAF5D0>
+splitlines: <built-in method splitlines of str object at 0x00000209C1DAF680>
+startswith: <built-in method startswith of str object at 0x00000209C1DAF5D0>
+strip: <built-in method strip of str object at 0x00000209C1DAF680>
+swapcase: <built-in method swapcase of str object at 0x00000209C1DAF5D0>
+title: <built-in method title of str object at 0x00000209C1DAF680>
+translate: <built-in method translate of str object at 0x00000209C1DAF5D0>
+upper: <built-in method upper of str object at 0x00000209C1DAF680>
+zfill: <built-in method zfill of str object at 0x00000209C1DAF5D0>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1EE8AD0>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1EE8AD0>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1EE89C0>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1EE8AD0>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1EE8AD0>
+__format__: <built-in method __format__ of str object at 0x00000209C1EE89C0>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1EE8AD0>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1EE89C0>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1EE8AD0>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1EE89C0>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1EE8AD0>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1EE89C0>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1EE8AD0>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1EE89C0>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1EE89C0>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1EE8AD0>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1EE89C0>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1EE8AD0>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1EE89C0>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1EE8AD0>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1EE89C0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1EE89C0>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1EE8AD0>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1EE89C0>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1EE8AD0>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1EE89C0>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1EE8AD0>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1EE89C0>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1EE8AD0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1EE8AD0>
+casefold: <built-in method casefold of str object at 0x00000209C1EE89C0>
+center: <built-in method center of str object at 0x00000209C1EE8AD0>
+count: <built-in method count of str object at 0x00000209C1EE89C0>
+encode: <built-in method encode of str object at 0x00000209C1EE8AD0>
+endswith: <built-in method endswith of str object at 0x00000209C1EE89C0>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1EE8AD0>
+find: <built-in method find of str object at 0x00000209C1EE89C0>
+format: <built-in method format of str object at 0x00000209C1EE8AD0>
+format_map: <built-in method format_map of str object at 0x00000209C1EE89C0>
+index: <built-in method index of str object at 0x00000209C1EE8AD0>
+isalnum: <built-in method isalnum of str object at 0x00000209C1EE89C0>
+isalpha: <built-in method isalpha of str object at 0x00000209C1EE8AD0>
+isascii: <built-in method isascii of str object at 0x00000209C1EE89C0>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1EE8AD0>
+isdigit: <built-in method isdigit of str object at 0x00000209C1EE89C0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1EE8AD0>
+islower: <built-in method islower of str object at 0x00000209C1EE89C0>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1EE8AD0>
+isprintable: <built-in method isprintable of str object at 0x00000209C1EE89C0>
+isspace: <built-in method isspace of str object at 0x00000209C1EE8AD0>
+istitle: <built-in method istitle of str object at 0x00000209C1EE89C0>
+isupper: <built-in method isupper of str object at 0x00000209C1EE8AD0>
+join: <built-in method join of str object at 0x00000209C1EE89C0>
+ljust: <built-in method ljust of str object at 0x00000209C1EE8AD0>
+lower: <built-in method lower of str object at 0x00000209C1EE89C0>
+lstrip: <built-in method lstrip of str object at 0x00000209C1EE8AD0>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1EE8AD0>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1EE89C0>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1EE8AD0>
+replace: <built-in method replace of str object at 0x00000209C1EE89C0>
+rfind: <built-in method rfind of str object at 0x00000209C1EE8AD0>
+rindex: <built-in method rindex of str object at 0x00000209C1EE89C0>
+rjust: <built-in method rjust of str object at 0x00000209C1EE8AD0>
+rpartition: <built-in method rpartition of str object at 0x00000209C1EE89C0>
+rsplit: <built-in method rsplit of str object at 0x00000209C1EE8AD0>
+rstrip: <built-in method rstrip of str object at 0x00000209C1EE89C0>
+split: <built-in method split of str object at 0x00000209C1EE8AD0>
+splitlines: <built-in method splitlines of str object at 0x00000209C1EE89C0>
+startswith: <built-in method startswith of str object at 0x00000209C1EE8AD0>
+strip: <built-in method strip of str object at 0x00000209C1EE89C0>
+swapcase: <built-in method swapcase of str object at 0x00000209C1EE8AD0>
+title: <built-in method title of str object at 0x00000209C1EE89C0>
+translate: <built-in method translate of str object at 0x00000209C1EE8AD0>
+upper: <built-in method upper of str object at 0x00000209C1EE89C0>
+zfill: <built-in method zfill of str object at 0x00000209C1EE8AD0>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1E1CB70>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1E1CB70>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1E1CCB0>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1E1CB70>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1E1CB70>
+__format__: <built-in method __format__ of str object at 0x00000209C1E1CCB0>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1E1CB70>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1E1CCB0>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1E1CB70>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1E1CCB0>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1E1CB70>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1E1CCB0>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1E1CB70>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1E1CCB0>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1E1CCB0>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1E1CB70>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1E1CCB0>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1E1CB70>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1E1CCB0>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1E1CB70>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1E1CCB0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1E1CCB0>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1E1CB70>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1E1CCB0>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1E1CB70>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1E1CCB0>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1E1CB70>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1E1CCB0>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1E1CDF0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1E1CDF0>
+casefold: <built-in method casefold of str object at 0x00000209C1E1CCB0>
+center: <built-in method center of str object at 0x00000209C1E1CDF0>
+count: <built-in method count of str object at 0x00000209C1E1CCB0>
+encode: <built-in method encode of str object at 0x00000209C1E1CDF0>
+endswith: <built-in method endswith of str object at 0x00000209C1E1CCB0>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1E1CB70>
+find: <built-in method find of str object at 0x00000209C1E1CCB0>
+format: <built-in method format of str object at 0x00000209C1E1CB70>
+format_map: <built-in method format_map of str object at 0x00000209C1E1CCB0>
+index: <built-in method index of str object at 0x00000209C1E1CB70>
+isalnum: <built-in method isalnum of str object at 0x00000209C1E1CCB0>
+isalpha: <built-in method isalpha of str object at 0x00000209C1E1CB70>
+isascii: <built-in method isascii of str object at 0x00000209C1E1CCB0>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1E1CB70>
+isdigit: <built-in method isdigit of str object at 0x00000209C1E1CCB0>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1E1CB70>
+islower: <built-in method islower of str object at 0x00000209C1E1CCB0>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1E1CB70>
+isprintable: <built-in method isprintable of str object at 0x00000209C1E1CCB0>
+isspace: <built-in method isspace of str object at 0x00000209C1E1CB70>
+istitle: <built-in method istitle of str object at 0x00000209C1E1CCB0>
+isupper: <built-in method isupper of str object at 0x00000209C1E1CB70>
+join: <built-in method join of str object at 0x00000209C1E1CCB0>
+ljust: <built-in method ljust of str object at 0x00000209C1E1CB70>
+lower: <built-in method lower of str object at 0x00000209C1E1CCB0>
+lstrip: <built-in method lstrip of str object at 0x00000209C1E1CB70>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1E1CB70>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1E1CCB0>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1E1CB70>
+replace: <built-in method replace of str object at 0x00000209C1E1CCB0>
+rfind: <built-in method rfind of str object at 0x00000209C1E1CB70>
+rindex: <built-in method rindex of str object at 0x00000209C1E1CCB0>
+rjust: <built-in method rjust of str object at 0x00000209C1E1CB70>
+rpartition: <built-in method rpartition of str object at 0x00000209C1E1CCB0>
+rsplit: <built-in method rsplit of str object at 0x00000209C1E1CB70>
+rstrip: <built-in method rstrip of str object at 0x00000209C1E1CCB0>
+split: <built-in method split of str object at 0x00000209C1E1CB70>
+splitlines: <built-in method splitlines of str object at 0x00000209C1E1CCB0>
+startswith: <built-in method startswith of str object at 0x00000209C1E1CB70>
+strip: <built-in method strip of str object at 0x00000209C1E1CCB0>
+swapcase: <built-in method swapcase of str object at 0x00000209C1E1CB70>
+title: <built-in method title of str object at 0x00000209C1E1CCB0>
+translate: <built-in method translate of str object at 0x00000209C1E1CB70>
+upper: <built-in method upper of str object at 0x00000209C1E1CCB0>
+zfill: <built-in method zfill of str object at 0x00000209C1E1CB70>
+
+ -------- paragraph.text -------- 
+__add__: <method-wrapper '__add__' of str object at 0x00000209C1D26D50>
+__class__: <class 'str'>
+__contains__: <method-wrapper '__contains__' of str object at 0x00000209C1D26D50>
+__delattr__: <method-wrapper '__delattr__' of str object at 0x00000209C1D26E80>
+__dir__: <built-in method __dir__ of str object at 0x00000209C1D26D50>
+__doc__: str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
+__eq__: <method-wrapper '__eq__' of str object at 0x00000209C1D26D50>
+__format__: <built-in method __format__ of str object at 0x00000209C1D26E80>
+__ge__: <method-wrapper '__ge__' of str object at 0x00000209C1D26D50>
+__getattribute__: <method-wrapper '__getattribute__' of str object at 0x00000209C1D26E80>
+__getitem__: <method-wrapper '__getitem__' of str object at 0x00000209C1D26D50>
+__getnewargs__: <built-in method __getnewargs__ of str object at 0x00000209C1D26E80>
+__getstate__: <built-in method __getstate__ of str object at 0x00000209C1D26D50>
+__gt__: <method-wrapper '__gt__' of str object at 0x00000209C1D26E80>
+__hash__: <method-wrapper '__hash__' of str object at 0x00000209C1D26D50>
+__init__: <method-wrapper '__init__' of str object at 0x00000209C1D26E80>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFBC786B980>
+__iter__: <method-wrapper '__iter__' of str object at 0x00000209C1D26E80>
+__le__: <method-wrapper '__le__' of str object at 0x00000209C1D26D50>
+__len__: <method-wrapper '__len__' of str object at 0x00000209C1D26E80>
+__lt__: <method-wrapper '__lt__' of str object at 0x00000209C1D26D50>
+__mod__: <method-wrapper '__mod__' of str object at 0x00000209C1D26E80>
+__mul__: <method-wrapper '__mul__' of str object at 0x00000209C1D26D50>
+__ne__: <method-wrapper '__ne__' of str object at 0x00000209C1D26E80>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786B980>
+__reduce__: <built-in method __reduce__ of str object at 0x00000209C1D26E80>
+__reduce_ex__: <built-in method __reduce_ex__ of str object at 0x00000209C1D26D50>
+__repr__: <method-wrapper '__repr__' of str object at 0x00000209C1D26E80>
+__rmod__: <method-wrapper '__rmod__' of str object at 0x00000209C1D26D50>
+__rmul__: <method-wrapper '__rmul__' of str object at 0x00000209C1D26E80>
+__setattr__: <method-wrapper '__setattr__' of str object at 0x00000209C1D26D50>
+__sizeof__: <built-in method __sizeof__ of str object at 0x00000209C1D26E80>
+__str__: <method-wrapper '__str__' of str object at 0x00000209C1D26D50>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFBC786B980>
+capitalize: <built-in method capitalize of str object at 0x00000209C1D26D50>
+casefold: <built-in method casefold of str object at 0x00000209C1D26E80>
+center: <built-in method center of str object at 0x00000209C1D26D50>
+count: <built-in method count of str object at 0x00000209C1D26E80>
+encode: <built-in method encode of str object at 0x00000209C1D26D50>
+endswith: <built-in method endswith of str object at 0x00000209C1D26E80>
+expandtabs: <built-in method expandtabs of str object at 0x00000209C1D26D50>
+find: <built-in method find of str object at 0x00000209C1D26E80>
+format: <built-in method format of str object at 0x00000209C1D26D50>
+format_map: <built-in method format_map of str object at 0x00000209C1D26E80>
+index: <built-in method index of str object at 0x00000209C1D26D50>
+isalnum: <built-in method isalnum of str object at 0x00000209C1D26E80>
+isalpha: <built-in method isalpha of str object at 0x00000209C1D26D50>
+isascii: <built-in method isascii of str object at 0x00000209C1D26E80>
+isdecimal: <built-in method isdecimal of str object at 0x00000209C1D26D50>
+isdigit: <built-in method isdigit of str object at 0x00000209C1D26E80>
+isidentifier: <built-in method isidentifier of str object at 0x00000209C1D26D50>
+islower: <built-in method islower of str object at 0x00000209C1D26E80>
+isnumeric: <built-in method isnumeric of str object at 0x00000209C1D26D50>
+isprintable: <built-in method isprintable of str object at 0x00000209C1D26E80>
+isspace: <built-in method isspace of str object at 0x00000209C1D26D50>
+istitle: <built-in method istitle of str object at 0x00000209C1D26E80>
+isupper: <built-in method isupper of str object at 0x00000209C1D26D50>
+join: <built-in method join of str object at 0x00000209C1D26E80>
+ljust: <built-in method ljust of str object at 0x00000209C1D26D50>
+lower: <built-in method lower of str object at 0x00000209C1D26E80>
+lstrip: <built-in method lstrip of str object at 0x00000209C1D26D50>
+maketrans: <built-in method maketrans of type object at 0x00007FFBC786B980>
+partition: <built-in method partition of str object at 0x00000209C1D26D50>
+removeprefix: <built-in method removeprefix of str object at 0x00000209C1D26E80>
+removesuffix: <built-in method removesuffix of str object at 0x00000209C1D26D50>
+replace: <built-in method replace of str object at 0x00000209C1D26E80>
+rfind: <built-in method rfind of str object at 0x00000209C1D26D50>
+rindex: <built-in method rindex of str object at 0x00000209C1D26E80>
+rjust: <built-in method rjust of str object at 0x00000209C1D26D50>
+rpartition: <built-in method rpartition of str object at 0x00000209C1D26E80>
+rsplit: <built-in method rsplit of str object at 0x00000209C1D26D50>
+rstrip: <built-in method rstrip of str object at 0x00000209C1D26E80>
+split: <built-in method split of str object at 0x00000209C1D26D50>
+splitlines: <built-in method splitlines of str object at 0x00000209C1D26E80>
+startswith: <built-in method startswith of str object at 0x00000209C1D26D50>
+strip: <built-in method strip of str object at 0x00000209C1D26E80>
+swapcase: <built-in method swapcase of str object at 0x00000209C1D26D50>
+title: <built-in method title of str object at 0x00000209C1D26E80>
+translate: <built-in method translate of str object at 0x00000209C1D26D50>
+upper: <built-in method upper of str object at 0x00000209C1D26E80>
+zfill: <built-in method zfill of str object at 0x00000209C1D26D50>

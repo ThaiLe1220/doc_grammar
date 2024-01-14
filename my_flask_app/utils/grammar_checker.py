@@ -9,7 +9,7 @@ import re
 import requests
 from .exceptions import GrammarCheckError
 
-API_URL = "https://3c92-103-253-89-37.ngrok-free.app/generate_code"
+API_URL = "https://polite-horribly-cub.ngrok-free.app/generate_code"
 
 
 def clean_api_response(api_response_text: str, original_text: str) -> str:
@@ -57,9 +57,39 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
     return cleaned_text
 
 
+def extract_and_preserve_references(text: str):
+    # Pattern to match all content within parentheses
+    reference_pattern = r"\(([^)]+)\)"
+
+    # Find all matches of the pattern
+    references = re.findall(reference_pattern, text)
+
+    # Replace each found reference section with a placeholder
+    for ref in references:
+        text = text.replace(f"({ref})", "(REFERENCE)", 1)
+
+    return text, references
+
+
+def insert_references_back(text: str, references: list):
+    """
+    Inserts references back into the text at their placeholder positions.
+
+    Args:
+        text (str): The text with placeholders.
+        references (list): A list of extracted references.
+
+    Returns:
+        str: The text with references reinserted.
+    """
+    for ref in references:
+        text = text.replace("(REFERENCE)", "(" + ref + ")", 1)
+    return text
+
+
 def check_grammar(original_text: str) -> str:
     """
-    Checks and corrects the grammar of a given text using an external API.
+    Checks and corrects the grammar of a given text using an external API, excluding references.
 
     Args:
         original_text (str): The text to be checked and corrected for grammar.
@@ -71,8 +101,12 @@ def check_grammar(original_text: str) -> str:
         str: The corrected version of the original text with improved grammar.
     """
     try:
-        prompt = f"Correct english of this sentence: {original_text}. Here is the corrected version."
-        # print("\n[Request Sent]:", prompt)
+        print("\n[Original Text]:", original_text)
+        # Extract references and replace with placeholders
+        text_for_api, references = extract_and_preserve_references(original_text)
+
+        prompt = f"Correct english of this text: {text_for_api}"
+        print("[Request Sent]:", prompt)
 
         response = requests.get(
             API_URL,
@@ -80,18 +114,23 @@ def check_grammar(original_text: str) -> str:
                 "prompts": prompt,
                 "max_length": 64,
             },
-            timeout=10,  # Timeout in 10 seconds
+            timeout=20,
         )
         api_response = response.json()
-        # print("[API Response]:", api_response)
+        print("[API Response]:", api_response)
 
         corrected_text = api_response[0] if api_response else "Correction unavailable"
 
-        # Clean the API response to extract the corrected sentence
-        corrected_text = clean_api_response(corrected_text, original_text)
+        # Insert references back into the corrected text
+        corrected_text_with_refs = insert_references_back(corrected_text, references)
 
-        # print("[Corrected Text]:", corrected_text)
-        return corrected_text
+        # Clean the API response to extract the corrected sentence
+        final_corrected_text = clean_api_response(
+            corrected_text_with_refs, original_text
+        )
+
+        print("[Corrected Text]:", final_corrected_text)
+        return final_corrected_text
     except Exception as error:
         print("Error calling grammar check API:", error)
         raise GrammarCheckError(f"Grammar check API error: {error}") from error

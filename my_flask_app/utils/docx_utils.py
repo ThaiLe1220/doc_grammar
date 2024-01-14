@@ -1,166 +1,217 @@
 """ Filename: docx_utils.py - Directory: my_flask_app/utils
-
-This module provides utilities for correcting grammar in DOCX files while preserving
-the original formatting of the text. It includes functions to tokenize, correct,
-and apply formatting to sentences in DOCX paragraphs. These utilities are used
-in the grammar checking process for uploaded documents.
-
 """
-import re
 import nltk
 from docx import Document
 from .grammar_checker import check_grammar
-from .reconstructing_sentence import reconstruct_formatting
+from .reconstructing_sentence import *
 
 # Download necessary Punkt sentence tokenizer if not already downloaded
 nltk.download("punkt", quiet=True)
 
 
 def correct_text_grammar(file_path):
-    """
-    Corrects grammar in a DOCX file and applies original formatting to the corrected text.
-
-    :param file_path: The path to the DOCX file to be processed.
-    """
     doc = Document(file_path)
-    corrections = []  # List to hold correction details
-
     for paragraph in doc.paragraphs:
-        if not paragraph.text.strip():  # Skip empty paragraphs
+        if not paragraph.text.strip() or paragraph.style.name == "EndNote Bibliography":
             continue
 
-        # Get aggregated formatting for each sentence in the paragraph
-        sentence_formatting_list = get_aggregated_formatting(paragraph)
+        corrected_para = ""
 
-        # Tokenize the paragraph's text into sentences
-        sentences = nltk.tokenize.sent_tokenize(paragraph.text)
-        # Clear the paragraph for reconstruction
-        paragraph.clear()
+        para_word_count = len(paragraph.text.split())
+        # print(f"\n--Paragraph--: [{para_word_count}] {paragraph.text}")
+        if para_word_count <= 64:
+            corrected_para = check_grammar(paragraph.text)
 
-        # Correct the sentences and apply formatting
-        for i, sentence in enumerate(sentences):
-            # print(f"\n{i}\n")
-            corrected_sentence = check_grammar(sentence)
+        else:
+            sentences = nltk.tokenize.sent_tokenize(paragraph.text)
+            for i, original_sentence in enumerate(sentences):
+                corrected_sentence = check_grammar(original_sentence) + " "
+                corrected_para += corrected_sentence
 
-            print(f"\n----Original Sentence----: {sentence}")
-            print(f"----Corrected Sentence---: {corrected_sentence}")
-            print(f"---Original Formatting---: {sentence_formatting_list[i]}")
+        # print(f"[Before Correction] paragraph.text: {paragraph.text}")
+        # print(f"----------Corrected Para----------: {corrected_para}")
 
-            # Split the corrected sentence into runs based on original formatting
-            (
-                corrected_runs,
-                modified_tokens,
-                added_tokens,
-            ) = reconstruct_formatting(
-                sentence, corrected_sentence, sentence_formatting_list[i]
-            )
-            # Collect the correction details
-            correction_details = {
-                "original_sentence": sentence,
-                "corrected_sentence": corrected_sentence,
-                "modified_tokens": modified_tokens,
-                "added_tokens": added_tokens,
-            }
-            corrections.append(correction_details)
+        correct_paragraph(corrected_para, paragraph)
+        # print(f"[After Correction] paragraph.text: {paragraph.text}")
 
-            print(f"------Corrected Runs-----: {corrected_runs}")
-            print(f"-----Modified Tokens-----: {modified_tokens}")
-            # print(f"-------Added Tokens------: {added_tokens}")
-
-            # Reconstruct the paragraph with corrected runs and their formatting
-            for ci, corrected_run in enumerate(corrected_runs):
-                if i != 0 and ci == 0:
-                    corrected_run["text"] = " " + corrected_run["text"]
-                new_run = paragraph.add_run(corrected_run["text"])
-                apply_run_formatting(new_run, corrected_run)
-
-    # Save the corrected document
     doc.save(file_path)
 
-    # Return all corrections details
-    return corrections
+    return []
 
 
-def get_aggregated_formatting(paragraph):
-    """
-    Aggregates formatting for each sentence in a paragraph.
+def correct_paragraph(corrected_para, paragraph):
+    modifications = find_modified_text(paragraph.text, corrected_para)
+    paragraph_tokens = custom_tokenize(paragraph.text)
+    # print("\nParagraph Tokens:", paragraph_tokens)
 
-    :param paragraph: A paragraph object from a DOCX document.
-    :return: A list of formatting dictionaries for each sentence in the paragraph.
-    """
-    formatting_list = []
-    sentence_formatting = []
-    previous_formatting = {}
-    combined_text = ""
-    end_of_sentence = False
+    modifications_dict = {item[2]: (item[0], item[1]) for item in modifications}
+    # print("\nModifications Dictionary:", modifications_dict)
 
-    for run in paragraph.runs:
-        current_formatting = extract_formatting_from_run(run)
-        for token in custom_tokenize(run.text):
-            if token == " ":
-                sentence_formatting.append(
-                    {"text": combined_text, **previous_formatting}
-                )
-                sentence_formatting.append({"text": " ", **current_formatting})
-                combined_text = ""
+    current_token_index = 0
+    current_pos = 0
+
+    for run_index, run in enumerate(paragraph.runs):
+        # print(f"\nProcessing run {run_index} (Text: '{run.text}')")
+        new_run_text = ""
+        run_start_pos = current_pos
+        run_end_pos = current_pos + len(run.text)
+
+        while current_token_index < len(paragraph_tokens) and current_pos < run_end_pos:
+            token = paragraph_tokens[current_token_index]
+            token_end_pos = current_pos + len(token)
+            # print(
+            #     f"  Current token: '{token}' (Index: {current_token_index}, Positions: {current_pos}-{token_end_pos})"
+            # )
+
+            if current_token_index in modifications_dict:
+                original, modified = modifications_dict[current_token_index]
+                # print(f"    Modification found: '{original}' -> '{modified}'")
+
+                if token_end_pos <= run_end_pos:
+                    # print(f"    Applying full modification to run {run_index}")
+                    new_run_text += modified
+                    current_token_index += 1
+                    current_pos = token_end_pos
+                elif run_start_pos < token_end_pos and current_pos < run_end_pos:
+                    partial_mod_length = run_end_pos - current_pos
+                    # print(
+                    #     f"    Applying partial modification to run {run_index}: '{modified[:partial_mod_length]}'"
+                    # )
+                    new_run_text += modified[:partial_mod_length]
+
+                    if len(original) > partial_mod_length:
+                        modifications_dict[current_token_index] = (
+                            original[partial_mod_length:],
+                            modified[partial_mod_length:],
+                        )
+                    else:
+                        # print("    Skipping token, not in current run")
+                        current_token_index += 1
+
+                    current_pos = run_end_pos
+                else:
+                    break
             else:
-                previous_formatting = current_formatting
-                combined_text += token
+                if run_start_pos <= current_pos < run_end_pos:
+                    # print(f"    Adding unmodified token: '{token}'")
+                    new_run_text += token
+                    current_token_index += 1
+                    current_pos = token_end_pos
+                else:
+                    # print("    Token not in current run, moving to next run")
+                    break
 
-            if end_of_sentence:
-                formatting_list.append(sentence_formatting)
-                sentence_formatting = []
-
-            end_of_sentence = True if "." in token else False
-
-    if combined_text != "":
-        sentence_formatting.append({"text": combined_text, **previous_formatting})
-        formatting_list.append(sentence_formatting)
-
-    return formatting_list
+        run.text = new_run_text
+        current_pos = run_end_pos
+        # print(f"  Updated run {run_index} text: '{run.text}'")
 
 
-def extract_formatting_from_run(run):
+def find_modified_text(original_text, corrected_text):
+    mod = []
+    ori_tokens = custom_tokenize(original_text)
+    cor_tokens = custom_tokenize(corrected_text)
+
+    ori_matrix = [[token, index] for index, token in enumerate(ori_tokens)]
+    cor_matrix = [[token, index] for index, token in enumerate(cor_tokens)]
+
+    temp_mod = find_modified_tokens(ori_matrix, cor_matrix)
+
+    # TODO: replace ori_tokens with mod and then rerun the find_modified_tokens again to improve correctness....
+    for item in temp_mod:
+        index = item[2]
+        ori_tokens[index] = item[1]
+
+    updated_ori_matrix = [[token, index] for index, token in enumerate(ori_tokens)]
+
+    mod = find_modified_tokens(updated_ori_matrix, cor_matrix)
+    combined_list = temp_mod + mod
+
+    final_mod = sorted(list(set(combined_list)), key=lambda x: x[2])
+    final_mod = [item for item in final_mod if item[0] != item[1]]
+
+    return final_mod
+
+
+def find_modified_tokens(ori, cor):
     """
-    Extracts formatting details from a run in a DOCX document.
+    Identifies modifications between original and corrected texts.
 
-    :param run: A run object from a DOCX paragraph.
-    :return: A dictionary containing the formatting details of the run.
+    Args:
+        ori (list): Original text represented as a list of [token, position] pairs.
+        cor (list): Corrected text represented as a list of [token, position] pairs.
+
+    Returns:
+        list: A list of tuples of modifications (original_token, modified_token, position).
     """
-    formatting = {}
-    if run.bold:
-        formatting["bold"] = True
-    if run.italic:
-        formatting["italic"] = True
-    if run.underline:
-        formatting["underline"] = True
-    if run.font.size:
-        formatting["font_size"] = run.font.size
+    ori_index = cor_index = 0
+    mod = []
 
-    return formatting
+    while ori_index < len(ori) and cor_index < len(cor):
+        # print(f"Current Iteration: {ori_index}, {cor_index}")
+        ori_token, ori_pos = ori[ori_index]
+        cor_token, _ = cor[cor_index]
 
+        if ori_token == cor_token:
+            # Tokens are identical, move to the next pair
+            ori_index += 1
+            cor_index += 1
+        else:
+            if ori_index + 4 < len(ori) and cor_index + 4 < len(cor):
+                if ori[ori_index + 4][0] == cor[cor_index + 2][0]:
+                    mod.append((ori_token, "", ori_pos))
+                    mod.append((" ", "", ori_pos + 1))
+                    mod.append((ori[ori_index + 2][0], cor_token, ori_pos + 2))
 
-def custom_tokenize(text):
-    """
-    Tokenizes a string into words, spaces, and punctuation marks.
+                    ori_index += 3
+                    cor_index += 1
+                    continue
+                elif ori[ori_index + 2][0] == cor[cor_index + 2][0]:
+                    mod.append((ori_token, cor_token, ori_pos))
+                    ori_index += 1
+                    cor_index += 1
+                    continue
+                elif ori[ori_index + 2][0] == cor[cor_index + 4][0]:
+                    mod.append(
+                        (ori_token, cor_token + " " + cor[cor_index + 2][0], ori_pos)
+                    )
+                    ori_index += 1
+                    cor_index += 3
+                    continue
+                elif (
+                    ori[ori_index + 2][0] != cor[cor_index + 2][0]
+                    and ori[ori_index + 4][0] == cor[cor_index + 4][0]
+                ):
+                    mod.append((ori_token, cor_token, ori_pos))
+                    mod.append(
+                        (ori[ori_index + 2][0], cor[cor_index + 2][0], ori_pos + 2)
+                    )
+                    ori_index += 3
+                    cor_index += 3
 
-    :param text: The string to be tokenized.
-    :return: A list of tokens extracted from the string.
-    """
-    pattern = r'\(\w+[\w\'-]*\)?|[.,;:!?"]|\b\w+[\w\'-]*[.,;:!?"]?|\s+'
-    return re.findall(pattern, text)
+                else:
+                    ori_index += 1
+                    cor_index += 1
+            else:
+                # Handle end-of-text cases
+                if len(ori) - ori_index == len(cor) - cor_index:
+                    mod.append((ori_token, cor_token, ori_pos))
+                    ori_index += 1
+                    cor_index += 1
+                elif len(ori) - ori_index > len(cor) - cor_index:
+                    mod.append((ori_token, "", ori_pos))
+                    mod.append((" ", "", ori_pos + 1))
+                    mod.append((ori[ori_index + 2][0], cor_token, ori_pos + 2))
+                    ori_index += 3
+                    cor_index += 1
+                else:
+                    mod.append(
+                        (
+                            ori_token,
+                            cor_token + " " + cor[cor_index + 2][0],
+                            ori_pos,
+                        )
+                    )
+                    ori_index += 1
+                    cor_index += 3
 
-
-def apply_run_formatting(run, formatting):
-    """
-    Applies formatting to a run in a DOCX document.
-
-    :param run: A run object from a DOCX paragraph.
-    :param formatting: A dictionary containing formatting details to apply to the run.
-    """
-    run.bold = formatting.get("bold")
-    run.italic = formatting.get("italic")
-    run.underline = formatting.get("underline")
-    # Only set font size if it's explicitly provided
-    if "font_size" in formatting and formatting["font_size"] is not None:
-        run.font.size = formatting["font_size"]
+    return mod

@@ -1,0 +1,53 @@
+
+-------- ROOT -------- 
+__class__: <class 'xml.etree.ElementTree.Element'>
+__copy__: <built-in method __copy__ of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__deepcopy__: <built-in method __deepcopy__ of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__delattr__: <method-wrapper '__delattr__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__delitem__: <method-wrapper '__delitem__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__dir__: <built-in method __dir__ of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__doc__: None
+__eq__: <method-wrapper '__eq__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__format__: <built-in method __format__ of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__ge__: <method-wrapper '__ge__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__getattribute__: <method-wrapper '__getattribute__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__getitem__: <method-wrapper '__getitem__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__getstate__: <built-in method __getstate__ of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__gt__: <method-wrapper '__gt__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__hash__: <method-wrapper '__hash__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__init__: <method-wrapper '__init__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x00007FFCC17AD8A0>
+__le__: <method-wrapper '__le__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__len__: <method-wrapper '__len__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__lt__: <method-wrapper '__lt__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__ne__: <method-wrapper '__ne__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__new__: <built-in method __new__ of type object at 0x00007FFCC17AD8A0>
+__reduce__: <built-in method __reduce__ of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__reduce_ex__: <built-in method __reduce_ex__ of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__repr__: <method-wrapper '__repr__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__setattr__: <method-wrapper '__setattr__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__setitem__: <method-wrapper '__setitem__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__setstate__: <built-in method __setstate__ of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__sizeof__: <built-in method __sizeof__ of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__str__: <method-wrapper '__str__' of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x00007FFCC17AD8A0>
+append: <built-in method append of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+attrib: {'{http://schemas.openxmlformats.org/markup-compatibility/2006}Ignorable': 'w14 w15 w16se w16cid w16 w16cex w16sdtdh wp14'}
+clear: <built-in method clear of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+extend: <built-in method extend of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+find: <built-in method find of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+findall: <built-in method findall of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+findtext: <built-in method findtext of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+get: <built-in method get of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+insert: <built-in method insert of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+items: <built-in method items of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+iter: <built-in method iter of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+iterfind: <built-in method iterfind of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+itertext: <built-in method itertext of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+keys: <built-in method keys of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+makeelement: <built-in method makeelement of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+remove: <built-in method remove of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+set: <built-in method set of xml.etree.ElementTree.Element object at 0x000001D35D030860>
+tag: {http://schemas.openxmlformats.org/wordprocessingml/2006/main}document
+tail: None
+text: None

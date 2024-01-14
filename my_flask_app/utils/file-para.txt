@@ -1,0 +1,1288 @@
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93BBD90>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6cb0>, '_element': <CT_P '<w:p>' at 0x1f1f93a6cb0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93BBD90>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93BBD90>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93BBD90>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93BBD90>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93BBD90>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93BBD90>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93BBD90>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93BBD90>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBD90>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93BBD90>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93BBD90>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93BBD90>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93BBD90>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93BBD90>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93BBD90>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93BBD90>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93BBD90>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93BBD90>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6cb0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBD90>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6cb0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBD90>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBD90>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBD90>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBD90>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F9345A10>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F8053B50>]
+style: _ParagraphStyle('ICCE Paper Title') id: 2138779845584
+text: A Framework for Assessment Design in the Era of Generative AI: The Case of Take-Home Assignment in Software-related Courses
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93BBA10>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6d50>, '_element': <CT_P '<w:p>' at 0x1f1f93a6d50>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93BBA10>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93BBA10>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93BBA10>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93BBA10>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93BBA10>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93BBA10>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93BBA10>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93BBA10>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBA10>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93BBA10>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93BBA10>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93BBA10>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93BBA10>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93BBA10>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93BBA10>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93BBA10>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93BBA10>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93BBA10>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6d50>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBA10>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6d50>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBA10>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBA10>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBA10>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBA10>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C1250>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C0090>, <docx.text.run.Run object at 0x000001F1F93C1250>, <docx.text.run.Run object at 0x000001F1F93C08D0>, <docx.text.run.Run object at 0x000001F1F93C3690>, <docx.text.run.Run object at 0x000001F1F93C1590>, <docx.text.run.Run object at 0x000001F1F93C0F10>, <docx.text.run.Run object at 0x000001F1F93C3710>, <docx.text.run.Run object at 0x000001F1F93C1650>, <docx.text.run.Run object at 0x000001F1F93C1290>, <docx.text.run.Run object at 0x000001F1F93C3810>, <docx.text.run.Run object at 0x000001F1F93C11D0>, <docx.text.run.Run object at 0x000001F1F93C3250>, <docx.text.run.Run object at 0x000001F1F93C1710>, <docx.text.run.Run object at 0x000001F1F93C0E50>, <docx.text.run.Run object at 0x000001F1F93C0E10>, <docx.text.run.Run object at 0x000001F1F93C10D0>, <docx.text.run.Run object at 0x000001F1F93C3410>]
+style: _ParagraphStyle('ICCE Author List') id: 2138779847568
+text: Anna Lyza FELIPEa*, Quang Ngoc TRANb, Thanh Chi PHAMc, Thanh Ngoc NGUYENd & Linh Duc TRANe
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93BBF10>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6da0>, '_element': <CT_P '<w:p>' at 0x1f1f93a6da0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93BBF10>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93BBF10>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93BBF10>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93BBF10>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93BBF10>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93BBF10>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93BBF10>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93BBF10>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBF10>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93BBF10>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93BBF10>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93BBF10>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93BBF10>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93BBF10>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93BBF10>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93BBF10>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93BBF10>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93BBF10>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6da0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBF10>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6da0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBF10>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBF10>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBF10>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBF10>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F9368B90>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C1210>, <docx.text.run.Run object at 0x000001F1F93C1250>, <docx.text.run.Run object at 0x000001F1F93C10D0>, <docx.text.run.Run object at 0x000001F1F93C1090>, <docx.text.run.Run object at 0x000001F1F93C0E50>]
+style: _ParagraphStyle('ICCE Affiliations') id: 2138780219088
+text: a,b,c,d,eSchool of Science, Engineering & Technology, RMIT University, Vietnam
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93BBE10>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5ea0>, '_element': <CT_P '<w:p>' at 0x1f1f93a5ea0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93BBE10>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93BBE10>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93BBE10>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93BBE10>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93BBE10>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93BBE10>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93BBE10>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93BBE10>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBE10>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93BBE10>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93BBE10>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93BBE10>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93BBE10>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93BBE10>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93BBE10>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93BBE10>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93BBE10>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93BBE10>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5ea0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBE10>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5ea0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBE10>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBE10>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBE10>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93BBE10>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F9368A50>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93683D0>, <docx.text.run.Run object at 0x000001F1F9368890>, <docx.text.run.Run object at 0x000001F1F93C1450>, <docx.text.run.Run object at 0x000001F1F93C1650>]
+style: _ParagraphStyle('ICCE Affiliations') id: 2138780218384
+text: *anna.felipe@rmit.edu.vn
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C01D0>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a61c0>, '_element': <CT_P '<w:p>' at 0x1f1f93a61c0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C01D0>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C01D0>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C01D0>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C01D0>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C01D0>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C01D0>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C01D0>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C01D0>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C01D0>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C01D0>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C01D0>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C01D0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C01D0>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C01D0>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C01D0>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C01D0>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C01D0>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C01D0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a61c0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C01D0>>
+_p: <CT_P '<w:p>' at 0x1f1f93a61c0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C01D0>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C01D0>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C01D0>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C01D0>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C0E50>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C0E50>, <docx.text.run.Run object at 0x000001F1F93C3350>, <docx.text.run.Run object at 0x000001F1F93C3690>, <docx.text.run.Run object at 0x000001F1F93DFD90>, <docx.text.run.Run object at 0x000001F1F93DED90>]
+style: _ParagraphStyle('ICCE Keywords') id: 2138780323664
+text: Keywords: AI Education, Bloom Taxonomy, Computing Education, Generative AI, Assessment Design
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0810>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a62b0>, '_element': <CT_P '<w:p>' at 0x1f1f93a62b0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0810>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0810>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0810>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0810>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0810>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0810>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0810>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0810>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0810>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0810>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0810>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0810>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0810>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0810>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0810>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0810>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0810>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0810>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a62b0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0810>>
+_p: <CT_P '<w:p>' at 0x1f1f93a62b0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0810>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0810>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0810>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0810>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F9368890>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F9368890>]
+style: _ParagraphStyle('ICCE Heading 2') id: 2138780210256
+text: Introduction
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C00D0>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6210>, '_element': <CT_P '<w:p>' at 0x1f1f93a6210>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C00D0>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C00D0>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C00D0>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C00D0>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C00D0>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C00D0>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C00D0>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C00D0>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C00D0>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C00D0>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C00D0>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C00D0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C00D0>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C00D0>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C00D0>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C00D0>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C00D0>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C00D0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6210>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C00D0>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6210>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C00D0>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C00D0>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C00D0>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C00D0>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C1490>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C0E50>, <docx.text.run.Run object at 0x000001F1F93C1490>, <docx.text.run.Run object at 0x000001F1F93C3410>, <docx.text.run.Run object at 0x000001F1F93C3690>, <docx.text.run.Run object at 0x000001F1F93C3350>, <docx.text.run.Run object at 0x000001F1F93DFF10>, <docx.text.run.Run object at 0x000001F1F93DEA90>, <docx.text.run.Run object at 0x000001F1F93DFD90>, <docx.text.run.Run object at 0x000001F1F93DFE50>, <docx.text.run.Run object at 0x000001F1F93DFB10>, <docx.text.run.Run object at 0x000001F1F93DF1D0>, <docx.text.run.Run object at 0x000001F1F93DD4D0>, <docx.text.run.Run object at 0x000001F1F93DEBD0>, <docx.text.run.Run object at 0x000001F1F93DF4D0>, <docx.text.run.Run object at 0x000001F1F93DD010>, <docx.text.run.Run object at 0x000001F1F93DEA50>, <docx.text.run.Run object at 0x000001F1F93DEB90>, <docx.text.run.Run object at 0x000001F1F93DFB90>, <docx.text.run.Run object at 0x000001F1F93DCF10>, <docx.text.run.Run object at 0x000001F1F93DF3D0>, <docx.text.run.Run object at 0x000001F1F93DFF50>, <docx.text.run.Run object at 0x000001F1F93DD450>]
+style: _ParagraphStyle('ICCE Normal') id: 2138780333904
+text: In recent years, the field of education has witnessed a significant shift toward the integration of technology, particularly in the assessment design (Almond et al., 2002; Gorin, 2006; Ineke Van den Berg et al., 2006; Verónica Villarroel et al., 2018). One area where this integration has gained significant attention is the use of generative AI in assessment tasks (Suzanne Fergus et al., 2023; Wayne Geerling et al., 2023). Generative AI refers to computer algorithms that can generate new content or responses based on a set of input data (Will Yeadon et al., 2023). 
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0310>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6080>, '_element': <CT_P '<w:p>' at 0x1f1f93a6080>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0310>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0310>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0310>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0310>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0310>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0310>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0310>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0310>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0310>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0310>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0310>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0310>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0310>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0310>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0310>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0310>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0310>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0310>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6080>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0310>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6080>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0310>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0310>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0310>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0310>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F9555D90>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F9555D90>]
+style: _ParagraphStyle('ICCE Heading 2') id: 2138780383696
+text: Findings and discussions
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0390>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a60d0>, '_element': <CT_P '<w:p>' at 0x1f1f93a60d0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0390>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0390>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0390>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0390>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0390>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0390>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0390>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0390>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0390>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0390>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0390>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0390>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0390>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0390>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0390>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0390>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0390>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0390>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a60d0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0390>>
+_p: <CT_P '<w:p>' at 0x1f1f93a60d0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0390>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0390>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0390>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0390>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F9368B90>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F9368B90>]
+style: _ParagraphStyle('ICCE Heading 3') id: 2138780332240
+text: Marking answers from ChatGPT
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0450>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6170>, '_element': <CT_P '<w:p>' at 0x1f1f93a6170>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0450>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0450>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0450>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0450>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0450>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0450>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0450>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0450>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0450>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0450>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0450>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0450>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0450>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0450>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0450>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0450>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0450>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0450>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6170>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0450>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6170>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0450>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0450>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0450>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0450>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F936A650>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93E8D90>, <docx.text.run.Run object at 0x000001F1F93E9210>, <docx.text.run.Run object at 0x000001F1F93DFE90>]
+style: _ParagraphStyle('ICCE Normal') id: 2138780324816
+text: For example, the following code is the answer for the banking app from ChatGPT with a direct question:
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0510>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a66c0>, '_element': <CT_P '<w:p>' at 0x1f1f93a66c0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0510>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0510>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0510>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0510>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0510>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0510>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0510>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0510>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0510>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0510>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0510>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0510>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0510>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0510>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0510>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0510>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0510>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0510>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a66c0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0510>>
+_p: <CT_P '<w:p>' at 0x1f1f93a66c0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0510>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0510>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0510>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0510>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F9368B90>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F9368B90>]
+style: _ParagraphStyle('Normal') id: 2138780218512
+text: class Account {
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0590>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6670>, '_element': <CT_P '<w:p>' at 0x1f1f93a6670>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0590>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0590>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0590>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0590>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0590>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0590>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0590>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0590>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0590>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0590>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0590>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0590>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0590>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0590>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0590>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0590>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0590>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0590>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6670>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0590>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6670>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0590>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0590>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0590>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0590>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C11D0>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93E9210>, <docx.text.run.Run object at 0x000001F1F93E9790>, <docx.text.run.Run object at 0x000001F1F93E8C50>]
+style: _ParagraphStyle('Normal') id: 2138780372368
+text:     private String accountNumber;
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C05D0>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6620>, '_element': <CT_P '<w:p>' at 0x1f1f93a6620>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C05D0>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C05D0>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C05D0>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C05D0>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C05D0>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C05D0>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C05D0>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C05D0>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C05D0>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C05D0>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C05D0>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C05D0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C05D0>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C05D0>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C05D0>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C05D0>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C05D0>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C05D0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6620>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C05D0>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6620>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C05D0>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C05D0>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C05D0>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C05D0>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C1650>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C1350>, <docx.text.run.Run object at 0x000001F1F93DEB90>]
+style: _ParagraphStyle('Normal') id: 2138780325264
+text:     private double balance;
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C06D0>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6580>, '_element': <CT_P '<w:p>' at 0x1f1f93a6580>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C06D0>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C06D0>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C06D0>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C06D0>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C06D0>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C06D0>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C06D0>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C06D0>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C06D0>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C06D0>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C06D0>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C06D0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C06D0>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C06D0>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C06D0>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C06D0>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C06D0>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C06D0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6580>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C06D0>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6580>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C06D0>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C06D0>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C06D0>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C06D0>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C3490>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C11D0>, <docx.text.run.Run object at 0x000001F1F93E8C50>, <docx.text.run.Run object at 0x000001F1F93E9210>, <docx.text.run.Run object at 0x000001F1F93DFE90>, <docx.text.run.Run object at 0x000001F1F93DDF50>]
+style: _ParagraphStyle('Normal') id: 2138780334480
+text:     public Account(String accountNumber) {
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0710>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a54a0>, '_element': <CT_P '<w:p>' at 0x1f1f93a54a0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0710>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0710>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0710>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0710>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0710>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0710>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0710>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0710>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0710>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0710>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0710>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0710>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0710>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0710>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0710>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0710>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0710>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0710>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a54a0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0710>>
+_p: <CT_P '<w:p>' at 0x1f1f93a54a0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0710>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0710>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0710>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0710>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93E8D90>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93E9790>, <docx.text.run.Run object at 0x000001F1F93E9210>, <docx.text.run.Run object at 0x000001F1F93C3490>, <docx.text.run.Run object at 0x000001F1F93C1650>, <docx.text.run.Run object at 0x000001F1F93C1090>]
+style: _ParagraphStyle('Normal') id: 2138780335504
+text:         this.accountNumber = accountNumber;
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0790>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5540>, '_element': <CT_P '<w:p>' at 0x1f1f93a5540>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0790>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0790>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0790>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0790>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0790>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0790>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0790>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0790>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0790>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0790>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0790>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0790>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0790>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0790>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0790>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0790>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0790>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0790>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5540>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0790>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5540>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0790>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0790>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0790>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0790>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C11D0>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C1290>, <docx.text.run.Run object at 0x000001F1F93C1650>, <docx.text.run.Run object at 0x000001F1F93DDF50>]
+style: _ParagraphStyle('Normal') id: 2138780330448
+text:         this.balance = 0;
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0910>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5310>, '_element': <CT_P '<w:p>' at 0x1f1f93a5310>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0910>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0910>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0910>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0910>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0910>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0910>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0910>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0910>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0910>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0910>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0910>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0910>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0910>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0910>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0910>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0910>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0910>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0910>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5310>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0910>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5310>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0910>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0910>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0910>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0910>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93E8D90>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93E8D90>]
+style: _ParagraphStyle('Normal') id: 2138780209616
+text:     }
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C02D0>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5770>, '_element': <CT_P '<w:p>' at 0x1f1f93a5770>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C02D0>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C02D0>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C02D0>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C02D0>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C02D0>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C02D0>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C02D0>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C02D0>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C02D0>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C02D0>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C02D0>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C02D0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C02D0>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C02D0>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C02D0>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C02D0>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C02D0>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C02D0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5770>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C02D0>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5770>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C02D0>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C02D0>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C02D0>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C02D0>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93E9790>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93E9790>]
+style: _ParagraphStyle('Normal') id: 2138780372048
+text: }
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0B10>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a6350>, '_element': <CT_P '<w:p>' at 0x1f1f93a6350>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0B10>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0B10>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0B10>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0B10>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0B10>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0B10>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0B10>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0B10>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B10>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0B10>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0B10>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0B10>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0B10>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0B10>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0B10>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0B10>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0B10>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0B10>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a6350>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B10>>
+_p: <CT_P '<w:p>' at 0x1f1f93a6350>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B10>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B10>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B10>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B10>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93E8C50>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93E8890>]
+style: _ParagraphStyle('ICCE Normal') id: 2138780374928
+text: The proposed assessment design framework is summarized in Figure 2. 
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0950>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5860>, '_element': <CT_P '<w:p>' at 0x1f1f93a5860>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0950>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0950>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0950>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0950>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0950>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0950>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0950>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0950>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0950>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0950>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0950>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0950>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0950>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0950>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0950>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0950>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0950>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0950>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5860>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0950>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5860>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0950>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0950>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0950>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0950>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C11D0>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C11D0>, <docx.text.run.Run object at 0x000001F1F93C1650>, <docx.text.run.Run object at 0x000001F1F93C3250>, <docx.text.run.Run object at 0x000001F1F93DF250>, <docx.text.run.Run object at 0x000001F1F93DF990>, <docx.text.run.Run object at 0x000001F1F93DFE90>, <docx.text.run.Run object at 0x000001F1F93DF590>]
+style: _ParagraphStyle('ICCE Figure') id: 2138780330896
+text: Figure 1. Assessment design framework
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0A50>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5900>, '_element': <CT_P '<w:p>' at 0x1f1f93a5900>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0A50>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0A50>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0A50>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0A50>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0A50>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0A50>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0A50>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0A50>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0A50>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0A50>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0A50>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0A50>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0A50>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0A50>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0A50>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0A50>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0A50>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0A50>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5900>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0A50>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5900>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0A50>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0A50>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0A50>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0A50>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93E8D90>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C1650>]
+style: _ParagraphStyle('ICCE Heading 2') id: 2138780372048
+text: References
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0BD0>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a59a0>, '_element': <CT_P '<w:p>' at 0x1f1f93a59a0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0BD0>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0BD0>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0BD0>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0BD0>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0BD0>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0BD0>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0BD0>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0BD0>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0BD0>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0BD0>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0BD0>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0BD0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0BD0>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0BD0>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0BD0>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0BD0>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0BD0>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0BD0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a59a0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0BD0>>
+_p: <CT_P '<w:p>' at 0x1f1f93a59a0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0BD0>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0BD0>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0BD0>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0BD0>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C3250>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C11D0>, <docx.text.run.Run object at 0x000001F1F93E8D90>, <docx.text.run.Run object at 0x000001F1F93E9790>, <docx.text.run.Run object at 0x000001F1F93EA8D0>, <docx.text.run.Run object at 0x000001F1F955A410>, <docx.text.run.Run object at 0x000001F1F9559210>, <docx.text.run.Run object at 0x000001F1F955AA90>, <docx.text.run.Run object at 0x000001F1F955B850>]
+style: _ParagraphStyle('EndNote Bibliography') id: 2138781888592
+text: Almond, R., Steinberg, L., & Mislevy, R. (2002). Enhancing the design and delivery of assessment systems: A four-process architecture. The Journal of Technology, Learning and Assessment, 1(5). 
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0C90>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a59f0>, '_element': <CT_P '<w:p>' at 0x1f1f93a59f0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0C90>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0C90>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0C90>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0C90>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0C90>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0C90>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0C90>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0C90>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C90>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0C90>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0C90>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0C90>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0C90>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0C90>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0C90>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0C90>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0C90>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0C90>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a59f0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C90>>
+_p: <CT_P '<w:p>' at 0x1f1f93a59f0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C90>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C90>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C90>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C90>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F955B110>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F9559990>, <docx.text.run.Run object at 0x000001F1F9345C50>, <docx.text.run.Run object at 0x000001F1F9560B50>, <docx.text.run.Run object at 0x000001F1F9561410>, <docx.text.run.Run object at 0x000001F1F9560510>]
+style: _ParagraphStyle('EndNote Bibliography') id: 2138781877776
+text: Benuyenah, V. (2023). Commentary: ChatGPT use in higher education assessment: Prospects and epistemic threats. Journal of Research in Innovative Teaching & Learning, 16(1), 134-135. 
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0C50>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5a40>, '_element': <CT_P '<w:p>' at 0x1f1f93a5a40>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0C50>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0C50>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0C50>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0C50>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0C50>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0C50>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0C50>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0C50>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C50>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0C50>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0C50>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0C50>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0C50>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0C50>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0C50>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0C50>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0C50>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0C50>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5a40>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C50>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5a40>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C50>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C50>>
+contains_page_break: False
+hyperlinks: [<docx.text.hyperlink.Hyperlink object at 0x000001F1F93C3250>]
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C50>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C50>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93DD410>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93DD3D0>, <docx.text.run.Run object at 0x000001F1F93DD410>, <docx.text.run.Run object at 0x000001F1F93DFA90>, <docx.text.run.Run object at 0x000001F1F93DD110>, <docx.text.run.Run object at 0x000001F1F93DFC90>, <docx.text.run.Run object at 0x000001F1F93DFE50>]
+style: _ParagraphStyle('EndNote Bibliography') id: 2138780329872
+text: Fergus, S., Botha, M., & Ostovar, M. (2023). Evaluating Academic Answers Generated Using ChatGPT [Article]. Journal of Chemical Education, 100(4), 1672-1675. https://doi.org/10.1021/acs.jchemed.3c00087 
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0CD0>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5a90>, '_element': <CT_P '<w:p>' at 0x1f1f93a5a90>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0CD0>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0CD0>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0CD0>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0CD0>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0CD0>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0CD0>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0CD0>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0CD0>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0CD0>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0CD0>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0CD0>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0CD0>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0CD0>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0CD0>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0CD0>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0CD0>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0CD0>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0CD0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5a90>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0CD0>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5a90>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0CD0>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0CD0>>
+contains_page_break: False
+hyperlinks: []
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0CD0>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0CD0>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F936A650>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F9345C50>, <docx.text.run.Run object at 0x000001F1F93EA8D0>, <docx.text.run.Run object at 0x000001F1F93E8D90>, <docx.text.run.Run object at 0x000001F1F93E9D50>, <docx.text.run.Run object at 0x000001F1F93E90D0>]
+style: _ParagraphStyle('EndNote Bibliography') id: 2138780324880
+text: Gorin, J. S. (2006). Test design with cognition in mind. Educational measurement: Issues and practice, 25(4), 21-35. 
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0B90>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5ae0>, '_element': <CT_P '<w:p>' at 0x1f1f93a5ae0>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0B90>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0B90>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0B90>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0B90>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0B90>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0B90>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0B90>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0B90>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B90>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0B90>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0B90>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0B90>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0B90>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0B90>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0B90>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0B90>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0B90>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0B90>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5ae0>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B90>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5ae0>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B90>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B90>>
+contains_page_break: False
+hyperlinks: [<docx.text.hyperlink.Hyperlink object at 0x000001F1F93C1350>]
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B90>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B90>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F936A650>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C1350>, <docx.text.run.Run object at 0x000001F1F93C3250>, <docx.text.run.Run object at 0x000001F1F93DEC10>, <docx.text.run.Run object at 0x000001F1F93DDF50>, <docx.text.run.Run object at 0x000001F1F93DD410>, <docx.text.run.Run object at 0x000001F1F93DC650>]
+style: _ParagraphStyle('EndNote Bibliography') id: 2138780324816
+text: Van Den Berg, I., Admiraal, W., & Pilot, A. (2006). Design principles and outcomes of peer assessment in higher education [Article]. Studies in Higher Education, 31(3), 341-356. https://doi.org/10.1080/03075070600680836 
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0D90>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5b30>, '_element': <CT_P '<w:p>' at 0x1f1f93a5b30>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0D90>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0D90>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0D90>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0D90>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0D90>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0D90>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0D90>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0D90>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0D90>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0D90>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0D90>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0D90>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0D90>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0D90>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0D90>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0D90>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0D90>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0D90>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5b30>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0D90>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5b30>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0D90>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0D90>>
+contains_page_break: False
+hyperlinks: [<docx.text.hyperlink.Hyperlink object at 0x000001F1F93C1650>]
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0D90>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0D90>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93EA590>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93E90D0>, <docx.text.run.Run object at 0x000001F1F93EA590>, <docx.text.run.Run object at 0x000001F1F93E9D50>, <docx.text.run.Run object at 0x000001F1F93E9790>, <docx.text.run.Run object at 0x000001F1F93DFA90>, <docx.text.run.Run object at 0x000001F1F93DE890>]
+style: _ParagraphStyle('EndNote Bibliography') id: 2138780324112
+text: Villarroel, V., Bloxham, S., Bruna, D., Bruna, C., & Herrera-Seda, C. (2018). Authentic assessment: creating a blueprint for course design [Article]. Assessment and Evaluation in Higher Education, 43(5), 840-854. https://doi.org/10.1080/02602938.2017.1412396 
+
+ -------- paragraph -------- 
+__class__: <class 'docx.text.paragraph.Paragraph'>
+__delattr__: <method-wrapper '__delattr__' of Paragraph object at 0x000001F1F93C0890>
+__dict__: {'_parent': <docx.document._Body object at 0x000001F1F93BBF90>, '_p': <CT_P '<w:p>' at 0x1f1f93a5b80>, '_element': <CT_P '<w:p>' at 0x1f1f93a5b80>}
+__dir__: <built-in method __dir__ of Paragraph object at 0x000001F1F93C0890>
+__doc__: Proxy object wrapping a `<w:p>` element.
+__eq__: <method-wrapper '__eq__' of Paragraph object at 0x000001F1F93C0890>
+__format__: <built-in method __format__ of Paragraph object at 0x000001F1F93C0890>
+__ge__: <method-wrapper '__ge__' of Paragraph object at 0x000001F1F93C0890>
+__getattribute__: <method-wrapper '__getattribute__' of Paragraph object at 0x000001F1F93C0890>
+__getstate__: <built-in method __getstate__ of Paragraph object at 0x000001F1F93C0890>
+__gt__: <method-wrapper '__gt__' of Paragraph object at 0x000001F1F93C0890>
+__hash__: <method-wrapper '__hash__' of Paragraph object at 0x000001F1F93C0890>
+__init__: <bound method Paragraph.__init__ of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0890>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576BF30>
+__le__: <method-wrapper '__le__' of Paragraph object at 0x000001F1F93C0890>
+__lt__: <method-wrapper '__lt__' of Paragraph object at 0x000001F1F93C0890>
+__module__: docx.text.paragraph
+__ne__: <method-wrapper '__ne__' of Paragraph object at 0x000001F1F93C0890>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Paragraph object at 0x000001F1F93C0890>
+__reduce_ex__: <built-in method __reduce_ex__ of Paragraph object at 0x000001F1F93C0890>
+__repr__: <method-wrapper '__repr__' of Paragraph object at 0x000001F1F93C0890>
+__setattr__: <method-wrapper '__setattr__' of Paragraph object at 0x000001F1F93C0890>
+__sizeof__: <built-in method __sizeof__ of Paragraph object at 0x000001F1F93C0890>
+__str__: <method-wrapper '__str__' of Paragraph object at 0x000001F1F93C0890>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576BF30>
+__weakref__: None
+_element: <CT_P '<w:p>' at 0x1f1f93a5b80>
+_insert_paragraph_before: <bound method Paragraph._insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0890>>
+_p: <CT_P '<w:p>' at 0x1f1f93a5b80>
+_parent: <docx.document._Body object at 0x000001F1F93BBF90>
+add_run: <bound method Paragraph.add_run of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0890>>
+alignment: None
+clear: <bound method Paragraph.clear of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0890>>
+contains_page_break: False
+hyperlinks: [<docx.text.hyperlink.Hyperlink object at 0x000001F1F93C3250>]
+insert_paragraph_before: <bound method Paragraph.insert_paragraph_before of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0890>>
+iter_inner_content: <bound method Paragraph.iter_inner_content of <docx.text.paragraph.Paragraph object at 0x000001F1F93C0890>>
+paragraph_format: <docx.text.parfmt.ParagraphFormat object at 0x000001F1F93C1650>
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+rendered_page_breaks: []
+runs: [<docx.text.run.Run object at 0x000001F1F93C3250>, <docx.text.run.Run object at 0x000001F1F93DD410>, <docx.text.run.Run object at 0x000001F1F93DD590>, <docx.text.run.Run object at 0x000001F1F93DC650>, <docx.text.run.Run object at 0x000001F1F93DDF50>, <docx.text.run.Run object at 0x000001F1F93DD110>]
+style: _ParagraphStyle('EndNote Bibliography') id: 2138780378512
+text: Yeadon, W., Inyang, O. O., Mizouri, A., Peach, A., & Testrow, C. P. (2023). The death of the short-form physics essay in the coming AI revolution [Article]. Physics Education, 58(3), Article 035027. https://doi.org/10.1088/1361-6552/acc5cf 
