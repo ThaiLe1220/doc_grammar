@@ -35,7 +35,9 @@ class User(UserMixin, db.Model):
     family_name = db.Column(db.String(255))
     picture = db.Column(db.String(255))
     locale = db.Column(db.String(10))
-    account_type = db.Column(db.String(20), default="basic")
+    account_type = db.Column(db.String(20), default="Free")
+    stripe_customer_id = db.Column(db.String(50), unique=True)
+    subscription_purchased = db.Column(db.Boolean, default=False)
 
 
 class FileUpload(db.Model):
