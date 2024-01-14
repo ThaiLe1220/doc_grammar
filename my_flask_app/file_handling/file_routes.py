@@ -28,7 +28,7 @@ file_blueprint = Blueprint("file_blueprint", __name__)
 
 
 @file_blueprint.route("/upload", methods=["POST"])
-def upload_file():
+async def upload_file():
     """Upload a file and check its content for grammar corrections.
     Returns:
         redirect: Redirects to the index page after processing the file.
@@ -48,7 +48,7 @@ def upload_file():
 
     # Process the file and store corrections
     try:
-        corrections = correct_text_grammar(file_path)
+        corrections = await correct_text_grammar(file_path)
         flash("Content checked successfully.", "success")
 
     except IOError as io_error:

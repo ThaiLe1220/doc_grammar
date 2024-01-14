@@ -43,7 +43,7 @@ def check_grammar(original_text: str) -> str:
             API_URL,
             params={
                 "prompts": prompt,
-                "max_length": 64,
+                "max_length": 128,
             },
             timeout=10,  # Timeout in 10 seconds
         )

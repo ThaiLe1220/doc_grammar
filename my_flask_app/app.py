@@ -44,7 +44,7 @@ app.config[
 app.config[
     "STRIPE_SECRET_KEY"
 ] = "sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf"
-endpoint_secret = "whsec_95ko9Dz5I1d9tNBOUyrzT89hp3ujpLcn"
+endpoint_secret = "whsec_TrvZpEz5jT1o4Za0ZKONVaBHe1rSjJum"
 Domain = "http://localhost:5000"
 stripe.api_key = "sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf"
 

@@ -1,7 +1,9 @@
 """ Filename: docx_utils.py - Directory: my_flask_app/utils
 """
+import asyncio
 import nltk
 from docx import Document
+from aiohttp import ClientSession
 from .grammar_checker import check_grammar
 from .reconstructing_sentence import *
 
@@ -9,32 +11,100 @@ from .reconstructing_sentence import *
 nltk.download("punkt", quiet=True)
 
 
-def correct_text_grammar(file_path):
+async def async_check_grammar(original_text, session):
+    """
+    Asynchronously checks and corrects the grammar of a given text.
+
+    Args:
+        original_text (str): The text to be checked and corrected for grammar.
+        session (aiohttp.ClientSession): The aiohttp session for making requests.
+
+    Returns:
+        str: The corrected version of the original text with improved grammar.
+    """
+    # Call the asynchronous check_grammar function
+    print(
+        f"Checking grammar for text: {original_text[:40]}..."
+    )  # Print first 30 characters
+    corrected_text = await check_grammar(original_text, session)
+    print(f"Received corrected text: {corrected_text[:40]}...")  # Print first
+    return corrected_text
+
+
+async def process_paragraph(paragraph, session):
+    corrected_para = ""
+    para_word_count = len(paragraph.text.split())
+
+    if para_word_count <= 64:
+        # If the paragraph is short enough, process it as a whole
+        corrected_para = await async_check_grammar(paragraph.text, session)
+        await asyncio.sleep(0.05)  # Delay between batches
+        print("Processed short paragraph.")
+    else:
+        # If the paragraph is long, split into sentences and process in batches of 10
+        sentences = nltk.tokenize.sent_tokenize(paragraph.text)
+        print(f"Split paragraph into {len(sentences)} sentences.")
+        sentence_batches = [sentences[i : i + 10] for i in range(0, len(sentences), 10)]
+
+        for batch in sentence_batches:
+            print(f"Processing batch with {len(batch)} sentences.")
+            corrected_sentences = await asyncio.gather(
+                *[async_check_grammar(sentence, session) for sentence in batch]
+            )
+            corrected_para += " ".join(corrected_sentences)
+            await asyncio.sleep(0.05)  # Delay between batches
+            print("Processed a batch of sentences.")
+
+    return corrected_para
+
+
+async def correct_text_grammar(file_path):
     doc = Document(file_path)
-    for paragraph in doc.paragraphs:
-        if not paragraph.text.strip() or paragraph.style.name == "EndNote Bibliography":
-            continue
+    corrected_paragraphs = (
+        {}
+    )  # Use a dictionary to map paragraph index to corrected text
 
-        corrected_para = ""
+    async with ClientSession() as session:
+        for i in range(0, len(doc.paragraphs), 10):
+            tasks = []
+            batch_indices = []  # Store indices of paragraphs in the current batch
 
-        para_word_count = len(paragraph.text.split())
-        # print(f"\n--Paragraph--: [{para_word_count}] {paragraph.text}")
-        if para_word_count <= 64:
-            corrected_para = check_grammar(paragraph.text)
+            for index, paragraph in enumerate(doc.paragraphs[i : i + 10], start=i):
+                if (
+                    not paragraph.text.strip()
+                    or paragraph.style.name == "EndNote Bibliography"
+                ):
+                    print("Skipping empty or bibliography paragraph.")
+                    continue
 
-        else:
-            sentences = nltk.tokenize.sent_tokenize(paragraph.text)
-            for i, original_sentence in enumerate(sentences):
-                corrected_sentence = check_grammar(original_sentence) + " "
-                corrected_para += corrected_sentence
+                task = asyncio.create_task(process_paragraph(paragraph, session))
+                tasks.append(task)
+                batch_indices.append(
+                    index
+                )  # Keep track of the paragraph's original index
 
-        # print(f"[Before Correction] paragraph.text: {paragraph.text}")
-        # print(f"----------Corrected Para----------: {corrected_para}")
+            # Wait for all tasks in the current batch to complete and store results
+            results = await asyncio.gather(*tasks)
 
-        correct_paragraph(corrected_para, paragraph)
-        # print(f"[After Correction] paragraph.text: {paragraph.text}")
+            for index, corrected_text in zip(batch_indices, results):
+                corrected_paragraphs[
+                    index
+                ] = corrected_text  # Map index to corrected text
+
+            print("Processed batch of paragraphs. Waiting before next batch...")
+            await asyncio.sleep(0.5)
+
+        # Apply the corrected text to each paragraph in the original order
+        for index, paragraph in enumerate(doc.paragraphs):
+            if (
+                paragraph.text.strip()
+                and paragraph.style.name != "EndNote Bibliography"
+                and index in corrected_paragraphs
+            ):
+                paragraph.text = corrected_paragraphs[index]
 
     doc.save(file_path)
+    print("Completed grammar correction and saved document.")
 
     return []
 
