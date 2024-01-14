@@ -1,0 +1,94 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-family: monospace;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+.column1 {
+    width: 200pt;
+    padding: 50px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+.column2 {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+
+.column2 .basic {
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.column2 .basic:hover {
+    background-color: #f1f1f1;
+}
+
+.basic button {
+    width: 19%; /* Adjust the width as needed */
+    margin-bottom: 10px; /* Same margin as the input elements */
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    background-color: white; /* Add your preferred background color */
+    font-weight: bolder;
+    color: black; /* Add your preferred text color */
+}
+
+.basic button:hover {
+    background-color: black;
+    color: white;
+}
+
+.column2 .pro {
+    padding: 20px;
+    border: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding-left: 40px;
+}
+
+.column2 .pro:hover {
+    background-color: #f1f1f1;
+}
+
+.pro  button {
+    width: 19%; /* Adjust the width as needed */
+    margin-bottom: 10px; /* Same margin as the input elements */
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    background-color: white; /* Add your preferred background color */
+    font-weight: bolder;
+    color: black; /* Add your preferred text color */
+}
+
+.pro button:hover {
+    background-color: black;
+    color: white;
+}

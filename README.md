@@ -34,7 +34,7 @@ cd doc_grammar/my_flask_app
 Create and activate a virtual environment:
 
 ```sh
-python -m venv venv
+python3 -m venv venv
 # On Windows (cmd)
 venv\Scripts\activate
 # On Windows (PowerShell)
@@ -46,7 +46,7 @@ source venv/bin/activate
 Install the required Python packages:
 
 ```sh
-pip install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk authlib Flask-Login Flask-Migrate
+pip3 install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk authlib Flask-Login Flask-Migrate
 ```
 
 ### Database Configuration

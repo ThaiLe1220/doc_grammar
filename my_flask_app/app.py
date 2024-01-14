@@ -48,7 +48,7 @@ stripe.api_key = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://huynguyen284:password@localhost/doc_grammar" 
+] = "postgresql://jaeheon:0325@localhost/doc_grammar" 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
 
@@ -107,6 +107,7 @@ def login():
     session["nonce"] = nonce
     redirect_uri = url_for("authorize", _external=True)
     return oauth.google.authorize_redirect(redirect_uri, nonce=nonce)
+    
 
 
 @app.route("/login/callback")
@@ -163,18 +164,35 @@ def load_user(user_id):
     """
     return User.query.get(int(user_id)) 
 
+@app.route('/landing')
+def landing_page():
+    return render_template('landing-page.html')
+
+
+# @app.route("/logout")
+# @login_required
+# def logout():
+#     """
+#     Logs out the current user.
+#     Ends the user session and redirects to the homepage.
+#     Returns:
+#         Response: A redirect response to the homepage.
+#     """
+#     logout_user()
+#     return redirect("/")
 
 @app.route("/logout")
 @login_required
 def logout():
-    """
-    Logs out the current user.
-    Ends the user session and redirects to the homepage.
-    Returns:
-        Response: A redirect response to the homepage.
-    """
     logout_user()
-    return redirect("/")
+    return redirect(url_for('landing_page'))  # This assumes the landing page function is called 'landing_page'
+
+
+@app.route('/billing-plan')
+def billing_plan():
+    return render_template('billing-plan.html')
+
+
 
 @app.route("/subscribe", methods=["GET", "POST"])
 @login_required

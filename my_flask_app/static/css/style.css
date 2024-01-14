@@ -1,21 +1,161 @@
-body {
+/* body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
   color: #333;
+} */
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: monospace;
 }
 
 .container {
+  display: flex;
+  height: 100%;
+}
+
+.column1 {
+  width: 200pt;
+  padding: 50px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+.column2 {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+/* .container {
   width: 80%;
   margin: auto;
   overflow: hidden;
+} */
+
+.user-profile {
+  margin-bottom: 20px;
 }
 
-h1,
+.user-profile img {
+  width: 120px;
+  height: 120px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.edit-profile button {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.edit-profile button:hover {
+  background-color: black;
+  color: white;
+}
+
+.functions button {
+
+  width: 100%;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.functions button:hover {
+  background-color: black;
+  color: white;
+}
+
+
+.billingBtn {
+  margin-top: 10px;
+}
+
+.logoutBtn {
+  margin-top: 25px;
+}
+
+
+.bot, .bot-response {
+  display: flex;
+  align-items: center;
+}
+
+.bot img, .bot-response img {
+  width: 80px;
+  height: 60px;
+}
+
+.bot-intro, .bot-response .bot-intro {
+  margin: 10px;
+}
+
+.search-bar {
+  position: relative;
+  margin-top: 5px;
+  margin-left: 90px;
+}
+
+
+.search-bar input[type=file] {
+  width: 60%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}  
+
+.search-bar input[type=file]:hover {
+  background-color: #ccc;
+}
+
+.search-bar button {
+  width: 19%; /* Adjust the width as needed */
+  margin-bottom: 10px; /* Same margin as the input elements */
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background-color: white; /* Add your preferred background color */
+  font-weight: bolder;
+  color: black; /* Add your preferred text color */
+}
+
+.search-bar button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* h1,
 h2 {
   color: #0056b3;
-}
+} */
 
 ul {
   list-style: none;

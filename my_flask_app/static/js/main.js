@@ -79,3 +79,10 @@ if (subscribeButton) {
       });
   });
 }
+
+// Go to Billing Plan page
+const billingBtn = document.querySelector('.functions .billingBtn');
+
+billingBtn.addEventListener('click', () => {
+  window.location.href = '/billing-plan';
+});

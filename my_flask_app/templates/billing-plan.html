@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docx-Perfector | Billings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/billing-plan-styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="column1">
+
+        <h2>Billing Plans</h2>
+       
+    </div>
+
+    <div class="column2">
+
+        <article class="basic">
+            
+            <h3>Basic Account</h3>
+            <p>Price: $04.99/month</p>
+            <p>Features: </p>
+            <p>- Input 50MB docx file.</p>
+            <p>- Correct English's grammar and typo in text document.</p>
+            <!-- <button type="submit" class="basicBtn"><h4>Purchase</h4></button> -->
+
+            <form method="POST" action="/subscribe">
+                <input type="hidden" name="subscription_type" value="basic">
+                <!-- <button type="submit">Subscribe for Pro Account</button> -->
+                <button type="submit" class="basicBtn"><h4>Purchase</h4></button>
+            </form>
+
+        </article>
+
+        <article class="pro">
+            
+            <h3>Pro Account</h3>
+            <p>Price: $20.00/month</p>
+            <p>Features: </p>
+            <p>- Input 300MB docx file.</p>
+            <p>- Correct English's grammar and typo in text document.</p>
+
+            <form method="POST" action="/subscribe">
+                <input type="hidden" name="subscription_type" value="pro">
+                <!-- <button type="submit">Subscribe for Pro Account</button> -->
+                <button type="submit" class="proBtn"><h4>Purchase</h4></button>
+            </form>
+
+        </article>
+<!-- 
+        <form method="POST" action="/subscribe">
+            <input type="hidden" name="subscription_type" value="pro">
+            <button type="submit">Subscribe for Pro Account</button>
+        </form>
+
+        <form method="POST" action="/subscribe">
+            <input type="hidden" name="subscription_type" value="basic">
+            <button type="submit">Subscribe for Basic Account</button>
+        </form> -->
+        
+    </div>
+
+</div>
+
+</body>
+</html>
