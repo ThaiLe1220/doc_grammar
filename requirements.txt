@@ -1,0 +1,14 @@
+flask
+Flask-Uploads
+Werkzeug
+Flask-SQLAlchemy
+psycopg2-binary
+requests
+python-docx
+nltk
+authli
+Flask-Login
+Flask-Migrate
+stripe
+secrets
+aiohttp
