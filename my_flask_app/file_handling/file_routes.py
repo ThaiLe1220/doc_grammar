@@ -89,15 +89,21 @@ def upload_file():
 
     # Check if the file size exceeds the limit
     if file_size_MB > max_size:
+        current_user.daily_upload_count -= 1
+        db.session.commit()
         flash(f"{current_user.account_type} accounts can only upload files up to {max_size} MB.", "warning")
         return redirect(url_for("index"))
     
     if "file" not in request.files:
+        current_user.daily_upload_count -= 1
+        db.session.commit()
         flash("No file part", "error")
         return redirect(url_for("index"))
     file = request.files["file"]
 
     if file.filename == "":
+        current_user.daily_upload_count -= 1
+        db.session.commit()
         flash("No selected file", "error")
         return redirect(url_for("index"))
 

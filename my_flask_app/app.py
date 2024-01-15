@@ -92,7 +92,6 @@ def index():
         "index.html", files=files, corrections=corrections, current_user=current_user
     )
 
-
 @app.route("/login")
 def login():
     """
