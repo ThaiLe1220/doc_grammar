@@ -42,13 +42,13 @@ app = Flask(__name__)
 # setting up stripe api keys
 app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51OVEkqDAl3fqs0z5WYJHtSc1Jn2WZD4w7vV7rVOULeHvdgYSoXxa415eCxTnYBZ0xTXCqDBdW5xla4hw1xyjumQQ00T45kDMNP'
 app.config['STRIPE_SECRET_KEY'] = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf'
-endpoint_secret = 'whsec_95ko9Dz5I1d9tNBOUyrzT89hp3ujpLcn'
+endpoint_secret = 'whsec_8468e026695e3bd1d7d474cccf9b99bd6f11adb10d8692940eddc6c2e37dbc3f'
 Domain = 'http://localhost:5000'
 stripe.api_key = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf'
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://jaeheon:0325@localhost/doc_grammar" 
+] = "postgresql://huynguyen284:password@localhost/doc_grammar" 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
 
@@ -343,12 +343,14 @@ def webhook():
         if user:
             if cancel_at_period_end == True:
                 user.account_type = "Free"
+                user.subscription_purchased = False
             elif new_plan == "price_1OVuakDAl3fqs0z5AzKRagmB":
                 user.account_type = "Premium"
             elif new_plan == "price_1OW13EDAl3fqs0z5tvO7wIZF":
                 user.account_type = "Basic"
             elif new_plan == "price_1OVuXjDAl3fqs0z5yCreg4ui":
                 user.account_type = "Free"
+                user.subscription_purchased = False
             print("Updated account type:", user.account_type)
             db.session.commit()
         else:

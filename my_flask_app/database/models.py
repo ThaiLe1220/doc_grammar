@@ -38,6 +38,8 @@ class User(UserMixin, db.Model):
     account_type = db.Column(db.String(20), default="Free")
     stripe_customer_id = db.Column(db.String(50), unique=True)
     subscription_purchased = db.Column(db.Boolean, default=False)
+    daily_upload_count = db.Column(db.Integer, default=0)
+    last_upload_date = db.Column(db.DateTime, server_default=db.func.now())
 
 class FileUpload(db.Model):
     """

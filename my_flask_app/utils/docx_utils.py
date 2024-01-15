@@ -25,56 +25,7 @@ def correct_text_grammar(file_path):
     doc = Document(file_path)
     corrections = []  # List to hold correction details
 
-    for paragraph in doc.paragraphs:
-        if not paragraph.text.strip():  # Skip empty paragraphs
-            continue
-
-        # Get aggregated formatting for each sentence in the paragraph
-        sentence_formatting_list = get_aggregated_formatting(paragraph)
-
-        # Tokenize the paragraph's text into sentences
-        sentences = nltk.tokenize.sent_tokenize(paragraph.text)
-        # Clear the paragraph for reconstruction
-        paragraph.clear()
-
-        # Correct the sentences and apply formatting
-        for i, sentence in enumerate(sentences):
-            # print(f"\n{i}\n")
-            corrected_sentence = check_grammar(sentence)
-
-            print(f"\n----Original Sentence----: {sentence}")
-            print(f"----Corrected Sentence---: {corrected_sentence}")
-            print(f"---Original Formatting---: {sentence_formatting_list[i]}")
-
-            # Split the corrected sentence into runs based on original formatting
-            (
-                corrected_runs,
-                modified_tokens,
-                added_tokens,
-            ) = reconstruct_formatting(
-                sentence, corrected_sentence, sentence_formatting_list[i]
-            )
-            # Collect the correction details
-            correction_details = {
-                "original_sentence": sentence,
-                "corrected_sentence": corrected_sentence,
-                "modified_tokens": modified_tokens,
-                "added_tokens": added_tokens,
-            }
-            corrections.append(correction_details)
-
-            print(f"------Corrected Runs-----: {corrected_runs}")
-            print(f"-----Modified Tokens-----: {modified_tokens}")
-            # print(f"-------Added Tokens------: {added_tokens}")
-
-            # Reconstruct the paragraph with corrected runs and their formatting
-            for ci, corrected_run in enumerate(corrected_runs):
-                if i != 0 and ci == 0:
-                    corrected_run["text"] = " " + corrected_run["text"]
-                new_run = paragraph.add_run(corrected_run["text"])
-                apply_run_formatting(new_run, corrected_run)
-
-    # Save the corrected document
+    # Save the corrected document   
     doc.save(file_path)
 
     # Return all corrections details
