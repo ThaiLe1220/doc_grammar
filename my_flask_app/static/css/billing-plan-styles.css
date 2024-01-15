@@ -92,3 +92,8 @@ body, html {
     background-color: black;
     color: white;
 }
+
+.backBtn{
+    width: 20px;
+    height: 20px;
+}
