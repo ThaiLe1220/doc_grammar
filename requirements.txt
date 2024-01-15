@@ -6,7 +6,7 @@ psycopg2-binary
 requests
 python-docx
 nltk
-authli
+authlib
 Flask-Login
 Flask-Migrate
 stripe
