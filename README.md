@@ -120,3 +120,11 @@ This project is open source and available under the [MIT License](LICENSE.md).
 - NLTK for natural language processing.
 - psycopg2-binary for PostgreSQL adapter.
 
+## Customize Functionality for different Roles
+- Free: upload file up to 1 MB + 10 times/per day
+- Basic: upload file up to 10 MB + 50 times/per day
+- Premium: upload file up to 20 MB + 100 times/per day
+- Note: pip install pytz due to the use of UTC 7+ vietnam
+
+
+
