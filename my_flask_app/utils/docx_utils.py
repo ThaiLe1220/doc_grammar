@@ -58,6 +58,41 @@ async def process_paragraph(paragraph, session):
     return corrected_para
 
 
+def is_java_code_snippet(paragraph_text):
+    # Simple checks for code-like structures
+    code_indicators = [
+        r"\s*;\s*$",  # lines ending in a semicolon with optional leading whitespace
+        r"\s*{\s*$",  # line ending with an opening curly brace with optional leading whitespace
+        r"\s*}\s*$",  # line ending with a closing curly brace with optional leading whitespace
+        r"\s*class\s+",  # lines that start with 'class' keyword
+        r"\s*public\s+",  # lines that start with 'public' keyword
+        r"\s*private\s+",  # lines that start with 'private' keyword
+        r"\s*(if|for|while|switch|return)\b",  # common control structures
+    ]
+    for indicator in code_indicators:
+        if re.search(indicator, paragraph_text):
+            return True
+    return False
+
+
+def is_html_code_snippet(paragraph_text):
+    # Simple checks for HTML code-like structures
+    html_code_indicators = [
+        r"\s*<\s*/?\s*[a-zA-Z][^>]*>",  # Detects HTML tags with optional leading whitespace
+        r"\s*<\s*[a-zA-Z]+[^>]*>\s*</\s*[a-zA-Z]+\s*>",  # Detects HTML open and close tag pairs with optional leading whitespace
+        r"\s*<!DOCTYPE\s+html>",  # Detects DOCTYPE declaration with optional leading whitespace
+        r"\s*<!--.*?-->",  # Detects HTML comments with optional leading whitespace
+    ]
+    for indicator in html_code_indicators:
+        if re.search(indicator, paragraph_text, re.DOTALL | re.MULTILINE):
+            return True
+    return False
+
+
+def is_code_snippet(paragraph_text):
+    return is_java_code_snippet(paragraph_text) or is_html_code_snippet(paragraph_text)
+
+
 async def correct_text_grammar(file_path):
     doc = Document(file_path)
     corrected_paragraphs = (
@@ -72,9 +107,12 @@ async def correct_text_grammar(file_path):
             for index, paragraph in enumerate(doc.paragraphs[i : i + 10], start=i):
                 if (
                     not paragraph.text.strip()
-                    or paragraph.style.name == "EndNote Bibliography"
+                    # or is_code_snippet(paragraph.text)
+                    # or paragraph.style.name == "EndNote Bibliography"
+                    # or paragraph.style.name == "ICCE Affiliations"
+                    # or paragraph.style.name == "ICCE Author List"
                 ):
-                    print("Skipping empty or bibliography paragraph.")
+                    print("Skipping empty or special paragraph.")
                     continue
 
                 task = asyncio.create_task(process_paragraph(paragraph, session))
@@ -101,7 +139,8 @@ async def correct_text_grammar(file_path):
                 and paragraph.style.name != "EndNote Bibliography"
                 and index in corrected_paragraphs
             ):
-                paragraph.text = corrected_paragraphs[index]
+                # paragraph.text = corrected_paragraphs[index]
+                correct_paragraph(corrected_paragraphs[index], paragraph)
 
     doc.save(file_path)
     print("Completed grammar correction and saved document.")
