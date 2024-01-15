@@ -10,5 +10,4 @@ authlib
 Flask-Login
 Flask-Migrate
 stripe
-secrets
 aiohttp
