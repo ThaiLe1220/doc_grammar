@@ -1,6 +1,7 @@
 """ Filename: file_routes.py - Directory: my_flask_app/file_handling
 """
 import os
+import traceback
 import boto3
 from flask import (
     Blueprint,
@@ -46,6 +47,7 @@ def upload_file_to_s3(file, bucket_name):
         return file_url
     except Exception as e:
         print("Something Happened: ", e)
+        traceback.print_exc()  # Print the stack trace
         return None
 
 
@@ -62,6 +64,7 @@ async def upload_file():
 
     filename = secure_filename(file.filename)
     file_url = upload_file_to_s3(file, current_app.config["S3_BUCKET"])
+    print(file_url)
 
     # Process the file and store corrections
     try:
