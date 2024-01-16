@@ -63,7 +63,7 @@
                 <button class="billingBtn" type="button"><h4>Billing Plans</h4></button>
                 {% endif %}
                 <!-- <button class="logoutBtn" type="button"><h4>Logout</h4></button> -->
-                <button class="logoutBtn" type="button" onclick="location.href='{{ url_for('logout') }}'"><h4>Logout</h4></button>
+                <button class="logoutBtn" type="button" onclick="confirmLogout()"><h4>Logout</h4></button>
             </div>
             {% else %}
                 <a href="{{ url_for('login') }}">Sign in with Google</a>
