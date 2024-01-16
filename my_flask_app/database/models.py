@@ -1,9 +1,4 @@
 """ Filename: models.py - Directory: my_flask_app/database 
-
-This module defines the database models used in the Flask application.
-It includes the User model representing authenticated users and the FileUpload
-model representing uploaded files along with their attributes.
-
 """
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.dialects.postgresql import JSONB

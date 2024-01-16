@@ -1,8 +1,4 @@
 """ Filename: db_setup.py - Directory: my_flask_app/database 
-
-This module provides a utility function for initializing and setting up
-the database for the Flask application. 
-
 """
 from flask_migrate import Migrate
 from .models import db

@@ -1,12 +1,7 @@
 """ Filename: file_routes.py - Directory: my_flask_app/file_handling
-
-This module defines routes for file upload, download, deletion, and correction retrieval
-in a Flask web application. It provides functionality to upload files, check their
-content for grammar corrections, download files, delete files, and retrieve
-correction details.
-
 """
 import os
+import boto3
 from flask import (
     Blueprint,
     render_template,
@@ -27,12 +22,35 @@ from utils.exceptions import GrammarCheckError
 file_blueprint = Blueprint("file_blueprint", __name__)
 
 
+def get_s3_client():
+    """
+    Initialize and return a boto3 S3 client using current app configuration.
+    """
+    return boto3.client(
+        "s3",
+        aws_access_key_id=current_app.config["S3_KEY"],
+        aws_secret_access_key=current_app.config["S3_SECRET"],
+    )
+
+
+def upload_file_to_s3(file, bucket_name, acl="public-read"):
+    s3 = get_s3_client()  # Initialize the S3 client
+    try:
+        s3.upload_fileobj(
+            file,
+            bucket_name,
+            file.filename,
+            ExtraArgs={"ACL": acl, "ContentType": file.content_type},
+        )
+        file_url = f"{current_app.config['S3_LOCATION']}{file.filename}"
+        return file_url
+    except Exception as e:
+        print("Something Happened: ", e)
+        return None
+
+
 @file_blueprint.route("/upload", methods=["POST"])
 async def upload_file():
-    """Upload a file and check its content for grammar corrections.
-    Returns:
-        redirect: Redirects to the index page after processing the file.
-    """
     if "file" not in request.files:
         flash("No file part", "error")
         return redirect(url_for("index"))
@@ -43,12 +61,15 @@ async def upload_file():
         return redirect(url_for("index"))
 
     filename = secure_filename(file.filename)
-    file_path = os.path.join(current_app.config["UPLOAD_FOLDER"], filename)
-    file.save(file_path)
+    file_url = upload_file_to_s3(file, current_app.config["S3_BUCKET"])
+
+    # filename = secure_filename(file.filename)
+    # file_path = os.path.join(current_app.config["UPLOAD_FOLDER"], filename)
+    # file.save(file_path)
 
     # Process the file and store corrections
     try:
-        corrections = await correct_text_grammar(file_path)
+        corrections = await correct_text_grammar(file_url)
         flash("Content checked successfully.", "success")
 
     except IOError as io_error:
@@ -70,7 +91,7 @@ async def upload_file():
 
     else:
         new_file = FileUpload(
-            file_name=filename, file_path=file_path, corrections=corrections
+            file_name=filename, file_path=file_url, corrections=corrections
         )
         db.session.add(new_file)
         db.session.commit()
@@ -81,48 +102,28 @@ async def upload_file():
 
 @file_blueprint.route("/download/<int:file_id>")
 def download_file(file_id):
-    """
-    Download a file with the specified file_id.
-    Args:
-        file_id (int): The ID of the file to be downloaded.
-    Returns:
-        Response: A response containing the file to be downloaded.
-    """
     file = FileUpload.query.get_or_404(file_id)
-    return send_from_directory(
-        current_app.config["UPLOAD_FOLDER"], file.file_name, as_attachment=True
-    )
+    return redirect(file.file_path)
 
 
 @file_blueprint.route("/delete/<int:file_id>")
 def delete_file(file_id):
-    """Delete a file with the specified file_id.
-    Args:
-        file_id (int): The ID of the file to be deleted.
-    Returns:
-        redirect: Redirects to the index page after deleting the file.
-    """
+    s3 = get_s3_client()  # Initialize the S3 client
     file_to_delete = FileUpload.query.get_or_404(file_id)
     try:
-        os.remove(
-            os.path.join(current_app.config["UPLOAD_FOLDER"], file_to_delete.file_name)
+        s3.delete_object(
+            Bucket=current_app.config["S3_BUCKET"], Key=file_to_delete.file_name
         )
         db.session.delete(file_to_delete)
         db.session.commit()
         flash(f"{file_to_delete.file_name} was deleted successfully", "success")
-    except OSError as e:
-        flash(f"Error deleting file from filesystem: {str(e)}", "error")
+    except Exception as e:
+        flash(f"Error deleting file from S3: {str(e)}", "error")
     return redirect(url_for("file_blueprint.index"))
 
 
 @file_blueprint.route("/corrections/<int:file_id>")
 def get_corrections(file_id):
-    """Get corrections for a file with the specified file_id.
-    Args:
-        file_id (int): The ID of the file to retrieve corrections for.
-    Returns:
-        jsonify: JSON response containing the corrections for the file.
-    """
     file = FileUpload.query.get_or_404(file_id)
     corrections = file.corrections
     files = FileUpload.query.all()  # Fetch all files to display on the index page
@@ -134,12 +135,6 @@ def get_corrections(file_id):
 
 @file_blueprint.route("/")
 def index():
-    """
-    Fetches uploaded files and their grammar corrections, if available,
-    from the database and renders them on the homepage.
-    Returns:
-        str: Rendered HTML content for the homepage.
-    """
     files = FileUpload.query.all()
     file_id = session.get("file_id")
     corrections = None

@@ -1,21 +1,7 @@
 """ Filename: app.py - Directory: my_flask_app 
-
-This file is the main entry point for a Flask web application that handles file uploads, 
-grammar checking, and user authentication via Google OAuth.
-
-The application is configured with database settings, file upload paths, and OAuth settings. 
-It includes routes for user authentication, file upload, download, deletion and grammar corrections.
-
-Key Components:
-- Flask app initialization with configuration settings.
-- Database setup and OAuth configuration.
-- Registration of the file handling blueprint for managing file-related routes.
-- Routes for login, logout, and user authentication callback.
-- The main index route to display the uploaded files and their grammar corrections.
-- Running the Flask app in debug mode within a protected main block.
-
 """
 import os
+import boto3
 import secrets
 import stripe
 from flask import (
@@ -37,7 +23,6 @@ from auth.login_manager import login_manager
 
 app = Flask(__name__)
 
-
 app.config[
     "STRIPE_PUBLIC_KEY"
 ] = "pk_test_51OVEkqDAl3fqs0z5WYJHtSc1Jn2WZD4w7vV7rVOULeHvdgYSoXxa415eCxTnYBZ0xTXCqDBdW5xla4hw1xyjumQQ00T45kDMNP"
@@ -50,33 +35,38 @@ stripe.api_key = "sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://eugene:eugene@localhost/doc_grammar"
+] = "postgresql://database-doc-grammar:Eugenememe@database-doc-grammar.c70sige8i8wn.us-east-1.rds.amazonaws.com:5432/doc_grammar"
+
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
+
+app.config["S3_BUCKET"] = "doc-grammar"
+app.config["S3_KEY"] = "AKIA2CB5KXCNZEHGTPNG"
+app.config["S3_SECRET"] = "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"
+app.config[
+    "S3_LOCATION"
+] = "http://doc-grammar.s3-website-ap-southeast-1.amazonaws.com/"
+
+s3 = boto3.client(
+    "s3",
+    aws_access_key_id=app.config["S3_KEY"],
+    aws_secret_access_key=app.config["S3_SECRET"],
+)
 
 if not os.path.exists("file_uploads"):
     os.makedirs("file_uploads")
 
-app.config["UPLOAD_FOLDER"] = "file_uploads"
 stripe.api_key = app.config["STRIPE_SECRET_KEY"]
 
 setup_database(app)
 configure_oauth(app)
 login_manager.init_app(app)
 
-# Register blueprints
 app.register_blueprint(file_blueprint, url_prefix="/files")
 
 
 @app.route("/")
 def index():
-    """
-    Displays the homepage of the application.
-    Fetches uploaded files and their grammar corrections, if available,
-    from the database and renders them on the homepage.
-    Returns:
-        str: Rendered HTML content for the homepage.
-    """
     files = FileUpload.query.all()
     file_id = session.get("file_id")
     corrections = None
@@ -93,13 +83,6 @@ def index():
 
 @app.route("/login")
 def login():
-    """
-    Initiates the OAuth login process with Google.
-    Generates a nonce token for security, saves it in the session, and redirects
-    the user to Google's OAuth authorization URL.
-    Returns:
-        Response: A redirect response to Google's OAuth authorization URL.
-    """
     # Generate a nonce and save it in the session for later validation
     nonce = secrets.token_urlsafe()
     session["nonce"] = nonce
@@ -109,13 +92,6 @@ def login():
 
 @app.route("/login/callback")
 def authorize():
-    """
-    Handles the OAuth callback from Google.
-    Extracts the token from the callback, retrieves the nonce from the session,
-    validates the token, and logs in the user if authentication is successful.
-    Returns:
-        Response: A redirect to the homepage after successful login or an error message.
-    """
     token = oauth.google.authorize_access_token()
     nonce = session.pop("nonce", None)  # Retrieve and remove the nonce from the session
     user_info = oauth.google.parse_id_token(token, nonce=nonce)
@@ -153,25 +129,12 @@ def authorize():
 
 @login_manager.user_loader
 def load_user(user_id):
-    """
-    Loads a user given their ID.
-    Args:
-        user_id (int): Unique identifier of the user.
-    Returns:
-        User: The user object corresponding to the given ID.
-    """
     return User.query.get(int(user_id))
 
 
 @app.route("/logout")
 @login_required
 def logout():
-    """
-    Logs out the current user.
-    Ends the user session and redirects to the homepage.
-    Returns:
-        Response: A redirect response to the homepage.
-    """
     logout_user()
     return redirect("/")
 
@@ -273,27 +236,12 @@ def webhook():
         customer_name = session["customer_details"]["name"]
         customer_id = session["customer"]
         subscription_type = session["metadata"]["subscription_type"]
-        product_des = line_items["data"][0]["description"]
         user_id = session["metadata"]["user_id"]
         print(customer_name)
         print(line_items["data"][0]["description"])
         print(customer_email)
         print(customer_id)
         subscription_purchased = True
-        #   user = User.query.filter_by(email=customer_email).first()
-        #   if user:
-        #     user.stripe_customer_id = session['customer']
-        #     if product_des == "Premium":
-        #         user.account_type = "Premium"
-        #     elif product_des == "Basic":
-        #         user.account_type = "Basic"
-        #     elif product_des == "Free":
-        #         user.account_type = "Free"
-        #     db.session.commit()
-        #     return render_template("index.html", subscription_purchased=True)
-        #   else:
-        #     print("User not found")
-        # Find the user in your database
         user = User.query.get(user_id)
         if user:
             # Update the user account type
@@ -367,11 +315,6 @@ def handle_subscription_success():
 
 
 def premium_user_required(func):
-    """
-    Decorator to check if the user has a "Premium" account type.
-    If not, flashes an error message and redirects to the homepage.
-    """
-
     def wrapper(*args, **kwargs):
         if current_user.account_type != "Premium":
             flash("Only Premium users are allowed to perform this action.", "error")
@@ -403,14 +346,5 @@ def create_customer_portal_session():
 
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()  # Ensure all tables are created
+        db.create_all()
     app.run(debug=True)
-
-
-# @app.route("/check_db")
-# def check_database_connection():
-#     try:
-#         db.session.query(FileUpload).first()
-#         return "Database connection successful. Happy coding"
-#     except Exception as e:
-#         return f"Database connection error: {str(e)}"

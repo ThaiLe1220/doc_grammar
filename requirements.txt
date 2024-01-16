@@ -11,3 +11,5 @@ Flask-Login
 Flask-Migrate
 stripe
 aiohttp
+mod_wsgi
+boto3
