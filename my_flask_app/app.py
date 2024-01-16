@@ -15,6 +15,7 @@ Key Components:
 - Running the Flask app in debug mode within a protected main block.
  
 """
+import datetime
 import os
 import secrets
 import stripe
@@ -26,8 +27,6 @@ from flask import (
     jsonify,
     request,
     session,
-    flash,
-    Blueprint,
 )
 
 from flask_login import current_user, login_user, logout_user, login_required
@@ -71,6 +70,10 @@ login_manager.init_app(app)
 app.register_blueprint(file_blueprint, url_prefix="/files")
 
 @app.route("/")
+def landing_page():
+    return render_template('landing-page.html')
+
+@app.route("/index")
 def index():
     """
     Displays the homepage of the application.
@@ -79,7 +82,30 @@ def index():
     Returns:
         str: Rendered HTML content for the homepage.
     """
-    files = FileUpload.query.all()
+    
+    sort_by = request.args.get("sort", "time")
+    descending = request.args.get("descending", "false").lower() == "true"
+
+    # Fetch files from the database based on the selected sorting
+    if sort_by == "time":
+        if descending:
+            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.upload_time.desc()).all()
+        else:
+            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.upload_time).all()
+    elif sort_by == "name":
+        if descending:
+            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.file_name.desc()).all()
+        else:
+            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.file_name).all()
+    elif sort_by == "size":
+        if descending:
+            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.file_size.desc()).all()
+        else:
+            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.file_size).all()
+    else:
+        # Default to sorting by upload time in ascending order
+        files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.upload_time).all()
+
     file_id = session.get("file_id")
     corrections = None
 
@@ -121,7 +147,7 @@ def authorize():
     token = oauth.google.authorize_access_token()
     nonce = session.pop("nonce", None)  # Retrieve and remove the nonce from the session
     user_info = oauth.google.parse_id_token(token, nonce=nonce)
-
+    
     # Verify the issuer.
     issuer = user_info.get("iss")
     if issuer not in ["https://accounts.google.com", "accounts.google.com"]:
@@ -149,7 +175,7 @@ def authorize():
         user.locale = user_info.get("locale")
     db.session.commit()
     login_user(user)
-    return redirect("/")
+    return redirect("/index")
 
 
 @login_manager.user_loader
@@ -163,9 +189,9 @@ def load_user(user_id):
     """
     return User.query.get(int(user_id)) 
 
-@app.route('/landing')
-def landing_page():
-    return render_template('landing-page.html')
+# @app.route('/landing')
+# def landing_page():
+#     return render_template('landing-page.html')
 
 
 # @app.route("/logout")
@@ -183,6 +209,10 @@ def landing_page():
 @app.route("/logout")
 @login_required
 def logout():
+    
+    # Clear the session
+    session["file_id"] = None
+    
     logout_user()
     return redirect(url_for('landing_page'))  # This assumes the landing page function is called 'landing_page'
 
@@ -190,8 +220,6 @@ def logout():
 @app.route('/billing-plan')
 def billing_plan():
     return render_template('billing-plan.html')
-
-
 
 @app.route("/subscribe", methods=["GET", "POST"])
 @login_required
@@ -280,7 +308,23 @@ def webhook():
         # Invalid signature
         print('Invalid signature')
         raise e
+    
+    # # Function to handle expired subscriptions of customers
+    # def update_expired_subscriptions():
+    #     # Get the current date and time
+    #     now = datetime.now()
 
+    #     # Find all users whose subscription has expired
+    #     expired_users = User.query.filter(User.expired_date <= now).all()
+
+    #     for current_user in expired_users:
+    #         # Update the user's account type to Free
+    #         current_user.account_type = "Free"
+    #         db.session.commit()
+
+    # # You would need to call this function periodically
+    # update_expired_subscriptions()
+    
      # Handle the event
     if event['type'] == 'payment_intent.succeeded':
       payment_intent = event['data']['object'] 
@@ -299,20 +343,6 @@ def webhook():
       print(customer_email)
       print(customer_id)
       subscription_purchased=True
-    #   user = User.query.filter_by(email=customer_email).first()
-    #   if user:
-    #     user.stripe_customer_id = session['customer']
-    #     if product_des == "Premium":
-    #         user.account_type = "Premium"
-    #     elif product_des == "Basic":
-    #         user.account_type = "Basic"
-    #     elif product_des == "Free":
-    #         user.account_type = "Free"
-    #     db.session.commit()
-    #     return render_template("index.html", subscription_purchased=True)
-    #   else:
-    #     print("User not found")
-    # Find the user in your database
       user = User.query.get(user_id)
       if user:
         # Update the user account type
@@ -333,6 +363,10 @@ def webhook():
         # https://stripe.com/docs/api/subscriptions/object
         new_plan = subscription['items']['data'][0]['plan']['id']
         cancel_at_period_end = subscription['cancel_at_period_end']
+        # Get the expiration date of the current subscription
+        expiration_date = datetime.datetime.fromtimestamp(subscription['current_period_end'])
+        
+        print("Expiration date:", expiration_date)
         print(new_plan)
         print(cancel_at_period_end)
 
@@ -343,13 +377,17 @@ def webhook():
             if cancel_at_period_end == True:
                 user.account_type = "Free"
                 user.subscription_purchased = False
+                user.expired_date = None
             elif new_plan == "price_1OVuakDAl3fqs0z5AzKRagmB":
                 user.account_type = "Premium"
+                user.expired_date = expiration_date
             elif new_plan == "price_1OW13EDAl3fqs0z5tvO7wIZF":
                 user.account_type = "Basic"
+                user.expired_date = expiration_date
             elif new_plan == "price_1OVuXjDAl3fqs0z5yCreg4ui":
                 user.account_type = "Free"
                 user.subscription_purchased = False
+                user.expired_date = expiration_date
             print("Updated account type:", user.account_type)
             db.session.commit()
         else:
@@ -373,31 +411,6 @@ def webhook():
       print('Unhandled event type {}'.format(event['type']))
     return jsonify(success=True)
 
-@app.route("/handle-subscription-success")
-@login_required
-def handle_subscription_success():
-    print("Handling subscription success")  # Debugging print statement
-
-    # Update user account type to 'pro'
-    current_user.account_type = "Premium"
-    db.session.commit()
-
-    # return render_template("index.html", subscription_purchased=True)
-    return redirect(url_for("index"))
-
-
-def premium_user_required(func):
-    """
-    Decorator to check if the user has a "Premium" account type.
-    If not, flashes an error message and redirects to the homepage.
-    """
-    def wrapper(*args, **kwargs):
-        if current_user.account_type != "Premium":
-            flash("Only Premium users are allowed to perform this action.", "error")
-            return redirect(url_for("index"))
-        return func(*args, **kwargs)
-    return wrapper
-
 @app.route("/create-customer-portal-session", methods=["GET", "POST"])
 @login_required
 def create_customer_portal_session():
@@ -416,6 +429,18 @@ def create_customer_portal_session():
         app.logger.error(f"Stripe error: {str(e)}")
         print(f"Stripe error: {str(e)}")
         return jsonify(error=str(e)), 403
+    
+@app.route("/handle-subscription-success")
+@login_required
+def handle_subscription_success():
+    print("Handling subscription success")  # Debugging print statement
+
+    # Update user account type to 'pro'
+    current_user.account_type = "Premium"
+    db.session.commit()
+
+    # return render_template("index.html", subscription_purchased=True)
+    return redirect(url_for("index"))
 
 if __name__ == "__main__":
     with app.app_context():

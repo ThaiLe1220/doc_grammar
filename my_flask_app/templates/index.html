@@ -33,8 +33,10 @@
                 <h3>{{ current_user.given_name }}</h3>
                 <p>{{ current_user.email }}</p>
                 <p>Account type: <span class="account-type" data-type="{{ current_user.account_type }}">{{ current_user.account_type }}</span></p>
-                <p>Expired Date:</p>
-                <p>Jan. 10, 2024</p>
+                {% if current_user.account_type != "Free" %}
+                    <p>Expired Date:</p>
+                    <p>{{ current_user.expired_date }}</p>
+                {% endif %}
                 <!-- <a href="{{ url_for('logout') }}" class="button logout">Sign out</a> -->
                 
 
@@ -152,9 +154,28 @@
                     - <a href="{{ url_for('file_blueprint.download_file', file_id=file.id) }}">Download</a>
                     - <a href="{{ url_for('file_blueprint.delete_file', file_id=file.id) }}" onclick="return confirm('Are you sure you want to delete this file?');">Delete</a>
                     - <a href="{{ url_for('file_blueprint.get_corrections', file_id=file.id) }}">Show Corrections</a>
+                    - Upload File Time: {{ file.upload_time }}
+                    - File Size: 
+                    {% if file.file_size > 1 %}
+                    {{ file.file_size }} MB
+                    {% else %}
+                        {{ (file.file_size * 1024) | round(2) }} KB
+                    {% endif %}
                 </li>
                 {% endfor %}
             </ul>
+
+            <!-- Sorting Buttons -->
+            <div class="sorting-buttons">
+                <button onclick="window.location.href = '{{ url_for('index', sort='time', descending='false') }}';">Sort by Upload Time (ASC)</button>
+                <button onclick="window.location.href = '{{ url_for('index', sort='time', descending='true') }}';">Sort by Upload Time (DESC)</button>                <!-- Add buttons for sorting by file name -->
+                <button onclick="window.location.href = '{{ url_for('index', sort='name', descending='false') }}';">Sort by File Name (ASC)</button>
+                <button onclick="window.location.href = '{{ url_for('index', sort='name', descending='true') }}';">Sort by File Name (DESC)</button>
+                <!-- Add buttons for sorting by file size -->
+                <button onclick="window.location.href = '{{ url_for('index', sort='size', descending='false') }}';">Sort by File Size (ASC)</button>
+                <button onclick="window.location.href = '{{ url_for('index', sort='size', descending='true') }}';">Sort by File Size (DESC)</button>
+            </div>
+<!-- ... remaining HTML content ... -->
 
             <h2>Grammar Checking</h2>
             {% if corrections %}

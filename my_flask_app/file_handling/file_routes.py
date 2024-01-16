@@ -20,6 +20,7 @@ from flask import (
     session,
 )
 from flask_login import current_user
+from flask_login import login_required
 from werkzeug.utils import secure_filename
 from database.models import db, FileUpload
 from utils.docx_utils import correct_text_grammar
@@ -30,6 +31,7 @@ import os
 file_blueprint = Blueprint("file_blueprint", __name__)
     
 @file_blueprint.route("/upload", methods=["POST"])
+@login_required
 def upload_file():
     """Upload a file and check its content for grammar corrections.
     Returns:
@@ -72,7 +74,8 @@ def upload_file():
     # Print the file size
     file_size = request.content_length
     file_size_MB = file_size / (1024.0 * 1024.0)
-    flash(f"Uploaded file size: {file_size_MB} Megabytes (MB)", "success") 
+    formatted_size = f"{file_size_MB:.2f}"
+    flash(f"Uploaded file size: {formatted_size} Megabytes (MB)", "success") 
     # Map account types to their file size limits (in bytes)
     size_limits = {
         "Free": 1,  # 1 MB
@@ -126,25 +129,24 @@ def upload_file():
         flash(f"Grammar check error: {str(grammar_error)}", "error")
         return redirect(url_for("file_blueprint.index"))
     
-    # Update or create file upload record
-    existing_file = FileUpload.query.filter_by(file_name=filename).first()
-    if existing_file:
-        existing_file.upload_time = datetime.now()
-        existing_file.corrections = corrections
-        db.session.commit()
-        session["file_id"] = existing_file.id  # Use the existing file's ID
-        
-    else:
-        new_file = FileUpload(
-            file_name=filename, file_path=file_path, corrections=corrections, upload_time=datetime.now()
-        )
-        db.session.add(new_file)
-        db.session.commit()
-        session["file_id"] = new_file.id  # Use the existing file's ID
-        
+    # # Update or create file upload record
+    # existing_file = FileUpload.query.filter_by(file_name=filename).first()
+    # if existing_file:
+    #     existing_file.upload_time = datetime.now()
+    #     existing_file.corrections = corrections
+    #     db.session.commit()
+    #     session["file_id"] = existing_file.id  # Use the existing file's ID
+    #     print(current_user.id)
+    # else:
+    new_file = FileUpload(
+        file_name=filename, user_id=current_user.id, file_path=file_path, file_size = formatted_size, corrections=corrections, upload_time=datetime.now()
+    )
+    db.session.add(new_file)
+    db.session.commit()
+    session["file_id"] = new_file.id  # Use the existing file's ID
+    print(current_user.id)
+
     return redirect(url_for("file_blueprint.index"))
-
-
 
 @file_blueprint.route("/download/<int:file_id>")
 def download_file(file_id):
@@ -203,17 +205,16 @@ def get_corrections(file_id):
 def index():
     """
     Fetches uploaded files and their grammar corrections, if available,
-    from the database and renders them on the homepage.
-    Returns:
-        str: Rendered HTML content for the homepage.
+    from the database for the current user and renders them on the homepage.
     """
-    files = FileUpload.query.all()
+    # Fetch only files uploaded by the current user
+    files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.upload_time.desc()).all()
     file_id = session.get("file_id")
     corrections = None
 
     if file_id:
         file = FileUpload.query.get(file_id)
-        if file:
+        if file and file.user_id == current_user.id:
             corrections = file.corrections
 
     return render_template(

@@ -40,6 +40,7 @@ class User(UserMixin, db.Model):
     subscription_purchased = db.Column(db.Boolean, default=False)
     daily_upload_count = db.Column(db.Integer, default=0)
     last_upload_date = db.Column(db.DateTime, server_default=db.func.now())
+    expired_date = db.Column(db.DateTime, server_default=db.func.now())
 
 class FileUpload(db.Model):
     """
@@ -55,7 +56,9 @@ class FileUpload(db.Model):
 
     __tablename__ = "file_uploads"
     id = db.Column(db.Integer, primary_key=True)
-    file_name = db.Column(db.String(255), nullable=False, unique=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # Assuming 'user' is your user table
+    file_name = db.Column(db.String(255), nullable=False)
     file_path = db.Column(db.Text, nullable=False)
+    file_size = db.Column(db.Double, default=0)
     upload_time = db.Column(db.DateTime, server_default=db.func.now())
     corrections = db.Column(JSONB)
