@@ -4,6 +4,7 @@ body {
     padding: 0;
     font-size: 15px;
     font-family: monospace;
+    background-color: #eae7dc;
 }
 
 .top-bar {
@@ -80,7 +81,7 @@ body {
 }
 
 .chatbot-img {
-    background-color: violet;
+    background-image: linear-gradient(to right, #e98074, #e85a4f);
     border-radius: 5px;
     height: 300px;
     width: 100%;
@@ -111,7 +112,7 @@ body {
     font-size: 15px;
     border: 1px solid black;
     border-radius: 5px;
-    background-color: white;
+    background-color: #8e8d8a;
     outline: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
