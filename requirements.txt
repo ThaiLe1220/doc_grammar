@@ -13,3 +13,4 @@ stripe
 aiohttp
 mod_wsgi
 boto3
+"Flask[async]"

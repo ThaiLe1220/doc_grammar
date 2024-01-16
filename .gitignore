@@ -6,8 +6,9 @@ __pycache__/
 # Virtual environment
 venv/
 
-# Flask file uploads directory
+# Flask file uploads and migrations directory
 file_uploads/
+migrations/
 
 # OS generated files
 .DS_Store

@@ -1,5 +1,6 @@
 """ Filename: docx_utils.py - Directory: my_flask_app/utils
 """
+import os
 import asyncio
 import nltk
 from docx import Document
@@ -11,89 +12,11 @@ from .reconstructing_sentence import *
 nltk.download("punkt", quiet=True)
 
 
-async def async_check_grammar(original_text, session):
-    """
-    Asynchronously checks and corrects the grammar of a given text.
-
-    Args:
-        original_text (str): The text to be checked and corrected for grammar.
-        session (aiohttp.ClientSession): The aiohttp session for making requests.
-
-    Returns:
-        str: The corrected version of the original text with improved grammar.
-    """
-    # Call the asynchronous check_grammar function
-    print(
-        f"Checking grammar for text: {original_text[:40]}..."
-    )  # Print first 30 characters
-    corrected_text = await check_grammar(original_text, session)
-    print(f"Received corrected text: {corrected_text[:40]}...")  # Print first
-    return corrected_text
-
-
-async def process_paragraph(paragraph, session):
-    corrected_para = ""
-    para_word_count = len(paragraph.text.split())
-
-    if para_word_count <= 64:
-        # If the paragraph is short enough, process it as a whole
-        corrected_para = await async_check_grammar(paragraph.text, session)
-        await asyncio.sleep(0.05)  # Delay between batches
-        print("Processed short paragraph.")
-    else:
-        # If the paragraph is long, split into sentences and process in batches of 10
-        sentences = nltk.tokenize.sent_tokenize(paragraph.text)
-        print(f"Split paragraph into {len(sentences)} sentences.")
-        sentence_batches = [sentences[i : i + 10] for i in range(0, len(sentences), 10)]
-
-        for batch in sentence_batches:
-            print(f"Processing batch with {len(batch)} sentences.")
-            corrected_sentences = await asyncio.gather(
-                *[async_check_grammar(sentence, session) for sentence in batch]
-            )
-            corrected_para += " ".join(corrected_sentences)
-            await asyncio.sleep(0.05)  # Delay between batches
-            print("Processed a batch of sentences.")
-
-    return corrected_para
-
-
-def is_java_code_snippet(paragraph_text):
-    # Simple checks for code-like structures
-    code_indicators = [
-        r"\s*;\s*$",  # lines ending in a semicolon with optional leading whitespace
-        r"\s*{\s*$",  # line ending with an opening curly brace with optional leading whitespace
-        r"\s*}\s*$",  # line ending with a closing curly brace with optional leading whitespace
-        r"\s*class\s+",  # lines that start with 'class' keyword
-        r"\s*public\s+",  # lines that start with 'public' keyword
-        r"\s*private\s+",  # lines that start with 'private' keyword
-        r"\s*(if|for|while|switch|return)\b",  # common control structures
-    ]
-    for indicator in code_indicators:
-        if re.search(indicator, paragraph_text):
-            return True
-    return False
-
-
-def is_html_code_snippet(paragraph_text):
-    # Simple checks for HTML code-like structures
-    html_code_indicators = [
-        r"\s*<\s*/?\s*[a-zA-Z][^>]*>",  # Detects HTML tags with optional leading whitespace
-        r"\s*<\s*[a-zA-Z]+[^>]*>\s*</\s*[a-zA-Z]+\s*>",  # Detects HTML open and close tag pairs with optional leading whitespace
-        r"\s*<!DOCTYPE\s+html>",  # Detects DOCTYPE declaration with optional leading whitespace
-        r"\s*<!--.*?-->",  # Detects HTML comments with optional leading whitespace
-    ]
-    for indicator in html_code_indicators:
-        if re.search(indicator, paragraph_text, re.DOTALL | re.MULTILINE):
-            return True
-    return False
-
-
-def is_code_snippet(paragraph_text):
-    return is_java_code_snippet(paragraph_text) or is_html_code_snippet(paragraph_text)
-
-
 async def correct_text_grammar(file_path):
+    # Check if the file exists and is a .docx file
+    if not os.path.exists(file_path) or not file_path.endswith(".docx"):
+        raise FileNotFoundError("The file does not exist or is not a .docx file.")
+
     doc = Document(file_path)
     corrected_paragraphs = (
         {}
@@ -107,10 +30,10 @@ async def correct_text_grammar(file_path):
             for index, paragraph in enumerate(doc.paragraphs[i : i + 10], start=i):
                 if (
                     not paragraph.text.strip()
-                    # or is_code_snippet(paragraph.text)
-                    # or paragraph.style.name == "EndNote Bibliography"
-                    # or paragraph.style.name == "ICCE Affiliations"
-                    # or paragraph.style.name == "ICCE Author List"
+                    or is_code_snippet(paragraph.text)
+                    or paragraph.style.name == "EndNote Bibliography"
+                    or paragraph.style.name == "ICCE Affiliations"
+                    or paragraph.style.name == "ICCE Author List"
                 ):
                     print("Skipping empty or special paragraph.")
                     continue
@@ -146,6 +69,78 @@ async def correct_text_grammar(file_path):
     print("Completed grammar correction and saved document.")
 
     return []
+
+
+async def process_paragraph(paragraph, session):
+    corrected_para = ""
+    para_word_count = len(paragraph.text.split())
+
+    if para_word_count <= 64:
+        # If the paragraph is short enough, process it as a whole
+        corrected_para = await async_check_grammar(paragraph.text, session)
+        await asyncio.sleep(0.05)  # Delay between batches
+        print("Processed short paragraph.")
+    else:
+        # If the paragraph is long, split into sentences and process in batches of 10
+        sentences = nltk.tokenize.sent_tokenize(paragraph.text)
+        print(f"Split paragraph into {len(sentences)} sentences.")
+        sentence_batches = [sentences[i : i + 10] for i in range(0, len(sentences), 10)]
+
+        for batch in sentence_batches:
+            print(f"Processing batch with {len(batch)} sentences.")
+            corrected_sentences = await asyncio.gather(
+                *[async_check_grammar(sentence, session) for sentence in batch]
+            )
+            corrected_para += " ".join(corrected_sentences)
+            await asyncio.sleep(0.05)  # Delay between batches
+            print("Processed a batch of sentences.")
+
+    return corrected_para
+
+
+def is_code_snippet(paragraph_text):
+    return is_java_code_snippet(paragraph_text) or is_html_code_snippet(paragraph_text)
+
+
+def is_java_code_snippet(paragraph_text):
+    # Simple checks for code-like structures
+    code_indicators = [
+        r"\s*;\s*$",  # lines ending in a semicolon with optional leading whitespace
+        r"\s*{\s*$",  # line ending with an opening curly brace with optional leading whitespace
+        r"\s*}\s*$",  # line ending with a closing curly brace with optional leading whitespace
+        r"\s*class\s+",  # lines that start with 'class' keyword
+        r"\s*public\s+",  # lines that start with 'public' keyword
+        r"\s*private\s+",  # lines that start with 'private' keyword
+        r"\s*(if|for|while|switch|return)\b",  # common control structures
+    ]
+    for indicator in code_indicators:
+        if re.search(indicator, paragraph_text):
+            return True
+    return False
+
+
+def is_html_code_snippet(paragraph_text):
+    # Simple checks for HTML code-like structures
+    html_code_indicators = [
+        r"\s*<\s*/?\s*[a-zA-Z][^>]*>",  # Detects HTML tags with optional leading whitespace
+        r"\s*<\s*[a-zA-Z]+[^>]*>\s*</\s*[a-zA-Z]+\s*>",  # Detects HTML open and close tag pairs with optional leading whitespace
+        r"\s*<!DOCTYPE\s+html>",  # Detects DOCTYPE declaration with optional leading whitespace
+        r"\s*<!--.*?-->",  # Detects HTML comments with optional leading whitespace
+    ]
+    for indicator in html_code_indicators:
+        if re.search(indicator, paragraph_text, re.DOTALL | re.MULTILINE):
+            return True
+    return False
+
+
+async def async_check_grammar(original_text, session):
+    # Call the asynchronous check_grammar function
+    print(
+        f"Checking grammar for text: {original_text[:40]}..."
+    )  # Print first 30 characters
+    corrected_text = await check_grammar(original_text, session)
+    print(f"Received corrected text: {corrected_text[:40]}...")  # Print first
+    return corrected_text
 
 
 def correct_paragraph(corrected_para, paragraph):

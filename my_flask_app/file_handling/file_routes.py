@@ -33,14 +33,14 @@ def get_s3_client():
     )
 
 
-def upload_file_to_s3(file, bucket_name, acl="public-read"):
+def upload_file_to_s3(file, bucket_name):
     s3 = get_s3_client()  # Initialize the S3 client
     try:
         s3.upload_fileobj(
             file,
             bucket_name,
             file.filename,
-            ExtraArgs={"ACL": acl, "ContentType": file.content_type},
+            ExtraArgs={"ContentType": file.content_type},
         )
         file_url = f"{current_app.config['S3_LOCATION']}{file.filename}"
         return file_url
@@ -62,10 +62,6 @@ async def upload_file():
 
     filename = secure_filename(file.filename)
     file_url = upload_file_to_s3(file, current_app.config["S3_BUCKET"])
-
-    # filename = secure_filename(file.filename)
-    # file_path = os.path.join(current_app.config["UPLOAD_FOLDER"], filename)
-    # file.save(file_path)
 
     # Process the file and store corrections
     try:
