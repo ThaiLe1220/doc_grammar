@@ -35,7 +35,7 @@ stripe.api_key = "sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://database-doc-grammar:Eugenememe@database-doc-grammar.c70sige8i8wn.us-east-1.rds.amazonaws.com:5432/doc_grammar?sslmode=verify-full&sslrootcert=rds-combined-ca-bundle.pem"
+] = "postgresql://postgres:Eugenememe@database-doc-grammar.c70sige8i8wn.us-east-1.rds.amazonaws.com:5432/doc_grammar?sslmode=verify-full&sslrootcert=rds-combined-ca-bundle.pem"
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
