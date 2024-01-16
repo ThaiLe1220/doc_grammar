@@ -13,12 +13,14 @@ from flask import (
     request,
     current_app,
     session,
+    send_file,
 )
 from flask_login import current_user
 from werkzeug.utils import secure_filename
 from database.models import db, FileUpload
 from utils.docx_utils import correct_text_grammar
 from utils.exceptions import GrammarCheckError
+from botocore.exceptions import NoCredentialsError
 
 file_blueprint = Blueprint("file_blueprint", __name__)
 
@@ -125,20 +127,38 @@ async def upload_file():
 @file_blueprint.route("/download/<int:file_id>")
 def download_file(file_id):
     file = FileUpload.query.get_or_404(file_id)
-    return redirect(file.file_path)
+
+    # Generate a presigned URL for the S3 object
+    s3_client = get_s3_client()
+    try:
+        presigned_url = s3_client.generate_presigned_url(
+            "get_object",
+            Params={"Bucket": current_app.config["S3_BUCKET"], "Key": file.file_name},
+            ExpiresIn=300,
+        )  # URL expires in 5 minutes
+        print(f"File {file.file_name} downloaded ")
+
+    except NoCredentialsError:
+        flash("Error generating presigned URL for download", "error")
+        print("Error generating presigned URL for download")
+
+        return redirect(url_for("file_blueprint.index"))
+
+    # Redirect user to the presigned URL
+    return redirect(presigned_url)
 
 
 @file_blueprint.route("/delete/<int:file_id>")
 def delete_file(file_id):
     s3 = get_s3_client()  # Initialize the S3 client
-    file_to_delete = FileUpload.query.get_or_404(file_id)
+    file = FileUpload.query.get_or_404(file_id)
     try:
-        s3.delete_object(
-            Bucket=current_app.config["S3_BUCKET"], Key=file_to_delete.file_name
-        )
-        db.session.delete(file_to_delete)
+        s3.delete_object(Bucket=current_app.config["S3_BUCKET"], Key=file.file_name)
+        db.session.delete(file)
         db.session.commit()
-        flash(f"{file_to_delete.file_name} was deleted successfully", "success")
+        flash(f"{file.file_name} was deleted successfully", "success")
+        print(f"File {file.file_name} deleted")
+
     except Exception as e:
         flash(f"Error deleting file from S3: {str(e)}", "error")
     return redirect(url_for("file_blueprint.index"))

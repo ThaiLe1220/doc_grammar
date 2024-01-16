@@ -65,6 +65,28 @@ login_manager.init_app(app)
 app.register_blueprint(file_blueprint, url_prefix="/files")
 
 
+def list_policies_for_role(role_name):
+    print(f"\nPolicies for role: {role_name}")
+
+    # List attached managed policies
+    attached_policies = iam.list_attached_role_policies(RoleName=role_name)
+    for policy in attached_policies.get("AttachedPolicies", []):
+        print(f"- Attached Managed Policy: {policy['PolicyName']}")
+
+    # List inline policies
+    inline_policies = iam.list_role_policies(RoleName=role_name)
+    for policy_name in inline_policies.get("PolicyNames", []):
+        print(f"- Inline Policy: {policy_name}")
+
+
+iam = boto3.client("iam")
+
+# List all roles
+roles = iam.list_roles()
+for role in roles.get("Roles", []):
+    list_policies_for_role(role["RoleName"])
+
+
 @app.route("/")
 def index():
     files = FileUpload.query.all()
