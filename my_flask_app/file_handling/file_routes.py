@@ -53,48 +53,71 @@ def upload_file_to_s3(file, bucket_name):
 
 @file_blueprint.route("/upload", methods=["POST"])
 async def upload_file():
+    # Check if file is part of the request
     if "file" not in request.files:
         flash("No file part", "error")
+        print("No file part in request")
         return redirect(url_for("index"))
+
     file = request.files["file"]
 
+    # Check if file has a filename
     if file.filename == "":
         flash("No selected file", "error")
+        print("No selected file")
         return redirect(url_for("index"))
 
+    # Secure the filename and upload the file to S3
     filename = secure_filename(file.filename)
-    file_url = upload_file_to_s3(file, current_app.config["S3_BUCKET"])
-    print(file_url)
+    print(f"Received file: {filename}")
+
+    try:
+        file_url = upload_file_to_s3(file, current_app.config["S3_BUCKET"])
+        print(f"File uploaded to S3: {file_url}")
+    except Exception as e:
+        flash("Error uploading file to S3", "error")
+        print(f"Error uploading file to S3: {e}")
+        return redirect(url_for("file_blueprint.index"))
 
     # Process the file and store corrections
     try:
+        print("Starting grammar correction")
         corrections = await correct_text_grammar(file_url)
         flash("Content checked successfully.", "success")
-
+        print("Grammar correction completed")
     except IOError as io_error:
         flash(f"File I/O error: {str(io_error)}", "error")
+        print(f"File I/O error: {io_error}")
         return redirect(url_for("file_blueprint.index"))
     except ValueError as value_error:
         flash(f"Value error: {str(value_error)}", "error")
+        print(f"Value error: {value_error}")
         return redirect(url_for("file_blueprint.index"))
     except GrammarCheckError as grammar_error:
         flash(f"Grammar check error: {str(grammar_error)}", "error")
+        print(f"Grammar check error: {grammar_error}")
         return redirect(url_for("file_blueprint.index"))
 
     # Update or create file upload record
-    existing_file = FileUpload.query.filter_by(file_name=filename).first()
-    if existing_file:
-        existing_file.corrections = corrections
-        db.session.commit()
-        session["file_id"] = existing_file.id  # Use the existing file's ID
-
-    else:
-        new_file = FileUpload(
-            file_name=filename, file_path=file_url, corrections=corrections
-        )
-        db.session.add(new_file)
-        db.session.commit()
-        session["file_id"] = new_file.id  # Use the existing file's ID
+    try:
+        existing_file = FileUpload.query.filter_by(file_name=filename).first()
+        if existing_file:
+            existing_file.corrections = corrections
+            db.session.commit()
+            session["file_id"] = existing_file.id
+            print(f"Updated existing file record: {filename}")
+        else:
+            new_file = FileUpload(
+                file_name=filename, file_path=file_url, corrections=corrections
+            )
+            db.session.add(new_file)
+            db.session.commit()
+            session["file_id"] = new_file.id
+            print(f"Created new file record: {filename}")
+    except Exception as e:
+        flash("Error updating database", "error")
+        print(f"Error updating database: {e}")
+        return redirect(url_for("file_blueprint.index"))
 
     return redirect(url_for("file_blueprint.index"))
 
