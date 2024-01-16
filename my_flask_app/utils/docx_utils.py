@@ -1,8 +1,11 @@
 """ Filename: docx_utils.py - Directory: my_flask_app/utils
 """
 import os
+import boto3
+import tempfile
 import asyncio
 import nltk
+from flask import current_app
 from docx import Document
 from aiohttp import ClientSession
 from .grammar_checker import check_grammar
@@ -12,61 +15,78 @@ from .reconstructing_sentence import *
 nltk.download("punkt", quiet=True)
 
 
-async def correct_text_grammar(file_path):
-    # Check if the file exists and is a .docx file
-    if not os.path.exists(file_path) or not file_path.endswith(".docx"):
-        raise FileNotFoundError("The file does not exist or is not a .docx file.")
+def get_s3_client():
+    """
+    Initialize and return a boto3 S3 client using current app configuration.
+    """
+    return boto3.client(
+        "s3",
+        aws_access_key_id=current_app.config["S3_KEY"],
+        aws_secret_access_key=current_app.config["S3_SECRET"],
+    )
 
-    doc = Document(file_path)
-    corrected_paragraphs = (
-        {}
-    )  # Use a dictionary to map paragraph index to corrected text
 
-    async with ClientSession() as session:
-        for i in range(0, len(doc.paragraphs), 10):
-            tasks = []
-            batch_indices = []  # Store indices of paragraphs in the current batch
+async def correct_text_grammar(file_url):
+    s3 = get_s3_client()
+    filename = file_url.split("/")[-1]
 
-            for index, paragraph in enumerate(doc.paragraphs[i : i + 10], start=i):
+    with tempfile.NamedTemporaryFile(suffix=".docx", delete=False) as tmp_file:
+        try:
+            # Download the file from S3
+            s3.download_file(current_app.config["S3_BUCKET"], filename, tmp_file.name)
+        except Exception as e:
+            raise FileNotFoundError(f"Failed to download the file: {e}")
+
+        doc = Document(tmp_file.name)
+        corrected_paragraphs = (
+            {}
+        )  # Use a dictionary to map paragraph index to corrected text
+
+        async with ClientSession() as session:
+            for i in range(0, len(doc.paragraphs), 10):
+                tasks = []
+                batch_indices = []  # Store indices of paragraphs in the current batch
+
+                for index, paragraph in enumerate(doc.paragraphs[i : i + 10], start=i):
+                    if (
+                        not paragraph.text.strip()
+                        or is_code_snippet(paragraph.text)
+                        or paragraph.style.name == "EndNote Bibliography"
+                        or paragraph.style.name == "ICCE Affiliations"
+                        or paragraph.style.name == "ICCE Author List"
+                    ):
+                        print("Skipping empty or special paragraph.")
+                        continue
+
+                    task = asyncio.create_task(process_paragraph(paragraph, session))
+                    tasks.append(task)
+                    batch_indices.append(
+                        index
+                    )  # Keep track of the paragraph's original index
+
+                # Wait for all tasks in the current batch to complete and store results
+                results = await asyncio.gather(*tasks)
+
+                for index, corrected_text in zip(batch_indices, results):
+                    corrected_paragraphs[
+                        index
+                    ] = corrected_text  # Map index to corrected text
+
+                print("Processed batch of paragraphs. Waiting before next batch...")
+                await asyncio.sleep(0.5)
+
+            # Apply the corrected text to each paragraph in the original order
+            for index, paragraph in enumerate(doc.paragraphs):
                 if (
-                    not paragraph.text.strip()
-                    or is_code_snippet(paragraph.text)
-                    or paragraph.style.name == "EndNote Bibliography"
-                    or paragraph.style.name == "ICCE Affiliations"
-                    or paragraph.style.name == "ICCE Author List"
+                    paragraph.text.strip()
+                    and paragraph.style.name != "EndNote Bibliography"
+                    and index in corrected_paragraphs
                 ):
-                    print("Skipping empty or special paragraph.")
-                    continue
+                    # paragraph.text = corrected_paragraphs[index]
+                    correct_paragraph(corrected_paragraphs[index], paragraph)
 
-                task = asyncio.create_task(process_paragraph(paragraph, session))
-                tasks.append(task)
-                batch_indices.append(
-                    index
-                )  # Keep track of the paragraph's original index
-
-            # Wait for all tasks in the current batch to complete and store results
-            results = await asyncio.gather(*tasks)
-
-            for index, corrected_text in zip(batch_indices, results):
-                corrected_paragraphs[
-                    index
-                ] = corrected_text  # Map index to corrected text
-
-            print("Processed batch of paragraphs. Waiting before next batch...")
-            await asyncio.sleep(0.5)
-
-        # Apply the corrected text to each paragraph in the original order
-        for index, paragraph in enumerate(doc.paragraphs):
-            if (
-                paragraph.text.strip()
-                and paragraph.style.name != "EndNote Bibliography"
-                and index in corrected_paragraphs
-            ):
-                # paragraph.text = corrected_paragraphs[index]
-                correct_paragraph(corrected_paragraphs[index], paragraph)
-
-    doc.save(file_path)
-    print("Completed grammar correction and saved document.")
+        doc.save(tmp_file.name)
+        print("Completed grammar correction and saved document.")
 
     return []
 
