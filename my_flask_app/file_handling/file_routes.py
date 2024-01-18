@@ -42,7 +42,7 @@ def get_s3_client():
     """
     return boto3.client(
         "s3",
-        region_name="ap-southeast-1",
+        region_name="us-east-1",
         aws_access_key_id=current_app.config["S3_KEY"],
         aws_secret_access_key=current_app.config["S3_SECRET"],
     )

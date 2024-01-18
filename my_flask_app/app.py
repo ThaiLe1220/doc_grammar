@@ -40,16 +40,14 @@ app.config[
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
 
-app.config["S3_BUCKET"] = "doc-grammar"
+app.config["S3_BUCKET"] = "doc-grammar-bucket"
 app.config["S3_KEY"] = "AKIA2CB5KXCNZEHGTPNG"
 app.config["S3_SECRET"] = "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"
-app.config[
-    "S3_LOCATION"
-] = "http://doc-grammar.s3-website-ap-southeast-1.amazonaws.com/"
+app.config["S3_LOCATION"] = "http://doc-grammar.s3-website-us-east-1.amazonaws.com/"
 
 s3 = boto3.client(
     "s3",
-    region_name="ap-southeast-1",
+    region_name="us-east-1",
     aws_access_key_id=app.config["S3_KEY"],
     aws_secret_access_key=app.config["S3_SECRET"],
 )
