@@ -1,3 +1,14 @@
+import logging
+from flask import Flask
+
+app = Flask(__name__)
+
+# Set up logging
+logging.basicConfig(filename='myapp.log', level=logging.DEBUG,
+                    format='%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
+
+# Your Flask app code here...
+
 import sys
 import site
 
