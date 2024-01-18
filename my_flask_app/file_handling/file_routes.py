@@ -3,6 +3,7 @@
 import os
 import traceback
 import boto3
+import logging
 from flask import (
     Blueprint,
     render_template,
@@ -23,6 +24,16 @@ from utils.exceptions import GrammarCheckError
 from botocore.exceptions import NoCredentialsError
 
 file_blueprint = Blueprint("file_blueprint", __name__)
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,  # Adjust the log level as needed (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    format="%(asctime)s [%(levelname)s] - %(message)s",
+    handlers=[
+        logging.FileHandler("app.log"),  # Log to a file (optional)
+        logging.StreamHandler(),  # Log to console
+    ],
+)
 
 
 def get_s3_client():
@@ -153,6 +164,7 @@ def download_file(file_id):
 def delete_file(file_id):
     s3 = get_s3_client()  # Initialize the S3 client
     file = FileUpload.query.get_or_404(file_id)
+
     try:
         s3.delete_object(Bucket=current_app.config["S3_BUCKET"], Key=file.file_name)
         db.session.delete(file)
@@ -160,8 +172,16 @@ def delete_file(file_id):
         flash(f"{file.file_name} was deleted successfully", "success")
         print(f"File {file.file_name} deleted")
 
+        # Log success message
+        logging.info(f"File {file.file_name} deleted successfully")
+
     except Exception as e:
         flash(f"Error deleting file from S3: {str(e)}", "error")
+        print(f"Error deleting file from S3: {str(e)}")
+
+        # Log the error message and stack trace
+        logging.error(f"Error deleting file from S3: {str(e)}", exc_info=True)
+
     return redirect(url_for("file_blueprint.index"))
 
 
