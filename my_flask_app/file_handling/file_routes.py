@@ -48,6 +48,21 @@ def get_s3_client():
     )
 
 
+def list_s3_objects(bucket_name):
+    s3 = get_s3_client()
+    try:
+        print(f"Listing objects in bucket: {bucket_name}")
+        bucket_objects = s3.list_objects_v2(Bucket=bucket_name)
+        if "Contents" not in bucket_objects:
+            print("No objects found in the bucket.")
+        else:
+            for obj in bucket_objects["Contents"]:
+                print(obj["Key"])
+    except Exception as e:
+        print(f"Error listing objects in bucket: {str(e)}")
+        traceback.print_exc()
+
+
 def upload_file_to_s3(file, bucket_name):
     s3 = get_s3_client()  # Initialize the S3 client
     try:
@@ -163,10 +178,15 @@ def download_file(file_id):
 @file_blueprint.route("/delete/<int:file_id>")
 def delete_file(file_id):
     s3 = get_s3_client()  # Initialize the S3 client
+    bucket_name = current_app.config["S3_BUCKET"]
     file = FileUpload.query.get_or_404(file_id)
 
+    # Debug: List all objects in the S3 bucket
+    list_s3_objects(bucket_name)
+
     try:
-        s3.delete_object(Bucket=current_app.config["S3_BUCKET"], Key=file.file_name)
+        # Attempt to delete the object from S3
+        s3.delete_object(Bucket=bucket_name, Key=file.file_name)
         db.session.delete(file)
         db.session.commit()
         flash(f"{file.file_name} was deleted successfully", "success")
