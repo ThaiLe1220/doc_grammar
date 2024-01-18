@@ -24,6 +24,7 @@ body, html {
   padding: 50px;
   box-sizing: border-box;
   border: 1px solid #ccc;
+  background-color: #d8c3a5;
 }
 
 .column2 {
@@ -31,6 +32,7 @@ body, html {
   padding: 20px;
   box-sizing: border-box;
   border: 1px solid #ccc;
+  background-color: #eae7dc;
 }
 
 /* .container {
@@ -103,6 +105,8 @@ body, html {
 .bot img, .bot-response img {
   width: 80px;
   height: 60px;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
 .bot-intro, .bot-response .bot-intro {
@@ -126,11 +130,7 @@ body, html {
   outline: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-}  
-
-.search-bar input[type=file]:hover {
-  background-color: #ccc;
-}
+} 
 
 .search-bar button {
   width: 19%; /* Adjust the width as needed */
@@ -142,7 +142,7 @@ body, html {
   outline: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  background-color: white; /* Add your preferred background color */
+  background-color: #8e8d8a; /* Add your preferred background color */
   font-weight: bolder;
   color: black; /* Add your preferred text color */
 }
@@ -246,8 +246,7 @@ ul li a {
 }
 
 .account-type[data-type="Premium"]::before {
-  content: "✅"; /* Show the diamond for Premium account type */
-  margin-right: 5px; /* Adjust spacing as needed */
+  /* margin-right: 5px; /*Adjust spacing as needed */
   color: green; /* Modify this line to change the diamond color */
 }
 

@@ -86,3 +86,13 @@ const billingBtn = document.querySelector('.functions .billingBtn');
 billingBtn.addEventListener('click', () => {
   window.location.href = '/billing-plan';
 });
+
+function confirmLogout() {
+  var result = confirm("Are you sure you want to log out?");
+  if (result) {
+    // location.href='{{ url_for('logout') }}';
+    window.location.href = '/logout';
+  } else {
+    alert("Logout canceled.");
+  }
+}
