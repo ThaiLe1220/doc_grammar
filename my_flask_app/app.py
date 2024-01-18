@@ -49,6 +49,7 @@ app.config[
 
 s3 = boto3.client(
     "s3",
+    region_name="ap-southeast-1",
     aws_access_key_id=app.config["S3_KEY"],
     aws_secret_access_key=app.config["S3_SECRET"],
 )
