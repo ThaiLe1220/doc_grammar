@@ -75,47 +75,46 @@ def landing_page():
 
 @app.route("/index")
 def index():
-    """
-    Displays the homepage of the application.
-    Fetches uploaded files and their grammar corrections, if available,
-    from the database and renders them on the homepage.
-    Returns:
-        str: Rendered HTML content for the homepage.
-    """
-    
+    page = request.args.get('page', 1, type=int)
+    per_page = 10  # Items per page
     sort_by = request.args.get("sort", "time")
     descending = request.args.get("descending", "false").lower() == "true"
 
-    # Fetch files from the database based on the selected sorting
+    # Determine the sort order
     if sort_by == "time":
-        if descending:
-            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.upload_time.desc()).all()
-        else:
-            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.upload_time).all()
+        order = FileUpload.upload_time.desc() if descending else FileUpload.upload_time
     elif sort_by == "name":
-        if descending:
-            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.file_name.desc()).all()
-        else:
-            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.file_name).all()
+        order = FileUpload.file_name.desc() if descending else FileUpload.file_name
     elif sort_by == "size":
-        if descending:
-            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.file_size.desc()).all()
-        else:
-            files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.file_size).all()
+        order = FileUpload.file_size.desc() if descending else FileUpload.file_size
     else:
-        # Default to sorting by upload time in ascending order
-        files = FileUpload.query.filter_by(user_id=current_user.id).order_by(FileUpload.upload_time).all()
+        order = FileUpload.upload_time  # Default sort
 
+    # Apply sorting before pagination
+    files_query = FileUpload.query.filter_by(user_id=current_user.id).order_by(order)
+    files_pagination = files_query.paginate(page=page, per_page=per_page, error_out=False)
+    
+    files = files_pagination.items
+    total_pages = files_pagination.pages if files_pagination.pages is not None else 1  # Total number of pages
+    
     file_id = session.get("file_id")
     corrections = None
-
+    
     if file_id:
         file = FileUpload.query.get(file_id)
         if file:
             corrections = file.corrections
 
+    # Pass the necessary variables to the template
     return render_template(
-        "index.html", files=files, corrections=corrections, current_user=current_user
+        "index.html", 
+        files=files, 
+        total_pages=total_pages, 
+        current_user=current_user,
+        corrections=corrections,
+        current_page=page,
+        sort=sort_by,
+        descending=descending
     )
 
 @app.route("/login")

@@ -175,6 +175,14 @@
                 <button onclick="window.location.href = '{{ url_for('index', sort='size', descending='false') }}';">Sort by File Size (ASC)</button>
                 <button onclick="window.location.href = '{{ url_for('index', sort='size', descending='true') }}';">Sort by File Size (DESC)</button>
             </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination">
+                {% for i in range(1, total_pages + 1) %}
+                    <a href="{{ url_for('index', page=i) }}" class="{{ 'active' if i == current_page else '' }}">{{ i }}</a>
+                {% endfor %}
+            </div>
+            
 <!-- ... remaining HTML content ... -->
 
             <h2>Grammar Checking</h2>

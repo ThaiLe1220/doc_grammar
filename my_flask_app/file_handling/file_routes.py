@@ -79,7 +79,7 @@ def upload_file():
     # Map account types to their file size limits (in bytes)
     size_limits = {
         "Free": 1,  # 1 MB
-        "Basic": 10, # 10 MB
+        "Basic": 2, # 10 MB
         "Premium": 20 # 20 MB
     }
 
@@ -121,13 +121,13 @@ def upload_file():
 
     except IOError as io_error:
         flash(f"File I/O error: {str(io_error)}", "error")
-        return redirect(url_for("file_blueprint.index"))
+        return redirect(url_for("index", page = 1))  #return redirect(url_for("file_blueprint.index"))
     except ValueError as value_error:
         flash(f"Value error: {str(value_error)}", "error")
-        return redirect(url_for("file_blueprint.index"))
+        return redirect(url_for("index", page = 1))  #return redirect(url_for("file_blueprint.index"))
     except GrammarCheckError as grammar_error:
         flash(f"Grammar check error: {str(grammar_error)}", "error")
-        return redirect(url_for("file_blueprint.index"))
+        return redirect(url_for("index", page = 1))  #return redirect(url_for("file_blueprint.index"))
     
     # # Update or create file upload record
     # existing_file = FileUpload.query.filter_by(file_name=filename).first()
@@ -146,7 +146,7 @@ def upload_file():
     session["file_id"] = new_file.id  # Use the existing file's ID
     print(current_user.id)
 
-    return redirect(url_for("file_blueprint.index"))
+    return redirect(url_for("index", page = 1))  #return redirect(url_for("file_blueprint.index"))
 
 @file_blueprint.route("/download/<int:file_id>")
 def download_file(file_id):
@@ -181,7 +181,8 @@ def delete_file(file_id):
         flash(f"{file_to_delete.file_name} was deleted successfully", "success")
     except OSError as e:
         flash(f"Error deleting file from filesystem: {str(e)}", "error")
-    return redirect(url_for("file_blueprint.index"))
+    return redirect(url_for("index", page = 1)) #return redirect(url_for("file_blueprint.index"))
+
 
 
 @file_blueprint.route("/corrections/<int:file_id>")
