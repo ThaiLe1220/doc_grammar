@@ -16,6 +16,7 @@ body, html {
     padding: 50px;
     box-sizing: border-box;
     border: 1px solid #ccc;
+    background-color: #d8c3a5;
 }
 
 .column2 {
@@ -23,6 +24,7 @@ body, html {
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #ccc;
+    background-color:  #eae7dc;
 }
 
 
@@ -33,10 +35,6 @@ body, html {
     border: 1px solid black;
     border-radius: 10px;
     margin-bottom: 20px;
-}
-
-.column2 .basic:hover {
-    background-color: #f1f1f1;
 }
 
 .basic button {
@@ -69,10 +67,6 @@ body, html {
     padding-left: 40px;
 }
 
-.column2 .pro:hover {
-    background-color: #f1f1f1;
-}
-
 .pro  button {
     width: 19%; /* Adjust the width as needed */
     margin-bottom: 10px; /* Same margin as the input elements */
@@ -91,4 +85,9 @@ body, html {
 .pro button:hover {
     background-color: black;
     color: white;
+}
+
+.backBtn{
+    width: 20px;
+    height: 20px;
 }
