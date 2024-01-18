@@ -187,18 +187,32 @@ def delete_file(file_id):
 
 @file_blueprint.route("/corrections/<int:file_id>")
 def get_corrections(file_id):
-    """Get corrections for a file with the specified file_id.
-    Args:
-        file_id (int): The ID of the file to retrieve corrections for.
-    Returns:
-        jsonify: JSON response containing the corrections for the file.
-    """
     file = FileUpload.query.get_or_404(file_id)
     corrections = file.corrections
-    files = FileUpload.query.all()  # Fetch all files to display on the index page
+    # files = FileUpload.query.all()  # Fetch all files to display on the index page
+
+    # Set the default page and per_page values
+    page = 1
+    per_page = 10
+    files_query = FileUpload.query.filter_by(user_id=current_user.id)
+    files_pagination = files_query.paginate(page=page, per_page=per_page, error_out=False)
+
+    files = files_pagination.items
+    total_pages = files_pagination.pages if files_pagination.pages is not None else 1
+
+    # You may also want to provide default sorting parameters if your template expects them
+    sort = 'upload_time'  # or any other default sort
+    descending = 'false'  # or 'true' as per your default sorting order
 
     return render_template(
-        "index.html", files=files, corrections=corrections, current_user=current_user
+        "index.html",
+        files=files,
+        corrections=corrections,
+        current_user=current_user,
+        total_pages=total_pages,
+        current_page=page,
+        sort=sort,
+        descending=descending
     )
 
 
