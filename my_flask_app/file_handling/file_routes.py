@@ -1,13 +1,10 @@
 """ Filename: file_routes.py - Directory: my_flask_app/file_handling
-
-This module defines routes for file upload, download, deletion, and correction retrieval
-in a Flask web application. It provides functionality to upload files, check their
-content for grammar corrections, download files, delete files, and retrieve
-correction details.
-
 """
+
+import time
 import pytz
 import os
+
 from flask import (
     Blueprint,
     render_template,
@@ -27,6 +24,7 @@ from database.models import db, FileUpload
 from utils.docx_utils import correct_text_grammar
 from utils.exceptions import GrammarCheckError
 from datetime import datetime
+
 
 file_blueprint = Blueprint("file_blueprint", __name__)
 
@@ -103,9 +101,11 @@ async def upload_file():
         return redirect(url_for("index"))
 
     filename = secure_filename(file.filename)
-    file_path = os.path.join(current_app.config["UPLOAD_FOLDER"], filename)
+    timestamp = int(time.time())  # Current time as an integer timestamp
+    unique_filename = f"{timestamp}_{filename}"
+    file_path = os.path.join(current_app.config["UPLOAD_FOLDER"], unique_filename)
     file.save(file_path)
-    print(f"Received file: {filename}")
+    print(f"Received file: {unique_filename}")
 
     # Process the file and store corrections
     try:
@@ -133,7 +133,7 @@ async def upload_file():
         return redirect(url_for("index", page=1))
 
     new_file = FileUpload(
-        file_name=filename,
+        file_name=unique_filename,
         user_id=current_user.id,
         file_path=file_path,
         file_size=formatted_size,
@@ -143,7 +143,7 @@ async def upload_file():
     db.session.add(new_file)
     db.session.commit()
     session["file_id"] = new_file.id
-    print(f"Created new file record: {filename}, for user {current_user.id}")
+    print(f"Created new file record: {unique_filename}, for user {current_user.id}")
 
     return redirect(url_for("index", page=1))
 
