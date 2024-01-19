@@ -14,32 +14,37 @@ nltk.download("punkt", quiet=True)
 
 
 async def correct_text_grammar(file_path):
-    """
-    Corrects grammar in a DOCX file and applies original formatting to the corrected text.
-
-    :param file_path: The path to the DOCX file to be processed.
-    """
     doc = Document(file_path)
     corrections = []  # List to hold correction details
     corrected_paragraphs = (
         {}
     )  # Use a dictionary to map paragraph index to corrected text
+    stop_processing = False  # Flag to indicate when to stop processing paragraphs
 
     async with ClientSession() as session:
         for i in range(0, len(doc.paragraphs), 10):
+            if stop_processing:
+                break  # Stop processing if a heading has been encountered
             tasks = []
             batch_indices = []  # Store indices of paragraphs in the current batch
 
             for index, paragraph in enumerate(doc.paragraphs[i : i + 10], start=i):
+                style_name = (
+                    paragraph.style.name.lower()
+                )  # Convert style name to lowercase for case-insensitive comparison
+                if "heading" in style_name:
+                    stop_processing = (
+                        True  # Set the flag to stop processing after this batch
+                    )
+                    break
+
                 if (
                     not paragraph.text.strip()
                     or is_code_snippet(paragraph.text)
-                    or paragraph.style.name == "EndNote Bibliography"
-                    or paragraph.style.name == "ICCE Affiliations"
-                    or paragraph.style.name == "ICCE Author List"
+                    or style_name
+                    in ["endnote bibliography", "icce affiliations", "icce author list"]
                 ):
-                    print("Skipping empty or special paragraph.")
-                    continue
+                    continue  # Skip empty, code, or special paragraphs
 
                 task = asyncio.create_task(process_paragraph(paragraph, session))
                 tasks.append(task)
@@ -55,7 +60,7 @@ async def correct_text_grammar(file_path):
                     index
                 ] = corrected_text  # Map index to corrected text
 
-            print("Processed batch of paragraphs. Waiting before next batch...")
+            # print("Processed batch of paragraphs. Waiting before next batch...")
             await asyncio.sleep(0.1)
 
         # Apply the corrected text to each paragraph in the original order
@@ -80,25 +85,34 @@ async def process_paragraph(paragraph, session):
     corrected_para = ""
     para_word_count = len(paragraph.text.split())
 
+    # Function to check for hyperlinks
+    def contains_hyperlink(text):
+        return re.search(r"https?://\S+", text) is not None
+
     if para_word_count <= 64:
-        # If the paragraph is short enough, process it as a whole
-        corrected_para = await async_check_grammar(paragraph.text, session)
-        await asyncio.sleep(0.05)  # Delay between batches
-        print("Processed short paragraph.")
+        # Check for hyperlink in short paragraphs
+        if not contains_hyperlink(paragraph.text):
+            corrected_para = await async_check_grammar(paragraph.text, session)
+            await asyncio.sleep(0.05)  # Delay between batches
+
     else:
-        # If the paragraph is long, split into sentences and process in batches of 10
+        # If the paragraph is long, split into sentences
         sentences = nltk.tokenize.sent_tokenize(paragraph.text)
-        print(f"Split paragraph into {len(sentences)} sentences.")
         sentence_batches = [sentences[i : i + 10] for i in range(0, len(sentences), 10)]
 
         for batch in sentence_batches:
-            print(f"Processing batch with {len(batch)} sentences.")
-            corrected_sentences = await asyncio.gather(
-                *[async_check_grammar(sentence, session) for sentence in batch]
-            )
-            corrected_para += " ".join(corrected_sentences)
+            processed_sentences = []
+            for sentence in batch:
+                if not contains_hyperlink(sentence):
+                    processed_sentence = await async_check_grammar(sentence, session)
+                    processed_sentences.append(processed_sentence)
+                else:
+                    processed_sentences.append(
+                        sentence
+                    )  # Skip processing, keep original
+
+            corrected_para += " ".join(processed_sentences)
             await asyncio.sleep(0.01)  # Delay between batches
-            print("Processed a batch of sentences.")
 
     return corrected_para
 
@@ -139,19 +153,13 @@ def is_html_code_snippet(paragraph_text):
 
 
 async def async_check_grammar(original_text, session):
-    print(f"Checking grammar for text: {original_text[:40]}...")
     corrected_text = await check_grammar(original_text, session)
-    print(f"Received corrected text: {corrected_text[:40]}...")  # Print first
     return corrected_text
 
 
 def correct_paragraph(corrected_para, paragraph):
-    print(f"[Corrected Para]: {corrected_para}")
-    print(f"[Original Para]: {paragraph}")
-
     modifications = find_modified_text(paragraph.text, corrected_para)
     paragraph_tokens = custom_tokenize(paragraph.text)
-    # print("\nParagraph Tokens:", paragraph_tokens)
 
     modifications_dict = {item[2]: (item[0], item[1]) for item in modifications}
     # print("\nModifications Dictionary:", modifications_dict)
@@ -216,10 +224,18 @@ def correct_paragraph(corrected_para, paragraph):
 
 
 def find_modified_text(original_text, corrected_text):
+    print(f"[Original Text] {original_text}")
+    print(f"[Corrected Text] {corrected_text}")
+    diff = percentage_difference(original_text, corrected_text)
+    print(diff)
+
+    # Check if the text difference is more than 45%
+    if diff > 45:
+        return []
+
     mod = []
     ori_tokens = custom_tokenize(original_text)
     cor_tokens = custom_tokenize(corrected_text)
-
     ori_matrix = [[token, index] for index, token in enumerate(ori_tokens)]
     cor_matrix = [[token, index] for index, token in enumerate(cor_tokens)]
 
@@ -242,16 +258,6 @@ def find_modified_text(original_text, corrected_text):
 
 
 def find_modified_tokens(ori, cor):
-    """
-    Identifies modifications between original and corrected texts.
-
-    Args:
-        ori (list): Original text represented as a list of [token, position] pairs.
-        cor (list): Corrected text represented as a list of [token, position] pairs.
-
-    Returns:
-        list: A list of tuples of modifications (original_token, modified_token, position).
-    """
     ori_index = cor_index = 0
     mod = []
 
@@ -313,14 +319,18 @@ def find_modified_tokens(ori, cor):
                     ori_index += 3
                     cor_index += 1
                 else:
-                    mod.append(
-                        (
-                            ori_token,
-                            cor_token + " " + cor[cor_index + 2][0],
-                            ori_pos,
+                    if cor_index + 2 < len(cor):
+                        mod.append(
+                            (
+                                ori_token,
+                                cor_token + " " + cor[cor_index + 2][0],
+                                ori_pos,
+                            )
                         )
-                    )
+                        cor_index += 3
+                    else:
+                        mod.append((ori_token, cor_token, ori_pos))
+                        cor_index += 1
                     ori_index += 1
-                    cor_index += 3
 
     return mod

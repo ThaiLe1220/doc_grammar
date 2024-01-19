@@ -14,17 +14,22 @@ API_URL = "https://polite-horribly-cub.ngrok-free.app/generate_code"
 
 
 def clean_api_response(api_response_text: str, original_text: str) -> str:
-    """
-    Cleans and formats the API response text based on the original text's structure.
+    # Patterns that might be introduced by the API and not part of the original text
+    patterns_to_remove = [
+        r"Correct english of this text:.*?\.",
+        r"Please correct the following:.*?",
+        r"Here's the corrected text:.*?",
+        r"Correct:.*?",
+        r"Incorrect:.*?",
+    ]
 
-    Args:
-        api_response_text (str): The raw text response from the grammar checking API.
-        original_text (str): The original text that was submitted for grammar checking.
+    for pattern in patterns_to_remove:
+        # Use a conditional regex to ensure the pattern is not part of the original text
+        pattern_regex = f"(?<!{re.escape(original_text)}){pattern}"
+        api_response_text = re.sub(
+            pattern_regex, "", api_response_text, flags=re.IGNORECASE | re.DOTALL
+        )
 
-    Returns:
-        str: Cleaned and formatted text that reflects the corrections from the API,
-             while maintaining the original text's structural and punctuation patterns.
-    """
     # Remove excessive newlines and trim whitespace
     cleaned_text = re.sub(r"[\n\s]+", " ", api_response_text).strip()
 
