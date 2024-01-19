@@ -45,109 +45,23 @@ def percentage_difference(str1, str2):
 
 
 def custom_tokenize(text):
-    """
-    Tokenizes the given text into words, spaces, and punctuation marks.
-
-    Args:
-        text (str): The text to be tokenized.
-
-    Returns:
-        list: A list of tokens extracted from the text.
-    """
-    pattern = r'\(\w+[\w\'-]*\)?|[().,;:!?"]|\b\w+[\w\'-]*[().,;:!?"]?|\s+'
+    pattern = r"\(\w+[\w\'-]*\)?|[().,;:!?\"]|\b\w+[\w\'-]*(?:’s)?[().,;:!?\"]?|\s+"
     return re.findall(pattern, text)
 
 
-def find_modified_tokens(ori, cor):
-    """
-    Identifies modifications between original and corrected texts.
-
-    Args:
-        ori (list): Original text represented as a list of [token, position] pairs.
-        cor (list): Corrected text represented as a list of [token, position] pairs.
-
-    Returns:
-        list: A list of tuples of modifications (original_token, modified_token, position).
-    """
-    ori_index = cor_index = 0
-    mod = []
-
-    while ori_index < len(ori) or cor_index < len(cor):
-        print(f"Current Iteration: {ori_index}, {cor_index}")
-        ori_token, ori_pos = ori[ori_index]
-        cor_token, _ = cor[cor_index]
-
-        if ori_token == cor_token:
-            # Tokens are identical, move to the next pair
-            ori_index += 1
-            cor_index += 1
-        else:
-            if ori_index + 4 < len(ori) and cor_index + 4 < len(cor):
-                if ori[ori_index + 4][0] == cor[cor_index + 2][0]:
-                    mod.append((ori_token, "", ori_pos))
-                    mod.append((" ", "", ori_pos + 1))
-                    mod.append((ori[ori_index + 2][0], cor_token, ori_pos + 2))
-
-                    ori_index += 4
-                    cor_index += 2
-                    continue
-                elif ori[ori_index + 2][0] == cor[cor_index + 2][0]:
-                    mod.append((ori_token, cor_token, ori_pos))
-                    ori_index += 2
-                    cor_index += 2
-                    continue
-                elif ori[ori_index + 2][0] == cor[cor_index + 4][0]:
-                    mod.append(
-                        (ori_token, cor_token + " " + cor[cor_index + 2][0], ori_pos)
-                    )
-                    ori_index += 2
-                    cor_index += 4
-                    continue
-                elif (
-                    ori[ori_index + 2][0] != cor[cor_index + 2][0]
-                    and ori[ori_index + 4][0] == cor[cor_index + 4][0]
-                ):
-                    mod.append((ori_token, cor_token, ori_pos))
-                    mod.append(
-                        (ori[ori_index + 2][0], cor[cor_index + 2][0], ori_pos + 2)
-                    )
-                    ori_index += 4
-                    cor_index += 4
-
-                else:
-                    ori_index += 1
-                    cor_index += 1
-            else:
-                # Handle end-of-text cases
-                if len(ori) - ori_index == len(cor) - cor_index:
-                    mod.append((ori_token, cor_token, ori_pos))
-                    ori_index += 1
-                    cor_index += 1
-                elif len(ori) - ori_index > len(cor) - cor_index:
-                    mod.append((ori_token, "", ori_pos))
-                    mod.append((" ", "", ori_pos + 1))
-                    mod.append((ori[ori_index + 2][0], cor_token, ori_pos + 2))
-                    ori_index += 3
-                    cor_index += 1
-                else:
-                    mod.append(
-                        (
-                            ori_token,
-                            cor_token + " " + cor[cor_index + 2][0],
-                            ori_pos,
-                        )
-                    )
-                    ori_index += 1
-                    cor_index += 3
-
-    return mod
-
-
 def find_modified_text(original_text, corrected_text):
+    print(f"[Original Text] {original_text}")
+    print(f"[Corrected Text] {corrected_text}")
+    diff = percentage_difference(original_text, corrected_text)
+    print(diff)
+
+    # Check if the text difference is more than 45%
+    if diff > 45:
+        return []
+
     mod = []
     ori_tokens = custom_tokenize(original_text)
     cor_tokens = custom_tokenize(corrected_text)
-
     ori_matrix = [[token, index] for index, token in enumerate(ori_tokens)]
     cor_matrix = [[token, index] for index, token in enumerate(cor_tokens)]
 
@@ -163,11 +77,113 @@ def find_modified_text(original_text, corrected_text):
     mod = find_modified_tokens(updated_ori_matrix, cor_matrix)
     combined_list = temp_mod + mod
 
-    return list(set(combined_list))
+    final_mod = sorted(list(set(combined_list)), key=lambda x: x[2])
+    final_mod = [item for item in final_mod if item[0] != item[1]]
+
+    return final_mod
 
 
-original_text = "Introduction"
-corrected_text = "Introduction."
+def find_modified_tokens(ori, cor):
+    ori_index = cor_index = 0
+    mod = []
+
+    while ori_index < len(ori) and cor_index < len(cor):
+        # print(f"Current Iteration: {ori_index}, {cor_index}")
+        ori_token, ori_pos = ori[ori_index]
+        cor_token, _ = cor[cor_index]
+
+        if ori_token == cor_token:
+            # Tokens are identical, move to the next pair
+            ori_index += 1
+            cor_index += 1
+        else:
+            if ori_index + 4 < len(ori) and cor_index + 4 < len(cor):
+                if ori[ori_index + 4][0] == cor[cor_index + 2][0]:
+                    mod.append((ori_token, "", ori_pos))
+                    mod.append((" ", "", ori_pos + 1))
+                    mod.append((ori[ori_index + 2][0], cor_token, ori_pos + 2))
+
+                    ori_index += 3
+                    cor_index += 1
+                    continue
+                elif ori[ori_index + 2][0] == cor[cor_index + 2][0]:
+                    mod.append((ori_token, cor_token, ori_pos))
+                    ori_index += 1
+                    cor_index += 1
+                    continue
+                elif ori[ori_index + 2][0] == cor[cor_index + 4][0]:
+                    mod.append(
+                        (ori_token, cor_token + " " + cor[cor_index + 2][0], ori_pos)
+                    )
+                    ori_index += 1
+                    cor_index += 3
+                    continue
+                elif (
+                    ori[ori_index + 2][0] != cor[cor_index + 2][0]
+                    and ori[ori_index + 4][0] == cor[cor_index + 4][0]
+                ):
+                    mod.append((ori_token, cor_token, ori_pos))
+                    mod.append(
+                        (ori[ori_index + 2][0], cor[cor_index + 2][0], ori_pos + 2)
+                    )
+                    ori_index += 3
+                    cor_index += 3
+                else:
+                    ori_index += 1
+                    cor_index += 1
+
+            elif ori_index + 2 < len(ori) and cor_index + 2 < len(cor):
+                if ori[ori_index + 2][0] == cor[cor_index][0]:
+                    mod.append((ori_token, "", ori_pos))
+                    mod.append((" ", "", ori_pos + 1))
+                    mod.append((ori[ori_index + 2][0], cor_token, ori_pos + 2))
+
+                    ori_index += 3
+                    cor_index += 1
+                    continue
+                elif ori[ori_index][0] == cor[cor_index + 2][0]:
+                    mod.append(
+                        (ori_token, cor_token + " " + cor[cor_index + 2][0], ori_pos)
+                    )
+                    ori_index += 1
+                    cor_index += 3
+                else:
+                    ori_index += 1
+                    cor_index += 1
+
+            else:
+                # Handle end-of-text cases
+                if len(ori) - ori_index == len(cor) - cor_index:
+                    mod.append((ori_token, cor_token, ori_pos))
+                    ori_index += 1
+                    cor_index += 1
+                elif len(ori) - ori_index > len(cor) - cor_index:
+                    mod.append((ori_token, "", ori_pos))
+                    mod.append((" ", "", ori_pos + 1))
+                    if ori_index + 2 < len(ori):
+                        mod.append((ori[ori_index + 2][0], cor_token, ori_pos + 2))
+                    ori_index += 3
+                    cor_index += 1
+                else:
+                    if cor_index + 2 < len(cor):
+                        mod.append(
+                            (
+                                ori_token,
+                                cor_token + " " + cor[cor_index + 2][0],
+                                ori_pos,
+                            )
+                        )
+                        cor_index += 3
+                    else:
+                        mod.append((ori_token, cor_token, ori_pos))
+                        cor_index += 1
+                    ori_index += 1
+
+    return mod
+
+
+original_text = "In this case, Sony stated that the user’s passwords were hashed but the hackers LuLzSec stated that the passwords they got were stored in complete plain text"
+corrected_text = "In this case, Sony stated that the user's passwords were hashed, but the hackers, LulzSec, stated that the passwords they obtained were stored in complete plain text."
 
 
 print(custom_tokenize(original_text))

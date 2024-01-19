@@ -10,16 +10,7 @@ import re
 
 
 def custom_tokenize(text):
-    """
-    Tokenizes the given text into words, spaces, and punctuation marks.
-
-    Args:
-        text (str): The text to be tokenized.
-
-    Returns:
-        list: A list of tokens extracted from the text.
-    """
-    pattern = r'\(\w+[\w\'-]*\)?|[().,;:!?"]|\b\w+[\w\'-]*[().,;:!?"]?|\s+'
+    pattern = r"\(\w+[\w\'-]*\)?|[().,;:!?\"]|\b\w+[\w\'-]*(?:’s)?[().,;:!?\"]?|\s+"
     return re.findall(pattern, text)
 
 
