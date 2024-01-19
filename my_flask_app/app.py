@@ -31,13 +31,13 @@ app.config[
 app.config[
     "STRIPE_SECRET_KEY"
 ] = "sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf"
-endpoint_secret = "whsec_pXA4oZ40ktdIpfYtJmlX3Z9LmI5v19VZ"
+endpoint_secret = "whsec_8468e026695e3bd1d7d474cccf9b99bd6f11adb10d8692940eddc6c2e37dbc3f"
 Domain = "http://localhost:5000"
 stripe.api_key = "sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf"
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://eugene:eugene@localhost/doc_grammar"
+] = "postgresql://jaeheon:0325@localhost/doc_grammar"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
 
