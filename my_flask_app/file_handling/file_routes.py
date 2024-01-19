@@ -4,6 +4,7 @@
 import time
 import pytz
 import os
+import tempfile
 
 from flask import (
     Blueprint,
@@ -24,7 +25,7 @@ from database.models import db, FileUpload
 from utils.docx_utils import correct_text_grammar
 from utils.exceptions import GrammarCheckError
 from datetime import datetime
-
+from zipfile import ZipFile
 
 file_blueprint = Blueprint("file_blueprint", __name__)
 
@@ -238,3 +239,65 @@ def index():
         sort=sort,
         descending=descending,
     )
+
+
+# Add this route for deleting selected files
+@file_blueprint.route("/download-selected-files", methods=["POST"])
+def download_selected_files():
+    file_ids = request.form.get("file_ids_download", "").split(",")
+    file_ids = [int(file_id) for file_id in file_ids if file_id.isdigit()]
+
+    # Delete selected files from the database
+    for file_id in file_ids:
+        file_to_delete = FileUpload.query.get(file_id)
+        if file_to_delete:
+            # Temporary storage for zip file
+            temp_dir = tempfile.mkdtemp()
+            zip_filename = os.path.join(temp_dir, "selected_files.zip")
+
+            with ZipFile(zip_filename, "w") as zipf:
+                for file_id in file_ids:
+                    file = FileUpload.query.get(file_id)
+                    if file and os.path.exists(file.file_path):
+                        zipf.write(file.file_path, arcname=file.file_name)
+                        print(f"File added to zip: {file.file_path}")
+                    else:
+                        print(f"File not found or path is incorrect: {file.file_path}")
+    flash(
+        f"Selected files IDS: {file_ids} have been downloaded successfully", "success"
+    )
+    return send_file(
+        zip_filename,
+        as_attachment=True,
+        mimetype="application/zip",
+        download_name="selected_files.zip",
+    )
+
+
+def get_file_by_id(file_id):
+    # Implement logic to retrieve file information by ID
+    return FileUpload.query.get(file_id)
+
+
+# Add this route for deleting selected files
+@file_blueprint.route("/delete-selected-files", methods=["POST"])
+def delete_selected_files():
+    file_ids = request.form.get("file_ids_delete", "").split(",")
+    file_ids = [int(file_id) for file_id in file_ids if file_id.isdigit()]
+
+    # Delete selected files from the database
+    for file_id in file_ids:
+        file_to_delete = FileUpload.query.get(file_id)
+        if file_to_delete:
+            # Delete the file from storage or perform any additional cleanup
+            # Note: This does not handle file deletion from the storage, adjust as needed
+            # Example: file_to_delete.delete_from_storage()
+
+            # Delete the file from the database
+            db.session.delete(file_to_delete)
+
+    db.session.commit()
+    flash("Selected files have been deleted successfully", "success")
+    flash(f"Deleted file IDs: {file_ids}", "success")
+    return redirect(url_for("index"))
+    # return send_file(zip_filename, as_attachment=True, mimetype='application/zip', download_name='selected_files.zip')

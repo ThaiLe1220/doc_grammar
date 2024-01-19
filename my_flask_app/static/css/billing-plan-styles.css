@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -24,7 +25,7 @@ body, html {
     padding: 20px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    background-color:  #eae7dc;
+    background-color: #eae7dc;
 }
 
 
@@ -38,8 +39,10 @@ body, html {
 }
 
 .basic button {
-    width: 19%; /* Adjust the width as needed */
-    margin-bottom: 10px; /* Same margin as the input elements */
+    width: 19%;
+    /* Adjust the width as needed */
+    margin-bottom: 10px;
+    /* Same margin as the input elements */
     padding: 12px;
     font-size: 15px;
     border: 1px solid black;
@@ -47,9 +50,11 @@ body, html {
     outline: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    background-color: white; /* Add your preferred background color */
+    background-color: white;
+    /* Add your preferred background color */
     font-weight: bolder;
-    color: black; /* Add your preferred text color */
+    color: black;
+    /* Add your preferred text color */
 }
 
 .basic button:hover {
@@ -67,9 +72,11 @@ body, html {
     padding-left: 40px;
 }
 
-.pro  button {
-    width: 19%; /* Adjust the width as needed */
-    margin-bottom: 10px; /* Same margin as the input elements */
+.pro button {
+    width: 19%;
+    /* Adjust the width as needed */
+    margin-bottom: 10px;
+    /* Same margin as the input elements */
     padding: 12px;
     font-size: 15px;
     border: 1px solid black;
@@ -77,9 +84,11 @@ body, html {
     outline: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    background-color: white; /* Add your preferred background color */
+    background-color: white;
+    /* Add your preferred background color */
     font-weight: bolder;
-    color: black; /* Add your preferred text color */
+    color: black;
+    /* Add your preferred text color */
 }
 
 .pro button:hover {
@@ -87,7 +96,7 @@ body, html {
     color: white;
 }
 
-.backBtn{
+.backBtn {
     width: 20px;
     height: 20px;
 }

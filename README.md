@@ -46,7 +46,7 @@ source venv/bin/activate
 Install the required Python packages:
 
 ```sh
-pip3 install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk authlib Flask-Login Flask-Migrate
+pip3 install flask Flask-Uploads Werkzeug Flask-SQLAlchemy psycopg2-binary requests python-docx nltk authlib Flask-Login Flask-Migrate Flask[async] tempfile stripe aiohttp mod_wsgi boto3 pytz zipfile
 ```
 
 ### Database Configuration
