@@ -322,7 +322,7 @@ ul li a {
   padding: 20px 0;
   list-style-type: none;
   /* Removes default list styling */
-  margin-right: 300px;
+  width: 100%;
   /* Adjust this value to move it to the left */
 }
 
@@ -372,7 +372,7 @@ ul li a {
 
 .section-header {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   background-color: #d8c3a5;
   /* Your sidebar color for consistency */
   color: #333;
@@ -408,7 +408,7 @@ ul li a {
 .section-header,
 .file-entry {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
   /* Change from 'center' to 'stretch' */
 }
@@ -436,8 +436,7 @@ ul li a {
 /* Additional styles to ensure that the file-entry divs fill their cells */
 .file-name,
 .file-upload-time,
-.file-size,
-.file-actions {
+.file-size {
   flex-grow: 1;
   /* Make sure each cell fills the height */
   /* Other styling remains unchanged */
@@ -447,7 +446,7 @@ ul li a {
   background-color: #ffffff;
   /* White background for odd rows */
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding: 0px;
   border-bottom: 1px solid #eee;
 }
@@ -459,8 +458,7 @@ ul li a {
 
 .file-name,
 .file-upload-time,
-.file-size,
-.file-actions {
+.file-size {
   text-align: center;
   padding: 0 15px;
 }
@@ -574,6 +572,42 @@ ul li a {
   position: relative;
   width: 100%;
   /* Adjust the width as needed */
+}
+
+.search-box button{
+  background-color: #d8c3a5;
+  /* Green background */
+  border: none;
+  /* No borders */
+  color: black;
+  /* White text */
+  padding: 5px 10px;
+  /* Padding around the text */
+  text-align: center;
+  /* Center the text inside the button */
+  text-decoration: none;
+  /* No underline on text */
+  display: inline-block;
+  /* Align buttons next to each other */
+  font-size: 14px;
+  /* Set the font size */
+  margin: 4px 2px;
+  /* Add some space around the buttons */
+  margin-top: 10px;
+  cursor: pointer;
+  /* Change mouse cursor on hover */
+  border-radius: 5px;
+  /* Rounded corners */
+  transition-duration: 0.4s;
+  /* Smooth transition for mouse hover */
+  
+}
+
+
+.search-box button:hover {
+  background-color: black;
+  /* Darker shade of green for hover state */
+  color: white;
 }
 
 .search-input {
