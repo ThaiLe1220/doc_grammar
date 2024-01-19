@@ -96,3 +96,43 @@ function confirmLogout() {
     alert("Logout canceled.");
   }
 }
+
+
+// document.getElementById('submitButton').addEventListener('click', function(event) {
+//   var button = this;
+//   event.preventDefault(); // Prevent form submission for demonstration purposes
+//   button.classList.add('loading'); // Add the loading class to show the spinner
+
+//   // Simulate a 3-second loading process
+//   setTimeout(function() {
+//     button.classList.remove('loading'); // Remove the loading class
+//     button.classList.add('success'); // Add the success class
+
+//     var span = button.querySelector('span');
+//     if (span) {
+//       span.textContent = 'Success'; // Change the button text to 'Success'
+//     }
+
+//     // Optionally, remove the success state after some time
+//     setTimeout(function() {
+//       button.classList.remove('success');
+//       span.textContent = 'Submit'; // Change the text back to 'Submit'
+//     }, 2000); // Time before reverting the success message
+
+//   }, 3000); // Time to show the spinner
+// });
+
+document.getElementById('submitButton').addEventListener('click', function(event) {
+  var button = this;
+  button.classList.add('loading'); // Add the loading class to show the spinner
+  var spinner = button.querySelector('.spinner');
+  var textWrapper = button.querySelector('.textWrapper');
+  
+  // Show spinner and hide text
+  spinner.style.display = 'block';
+  textWrapper.style.opacity = '0';
+  textWrapper.style.visibility = 'hidden';
+  
+  // No need to prevent the default form submission
+  // The form will submit and the page will reload or redirect as per the action attribute
+});
