@@ -139,28 +139,29 @@ document.getElementById('submitButton').addEventListener('click', function(event
 });
 
 
-// Function to update the button disabled state based on checkboxes
+
+
 function updateButtonState() {
-  // Get all checkboxes with the name 'file-checkbox'
   var checkboxes = document.querySelectorAll('input[name="file-checkbox"]');
-  // Check if at least one checkbox is checked
   var atLeastOneChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+  var buttons = document.querySelectorAll('.action-buttons button');
   
-  // Get the buttons
-  var deleteButton = document.getElementById('deleteButton');
-  var downloadButton = document.getElementById('downloadButton');
-  var showCorrectionsButton = document.getElementById('showCorrectionsButton');
-  
-  // Enable or disable buttons based on whether at least one checkbox is checked
-  deleteButton.disabled = !atLeastOneChecked;
-  downloadButton.disabled = !atLeastOneChecked;
-  showCorrectionsButton.disabled = !atLeastOneChecked;
+  buttons.forEach(button => {
+    if (atLeastOneChecked) {
+      // If at least one checkbox is checked, enable the buttons
+      button.classList.remove('disabled');
+    } else {
+      // If no checkboxes are checked, disable the buttons
+      button.classList.add('disabled');
+    }
+  });
 }
 
-// Call updateButtonState on page load
+// Initial check on page load
 document.addEventListener('DOMContentLoaded', updateButtonState);
 
-// Add change event listeners to checkboxes to update button state when any checkbox is changed
+// Add change event listeners to checkboxes
 document.querySelectorAll('input[name="file-checkbox"]').forEach(checkbox => {
   checkbox.addEventListener('change', updateButtonState);
 });
