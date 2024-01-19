@@ -113,19 +113,6 @@ def insert_references_back(text: str, references: list):
 
 
 async def check_grammar(original_text: str, session) -> str:
-    """
-    Asynchronously checks and corrects the grammar of a given text using an external API.
-
-    Args:
-        original_text (str): The text to be checked and corrected for grammar.
-        session (aiohttp.ClientSession): The aiohttp session for making requests.
-
-    Raises:
-        GrammarCheckError: An error raised if there is an issue with the grammar checking API call.
-
-    Returns:
-        str: The corrected version of the original text with improved grammar.
-    """
     try:
         # print("\n[Original Text]\n", original_text)
         # Existing logic for extracting references and placeholders
@@ -146,9 +133,7 @@ async def check_grammar(original_text: str, session) -> str:
             api_response = await response.json()
             # print("[API Response]\n", api_response)
 
-            corrected_text = (
-                api_response[0] if api_response else "Correction unavailable"
-            )
+            corrected_text = api_response[0] if api_response else original_text
 
             # Logic for inserting references back and cleaning the response
             corrected_text_with_refs = insert_references_back(
@@ -162,4 +147,4 @@ async def check_grammar(original_text: str, session) -> str:
             return final_corrected_text
     except Exception as error:
         print("Error calling grammar check API:", error)
-        raise GrammarCheckError(f"Grammar check API error: {error}") from error
+        return original_text
