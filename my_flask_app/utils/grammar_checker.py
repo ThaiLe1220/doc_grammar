@@ -17,11 +17,20 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
     # Patterns that might be introduced by the API and not part of the original text
     patterns_to_remove = [
         r"Correct english of this text:.*?\.",
+        r"Correct English in the following text:.*?\.",
         r"Please correct the following:.*?",
         r"Here's the corrected text:.*?",
         r"Correct:.*?",
         r"Incorrect:.*?",
+        r"\d+\.\d+",
     ]
+
+    # New pattern to identify instructional or comment-like sentences
+    instructional_pattern = r"\*.*?Thank you"
+
+    api_response_text = re.sub(
+        instructional_pattern, "", api_response_text, flags=re.IGNORECASE
+    )
 
     for pattern in patterns_to_remove:
         # Use a conditional regex to ensure the pattern is not part of the original text
@@ -30,8 +39,11 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
             pattern_regex, "", api_response_text, flags=re.IGNORECASE | re.DOTALL
         )
 
+    # Remove repetitive or redundant phrases
+    cleaned_text = re.sub(r"(.)\1+", r"\1", api_response_text)
+
     # Remove excessive newlines and trim whitespace
-    cleaned_text = re.sub(r"[\n\s]+", " ", api_response_text).strip()
+    cleaned_text = re.sub(r"[\n\s]+", " ", cleaned_text).strip()
 
     # Check if original text starts/ends with quotation marks and remove them if not
     if not (original_text.startswith('"') and original_text.endswith('"')):
@@ -41,14 +53,26 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
     if not re.match(r"^\d+\.\s+", original_text):
         cleaned_text = re.sub(r"^\d+\.\s+", "", cleaned_text)
 
-    # End with a period only if the original text ends with a period
-    if original_text.endswith("."):
-        cleaned_text = re.sub(
-            r"[.!?]+$", "", cleaned_text
-        )  # Remove existing end punctuation
-        cleaned_text += "."  # Add a single period
+    # Define known punctuation marks
+    known_punctuation_marks = [".", "!", "?", ":", ";"]
+
+    # End with the same punctuation mark as the original text, if it has one
+    ending_punctuation = None
+    for punctuation_mark in known_punctuation_marks:
+        if original_text.endswith(punctuation_mark):
+            ending_punctuation = punctuation_mark
+            break
+
+    # Remove existing end punctuation from cleaned text
+    cleaned_text = re.sub(r"[.!?]+$", "", cleaned_text)
+
+    # Add appropriate punctuation mark or default to a period
+    if ending_punctuation:
+        # Ensure only one instance of the punctuation mark
+        cleaned_text = cleaned_text.rstrip(ending_punctuation) + ending_punctuation
     else:
-        cleaned_text = re.sub(r"[.!?]+$", "", cleaned_text)
+        # Default to a period if no known punctuation mark is found
+        cleaned_text += "."
 
     return cleaned_text
 
@@ -134,7 +158,7 @@ async def check_grammar(original_text: str, session) -> str:
                 corrected_text_with_refs, original_text
             )
 
-            # print("[Corrected Text]\n", final_corrected_text)
+            print("[Corrected Text]\n", final_corrected_text)
             return final_corrected_text
     except Exception as error:
         print("Error calling grammar check API:", error)
