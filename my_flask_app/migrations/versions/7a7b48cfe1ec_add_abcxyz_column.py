@@ -1,8 +1,8 @@
-"""empty message
+"""Add abcxyz column.
 
-Revision ID: b20e054d8bf8
+Revision ID: 7a7b48cfe1ec
 Revises: 
-Create Date: 2024-01-18 16:13:37.432326
+Create Date: 2024-01-18 19:54:41.423942
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision = 'b20e054d8bf8'
+revision = '7a7b48cfe1ec'
 down_revision = None
 branch_labels = None
 depends_on = None
