@@ -16,13 +16,15 @@ API_URL = "https://polite-horribly-cub.ngrok-free.app/generate_code"
 def clean_api_response(api_response_text: str, original_text: str) -> str:
     # Patterns that might be introduced by the API and not part of the original text
     patterns_to_remove = [
-        r"Correct english of this text:.*?\.",
-        r"Correct English in the following text:.*?\.",
-        r"Please correct the following:.*?",
-        r"Here's the corrected text:.*?",
-        r"Correct:.*?",
-        r"Incorrect:.*?",
-        r"\d+\.\d+",
+        r"Correct english of this text:.*",
+        r"Corect English in the folowing text: Corect:.*",
+        r"Correct English in the following text:.*",
+        r"Please correct the following:.*",
+        r"Please note that the above text is just an example and the actual text you want to corect may contain diferent erors:.*",
+        r"Here's the corrected text:.*",
+        r"Correct:.*",
+        r"Incorrect:.*",
+        r"\d+\.\d+.*",  # Match any numerical value followed by any text
     ]
 
     # New pattern to identify instructional or comment-like sentences
@@ -77,37 +79,39 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
     return cleaned_text
 
 
-def extract_and_preserve_references(text: str):
+def extract_and_preserve(text: str):
     # Pattern to match all content within parentheses
     reference_pattern = r"\(([^)]+)\)"
+    # Pattern for special patterns
+    special_pattern = r"(?:\d+|[a-zA-Z])[/;).>\-\+\\]"
 
-    # Find all matches of the pattern
+    # Find all matches of the patterns
     references = re.findall(reference_pattern, text)
+    specials = re.findall(special_pattern, text)
 
-    # Replace each found reference section with a placeholder
+    # Replace each found reference and special pattern with placeholders
     for ref in references:
         text = text.replace(f"({ref})", "(REFERENCE)", 1)
 
-    return text, references
+    for special in specials:
+        text = text.replace(special, "(SPECIAL)", 1)
+
+    return text, references, specials
 
 
-def insert_references_back(text: str, references: list):
-    """
-    Inserts references back into the text at their placeholder positions, regardless of case.
-    It replaces placeholders like "REFERENCE", "Reference", "references", "References", etc.
-
-    Args:
-        text (str): The text with placeholders.
-        references (list): A list of extracted references.
-
-    Returns:
-        str: The text with references reinserted.
-    """
-    # Improved pattern to match 'reference' or 'references' in any case, with any number of leading or trailing characters
-    placeholder_pattern = re.compile(r"\([^\)]*REFEREN[CS]ES?[^\)]*\)", re.IGNORECASE)
+def insert_back(text: str, references: list, specials: list):
+    # Placeholder pattern for references
+    ref_placeholder_pattern = re.compile(
+        r"\([^\)]*REFEREN[CS]ES?[^\)]*\)", re.IGNORECASE
+    )
+    # Placeholder for special patterns
+    special_placeholder = "(SPECIAL)"
 
     for ref in references:
-        text = placeholder_pattern.sub("(" + ref + ")", text, 1)
+        text = ref_placeholder_pattern.sub("(" + ref + ")", text, 1)
+
+    for special in specials:
+        text = text.replace(special_placeholder, special, 1)
 
     return text
 
@@ -116,7 +120,7 @@ async def check_grammar(original_text: str, session) -> str:
     try:
         # print("\n[Original Text]\n", original_text)
         # Existing logic for extracting references and placeholders
-        text_for_api, references = extract_and_preserve_references(original_text)
+        text_for_api, references, specials = extract_and_preserve(original_text)
 
         prompt = f"Correct english of this text: {text_for_api}"
         # print("[Request Sent]\n", prompt)
@@ -136,14 +140,12 @@ async def check_grammar(original_text: str, session) -> str:
             corrected_text = api_response[0] if api_response else original_text
 
             # Logic for inserting references back and cleaning the response
-            corrected_text_with_refs = insert_references_back(
-                corrected_text, references
-            )
+            corrected_text_with_refs = insert_back(corrected_text, references, specials)
             final_corrected_text = clean_api_response(
                 corrected_text_with_refs, original_text
             )
 
-            print("[Corrected Text]\n", final_corrected_text)
+            # print("[Corrected Text]\n", final_corrected_text)
             return final_corrected_text
     except Exception as error:
         print("Error calling grammar check API:", error)

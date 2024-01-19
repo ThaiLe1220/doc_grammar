@@ -93,7 +93,7 @@ async def process_paragraph(paragraph, session):
         # Check for hyperlink in short paragraphs
         if not contains_hyperlink(paragraph.text):
             corrected_para = await async_check_grammar(paragraph.text, session)
-            await asyncio.sleep(0.05)  # Delay between batches
+            await asyncio.sleep(0.01)  # Delay between batches
 
     else:
         # If the paragraph is long, split into sentences

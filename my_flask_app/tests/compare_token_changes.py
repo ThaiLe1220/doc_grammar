@@ -182,8 +182,8 @@ def find_modified_tokens(ori, cor):
     return mod
 
 
-original_text = "In this case, Sony stated that the user’s passwords were hashed but the hackers LuLzSec stated that the passwords they got were stored in complete plain text"
-corrected_text = "In this case, Sony stated that the user's passwords were hashed, but the hackers, LulzSec, stated that the passwords they obtained were stored in complete plain text."
+original_text = "Given that Sony PSN has been under DDoS attack by Anonymous before this event happened. Therefore, it is possible that:"
+corrected_text = "Given that Sony PSN has ben under DoS atack by Anonymous before this event hapened d., Therefore, it is posible that:"
 
 
 print(custom_tokenize(original_text))
