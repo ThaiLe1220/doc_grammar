@@ -128,8 +128,7 @@ body, html {
   border: 1px solid black;
   border-radius: 5px;
   outline: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);    
 } 
 
 .search-bar button {
@@ -336,4 +335,102 @@ ul li a {
   background-color: #0069d9;
   color: white;
   box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.clear-search-button {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #f2f2f2;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.clear-search-button:hover {
+  background-color: #e7e7e7;
+}
+
+.files-list {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #d8c3a5; /* Your sidebar color for consistency */
+  color: #333;
+  padding: 0px 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+}
+
+.section-title {
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  padding: 10px;
+}
+
+.section-title button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px; /* Add space between the text and the button */
+  padding: 2px 5px;
+}
+
+/* Only show the default arrow when no sort is active */
+.section-title button.no-sort::before {
+  display: inline;
+}
+
+.section-header, .file-entry {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: stretch; /* Change from 'center' to 'stretch' */
+}
+
+.section-title, .file-entry div {
+  text-align: center;
+  padding: 10px;
+  border-right: 1px solid black; /* This is already correct */
+  display: flex; /* Add this to make children fill the height */
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally */
+}
+
+/* Remove the right border for the last cell in the header and entry */
+.section-title:last-child, .file-entry div:last-child {
+  border-right: none;
+}
+
+/* Additional styles to ensure that the file-entry divs fill their cells */
+.file-name, .file-upload-time, .file-size, .file-actions {
+  flex-grow: 1; /* Make sure each cell fills the height */
+  /* Other styling remains unchanged */
+}
+
+.file-entry {
+  background-color: #ffffff; /* White background for odd rows */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0px;
+  border-bottom: 1px solid #eee;
+}
+
+.file-entry:nth-child(even) {
+  background-color: #f2f2f2; /* Light grey background for even rows */
+}
+
+.file-name, .file-upload-time, .file-size, .file-actions {
+  text-align: center;
+  padding: 0 15px;
+}
+
+.file-entry:hover {
+  background-color: #e8e8e8; /* Slightly darker grey on hover for interactivity */
 }

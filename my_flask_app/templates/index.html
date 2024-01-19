@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Uploads</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://js.stripe.com/v3/"></script>
-
+        <script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>
@@ -99,41 +98,174 @@
 
             <h2>Uploaded Files</h2>
             <ul>
-                <!-- Loop through files and list them with a download link -->
-                {% for file in files %}
-                <li>
-                    {{ file.file_name }}
-                    - <a href="{{ url_for('file_blueprint.download_file', file_id=file.id) }}">Download</a>
-                    - <a href="{{ url_for('file_blueprint.delete_file', file_id=file.id) }}" onclick="return confirm('Are you sure you want to delete this file?');">Delete</a>
-                    - <a href="{{ url_for('file_blueprint.get_corrections', file_id=file.id) }}">Show Corrections</a>
-                    - Upload File Time: {{ file.upload_time }}
-                    - File Size: 
-                    {% if file.file_size > 1 %}
-                    {{ file.file_size }} MB
-                    {% else %}
-                        {{ (file.file_size * 1024) | round(2) }} KB
+                <!-- Add this form somewhere in your HTML where you want the search bar to appear -->
+                <!-- Search Bar -->
+                <!--                <div class="sorting-buttons">
+                                    {% set desc_toggle = not descending %}
+                                   
+                                    <!-- Sort by Upload Time -->
+                <!--                    <button onclick="window.location.href = '{{ url_for('index', sort='time', descending=desc_toggle, search=search_term) }}';">
+                                        Sort by Upload Time
+                                        {% if sort == 'time' %}
+                                            {% if descending %}
+                                                ▼
+                                            {% else %}
+                                                ▲
+                                            {% endif %}
+                                        {% endif %}
+                                    </button>
+                                   
+                                    <!-- Sort by File Name -->
+                <!--                    <button onclick="window.location.href = '{{ url_for('index', sort='name', descending=desc_toggle, search=search_term) }}';">
+                                        Sort by File Name
+                                        {% if sort == 'name' %}
+                                            {% if descending %}
+                                                ▼
+                                            {% else %}
+                                                ▲
+                                            {% endif %}
+                                        {% endif %}
+                                    </button>
+                                   
+                                    <!-- Sort by File Size -->
+                <!--                    <button onclick="window.location.href = '{{ url_for('index', sort='size', descending=desc_toggle, search=search_term) }}';">
+                                        Sort by File Size
+                                        {% if sort == 'size' %}
+                                            {% if descending %}
+                                                ▼
+                                            {% else %}
+                                                ▲
+                                            {% endif %}
+                                        {% endif %}
+                                    </button>
+                                </div> -->
+ 
+                <!-- Search Bar -->
+                <form action="{{ url_for('index') }}" method="get" class="search-container">
+                    <input type="text" name="search" placeholder=" Find files by name" value="{{ request.args.get('search', '') }}">
+                    <i class="fas fa-search search-icon"></i>
+                    <button type="submit">Search</button>
+                    <!-- Clear Search Button -->
+                    {% if search_term %}
+                        <a href="{{ url_for('index') }}" class="clear-search-button">Clear Search</a>
                     {% endif %}
-                </li>
-                {% endfor %}
-            </ul>
+                </form>
+                
 
-            <!-- Sorting Buttons -->
-            <div class="sorting-buttons">
-                <button onclick="window.location.href = '{{ url_for('index', sort='time', descending='false') }}';">Sort by Upload Time (ASC)</button>
-                <button onclick="window.location.href = '{{ url_for('index', sort='time', descending='true') }}';">Sort by Upload Time (DESC)</button>                <!-- Add buttons for sorting by file name -->
-                <button onclick="window.location.href = '{{ url_for('index', sort='name', descending='false') }}';">Sort by File Name (ASC)</button>
-                <button onclick="window.location.href = '{{ url_for('index', sort='name', descending='true') }}';">Sort by File Name (DESC)</button>
-                <!-- Add buttons for sorting by file size -->
-                <button onclick="window.location.href = '{{ url_for('index', sort='size', descending='false') }}';">Sort by File Size (ASC)</button>
-                <button onclick="window.location.href = '{{ url_for('index', sort='size', descending='true') }}';">Sort by File Size (DESC)</button>
+                <!-- Files List -->
+<div class="files-list">
+    <div class="section-header">
+        <div class="section-title">File Name
+            <button onclick="window.location.href = '{{ url_for('index', sort='name', descending=not descending if sort == 'name' else True, search=search_term) }}';">
+                {% if sort == 'name' %}
+                    {% if descending %}
+                        ▼ <!-- Currently sorted by 'name' in descending order -->
+                    {% else %}
+                        ▲ <!-- Currently sorted by 'name' in ascending order -->
+                    {% endif %}
+                {% else %}
+                    ▲ <!-- Default state when not sorted by 'name' -->
+                {% endif %}
+            </button>
+        </div>
+        <div class="section-title">Upload Time
+            <button onclick="window.location.href = '{{ url_for('index', sort='time', descending=not descending if sort == 'time' else True, search=search_term) }}';">
+                {% if sort == 'time' %}
+                    {% if descending %}
+                        ▼ <!-- Currently sorted by 'time' in descending order -->
+                    {% else %}
+                        ▲ <!-- Currently sorted by 'time' in ascending order -->
+                    {% endif %}
+                {% else %}
+                    ▲ <!-- Default state when not sorted by 'time' -->
+                {% endif %}
+            </button>
+        </div>
+        <div class="section-title">File Size
+            <button onclick="window.location.href = '{{ url_for('index', sort='size', descending=not descending if sort == 'size' else True, search=search_term) }}';">
+                {% if sort == 'size' %}
+                    {% if descending %}
+                        ▼
+                    {% else %}
+                        ▲
+                    {% endif %}
+                {% else %}
+                    ▲ <!-- Default state when not sorted by 'time' -->
+                {% endif %}
+            </button>
+        </div>
+        <div class="section-title">Actions</div>
+    </div>
+
+    {% for file in files %}
+    <div class="file-entry">
+        <div class="file-name">{{ file.file_name }}
+            <div class="file-actions">
+                <input type="checkbox" name="file-checkbox" value="{{ file.id }}">
             </div>
+        </div>
+        <div class="file-upload-time">{{ file.upload_time.strftime('%Y-%m-%d %H:%M:%S') }}</div>
+        <div class="file-size">
+            {% if file.file_size > 1 %}
+            {{ file.file_size }} MB
+            {% else %}
+            {{ (file.file_size * 1024) | round(2) }} KB
+            {% endif %}
+        </div>
+        <div class="file-actions">
+            <a href="{{ url_for('file_blueprint.download_file', file_id=file.id) }}">Download</a>
+            - <a href="{{ url_for('file_blueprint.delete_file', file_id=file.id) }}" onclick="return confirm('Are you sure you want to delete this file?');">Delete</a>
+            - <a href="{{ url_for('file_blueprint.get_corrections', file_id=file.id) }}">Show Corrections</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="file-entry">No files uploaded yet.</div>
+    {% endfor %}
+</div>
+
+<div class="action-buttons">
+    
+    <!-- Add this form inside the <div class="action-buttons"> -->
+    <form action="{{ url_for('file_blueprint.download_selected_files') }}" method="post" id="download-form">
+        <input type="hidden" name="file_ids" id="file-ids" value="">
+        <!-- Other form elements -->
+    </form>
+
+    <button onclick="performAction('download')">Download Selected</button>
+   
+    <button onclick="performAction('show-corrections')">Show Corrections for Selected</button>
+</div>
+      
+
+<script>
+    function performAction(action) {
+        var selectedFiles = [];
+        var checkboxes = document.getElementsByName('file-checkbox');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                selectedFiles.push(checkboxes[i].value);
+            }
+        }
+
+        if (selectedFiles.length > 0) {
+            console.log("Selected file IDs: ", selectedFiles);
+            document.getElementById('file-ids').value = selectedFiles.join(',');
+            if (action === 'download') {
+                document.getElementById('download-form').submit();
+            } 
+        } else {
+            alert('Please select files to perform the action.');
+        }
+    }
+</script>
 
             <!-- Pagination Controls -->
-            <div class="pagination">
-                {% for i in range(1, total_pages + 1) %}
-                    <a href="{{ url_for('index', page=i) }}" class="{{ 'active' if i == current_page else '' }}">{{ i }}</a>
-                {% endfor %}
-            </div>
+        <div class="pagination">
+            {% for i in range(1, total_pages + 1) %}
+                <a href="{{ url_for('index', page=i, sort = sort, descending=descending, search=search_term) }}" class="{{ 'active' if i == current_page else '' }}">{{ i }}</a>
+            {% endfor %}
+        </div>
             
 <!-- ... remaining HTML content ... -->
 
@@ -162,6 +294,6 @@
         
     </div>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    
+
 </body>
 </html>

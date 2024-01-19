@@ -26,7 +26,11 @@ from database.models import db, FileUpload
 from utils.docx_utils import correct_text_grammar
 from utils.exceptions import GrammarCheckError
 from datetime import datetime
+from zipfile import ZipFile
+from flask import send_file
+
 import os
+import tempfile
 
 file_blueprint = Blueprint("file_blueprint", __name__)
     
@@ -183,8 +187,6 @@ def delete_file(file_id):
         flash(f"Error deleting file from filesystem: {str(e)}", "error")
     return redirect(url_for("index", page = 1)) #return redirect(url_for("file_blueprint.index"))
 
-
-
 @file_blueprint.route("/corrections/<int:file_id>")
 def get_corrections(file_id):
     file = FileUpload.query.get_or_404(file_id)
@@ -193,7 +195,7 @@ def get_corrections(file_id):
 
     # Set the default page and per_page values
     page = 1
-    per_page = 10
+    per_page = 5
     files_query = FileUpload.query.filter_by(user_id=current_user.id)
     files_pagination = files_query.paginate(page=page, per_page=per_page, error_out=False)
 
@@ -235,3 +237,58 @@ def index():
     return render_template(
         "index.html", files=files, corrections=corrections, current_user=current_user
     )
+    
+# Add this route for deleting selected files
+@file_blueprint.route('/download-selected-files', methods=['POST'])
+def download_selected_files():
+    file_ids = request.form.get('file_ids', '').split(',')
+    file_ids = [int(file_id) for file_id in file_ids if file_id.isdigit()]
+
+    # Delete selected files from the database
+    for file_id in file_ids:
+        file_to_delete = FileUpload.query.get(file_id)
+        if file_to_delete:
+            # Temporary storage for zip file
+            temp_dir = tempfile.mkdtemp()
+            zip_filename = os.path.join(temp_dir, 'selected_files.zip')
+
+            with ZipFile(zip_filename, 'w') as zipf:
+                for file_id in file_ids:
+                    file = FileUpload.query.get(file_id)
+                    if file and os.path.exists(file.file_path):
+                        zipf.write(file.file_path, arcname=file.file_name)
+                        print(f"File added to zip: {file.file_path}")
+                    else:
+                        print(f"File not found or path is incorrect: {file.file_path}")
+    flash('Selected files have been deleted successfully', 'success')
+    flash(f"Deleted file IDs: {file_ids}", "success")
+    print(f"Deleted file IDs: {file_ids}")
+    return send_file(zip_filename, as_attachment=True, mimetype='application/zip', download_name='selected_files.zip')
+
+    
+def get_file_by_id(file_id):
+    # Implement logic to retrieve file information by ID
+    return FileUpload.query.get(file_id)
+
+# @file_blueprint.route('/download-selected-files', methods=['POST'])
+# def download_selected_files():
+#     file_ids = request.form.get('file_ids', '').split(',')
+#     file_ids = [int(file_id) for file_id in file_ids if file_id.isdigit()]
+
+#     # Temporary storage for zip file
+#     temp_dir = tempfile.mkdtemp()
+#     zip_filename = os.path.join(temp_dir, 'selected_files.zip')
+
+#     with ZipFile(zip_filename, 'w') as zipf:
+#         for file_id in file_ids:
+#             file = FileUpload.query.get(file_id)
+#             if file and os.path.exists(file.file_path):
+#                 zipf.write(file.file_path, arcname=file.file_name)
+#                 print(f"File added to zip: {file.file_path}")
+#             else:
+#                 print(f"File not found or path is incorrect: {file.file_path}")
+
+#     # Send file
+#     flash(f"Downloaded file IDs: {file_ids}", "success")
+#     print(f"Downloaded file IDs: {file_ids}")
+#     return send_file(zip_filename, as_attachment=True, mimetype='application/zip', download_name='selected_files.zip')

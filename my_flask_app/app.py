@@ -76,9 +76,19 @@ def landing_page():
 @app.route("/index")
 def index():
     page = request.args.get('page', 1, type=int)
-    per_page = 10  # Items per page
+    per_page = 5  # Items per page
     sort_by = request.args.get("sort", "time")
     descending = request.args.get("descending", "false").lower() == "true"
+    
+    # Get search term from query string
+    search_term = request.args.get('search', '')
+
+    # Start with a query that selects all files
+    file_query = FileUpload.query.filter_by(user_id=current_user.id)
+
+    # Apply search filter if a search term is provided
+    if search_term:
+        file_query = file_query.filter(FileUpload.file_name.ilike(f"%{search_term}%"))
 
     # Determine the sort order
     if sort_by == "time":
@@ -91,7 +101,7 @@ def index():
         order = FileUpload.upload_time  # Default sort
 
     # Apply sorting before pagination
-    files_query = FileUpload.query.filter_by(user_id=current_user.id).order_by(order)
+    files_query = file_query.order_by(order)
     files_pagination = files_query.paginate(page=page, per_page=per_page, error_out=False)
     
     files = files_pagination.items
@@ -114,9 +124,10 @@ def index():
         corrections=corrections,
         current_page=page,
         sort=sort_by,
-        descending=descending
+        descending=descending,
+        search_term=search_term  # Pass the search term back to the template
     )
-
+    
 @app.route("/login")
 def login():
     """
