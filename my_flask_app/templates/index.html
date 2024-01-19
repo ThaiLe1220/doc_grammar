@@ -218,8 +218,6 @@
             - <a href="{{ url_for('file_blueprint.get_corrections', file_id=file.id) }}">Show Corrections</a>
         </div>
     </div>
-    {% else %}
-    <div class="file-entry">No files uploaded yet.</div>
     {% endfor %}
 </div>
 
@@ -227,9 +225,16 @@
     
     <!-- Add this form inside the <div class="action-buttons"> -->
     <form action="{{ url_for('file_blueprint.download_selected_files') }}" method="post" id="download-form">
-        <input type="hidden" name="file_ids" id="file-ids" value="">
+        <input type="hidden" name="file_ids_download" id="file_ids_download" value="">
         <!-- Other form elements -->
     </form>
+
+    <form action="{{ url_for('file_blueprint.delete_selected_files') }}" method="post" id="delete-form">
+        <input type="hidden" name="file_ids_delete" id="file_ids_delete" value="">
+        <!-- Other form elements -->
+    </form>
+
+    <button onclick="performAction('delete')">Delete Selected</button>
 
     <button onclick="performAction('download')">Download Selected</button>
    
@@ -250,10 +255,13 @@
 
         if (selectedFiles.length > 0) {
             console.log("Selected file IDs: ", selectedFiles);
-            document.getElementById('file-ids').value = selectedFiles.join(',');
+            document.getElementById('file_ids_delete').value = selectedFiles.join(',');
+            document.getElementById('file_ids_download').value = selectedFiles.join(',');
             if (action === 'download') {
                 document.getElementById('download-form').submit();
-            } 
+            } else if (action == 'delete'){
+                document.getElementById('delete-form').submit();
+            }
         } else {
             alert('Please select files to perform the action.');
         }

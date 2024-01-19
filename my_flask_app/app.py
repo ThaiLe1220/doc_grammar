@@ -47,7 +47,7 @@ stripe.api_key = 'sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh
 
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://jaeheon:0325@localhost/doc_grammar" 
+] = "postgresql://huynguyen284:password@localhost/doc_grammar" 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
 
