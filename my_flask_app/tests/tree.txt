@@ -1,0 +1,49 @@
+
+-------- ROOT -------- 
+__class__: <class 'xml.etree.ElementTree.ElementTree'>
+__delattr__: <method-wrapper '__delattr__' of ElementTree object at 0x000001F88E9A88D0>
+__dict__: {'_root': <Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}document' at 0x000001F88F190720>}
+__dir__: <built-in method __dir__ of ElementTree object at 0x000001F88E9A88D0>
+__doc__: An XML element hierarchy.
+
+    This class also provides support for serialization to and from
+    standard XML.
+
+    *element* is an optional root element node,
+    *file* is an optional file handle or file name of an XML file whose
+    contents will be used to initialize the tree with.
+
+    
+__eq__: <method-wrapper '__eq__' of ElementTree object at 0x000001F88E9A88D0>
+__format__: <built-in method __format__ of ElementTree object at 0x000001F88E9A88D0>
+__ge__: <method-wrapper '__ge__' of ElementTree object at 0x000001F88E9A88D0>
+__getattribute__: <method-wrapper '__getattribute__' of ElementTree object at 0x000001F88E9A88D0>
+__getstate__: <built-in method __getstate__ of ElementTree object at 0x000001F88E9A88D0>
+__gt__: <method-wrapper '__gt__' of ElementTree object at 0x000001F88E9A88D0>
+__hash__: <method-wrapper '__hash__' of ElementTree object at 0x000001F88E9A88D0>
+__init__: <bound method ElementTree.__init__ of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F88EF8BE00>
+__le__: <method-wrapper '__le__' of ElementTree object at 0x000001F88E9A88D0>
+__lt__: <method-wrapper '__lt__' of ElementTree object at 0x000001F88E9A88D0>
+__module__: xml.etree.ElementTree
+__ne__: <method-wrapper '__ne__' of ElementTree object at 0x000001F88E9A88D0>
+__new__: <built-in method __new__ of type object at 0x00007FFC7C37A310>
+__reduce__: <built-in method __reduce__ of ElementTree object at 0x000001F88E9A88D0>
+__reduce_ex__: <built-in method __reduce_ex__ of ElementTree object at 0x000001F88E9A88D0>
+__repr__: <method-wrapper '__repr__' of ElementTree object at 0x000001F88E9A88D0>
+__setattr__: <method-wrapper '__setattr__' of ElementTree object at 0x000001F88E9A88D0>
+__sizeof__: <built-in method __sizeof__ of ElementTree object at 0x000001F88E9A88D0>
+__str__: <method-wrapper '__str__' of ElementTree object at 0x000001F88E9A88D0>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F88EF8BE00>
+__weakref__: None
+_root: <Element '{http://schemas.openxmlformats.org/wordprocessingml/2006/main}document' at 0x000001F88F190720>
+_setroot: <bound method ElementTree._setroot of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+find: <bound method ElementTree.find of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+findall: <bound method ElementTree.findall of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+findtext: <bound method ElementTree.findtext of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+getroot: <bound method ElementTree.getroot of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+iter: <bound method ElementTree.iter of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+iterfind: <bound method ElementTree.iterfind of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+parse: <bound method ElementTree.parse of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+write: <bound method ElementTree.write of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>
+write_c14n: <bound method ElementTree.write_c14n of <xml.etree.ElementTree.ElementTree object at 0x000001F88E9A88D0>>

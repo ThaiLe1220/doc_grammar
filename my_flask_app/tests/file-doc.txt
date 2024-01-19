@@ -1,0 +1,56 @@
+
+ -------- DOCUMENT -------- 
+_Document__body: None
+__class__: <class 'docx.document.Document'>
+__delattr__: <method-wrapper '__delattr__' of Document object at 0x000001F1F9333F10>
+__dict__: {'_element': <CT_Document '<w:document>' at 0x1f1f93a6a30>, '_parent': None, '_part': <docx.parts.document.DocumentPart object at 0x000001F1F9345210>, '_Document__body': None}
+__dir__: <built-in method __dir__ of Document object at 0x000001F1F9333F10>
+__doc__: WordprocessingML (WML) document.
+
+    Not intended to be constructed directly. Use :func:`docx.Document` to open or create
+    a document.
+    
+__eq__: <bound method ElementProxy.__eq__ of <docx.document.Document object at 0x000001F1F9333F10>>
+__format__: <built-in method __format__ of Document object at 0x000001F1F9333F10>
+__ge__: <method-wrapper '__ge__' of Document object at 0x000001F1F9333F10>
+__getattribute__: <method-wrapper '__getattribute__' of Document object at 0x000001F1F9333F10>
+__getstate__: <built-in method __getstate__ of Document object at 0x000001F1F9333F10>
+__gt__: <method-wrapper '__gt__' of Document object at 0x000001F1F9333F10>
+__hash__: None
+__init__: <bound method Document.__init__ of <docx.document.Document object at 0x000001F1F9333F10>>
+__init_subclass__: <built-in method __init_subclass__ of type object at 0x000001F1F576E550>
+__le__: <method-wrapper '__le__' of Document object at 0x000001F1F9333F10>
+__lt__: <method-wrapper '__lt__' of Document object at 0x000001F1F9333F10>
+__module__: docx.document
+__ne__: <bound method ElementProxy.__ne__ of <docx.document.Document object at 0x000001F1F9333F10>>
+__new__: <built-in method __new__ of type object at 0x00007FFBC786A310>
+__reduce__: <built-in method __reduce__ of Document object at 0x000001F1F9333F10>
+__reduce_ex__: <built-in method __reduce_ex__ of Document object at 0x000001F1F9333F10>
+__repr__: <method-wrapper '__repr__' of Document object at 0x000001F1F9333F10>
+__setattr__: <method-wrapper '__setattr__' of Document object at 0x000001F1F9333F10>
+__sizeof__: <built-in method __sizeof__ of Document object at 0x000001F1F9333F10>
+__str__: <method-wrapper '__str__' of Document object at 0x000001F1F9333F10>
+__subclasshook__: <built-in method __subclasshook__ of type object at 0x000001F1F576E550>
+__weakref__: None
+_block_width: 5733415
+_body: <docx.document._Body object at 0x000001F1F93BBF90>
+_element: <CT_Document '<w:document>' at 0x1f1f93a6a30>
+_parent: None
+_part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+add_heading: <bound method Document.add_heading of <docx.document.Document object at 0x000001F1F9333F10>>
+add_page_break: <bound method Document.add_page_break of <docx.document.Document object at 0x000001F1F9333F10>>
+add_paragraph: <bound method Document.add_paragraph of <docx.document.Document object at 0x000001F1F9333F10>>
+add_picture: <bound method Document.add_picture of <docx.document.Document object at 0x000001F1F9333F10>>
+add_section: <bound method Document.add_section of <docx.document.Document object at 0x000001F1F9333F10>>
+add_table: <bound method Document.add_table of <docx.document.Document object at 0x000001F1F9333F10>>
+core_properties: <docx.opc.coreprops.CoreProperties object at 0x000001F1F93BBCD0>
+element: <CT_Document '<w:document>' at 0x1f1f93a6a30>
+inline_shapes: <docx.shape.InlineShapes object at 0x000001F1F9333C10>
+iter_inner_content: <bound method Document.iter_inner_content of <docx.document.Document object at 0x000001F1F9333F10>>
+paragraphs: [<docx.text.paragraph.Paragraph object at 0x000001F1F93BBD90>, <docx.text.paragraph.Paragraph object at 0x000001F1F93BAC10>, <docx.text.paragraph.Paragraph object at 0x000001F1F93BB990>, <docx.text.paragraph.Paragraph object at 0x000001F1F93BBA10>, <docx.text.paragraph.Paragraph object at 0x000001F1F93BBF10>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0810>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0150>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C01D0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0250>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0090>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C00D0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0310>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0390>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0410>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0450>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C04D0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0510>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0590>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C05D0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0650>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C06D0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0710>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0790>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0910>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C09D0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C07D0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B10>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0990>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0950>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0A10>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0A50>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C10>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0BD0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C90>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0C50>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0CD0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B90>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0D90>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0890>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0B50>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0AD0>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0850>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0E90>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0E50>, <docx.text.paragraph.Paragraph object at 0x000001F1F93C0F10>]
+part: <docx.parts.document.DocumentPart object at 0x000001F1F9345210>
+save: <bound method Document.save of <docx.document.Document object at 0x000001F1F9333F10>>
+sections: <docx.section.Sections object at 0x000001F1F93BAC10>
+settings: <docx.settings.Settings object at 0x000001F1F93683D0>
+styles: <docx.styles.styles.Styles object at 0x000001F1F93BAC10>
+tables: [<docx.table.Table object at 0x000001F1F93683D0>]
