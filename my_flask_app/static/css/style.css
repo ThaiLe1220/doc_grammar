@@ -470,7 +470,7 @@ ul li a {
   /* Slightly darker grey on hover for interactivity */
 }
 
-.sorting-buttons button {
+.action-buttons button {
   background-color: #d8c3a5;
   /* Green background */
   border: none;
@@ -489,6 +489,7 @@ ul li a {
   /* Set the font size */
   margin: 4px 2px;
   /* Add some space around the buttons */
+  margin-top: 10px;
   cursor: pointer;
   /* Change mouse cursor on hover */
   border-radius: 5px;
@@ -497,8 +498,105 @@ ul li a {
   /* Smooth transition for mouse hover */
 }
 
-.sorting-buttons button:hover {
+.action-buttons button:hover {
   background-color: black;
   /* Darker shade of green for hover state */
   color: white;
+}
+
+
+#submitButton {
+  padding: 10px 20px;
+  background-color: #d8c3a5;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Wrapper for the text to control its visibility without changing layout */
+.textWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  /* Ensures the spinner keeps spinning even when button size changes */
+  animation: spin 2s linear infinite;
+}
+
+/* Keyframes for the spin animation */
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.loading .spinner {
+  display: block;
+}
+
+.loading .textWrapper {
+  opacity: 0;
+  /* Make the text fully transparent */
+  visibility: hidden;
+  /* Hide the text but keep its space */
+}
+
+.success .textWrapper {
+  visibility: visible;
+}
+
+.success .spinner {
+  display: none;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  /* Adjust the width as needed */
+}
+
+.search-input {
+  padding-left: 30px;
+  /* Adjust padding to make space for the icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 30px;
+  line-height: 40px;
+  width: 200px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  /* Distance from the left edge of the search box */
+  top: 50%;
+  transform: translateY(-50%);
+  /* Center vertically */
+  height: 15px;
+  /* Size of the icon */
+  width: 15px;
+  /* Size of the icon */
+  pointer-events: none;
+  /* Ensures the icon doesn't interfere with the input */
 }

@@ -64,7 +64,10 @@
             <div class="search-bar">
                 <form action="{{ url_for('file_blueprint.upload_file') }}" method="post" enctype="multipart/form-data">
                     <input type="file" name="file" id="inputFile">
-                    <button type="submit" class="submitButton">Submit</button>
+                    <button type="submit" class="submitButton" id="submitButton">
+                        <span class="textWrapper">Submit</span>
+                        <div class="spinner"></div>
+                    </button>
                 </form>
             </div>
 
@@ -90,9 +93,16 @@
 
             <!-- Search Bar -->
             <form action="{{ url_for('index') }}" method="get" class="search-container">
-                <input type="text" name="search" placeholder=" Find files by name" value="{{ request.args.get('search', '') }}">
-                <i class="fas fa-search search-icon"></i>
-                <button type="submit">Search</button>
+                <div class="search-box">
+                    <img src="{{ url_for('static', filename='photos/search-icon.png') }}" alt="Search" class="search-icon">
+                    <input type="text" name="search" class="search-input" placeholder="Find files by name" value="{{ request.args.get('search', '') }}">
+                
+                    <i class="fas fa-search search-icon"></i>
+                    <button type="submit">Search</button>
+                </div>
+                
+                <!-- <input type="text" name="search" placeholder=" Find files by name" value="{{ request.args.get('search', '') }}"> -->
+                
                 <!-- Clear Search Button -->
                 {% if search_term %}
                     <a href="{{ url_for('index') }}" class="clear-search-button">Clear Search</a>
