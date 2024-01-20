@@ -162,7 +162,7 @@ def check_grammar(original_text: str) -> str:
         print("Error calling grammar check API:", error)
 
 
-original = "IV. Reference list (Will Yeadon et al., 2023).."
+original = "I ma Huy, I hated RMIT University"
 
 
 corrected = check_grammar(original)

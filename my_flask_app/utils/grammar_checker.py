@@ -20,6 +20,7 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
         r"Correct.*",
         r"Incorrect.*",
         r"\d+\.\d+.*",  # Match any numerical value followed by any text
+        r"Explanation:\n.*",
         r"Identify and.*",
         r"Please explain the.*",
         r"Please note that the.*",
@@ -101,7 +102,7 @@ def match_ending_punctuation(original: str, corrected: str) -> str:
 
 async def check_grammar(original_text: str, session) -> str:
     try:
-        # print("\n[Original Text]\n", original_text)
+        print("\n[Original Text]\n", original_text)
         # Existing logic for extracting references and placeholders
         text_for_api, references, specials = extract_and_preserve(original_text)
 
@@ -118,7 +119,7 @@ async def check_grammar(original_text: str, session) -> str:
                     f"API responded with error code: {response.status}"
                 )
             api_response = await response.json()
-            # print("[API Response]\n", api_response)
+            print("[API Response]\n", api_response)
 
             corrected_text = api_response[0] if api_response else original_text
 
@@ -132,7 +133,7 @@ async def check_grammar(original_text: str, session) -> str:
                 original_text, final_corrected_text
             )
 
-            # print("[Corrected Text]\n", final_corrected_text)
+            print("[Corrected Text]\n", final_corrected_text)
             return final_corrected_text
     except Exception as error:
         print("Error calling grammar check API:", error)
