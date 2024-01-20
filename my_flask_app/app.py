@@ -2,6 +2,7 @@
 """
 import datetime
 import os
+import boto3
 import secrets
 import stripe
 from flask import (
@@ -35,9 +36,14 @@ endpoint_secret = "whsec_pXA4oZ40ktdIpfYtJmlX3Z9LmI5v19VZ"
 Domain = "http://localhost:5000"
 stripe.api_key = "sk_test_51OVEkqDAl3fqs0z5tlfYXaUWj8cLjU8eMHhEp4xgxjdt5IbVxv4Mh7qJzkiul1XRVflXNX79Q4zNfjnVacLeje8s00usdgCVQf"
 
+# app.config[
+#     "SQLALCHEMY_DATABASE_URI"
+# ] = "postgresql://eugene:eugene@localhost/doc_grammar"
 app.config[
     "SQLALCHEMY_DATABASE_URI"
-] = "postgresql://jaeheon:0325@localhost/doc_grammar"
+] = "postgresql://postgres:Eugenememe@database-doc-grammar.c70sige8i8wn.us-east-1.rds.amazonaws.com:5432/doc_grammar?sslmode=verify-full&sslrootcert=rds-combined-ca-bundle.pem"
+
+
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # Suppress a warning
 app.config["SECRET_KEY"] = "eugene_secret"  # Flash messages
 
@@ -397,6 +403,4 @@ def handle_subscription_success():
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-        print("All database tables created.")
-    app.run(debug=True)
-    print("App running in debug mode.")
+    app.run(host="0.0.0.0", port=5000, debug=True)
