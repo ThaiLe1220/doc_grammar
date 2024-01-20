@@ -669,3 +669,21 @@ ul li a {
   pointer-events: none;
   /* Ensures the icon doesn't interfere with the input */
 }
+
+.action-buttons button.disabled {
+  background-color: #cccccc;
+  /* Gray background for disabled state */
+  color: #666666;
+  /* Dark gray text for disabled state */
+  cursor: not-allowed;
+  /* Cursor to indicate the button is not clickable */
+  pointer-events: none;
+  /* Disable button clicks */
+}
+
+.action-buttons button.disabled:hover {
+  background-color: #cccccc;
+  /* Keep the background color the same on hover */
+  color: #666666;
+  /* Keep the text color the same on hover */
+}
