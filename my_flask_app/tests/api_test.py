@@ -57,7 +57,9 @@ def extract_and_preserve(text: str):
     for ref in references:
         text = text.replace(f"({ref})", "(REFERENCE)", 1)
 
-    special_pattern = r"(?:\b(?:IX|IV|V?I{0,3}|X[Ii]|X?V?I{0,3}|[A-HJ-Z]|[1-9]|10)\b\.)"
+    special_pattern = (
+        r"^(?:\b(?:IX|IV|V?I{0,3}|X[Ii]|X?V?I{0,3}|[A-HJ-Z]|[1-9]|10)\b\.)"
+    )
     specials = re.findall(special_pattern, text)
     for special in specials:
         text = text.replace(special, "(SPECIAL)", 1)
@@ -162,7 +164,7 @@ def check_grammar(original_text: str) -> str:
         print("Error calling grammar check API:", error)
 
 
-original = "I ma Huy, I hated RMIT University"
+original = "IV. Reference list"
 
 
 corrected = check_grammar(original)
