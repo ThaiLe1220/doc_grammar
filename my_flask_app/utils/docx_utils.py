@@ -40,7 +40,7 @@ async def correct_text_grammar(file_path):
                 if is_code_snippet(paragraph_text):
                     continue  # Skip code snippets
 
-                if len(paragraph_text) <= 3:
+                if len(paragraph_text) <= 50:
                     continue  # Skip paragraphs that are too short to be meaningful
 
                 if style_name in excluded_sections:
