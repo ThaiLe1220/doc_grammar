@@ -22,6 +22,8 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
         r"\d+\.\d+.*",  # Match any numerical value followed by any text
         r"Explanation:\n.*",
         r"Identify and.*",
+        r"\nPlease provide the.*",
+        r"\nPlease let me know.*",
         r"Please explain the.*",
         r"Please note that the.*",
         r"Can you explain why the.*",
