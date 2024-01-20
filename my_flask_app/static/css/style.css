@@ -34,6 +34,8 @@ html {
   box-sizing: border-box;
   border: 1px solid #ccc;
   background-color: #eae7dc;
+  overflow-y: auto; /* Add this line */
+  max-height: 100vh; /* Add this line */
 }
 
 /* .container {
@@ -328,6 +330,7 @@ ul li a {
 } */
 
 .pagination {
+  width: 100%;
   display: flex;
   justify-content: center;
   /* Aligns children (the page numbers) in the center */
@@ -421,7 +424,7 @@ ul li a {
 .section-header,
 .file-entry {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
   /* Change from 'center' to 'stretch' */
 }
@@ -449,8 +452,7 @@ ul li a {
 /* Additional styles to ensure that the file-entry divs fill their cells */
 .file-name,
 .file-upload-time,
-.file-size,
-.file-actions {
+.file-size {
   flex-grow: 1;
   /* Make sure each cell fills the height */
   /* Other styling remains unchanged */
@@ -460,7 +462,7 @@ ul li a {
   background-color: #ffffff;
   /* White background for odd rows */
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   padding: 0px;
   border-bottom: 1px solid #eee;
 }
@@ -481,6 +483,15 @@ ul li a {
 .file-entry:hover {
   background-color: #e8e8e8;
   /* Slightly darker grey on hover for interactivity */
+}
+
+.file-name,
+.file-upload-time,
+.file-size {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 15px;
 }
 
 .action-buttons button {
