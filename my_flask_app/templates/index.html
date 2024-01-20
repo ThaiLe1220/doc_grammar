@@ -181,17 +181,23 @@
             
 
             <div class="action-buttons">
-                <button onclick="performAction('delete')">Delete Selected</button>
-                <button onclick="performAction('download')">Download Selected</button>
+    
+                <!-- Add this form inside the <div class="action-buttons"> -->
                 <form action="{{ url_for('file_blueprint.download_selected_files') }}" method="post" id="download-form">
                     <input type="hidden" name="file_ids_download" id="file_ids_download" value="">
+                    <!-- Other form elements -->
                 </form>
             
                 <form action="{{ url_for('file_blueprint.delete_selected_files') }}" method="post" id="delete-form">
                     <input type="hidden" name="file_ids_delete" id="file_ids_delete" value="">
+                    <!-- Other form elements -->
                 </form>
             
-                
+                <button onclick="performAction('delete')">Delete Selected</button>
+            
+                <button onclick="performAction('download')">Download Selected</button>
+               
+                <button onclick="performAction('show-corrections')">Show Corrections for Selected</button>
             </div>
 
 
