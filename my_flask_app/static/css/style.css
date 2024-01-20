@@ -424,7 +424,7 @@ ul li a {
 .section-header,
 .file-entry {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: stretch;
   /* Change from 'center' to 'stretch' */
 }
@@ -462,7 +462,7 @@ ul li a {
   background-color: #ffffff;
   /* White background for odd rows */
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   padding: 0px;
   border-bottom: 1px solid #eee;
 }

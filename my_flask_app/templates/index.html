@@ -151,7 +151,7 @@
                             {% endif %}
                         </button>
                     </div>
-                    <!-- <div class="section-title">Actions</div> -->
+                    <div class="section-title">Actions</div>
                 </div>
 
                 {% for file in files %}
@@ -173,10 +173,10 @@
                         {{ (file.file_size * 1024) | round(2) }} KB
                         {% endif %}
                     </div>
-                    <!-- <div class="file-actions">
+                    <div class="file-actions">
                     
                          <a href="{{ url_for('file_blueprint.get_corrections', file_id=file.id) }}">Show Corrections</a>
-                    </div> -->
+                    </div>
 
                     
                 </div>
