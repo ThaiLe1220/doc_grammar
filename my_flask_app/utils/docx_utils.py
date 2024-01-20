@@ -61,6 +61,7 @@ async def correct_text_grammar(file_path):
                 if original_text != corrected_text and not (
                     original_text + "." == corrected_text
                     or corrected_text + "." == original_text
+                    or corrected_text == ""
                 ):
                     corrections.append(
                         {
@@ -236,10 +237,7 @@ def correct_paragraph(corrected_para, paragraph):
 
 
 def find_modified_text(original_text, corrected_text):
-    print(f"[Original Text] {original_text}")
-    print(f"[Corrected Text] {corrected_text}")
     diff = percentage_difference(original_text, corrected_text)
-    print(diff)
 
     # Check if the text difference is more than 45%
     if diff > 45:

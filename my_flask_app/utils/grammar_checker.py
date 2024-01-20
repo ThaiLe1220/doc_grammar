@@ -9,6 +9,7 @@ import re
 import requests
 import aiohttp
 from .exceptions import GrammarCheckError
+import string
 
 API_URL = "https://polite-horribly-cub.ngrok-free.app/generate_code"
 
@@ -51,27 +52,6 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
     if not re.match(r"^\d+\.\s+", original_text):
         cleaned_text = re.sub(r"^\d+\.\s+", "", cleaned_text)
 
-    # Define known punctuation marks
-    known_punctuation_marks = [".", "!", "?", ":", ";"]
-
-    # End with the same punctuation mark as the original text, if it has one
-    ending_punctuation = None
-    for punctuation_mark in known_punctuation_marks:
-        if original_text.endswith(punctuation_mark):
-            ending_punctuation = punctuation_mark
-            break
-
-    # Remove existing end punctuation from cleaned text
-    cleaned_text = re.sub(r"[.!?]+$", "", cleaned_text)
-
-    # Add appropriate punctuation mark or default to a period
-    if ending_punctuation:
-        # Ensure only one instance of the punctuation mark
-        cleaned_text = cleaned_text.rstrip(ending_punctuation) + ending_punctuation
-    else:
-        # Default to a period if no known punctuation mark is found
-        cleaned_text += "."
-
     return cleaned_text
 
 
@@ -79,8 +59,7 @@ def extract_and_preserve(text: str):
     # Pattern to match all content within parentheses
     reference_pattern = r"\(([^)]+)\)"
     # Pattern for special patterns
-    special_pattern = r"\(([^)]+)\)"
-    # special_pattern = r"(?:\d+|[a-zA-Z])[/;).>\-\+\\]"
+    special_pattern = r"(?:\b(?:IX|IV|V?I{0,3}|X[Ii]|X?V?I{0,3}|[A-HJ-Z]|[1-9]|10)\b\.)"
 
     # Find all matches of the patterns
     references = re.findall(reference_pattern, text)
@@ -113,6 +92,13 @@ def insert_back(text: str, references: list, specials: list):
     return text
 
 
+def match_ending_punctuation(original: str, corrected: str) -> str:
+    if original and original[-1] in string.punctuation:
+        if not corrected.endswith(original[-1]):
+            corrected += original[-1]
+    return corrected
+
+
 async def check_grammar(original_text: str, session) -> str:
     try:
         # print("\n[Original Text]\n", original_text)
@@ -140,6 +126,10 @@ async def check_grammar(original_text: str, session) -> str:
             corrected_text_with_refs = insert_back(corrected_text, references, specials)
             final_corrected_text = clean_api_response(
                 corrected_text_with_refs, original_text
+            )
+
+            final_corrected_text = match_ending_punctuation(
+                original_text, final_corrected_text
             )
 
             # print("[Corrected Text]\n", final_corrected_text)
