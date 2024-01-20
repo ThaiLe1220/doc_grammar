@@ -410,7 +410,7 @@ ul li a {
 .section-header,
 .file-entry {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
   /* Change from 'center' to 'stretch' */
 }
@@ -461,6 +461,15 @@ ul li a {
 .file-upload-time,
 .file-size {
   text-align: center;
+  padding: 0 15px;
+}
+
+.file-name,
+.file-upload-time,
+.file-size {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   padding: 0 15px;
 }
 
