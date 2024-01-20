@@ -19,32 +19,32 @@ async def correct_text_grammar(file_path):
     corrected_paragraphs = (
         {}
     )  # Use a dictionary to map paragraph index to corrected text
-    stop_processing = False  # Flag to indicate when to stop processing paragraphs
+    excluded_sections = [
+        "endnote bibliography",
+        "icce affiliations",
+        "icce author list",
+    ]
 
     async with ClientSession() as session:
         for i in range(0, len(doc.paragraphs), 10):
-            if stop_processing:
-                break  # Stop processing if a heading has been encountered
             tasks = []
             batch_indices = []  # Store indices of paragraphs in the current batch
 
             for index, paragraph in enumerate(doc.paragraphs[i : i + 10], start=i):
-                style_name = (
-                    paragraph.style.name.lower()
-                )  # Convert style name to lowercase for case-insensitive comparison
-                if "heading" in style_name:
-                    stop_processing = (
-                        True  # Set the flag to stop processing after this batch
-                    )
-                    break
+                style_name = paragraph.style.name.lower()
+                paragraph_text = paragraph.text.strip()
 
-                if (
-                    not paragraph.text.strip()
-                    or is_code_snippet(paragraph.text)
-                    or style_name
-                    in ["endnote bibliography", "icce affiliations", "icce author list"]
-                ):
-                    continue  # Skip empty, code, or special paragraphs
+                if not paragraph_text:
+                    continue  # Skip empty paragraphs
+
+                if is_code_snippet(paragraph_text):
+                    continue  # Skip code snippets
+
+                if len(paragraph_text) <= 3:
+                    continue  # Skip paragraphs that are too short to be meaningful
+
+                if style_name in excluded_sections:
+                    continue  # Skip specific sections
 
                 task = asyncio.create_task(process_paragraph(paragraph, session))
                 tasks.append(task)
@@ -56,6 +56,19 @@ async def correct_text_grammar(file_path):
             results = await asyncio.gather(*tasks)
 
             for index, corrected_text in zip(batch_indices, results):
+                original_text = doc.paragraphs[index].text
+                # Check if the text was modified and if the modification is more than just an extra period at the end
+                if original_text != corrected_text and not (
+                    original_text + "." == corrected_text
+                    or corrected_text + "." == original_text
+                ):
+                    corrections.append(
+                        {
+                            "original_sentence": original_text,
+                            "corrected_sentence": corrected_text,
+                        }
+                    )
+
                 corrected_paragraphs[
                     index
                 ] = corrected_text  # Map index to corrected text
@@ -76,7 +89,6 @@ async def correct_text_grammar(file_path):
     # Save the corrected document
     doc.save(file_path)
     print("Completed grammar correction and saved document.")
-
     # Return all corrections details
     return corrections
 

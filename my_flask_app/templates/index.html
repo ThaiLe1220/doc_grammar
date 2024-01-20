@@ -178,8 +178,11 @@
                 </div>
                 {% endfor %}
             </div>
+            
 
             <div class="action-buttons">
+                <button onclick="performAction('delete')">Delete Selected</button>
+                <button onclick="performAction('download')">Download Selected</button>
                 <form action="{{ url_for('file_blueprint.download_selected_files') }}" method="post" id="download-form">
                     <input type="hidden" name="file_ids_download" id="file_ids_download" value="">
                 </form>
@@ -188,8 +191,7 @@
                     <input type="hidden" name="file_ids_delete" id="file_ids_delete" value="">
                 </form>
             
-                <button onclick="performAction('delete')">Delete Selected</button>
-                <button onclick="performAction('download')">Download Selected</button>
+                
             </div>
 
 
@@ -208,8 +210,6 @@
                         <div class="correction-detail">
                             <p><strong>Original Text:</strong> {{ correction.original_sentence }}</p>
                             <p><strong>Corrected Text:</strong> {{ correction.corrected_sentence }}</p>
-                            <p><strong>Modified Text:</strong> [{{ correction.modified_tokens|join(', ') }}]</p>
-                            <p><strong>Added Text:</strong> [{{ correction.added_tokens|join(', ') }}]</p>
                         </div>
                     {% endfor %}
                 </div>

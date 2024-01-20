@@ -16,23 +16,22 @@ API_URL = "https://polite-horribly-cub.ngrok-free.app/generate_code"
 def clean_api_response(api_response_text: str, original_text: str) -> str:
     # Patterns that might be introduced by the API and not part of the original text
     patterns_to_remove = [
-        r"Correct english of this text:.*",
-        r"Corect English in the folowing text: Corect:.*",
-        r"Correct English in the following text:.*",
-        r"Please correct the following:.*",
-        r"Please note that the above text is just an example and the actual text you want to corect may contain diferent erors:.*",
-        r"Here's the corrected text:.*",
-        r"Correct:.*",
-        r"Incorrect:.*",
+        r"Correct.*",
+        r"Incorrect.*",
         r"\d+\.\d+.*",  # Match any numerical value followed by any text
+        r"Identify and.*",
+        r"Please explain the.*",
+        r"Please note that the.*",
+        r"Can you explain why the.*",
+        r"Here's the corrected text.*",
+        r"Correct english of this text.*",
+        r"Please correct the following.*",
+        r"Correct English in the following text.*",
+        r"Please let me know if you need anything.*",
+        r"Please explain the corection you made and why.*",
+        r"Please note that the text has been modified to improve readability and clarity.*",
+        r"Please note that the above text is just an example and the actual text you want to corect may contain diferent erors.*",
     ]
-
-    # New pattern to identify instructional or comment-like sentences
-    instructional_pattern = r"\*.*?Thank you"
-
-    api_response_text = re.sub(
-        instructional_pattern, "", api_response_text, flags=re.IGNORECASE
-    )
 
     for pattern in patterns_to_remove:
         # Use a conditional regex to ensure the pattern is not part of the original text
@@ -41,11 +40,8 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
             pattern_regex, "", api_response_text, flags=re.IGNORECASE | re.DOTALL
         )
 
-    # Remove repetitive or redundant phrases
-    cleaned_text = re.sub(r"(.)\1+", r"\1", api_response_text)
-
     # Remove excessive newlines and trim whitespace
-    cleaned_text = re.sub(r"[\n\s]+", " ", cleaned_text).strip()
+    cleaned_text = re.sub(r"[\n\s]+", " ", api_response_text).strip()
 
     # Check if original text starts/ends with quotation marks and remove them if not
     if not (original_text.startswith('"') and original_text.endswith('"')):
@@ -83,7 +79,8 @@ def extract_and_preserve(text: str):
     # Pattern to match all content within parentheses
     reference_pattern = r"\(([^)]+)\)"
     # Pattern for special patterns
-    special_pattern = r"(?:\d+|[a-zA-Z])[/;).>\-\+\\]"
+    special_pattern = r"\(([^)]+)\)"
+    # special_pattern = r"(?:\d+|[a-zA-Z])[/;).>\-\+\\]"
 
     # Find all matches of the patterns
     references = re.findall(reference_pattern, text)

@@ -213,15 +213,27 @@ ul li a {
 }
 
 .correction-detail {
-  background-color: #e7f3fe;
-  border-left: 4px solid #2196F3;
+  background-color: #e9e2c9ad;
+  /* Adjusted to match the column2 background */
+  border-left: 4px solid #ccc;
+  /* Lighter border color for consistency */
   margin: 0 0 16px 0;
+  /* You may adjust this as needed */
   padding: 12px 16px;
+  /* Consistent padding with other elements */
   border-radius: 4px;
+  /* Keeping the rounded borders */
+  font-family: monospace;
+  /* Matching the font family */
+  color: #333;
+  /* Consistent text color */
 }
 
 .correction-detail p {
   margin: 10px 0;
+  /* Consistent spacing with other text elements */
+  font-size: 15px;
+  /* Ensuring font size consistency */
 }
 
 .flash-message {
@@ -365,6 +377,7 @@ ul li a {
   background-color: #e7e7e7;
 }
 
+
 .files-list {
   width: 100%;
   margin-top: 20px;
@@ -416,7 +429,7 @@ ul li a {
 .section-title,
 .file-entry div {
   text-align: center;
-  padding: 10px;
+  padding: 8px;
   border-right: 1px solid black;
   /* This is already correct */
   display: flex;
@@ -498,6 +511,25 @@ ul li a {
   /* Smooth transition for mouse hover */
 }
 
+
+.action-buttons button.disabled {
+  background-color: #cccccc;
+  /* Gray background for disabled state */
+  color: #666666;
+  /* Dark gray text for disabled state */
+  cursor: not-allowed;
+  /* Cursor to indicate the button is not clickable */
+  pointer-events: none;
+  /* Disable button clicks */
+}
+
+.action-buttons button.disabled:hover {
+  background-color: #cccccc;
+  /* Keep the background color the same on hover */
+  color: #666666;
+  /* Keep the text color the same on hover */
+}
+
 .action-buttons button:hover {
   background-color: black;
   /* Darker shade of green for hover state */
@@ -516,6 +548,7 @@ ul li a {
   position: relative;
   overflow: hidden;
 }
+
 
 /* Wrapper for the text to control its visibility without changing layout */
 .textWrapper {
@@ -574,6 +607,42 @@ ul li a {
   position: relative;
   width: 100%;
   /* Adjust the width as needed */
+}
+
+.search-box button {
+  background-color: #d8c3a5;
+  /* Green background */
+  border: none;
+  /* No borders */
+  color: black;
+  /* White text */
+  padding: 5px 10px;
+  /* Padding around the text */
+  text-align: center;
+  /* Center the text inside the button */
+  text-decoration: none;
+  /* No underline on text */
+  display: inline-block;
+  /* Align buttons next to each other */
+  font-size: 14px;
+  /* Set the font size */
+  margin: 4px 2px;
+  /* Add some space around the buttons */
+  margin-top: 10px;
+  cursor: pointer;
+  /* Change mouse cursor on hover */
+  border-radius: 5px;
+  /* Rounded corners */
+  transition-duration: 0.4s;
+  /* Smooth transition for mouse hover */
+
+}
+
+
+.search-box button:hover {
+  background-color: black;
+  /* Darker shade of green for hover state */
+  color: white;
 }
 
 .search-input {

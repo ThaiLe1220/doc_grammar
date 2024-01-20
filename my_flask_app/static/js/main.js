@@ -137,3 +137,31 @@ document.getElementById('submitButton').addEventListener('click', function(event
   // No need to prevent the default form submission
   // The form will submit and the page will reload or redirect as per the action attribute
 });
+
+
+
+
+function updateButtonState() {
+  var checkboxes = document.querySelectorAll('input[name="file-checkbox"]');
+  var atLeastOneChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+  var buttons = document.querySelectorAll('.action-buttons button');
+  
+  buttons.forEach(button => {
+    if (atLeastOneChecked) {
+      // If at least one checkbox is checked, enable the buttons
+      button.classList.remove('disabled');
+    } else {
+      // If no checkboxes are checked, disable the buttons
+      button.classList.add('disabled');
+    }
+  });
+}
+
+// Initial check on page load
+document.addEventListener('DOMContentLoaded', updateButtonState);
+
+// Add change event listeners to checkboxes
+document.querySelectorAll('input[name="file-checkbox"]').forEach(checkbox => {
+  checkbox.addEventListener('change', updateButtonState);
+});
