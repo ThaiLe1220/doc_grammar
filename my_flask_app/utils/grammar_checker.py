@@ -57,15 +57,19 @@ def clean_api_response(api_response_text: str, original_text: str) -> str:
 
 
 def extract_and_preserve(text: str):
+    # Pattern to match all content within parentheses
     reference_pattern = r"\(([^)]+)\)"
+    # Pattern for special patterns
+    special_pattern = r"(?:\b(?:IX|IV|V?I{0,3}|X[Ii]|X?V?I{0,3}|[A-HJ-Z]|[1-9]|10)\b\.)"
+
+    # Find all matches of the patterns
     references = re.findall(reference_pattern, text)
+    specials = re.findall(special_pattern, text)
+
+    # Replace each found reference and special pattern with placeholders
     for ref in references:
         text = text.replace(f"({ref})", "(REFERENCE)", 1)
 
-    special_pattern = (
-        r"^(?:\b(?:IX|IV|V?I{0,3}|X[Ii]|X?V?I{0,3}|[A-HJ-Z]|[1-9]|10)\b\.)"
-    )
-    specials = re.findall(special_pattern, text)
     for special in specials:
         text = text.replace(special, "(SPECIAL)", 1)
 
