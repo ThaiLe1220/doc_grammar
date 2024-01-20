@@ -34,6 +34,8 @@ html {
   box-sizing: border-box;
   border: 1px solid #ccc;
   background-color: #eae7dc;
+  overflow-y: auto; /* Add this line */
+  max-height: 100vh; /* Add this line */
 }
 
 /* .container {
@@ -442,14 +444,13 @@ ul li a {
   /* Other styling remains unchanged */
 }
 
-.file-entry {
+/* .file-entry {
   background-color: #ffffff;
-  /* White background for odd rows */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 0px;
   border-bottom: 1px solid #eee;
-}
+} */
 
 .file-entry:nth-child(even) {
   background-color: #f2f2f2;
@@ -516,6 +517,7 @@ ul li a {
 
 
 #submitButton {
+  height: 47px;
   padding: 10px 20px;
   background-color: #d8c3a5;
   color: black;
@@ -587,6 +589,7 @@ ul li a {
 }
 
 .search-box button{
+  height: 30px;
   background-color: #d8c3a5;
   /* Green background */
   border: none;
